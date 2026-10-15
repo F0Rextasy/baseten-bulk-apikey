@@ -1,0 +1,41 @@
+{
+  "name": "baseten-bulk-apikey",
+  "version": "1.0.0",
+  "description": "Bulk API keys for baseten.co — free tier: 12 model APIs incl. GLM-5.3, DeepSeek-V4.1, Kimi-K3, Nemotron-3-Ultra; free sign-up credits per workspace (no card). One account per key; mint any number.",
+  "license": "MIT",
+  "type": "commonjs",
+  "bin": {
+    "baseten-bulk-apikey": "cli.js",
+    "baseten-bulk-apikey-launcher": "launcher.js"
+  },
+  "main": "cli.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node launcher.js",
+    "mint": "node cli.js"
+  },
+  "keywords": [
+    "api-key",
+    "bulk",
+    "register",
+    "launcher",
+    "baseten",
+    "bulk",
+    "apikey"
+  ],
+  "files": [
+    "account.js",
+    "browser-batch.js",
+    "browser-signup.js",
+    "cdp.js",
+    "cli.js",
+    "http.js",
+    "inbox.js",
+    "launcher.js",
+    "proxy.js",
+    "README.md",
+    "LICENSE"
+  ]
+}
