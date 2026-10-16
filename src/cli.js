@@ -14,7 +14,7 @@
  *   4. POST https://app.baseten.co/graphql  CreateUserApiKey  -> text_key
  *   5. GET  https://inference.baseten.co/v1/models  -> 200 means the key is live
  *
- *   node cli.js --count 30 --out keys.txt --accounts accounts.json \
+ *   node src/cli.js --count 30 --out keys.txt --accounts accounts.json \
  *               --proxy-file proxy-live-pool.txt
  *
  * Mint as many accounts/keys as you need — `--count` takes any number, there is
@@ -59,7 +59,7 @@ function parseArgs(argv) {
 const HELP = `baseten-bulk-apikey v${VERSION} — one Baseten account → one API key, mint as many as you need
 
 Usage:
-  node cli.js [options]
+  node src/cli.js [options]
 
 Options:
   --count <n>            how many accounts (and keys) to create        [30]

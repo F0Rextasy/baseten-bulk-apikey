@@ -29,6 +29,8 @@
  */
 
 const fs = require('fs');
+const path = require('path');
+const ROOT = path.resolve(__dirname, '..'); // data root (the repo root)
 const { CookieJar, fetchUrl, sleep } = require('./http');
 const { makeInbox, waitForCode } = require('./inbox');
 
@@ -304,7 +306,7 @@ async function submitEmail({ jar, proxy, timeoutMs, page, email }) {
   }
 
   try {
-    fs.writeFileSync(path.join(__dirname, '..', 'outputs', 'bt-send-response.txt'), last ? last.text : '');
+    fs.writeFileSync(path.join(ROOT, 'outputs', 'bt-send-response.txt'), last ? last.text : '');
   } catch (e) {
     /* diagnostics only */
   }
@@ -354,7 +356,7 @@ async function submitCode({ jar, proxy, timeoutMs, challenge, email, code }) {
     return res;
   }
   try {
-    fs.writeFileSync(path.join(__dirname, '..', 'outputs', 'bt-verify-response.txt'), last ? last.text : '');
+    fs.writeFileSync(path.join(ROOT, 'outputs', 'bt-verify-response.txt'), last ? last.text : '');
   } catch (e) {
     /* diagnostics only */
   }

@@ -13,3 +13,11 @@ launcher.config.json
 *.log
 .DS_Store
 Thumbs.db
+
+# generated at the repository root by a run
+out/
+accounts-rejected.json
+browser-pending.json
+browser-accounts.jsonl
+browser-models-probe.jsonl
+keys.single-account.bak

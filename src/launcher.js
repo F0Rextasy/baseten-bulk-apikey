@@ -17,16 +17,17 @@
  * The launcher asks for the handful of settings that matter, remembers them in
  * `launcher.config.json`, and runs the batch with the right flags.
  *
- * Usage: node launcher.js            (menu)
- *        node launcher.js --help
+ * Usage: node src/launcher.js            (menu)
+ *        node src/launcher.js --help
  */
 
 const fs = require('fs');
 const path = require('path');
+const ROOT = path.resolve(__dirname, '..'); // data root (the repo root)
 const readline = require('readline');
 const { spawnSync } = require('child_process');
 
-const CONFIG = path.join(__dirname, 'launcher.config.json');
+const CONFIG = path.join(ROOT, 'launcher.config.json');
 const BATCH = path.join(__dirname, 'browser-batch.js');
 
 const defaults = {
@@ -64,17 +65,17 @@ const ask = (question, fallback) =>
 
 function run(args) {
   console.log('');
-  const res = spawnSync(process.execPath, [BATCH, ...args], { windowsHide: true, cwd: __dirname, stdio: 'inherit' });
+  const res = spawnSync(process.execPath, [BATCH, ...args], { windowsHide: true, cwd: ROOT, stdio: 'inherit' });
   if (res.status !== 0) console.log(`  ! exited with code ${res.status}`);
 }
 
 const BANNER_LOGO = String.raw`
-███████╗ ██████╗ ██████╗ ███████╗██╗  ██╗████████╗ █████╗ ███████╗██╗   ██╗
-██╔════╝██╔═████╗██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔════╝╚██╗ ██╔╝
-█████╗  ██║██╔██║██████╔╝█████╗   ╚███╔╝    ██║   ███████║███████╗ ╚████╔╝
-██╔══╝  ████╔╝██║██╔══██╗██╔══╝   ██╔██╗    ██║   ██╔══██║╚════██║  ╚██╔╝
-██║     ╚██████╔╝██║  ██║███████╗██╔╝ ██╗   ██║   ██║  ██║███████║   ██║
-╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝   ╚═╝
+██████╗   █████╗  ███████╗ ███████╗ ████████╗ ███████╗ ███╗   ██╗
+██╔══██╗ ██╔══██╗ ██╔════╝ ██╔════╝ ╚══██╔══╝ ██╔════╝ ████╗  ██║
+██████╔╝ ███████║ ███████╗ █████╗      ██║    █████╗   ██╔██╗ ██║
+██╔══██╗ ██╔══██║ ╚════██║ ██╔══╝      ██║    ██╔══╝   ██║╚██╗██║
+██████╔╝ ██║  ██║ ███████║ ███████╗    ██║    ███████╗ ██║ ╚████║
+╚═════╝  ╚═╝  ╚═╝ ╚══════╝ ╚══════╝    ╚═╝    ╚══════╝ ╚═╝  ╚══╝
 `;
 
 function banner() {
@@ -115,7 +116,7 @@ async function mintFlow(cfg) {
     '--per-run', String(cfg.perRun),
     '--max-failures', String(cfg.maxFailures),
   ];
-  const poolPath = path.resolve(__dirname, '..', cfg.poolBrowser);
+  const poolPath = path.resolve(ROOT, cfg.poolBrowser);
   if (fs.existsSync(poolPath)) args.push('--pool-browser', poolPath);
   else console.log(`  ! ${cfg.poolBrowser} not found — the run will use the shared WARP SOCKS only`);
   run(args);
@@ -135,11 +136,11 @@ async function nineRouter(cfg) {
   cfg.nineRouter.out = await ask('Key list to register (one key per line)', cfg.out);
   cfg.nineRouter.model = await ask('Default model for the connection', cfg.nineRouter.model || 'openai/gpt-oss-120b');
   saveConfig(cfg);
-  console.log(`\n▶ node connect-9router.js --base ${cfg.nineRouter.base} --keys-file ${cfg.nineRouter.out} --model ${cfg.nineRouter.model}\n`);
+  console.log(`\n▶ node src/connect-9router.js --base ${cfg.nineRouter.base} --keys-file ${cfg.nineRouter.out} --model ${cfg.nineRouter.model}\n`);
   const res = spawnSync(
     process.execPath,
-    ['connect-9router.js', '--base', cfg.nineRouter.base, '--password', cfg.nineRouter.password, '--keys-file', cfg.nineRouter.out, '--model', cfg.nineRouter.model],
-    { windowsHide: true, cwd: __dirname, stdio: 'inherit' }
+    [path.join(__dirname, 'connect-9router.js'), '--base', cfg.nineRouter.base, '--password', cfg.nineRouter.password, '--keys-file', cfg.nineRouter.out, '--model', cfg.nineRouter.model],
+    { windowsHide: true, cwd: ROOT, stdio: 'inherit' }
   );
   if (res.status !== 0) console.log(`  ! exited with code ${res.status}`);
 }
@@ -169,7 +170,7 @@ async function main() {
 }
 
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
-  console.log('Interactive launcher: run `node launcher.js` and pick a menu item.');
+  console.log('Interactive launcher: run `node src/launcher.js` and pick a menu item.');
   process.exit(0);
 }
 

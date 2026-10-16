@@ -30,17 +30,13 @@ const { CookieJar } = require('./http');
 const { createKey, verifyKey } = require('./account');
 const { parseProxy, label, loadProxyList } = require('./proxy');
 
-const ROOT = path.resolve(__dirname, '..', '..', '..'); // the repo root (asd/)
+const ROOT = path.resolve(__dirname, '..'); // data root (the repo root)
 
 // ---------------------------------------------------------------- dependencies
 
 /** The CDP client lives in a sibling repo; fall back to whatever exists. */
 function loadCdp() {
-  const candidates = [
-    path.join(__dirname, 'cdp.js'),
-    path.join(__dirname, 'cdp.js'),
-    path.join(ROOT, 'agentscope-bulk-apikey', 'src', 'cdp.js'),
-  ];
+  const candidates = [path.join(__dirname, 'cdp.js')]; // the CDP client ships with this repo
   for (const file of candidates) {
     try {
       return require(file).CDP;
@@ -580,7 +576,7 @@ async function createAccountViaBrowser({
   keepChrome = false,
   headless = false,
   skipProfile = false,
-  outDir = path.join(__dirname, '..', 'outputs'),
+  outDir = path.join(ROOT, 'outputs'),
   log = () => {},
 } = {}) {
   const startedAt = Date.now();

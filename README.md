@@ -1,17 +1,17 @@
 <div align="center">
 
 ```
-███████╗ ██████╗ ██████╗ ███████╗██╗  ██╗████████╗ █████╗ ███████╗██╗   ██╗
-██╔════╝██╔═████╗██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔════╝╚██╗ ██╔╝
-█████╗  ██║██╔██║██████╔╝█████╗   ╚███╔╝    ██║   ███████║███████╗ ╚████╔╝
-██╔══╝  ████╔╝██║██╔══██╗██╔══╝   ██╔██╗    ██║   ██╔══██║╚════██║  ╚██╔╝
-██║     ╚██████╔╝██║  ██║███████╗██╔╝ ██╗   ██║   ██║  ██║███████║   ██║
-╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝   ╚═╝
+██████╗   █████╗  ███████╗ ███████╗ ████████╗ ███████╗ ███╗   ██╗
+██╔══██╗ ██╔══██╗ ██╔════╝ ██╔════╝ ╚══██╔══╝ ██╔════╝ ████╗  ██║
+██████╔╝ ███████║ ███████╗ █████╗      ██║    █████╗   ██╔██╗ ██║
+██╔══██╗ ██╔══██║ ╚════██║ ██╔══╝      ██║    ██╔══╝   ██║╚██╗██║
+██████╔╝ ██║  ██║ ███████║ ███████╗    ██║    ███████╗ ██║ ╚████║
+╚═════╝  ╚═╝  ╚═╝ ╚══════╝ ╚══════╝    ╚═╝    ╚══════╝ ╚═╝  ╚══╝
 ```
 
 # baseten-bulk-apikey
 
-**Bulk-create Baseten accounts with auto-generated API keys — OpenAI-compatible inference + 9Router connector.**
+**Bulk-create Baseten accounts with auto-generated API keys — OpenAI-compatible + 9Router connector.**
 
 [![Node](https://img.shields.io/badge/Node-%E2%89%A518-3DA639?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-blue?style=for-the-badge)](#)
@@ -71,7 +71,7 @@ curl https://inference.baseten.co/v1/chat/completions \
 Baseten is OpenAI-compatible, so register it once and use every key:
 
 ```bash
-node connect-9router.js \
+node src/connect-9router.js \
   --base http://localhost:20128 --password 123456 \
   --keys-file keys.txt
 ```
@@ -87,7 +87,7 @@ baseten/zai-org/GLM-5.3-Flash
 ```
 
 Point the connector at a refreshed `keys.txt` to add more accounts; the node and
-its model list stay the same. `node launcher.js --connect-9router` runs exactly
+its model list stay the same. `node src/launcher.js --connect-9router` runs exactly
 this and asks for the base URL and password first.
 
 ## 🔑 What one key gets you
@@ -122,7 +122,7 @@ verification half is plain Node over HTTP. `browser-batch.js` is that account-pe
 ```bash
 # clone this repository (or download the ZIP), then:
 cd baseten-bulk-apikey
-node launcher.js          # interactive: mint / verify / settings / help
+node src/launcher.js          # interactive: mint / verify / settings / help
 ```
 
 ### 🖱️ The launcher
@@ -148,10 +148,10 @@ remembers the answers in `launcher.config.json`, and runs the CLI for you.
 
 ```bash
 # account-per-key path (Chrome sign-up + Node key mint + live verification)
-node browser-batch.js --target 30 --pool-browser proxies.txt
+node src/browser-batch.js --target 30 --pool-browser proxies.txt
 
 # older HTTP-only variant
-node cli.js --count 30 --out keys.txt --proxy-file proxies.txt \
+node src/cli.js --count 30 --out keys.txt --proxy-file proxies.txt \
             --inbox broker --broker http://127.0.0.1:9700
 ```
 
@@ -176,7 +176,7 @@ A key is written to `keys.txt` **only after** the inference API answers with it:
 | Accounts vs keys | one key per account — no account contributes more than one key |
 
 ```bash
-node cli.js --verify-only --out keys.txt   # re-check the whole list at any time
+node src/cli.js --verify-only --out keys.txt   # re-check the whole list at any time
 ```
 
 ## ⚙️ Options
@@ -203,8 +203,8 @@ verification failed are kept in `browser-pending.json` / `accounts.json` so noth
 key, and a proxy list gives every sign-up its own exit.
 
 ```bash
-node browser-batch.js --target 30 --pool-browser proxies.txt
-node cli.js --count 30 --out keys.txt --proxy-file proxies.txt
+node src/browser-batch.js --target 30 --pool-browser proxies.txt
+node src/cli.js --count 30 --out keys.txt --proxy-file proxies.txt
 ```
 
 Proxies are loaded per line (`http://`, `socks5://`, `socks4://`, or bare `host:port`) and rotated per
@@ -215,11 +215,12 @@ account, with retries on a dead line. `cli.js` refuses to run unproxied unless y
 
 | Path | Contents |
 | --- | --- |
+| `src/` | the tool — run it as `node src/<file>.js` from the repository root (`src/launcher.js`, `src/cli.js`, `src/browser-batch.js`) |
 | `keys.txt` | verified keys, one per line — git-ignored, never committed |
 | `accounts.json` | account records (e-mail, key, prefix) — git-ignored |
 | `accounts-rejected.json` | accounts whose key never verified — useful for retries |
 | `launcher.config.json` | what the launcher remembers |
-| `connect-9router.js` | registers the keys in `keys.txt` as 9Router connections (zero-dep) |
+| `src/connect-9router.js` | registers the keys in `keys.txt` as 9Router connections (zero-dep) |
 
 ## 🐞 Issues
 

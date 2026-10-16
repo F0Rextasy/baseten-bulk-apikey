@@ -39,8 +39,8 @@ const { CookieJar, fetchUrl } = require('./http');
 const { makeInbox } = require('./inbox');
 const { parseProxy, loadProxyList, label } = require('./proxy');
 
-const ROOT = path.resolve(__dirname, '..', '..', '..');
-const HERE = path.resolve(__dirname, '..');
+const HERE = path.resolve(__dirname, '..'); // data root (the repo root)
+const ROOT = HERE; // a relative --pool / --log resolves from the data root
 
 const files = {
   keys: path.join(HERE, 'keys.txt'),
