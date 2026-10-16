@@ -11,15 +11,16 @@
 
 # baseten-bulk-apikey
 
-**One Baseten account → one API key. Mint as many as you need — accounts, keys and verification, without touching the dashboard.**
+**Bulk-create Baseten accounts with auto-generated API keys — OpenAI-compatible inference + 9Router connector.**
 
 [![Node](https://img.shields.io/badge/Node-%E2%89%A518-3DA639?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-blue?style=for-the-badge)](#)
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
+[![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6.svg?style=for-the-badge)](#-connect-to-9router)
 [![Models](https://img.shields.io/badge/model%20APIs-12-412991?style=for-the-badge&logo=openai&logoColor=white)](https://docs.baseten.co/)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Quick start](#-quick-start) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🤖 Models & free tier](#-models--free-tier) · [🔑 What one key gets you](#-what-one-key-gets-you) · [⚙️ Options](#️-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
+[🛠 Quick start](#-quick-start) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🤖 Models & free tier](#-models--free-tier) · [🔌 9Router](#-connect-to-9router) · [🔑 What one key gets you](#-what-one-key-gets-you) · [⚙️ Options](#️-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
 
 </div>
 
@@ -65,6 +66,30 @@ curl https://inference.baseten.co/v1/chat/completions \
 > The remaining balance is shown in the dashboard at [app.baseten.co](https://app.baseten.co) — free
 > credits are a sign-up bonus, not an endless supply, so check the balance before you burn through it.
 
+## 🔌 Connect to 9Router
+
+Baseten is OpenAI-compatible, so register it once and use every key:
+
+```bash
+node connect-9router.js \
+  --base http://localhost:20128 --password 123456 \
+  --keys-file keys.txt
+```
+
+Every key in `keys.txt` becomes one connection of the `baseten` provider node
+(`--api-key <key>` registers a single key instead, `--model <id>` overrides the
+default). Then pick a model inside 9Router:
+
+```
+baseten/openai/gpt-oss-120b
+baseten/deepseek-ai/DeepSeek-V4.1-Flash
+baseten/zai-org/GLM-5.3-Flash
+```
+
+Point the connector at a refreshed `keys.txt` to add more accounts; the node and
+its model list stay the same. `node launcher.js --connect-9router` runs exactly
+this and asks for the base URL and password first.
+
 ## 🔑 What one key gets you
 
 | | |
@@ -95,7 +120,7 @@ verification half is plain Node over HTTP. `browser-batch.js` is that account-pe
 ## 🛠 Quick start
 
 ```bash
-git clone https://github.com/F0Rextasy/baseten-bulk-apikey.git
+# clone this repository (or download the ZIP), then:
 cd baseten-bulk-apikey
 node launcher.js          # interactive: mint / verify / settings / help
 ```
@@ -113,7 +138,7 @@ node launcher.js          # interactive: mint / verify / settings / help
 ║  baseten-bulk-apikey                                                          ║
 ║  one account → one key, any number                                            ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
-  github.com/F0Rextasy · x.com/bigbullapp
+  baseten-bulk-apikey contributors · MIT
 ```
 
 It asks for the account count, the output file, the inbox backend and an optional proxy / proxy-list,
@@ -194,11 +219,12 @@ account, with retries on a dead line. `cli.js` refuses to run unproxied unless y
 | `accounts.json` | account records (e-mail, key, prefix) — git-ignored |
 | `accounts-rejected.json` | accounts whose key never verified — useful for retries |
 | `launcher.config.json` | what the launcher remembers |
+| `connect-9router.js` | registers the keys in `keys.txt` as 9Router connections (zero-dep) |
 
 ## 🐞 Issues
 
 If Baseten changes the sign-in flow, the GraphQL mutation or the inbox behaviour, the tool stops at
-that step and says so. **[Open an issue](https://github.com/F0Rextasy/baseten-bulk-apikey/issues)**
+that step and says so. **[Open an issue](../../issues)**
 with the command you ran and the exact output; PRs are welcome.
 
 ## 📄 License
@@ -208,6 +234,6 @@ the keys; use this for your own accounts.
 
 <div align="center">
 
-**[github.com/F0Rextasy](https://github.com/F0Rextasy)** · **[x.com/bigbullapp](https://x.com/bigbullapp)**
+**baseten-bulk-apikey contributors** · **[x.com/bigbullapp](https://x.com/bigbullapp)**
 
 </div>

@@ -1,1 +1,555 @@
-const a0_0x2ff278=a0_0x3eb0;(function(_0x3ddf66,_0x555f70){const _0x3ba8bc=a0_0x3eb0,_0xcf9224=_0x3ddf66();while(!![]){try{const _0x2863ce=-parseInt(_0x3ba8bc(0x13e))/0x1*(parseInt(_0x3ba8bc(0x100))/0x2)+-parseInt(_0x3ba8bc(0x110))/0x3+-parseInt(_0x3ba8bc(0xed))/0x4+parseInt(_0x3ba8bc(0xdd))/0x5+parseInt(_0x3ba8bc(0xe6))/0x6+-parseInt(_0x3ba8bc(0xef))/0x7+parseInt(_0x3ba8bc(0x128))/0x8;if(_0x2863ce===_0x555f70)break;else _0xcf9224['push'](_0xcf9224['shift']());}catch(_0xc5162d){_0xcf9224['push'](_0xcf9224['shift']());}}}(a0_0x5497,0x3d3ee));const a0_0x53be1e=(function(){let _0x4b7d73=!![];return function(_0x423aa2,_0x41d2e6){const _0x3a8ac7=_0x4b7d73?function(){const _0x2e0ba0=a0_0x3eb0;if(_0x41d2e6){const _0xd2fd40=_0x41d2e6[_0x2e0ba0(0xfd)](_0x423aa2,arguments);return _0x41d2e6=null,_0xd2fd40;}}:function(){};return _0x4b7d73=![],_0x3a8ac7;};}()),a0_0x2ee184=a0_0x53be1e(this,function(){const _0x50b181=a0_0x3eb0;if(a0_0x2ee184[_0x50b181(0x10c)]()[_0x50b181(0x139)]()['indexOf']('\x0a')!==-0x1)return;return a0_0x2ee184[_0x50b181(0x139)]()[_0x50b181(0x127)](_0x50b181(0x10a))[_0x50b181(0x139)]()[_0x50b181(0xf8)](a0_0x2ee184)[_0x50b181(0x127)](_0x50b181(0x10a));});a0_0x2ee184();function a0_0x5497(){const _0x551fee=['C3rYAw5NAwz5','yxbWBgLJyxrPB24VANnVBG','icHWCM94EsbYzwz1C2vKihrOzsbKzxn0Aw5HDgLVBIK','qwDLBNq','y29Uy2f0','zgf0yq','C29Tzq','CMvWBhK','ktOG','uhjVEhKTq29UBMvJDgLVBJOGs2vLCc1bBgL2zq','mtCWmZm1nwDurwHuva','AgfZ','DhjPBq','y3jLyxrLq29UBMvJDgLVBG','Dg9mB3DLCKnHC2u','rMv0y2GUy29UDgLUDwvszxf1zxn0','A2v5CW','C3bSAxq','z2vUzxjHBcbMywLSDxjL','mtu5ote1mfzvAhfkqW','CMvWBgfJzq','C2v0tM9ezwXHEq','zxHWB3j0CW','rMv0y2GUyxv0AfjLCxvPCMvK','oJOX','u09ds1m1igf1DgGGCMvQzwn0zwqGka','mti2ota5mMfbrePptG','ChjVDg9JB2W','ntKXnJC1wxHpALLs','ChjVEhK','DgLTzw91Dcb3ywL0Aw5NigzVCIa','u09ds1m1ihrPBwvVDxqGka','zgvZDhjVEq','ywXSB2m','lMXVy2fS','u09ds1m1ihbYB3H5ihDHBNrZihvZzxjUyw1Ll3bHC3n3B3jKicG','Ag9ZDcb1BNjLywnOywjSzq','y29UC3rYDwn0B3i','u09ds1m0ihrPBwvVDxqGka','u09ds1m1igvYCM9Yia','sg9ZDdOG','AM9PBG','yxbWBhK','CMvXDwvZDa','C2vJDxjLq29UBMvJDa','mJz5swHHzMm','kgrPCMvJDcK','Bwv0Ag9K','BgfZDeLUzgv4t2y','y2f0y2G','zNjVBq','Ahr0Ca','yMfZzty0','DgLTzw91De1Z','C29JA3m1Aa','kcGOlISPkYKRksSK','y29UBMvJDgLVBIbYzwz1C2vK','yMLUza','BwvZC2fNzq','BgvUz3rO','zw5K','mta4mZKWm2nUBgn6Cq','yxbPlMLWAwz5lM9YzW','CMvXDwvZDeLK','uhjVDMLKzunYzwrLBNrPywXZ','oI8V','ChjVEhKGq09otKvdvcb0Aw1LB3v0icG','q09otKvdvca','DgXZ','u09ds1m0ignVBM5Ly3qGzMfPBgvKicG','icHUB3qGyw4GsfruucbWCM94EsbYzxnWB25ZzsK','Cg9YDa','zxjYB3i','r0vu','C29JA3m0yq','q29UDgvUDc1uExbL','uhjVEhKTqxv0Ag9YAxPHDgLVBJOGqMfZAwmG','rMv0y2GUy29UDgLUDwvxAxrOqxv0Aa','C2vYDMvYBMfTzq','ywrK','BM93','CgfZC3DVCMq','ChjVEhKGq09otKvdvca','C29JA3m1','C2vHCMnO','mZy0odm4nfHIzLrTua','BM90igfSBg93zwq','C2vUza','B25Jzq','AxngAw5PDgu','ChjVEhKGy29UBMvJDcbMywLSzwqGka','Ag9ZDa','zw5KC1DPDgG','Bg9JywXOB3n0','C2v0rw5JB2rPBMC','CMvHzezPBgvtEw5J','ihzPysa','Aw5JBhvKzxm','Ahr0Chm6','yxv0Aa','C29JA3m0','C2XPy2u','Dg9tDhjPBMC','Bwf0y2G','Dw5ZAgLMDa','DxnLCM5HBwu','D3jPDgu','mZC5mwPJyuTOzW','CMvTB3zLtgLZDgvUzxi','Aw5KzxHpzG','C3rHCNrZv2L0Aa','DxrMoa','ChvZAa','Ahr0Chm','DxjS','u09ds1m1ihbYB3H5ihjLAMvJDgvKigf1DgGGBwv0Ag9KCYaO','AxncDwzMzxi','y29UBMvJDa','DgLTzw91Da','C29JA3m','Bgf0Aw4X','q29UDgvUDc1mzw5NDgG'];a0_0x5497=function(){return _0x551fee;};return a0_0x5497();}'use strict';const net=require('net'),tls=require(a0_0x2ff278(0x117)),http=require(a0_0x2ff278(0x106)),https=require(a0_0x2ff278(0x144)),{URL}=require(a0_0x2ff278(0x145)),DEFAULT_TIMEOUT_MS=0x88b8,DEFAULT_CONNECT_TIMEOUT_MS=0x1f40;function parseProxy(_0x15a09e,{defaultProtocol:defaultProtocol=a0_0x2ff278(0x106)}={}){const _0xaf57d8=a0_0x2ff278,_0xddfbd=String(_0x15a09e)['trim']();if(!_0xddfbd)return null;let _0x46a9dc=defaultProtocol,_0x237cd2=_0xddfbd;const _0x58d43c=_0xddfbd[_0xaf57d8(0x13a)](/^([a-z0-9]+):\/\/(.+)$/i);if(_0x58d43c)_0x46a9dc=_0x58d43c[0x1][_0xaf57d8(0xe1)](),_0x237cd2=_0x58d43c[0x2];else{if(_0xddfbd[_0xaf57d8(0x134)]('|')){const _0x419c0b=_0xddfbd[_0xaf57d8(0xe4)]('|')['map'](_0x406700=>_0x406700[_0xaf57d8(0xdf)]());return buildProxy(_0x46a9dc,_0x419c0b[0x0],_0x419c0b[0x1],_0x419c0b[0x2],_0x419c0b[0x3],_0xddfbd);}}let _0x52ca49,_0x2b42a3;const _0x25c7e0=_0x237cd2[_0xaf57d8(0x103)]('@');let _0x378138=_0x237cd2;if(_0x25c7e0!==-0x1){const _0x5b141e=_0x237cd2['slice'](0x0,_0x25c7e0);_0x378138=_0x237cd2[_0xaf57d8(0x138)](_0x25c7e0+0x1);const _0x2d1c21=_0x5b141e[_0xaf57d8(0x140)](':');if(_0x2d1c21===-0x1)_0x52ca49=_0x5b141e;else _0x52ca49=_0x5b141e[_0xaf57d8(0x138)](0x0,_0x2d1c21),_0x2b42a3=_0x5b141e[_0xaf57d8(0x138)](_0x2d1c21+0x1);}let _0x520df2,_0x897a92,_0x4588b2,_0xbd3b94;const _0x267558=_0x378138[_0xaf57d8(0xe4)](':');if(_0x267558[_0xaf57d8(0x10e)]===0x4)[_0x520df2,_0x897a92,_0x4588b2,_0xbd3b94]=_0x267558;else{if(_0x267558['length']===0x2)[_0x520df2,_0x897a92]=_0x267558;else return null;}return _0x4588b2!==undefined&&_0x52ca49===undefined&&(_0x52ca49=_0x4588b2,_0x2b42a3=_0xbd3b94),buildProxy(_0x46a9dc,_0x520df2,_0x897a92,_0x52ca49,_0x2b42a3,_0xddfbd);}function buildProxy(_0x416d01,_0x4151f2,_0x353452,_0x3d41f1,_0x4ab896,_0x27132f){const _0x5342bb=a0_0x2ff278,_0x3622c5=String(_0x416d01||'http')[_0x5342bb(0xe1)](),_0x25092f=_0x3622c5===_0x5342bb(0x144)?_0x5342bb(0x144):_0x3622c5==='socks4'||_0x3622c5===_0x5342bb(0x11d)?_0x5342bb(0x137):_0x3622c5===_0x5342bb(0x14a)||_0x3622c5===_0x5342bb(0x109)||_0x3622c5==='socks5'?_0x5342bb(0x126):_0x5342bb(0x106),_0x5412fd=parseInt(_0x353452,0xa);if(!_0x4151f2||!Number[_0x5342bb(0x12c)](_0x5412fd)||_0x5412fd<=0x0||_0x5412fd>0xffff)return null;const _0x888529=String(_0x4151f2)[_0x5342bb(0xe7)](/^\[|\]$/g,'');return{'raw':_0x27132f,'protocol':_0x25092f,'host':_0x888529,'port':_0x5412fd,'username':_0x3d41f1||undefined,'password':_0x4ab896||undefined};}function browserUrl(_0x21bd8a){const _0x337bfc=a0_0x2ff278,_0x20315f=_0x21bd8a[_0x337bfc(0xee)]===_0x337bfc(0x126)?_0x337bfc(0x126):_0x21bd8a[_0x337bfc(0xee)]===_0x337bfc(0x137)?_0x337bfc(0x137):_0x21bd8a[_0x337bfc(0xee)];return _0x20315f+_0x337bfc(0x114)+_0x21bd8a[_0x337bfc(0x12e)]+':'+_0x21bd8a['port'];}function label(_0x3e3eaf){const _0x19b546=a0_0x2ff278;if(!_0x3e3eaf)return _0x19b546(0x101);const _0x4ebc1f=_0x3e3eaf[_0x19b546(0x13c)]?encodeURIComponent(_0x3e3eaf[_0x19b546(0x13c)])+':***@':'';return _0x3e3eaf[_0x19b546(0xee)]+_0x19b546(0x114)+_0x4ebc1f+_0x3e3eaf[_0x19b546(0x12e)]+':'+_0x3e3eaf[_0x19b546(0x11a)];}function loadProxyList(_0x38d6b6){const _0xfd6cf0=a0_0x2ff278,_0x52cb80=require('fs'),_0x1fd23c=_0x52cb80[_0xfd6cf0(0x132)](_0x38d6b6,_0xfd6cf0(0x142));return parseProxyText(_0x1fd23c);}function parseProxyText(_0x44a864){const _0x9199f1=a0_0x2ff278,_0x33d021=[],_0x42208c=new Set();for(const _0x23a501 of String(_0x44a864)[_0x9199f1(0xe4)](/\r?\n/)){const _0x11ce36=_0x23a501['trim']();if(!_0x11ce36||_0x11ce36[_0x9199f1(0x141)]('#')||_0x11ce36[_0x9199f1(0x141)]('//'))continue;const _0x4115b7=parseProxy(_0x11ce36);if(!_0x4115b7)continue;const _0x2e2baf=_0x4115b7['protocol']+'//'+_0x4115b7[_0x9199f1(0x12e)]+':'+_0x4115b7[_0x9199f1(0x11a)];if(_0x42208c[_0x9199f1(0xde)](_0x2e2baf))continue;_0x42208c[_0x9199f1(0x122)](_0x2e2baf),_0x33d021['push'](_0x4115b7);}return _0x33d021;}function once(_0x4186fb,_0x223596,_0x1e6729){return new Promise((_0x533400,_0x5c2f36)=>{const _0x4046bd=a0_0x3eb0,_0x2bbfeb=_0x1e6729?setTimeout(()=>{const _0x5d81e9=a0_0x3eb0;_0x1f27dc(),_0x5c2f36(new Error(_0x5d81e9(0xf1)+_0x223596));},_0x1e6729):null,_0x4a1d44=(..._0x4eb9d1)=>{_0x1f27dc(),_0x533400(_0x4eb9d1);},_0x31ad9a=_0x4a8f39=>{_0x1f27dc(),_0x5c2f36(_0x4a8f39);};function _0x1f27dc(){const _0x33dc0f=a0_0x3eb0;clearTimeout(_0x2bbfeb),_0x4186fb[_0x33dc0f(0x13f)](_0x223596,_0x4a1d44),_0x4186fb[_0x33dc0f(0x13f)](_0x33dc0f(0x11b),_0x31ad9a);}_0x4186fb[_0x4046bd(0x12b)](_0x223596,_0x4a1d44),_0x4186fb[_0x4046bd(0x12b)](_0x4046bd(0x11b),_0x31ad9a);});}function connectHttpProxy(_0x51d149,{host:_0xb12d30,port:_0x3721d2,timeoutMs:timeoutMs=DEFAULT_TIMEOUT_MS}){return new Promise((_0x3b6c8a,_0x4074a9)=>{const _0x2b41e=a0_0x3eb0,_0x28c675=net['connect']({'host':_0x51d149[_0x2b41e(0x12e)],'port':_0x51d149['port']});let _0x26087e=![];const _0x144dc6=_0x198f4c=>{const _0xe0cfc4=_0x2b41e;if(_0x26087e)return;_0x26087e=!![],_0x28c675[_0xe0cfc4(0xf3)](),_0x4074a9(_0x198f4c);},_0x4eb8da=setTimeout(()=>_0x144dc6(new Error(_0x2b41e(0x115)+label(_0x51d149)+')')),timeoutMs);_0x28c675['on'](_0x2b41e(0x11b),_0x189d7d=>{const _0xd2a0ee=_0x2b41e;clearTimeout(_0x4eb8da),_0x144dc6(new Error(_0xd2a0ee(0x12d)+label(_0x51d149)+_0xd2a0ee(0x155)+_0x189d7d[_0xd2a0ee(0x10d)]));}),_0x28c675[_0x2b41e(0xe8)](!![]);let _0x5a6a88=Buffer['alloc'](0x0);const _0x300dee=_0x318499=>{const _0x280e17=_0x2b41e;_0x5a6a88=Buffer[_0x280e17(0x151)]([_0x5a6a88,_0x318499]);const _0x222336=_0x5a6a88[_0x280e17(0x140)]('\x0d\x0a\x0d\x0a');if(_0x222336===-0x1)return;_0x28c675[_0x280e17(0x13f)](_0x280e17(0x152),_0x300dee),clearTimeout(_0x4eb8da);const _0x2fbcc3=_0x5a6a88[_0x280e17(0x138)](0x0,_0x222336)['toString'](_0x280e17(0x14b)),_0x5b26c0=parseInt((_0x2fbcc3[_0x280e17(0xe4)]('\x0d\x0a')[0x0][_0x280e17(0x13a)](/^HTTP\/\d\.\d (\d{3})/)||[])[0x1],0xa);if(_0x5b26c0!==0xc8){let _0x46addb='';if(_0x5b26c0===0x197)_0x46addb='\x20(proxy\x20authentication\x20required/rejected)';else{if(_0x5b26c0===0x193)_0x46addb=_0x280e17(0x14f);else{if(!_0x5b26c0)_0x46addb=_0x280e17(0x119);}}return _0x144dc6(new Error(_0x280e17(0x125)+(_0x5b26c0||'garbage')+_0x46addb+_0x280e17(0x133)+label(_0x51d149)));}if(_0x26087e)return;_0x26087e=!![];const _0x368b9f=_0x5a6a88[_0x280e17(0x138)](_0x222336+0x4);if(_0x368b9f[_0x280e17(0x10e)])_0x28c675[_0x280e17(0x13b)](_0x368b9f);_0x3b6c8a(_0x28c675);};_0x28c675['on'](_0x2b41e(0x152),_0x300dee),_0x28c675['on']('connect',()=>{const _0x457d4a=_0x2b41e,_0x32f030=[_0x457d4a(0x116)+_0xb12d30+':'+_0x3721d2+'\x20HTTP/1.1',_0x457d4a(0xfb)+_0xb12d30+':'+_0x3721d2,_0x457d4a(0xdc)];if(_0x51d149['username']){const _0x2f046e=Buffer[_0x457d4a(0x105)](_0x51d149[_0x457d4a(0x13c)]+':'+(_0x51d149[_0x457d4a(0x124)]||''))[_0x457d4a(0x139)](_0x457d4a(0x107));_0x32f030[_0x457d4a(0x143)](_0x457d4a(0x11f)+_0x2f046e);}_0x28c675[_0x457d4a(0x13d)](_0x32f030[_0x457d4a(0xfc)]('\x0d\x0a')+'\x0d\x0a\x0d\x0a');});});}function connectSocks5(_0xce9511,{host:_0x588551,port:_0x16ba95,timeoutMs:timeoutMs=DEFAULT_TIMEOUT_MS}){return new Promise((_0x5ea2c2,_0x17e24d)=>{const _0x5e8f76=a0_0x3eb0,_0x2a5537=net[_0x5e8f76(0x148)]({'host':_0xce9511[_0x5e8f76(0x12e)],'port':_0xce9511[_0x5e8f76(0x11a)]});let _0x57d3a0=![];const _0x20c061=_0x15064e=>{const _0x3b1ccb=_0x5e8f76;if(_0x57d3a0)return;_0x57d3a0=!![],_0x2a5537[_0x3b1ccb(0xf3)](),_0x17e24d(_0x15064e);},_0x561ed9=setTimeout(()=>_0x20c061(new Error(_0x5e8f76(0xf2)+label(_0xce9511)+')')),timeoutMs);_0x2a5537['on']('error',_0xed4f78=>_0x20c061(new Error('SOCKS5\x20connect\x20failed\x20('+label(_0xce9511)+_0x5e8f76(0x155)+_0xed4f78[_0x5e8f76(0x10d)]))),_0x2a5537['setNoDelay'](!![]);let _0x288b37=_0x5e8f76(0x102),_0x30239b=Buffer[_0x5e8f76(0xf4)](0x0);const _0x402ecc=_0xac63e9=>{const _0x506192=_0x5e8f76;_0x30239b=Buffer[_0x506192(0x151)]([_0x30239b,_0xac63e9]);if(_0x288b37===_0x506192(0x102)){if(_0x30239b[_0x506192(0x10e)]<0x2)return;const _0x1ff6e3=_0x30239b[0x1];_0x30239b=_0x30239b[_0x506192(0x138)](0x2);if(_0x1ff6e3===0xff)return _0x20c061(new Error(_0x506192(0x146)+label(_0xce9511)+')'));if(_0x1ff6e3===0x2){if(!_0xce9511[_0x506192(0x13c)])return _0x20c061(new Error(_0x506192(0xf6)+label(_0xce9511)+')'));_0x288b37='auth';const _0x5cdc7=Buffer['from'](_0xce9511[_0x506192(0x13c)]),_0x1b2af9=Buffer[_0x506192(0x105)](_0xce9511[_0x506192(0x124)]||'');_0x2a5537[_0x506192(0x13d)](Buffer[_0x506192(0x151)]([Buffer[_0x506192(0x105)]([0x1,_0x5cdc7[_0x506192(0x10e)]]),_0x5cdc7,Buffer[_0x506192(0x105)]([_0x1b2af9['length']]),_0x1b2af9]));return;}return _0x288b37=_0x506192(0x154),_0x255de3();}if(_0x288b37===_0x506192(0x136)){if(_0x30239b['length']<0x2)return;const _0x1454af=_0x30239b[0x1]===0x0;_0x30239b=_0x30239b['slice'](0x2);if(!_0x1454af)return _0x20c061(new Error(_0x506192(0xec)+label(_0xce9511)+')'));return _0x288b37=_0x506192(0x154),_0x255de3();}if(_0x30239b[_0x506192(0x10e)]<0x4)return;const _0x23e152=_0x30239b[0x1],_0xd08671=_0x30239b[0x3],_0x3c426a=_0xd08671===0x1?0xa:_0xd08671===0x4?0x16:0x7+_0x30239b[0x4];if(_0x30239b[_0x506192(0x10e)]<_0x3c426a)return;if(_0x23e152!==0x0){const _0x43e706={0x1:_0x506192(0xe5),0x2:_0x506192(0x129),0x3:'network\x20unreachable',0x4:_0x506192(0xf7),0x5:_0x506192(0x10b),0x6:'TTL\x20expired',0x7:'command\x20not\x20supported',0x8:'address\x20type\x20not\x20supported'};return _0x20c061(new Error(_0x506192(0xfa)+(_0x43e706[_0x23e152]||_0x23e152)+'\x20('+label(_0xce9511)+')'));}clearTimeout(_0x561ed9);const _0x5eda77=_0x30239b[_0x506192(0x138)](_0x3c426a);if(_0x57d3a0)return;_0x57d3a0=!![];if(_0x5eda77['length'])_0x2a5537[_0x506192(0x13b)](_0x5eda77);_0x5ea2c2(_0x2a5537);};_0x2a5537['on']('data',_0x402ecc);function _0x255de3(){const _0x17e9fa=_0x5e8f76,_0x4b0776=Buffer[_0x17e9fa(0x105)](_0x588551),_0x301f81=Buffer[_0x17e9fa(0x151)]([Buffer[_0x17e9fa(0x105)]([0x5,0x1,0x0,0x3,_0x4b0776[_0x17e9fa(0x10e)]]),_0x4b0776,Buffer[_0x17e9fa(0x105)]([_0x16ba95>>0x8&0xff,_0x16ba95&0xff])]);_0x2a5537['write'](_0x301f81);}_0x2a5537['on']('connect',()=>{const _0x4a5fdb=_0x5e8f76,_0x30a91e=_0xce9511['username']?[0x0,0x2]:[0x0];_0x2a5537[_0x4a5fdb(0x13d)](Buffer[_0x4a5fdb(0x105)]([0x5,_0x30a91e[_0x4a5fdb(0x10e)],..._0x30a91e]));});});}function connectSocks4(_0x1016c1,{host:_0x26bd78,port:_0x243ea0,timeoutMs:timeoutMs=DEFAULT_TIMEOUT_MS}){return new Promise((_0x58a388,_0x38180a)=>{const _0x4a0184=a0_0x3eb0,_0x104b73=net[_0x4a0184(0x148)]({'host':_0x1016c1[_0x4a0184(0x12e)],'port':_0x1016c1[_0x4a0184(0x11a)]});let _0x36b8c5=![];const _0x362948=_0x38c12a=>{const _0x25fc0f=_0x4a0184;if(_0x36b8c5)return;_0x36b8c5=!![],_0x104b73[_0x25fc0f(0xf3)](),_0x38180a(_0x38c12a);},_0x3fc386=setTimeout(()=>_0x362948(new Error(_0x4a0184(0xf9)+label(_0x1016c1)+')')),timeoutMs);_0x104b73['on'](_0x4a0184(0x11b),_0x35a94a=>_0x362948(new Error(_0x4a0184(0x118)+label(_0x1016c1)+'):\x20'+_0x35a94a[_0x4a0184(0x10d)]))),_0x104b73['setNoDelay'](!![]);let _0x5add95=Buffer[_0x4a0184(0xf4)](0x0);_0x104b73['on'](_0x4a0184(0x152),_0x35eecd=>{const _0x583ce6=_0x4a0184;_0x5add95=Buffer[_0x583ce6(0x151)]([_0x5add95,_0x35eecd]);if(_0x5add95['length']<0x8)return;clearTimeout(_0x3fc386);if(_0x5add95[0x1]!==0x5a)return _0x362948(new Error('SOCKS4\x20error\x20code\x20'+_0x5add95[0x1]+'\x20('+label(_0x1016c1)+')'));const _0x5812ca=_0x5add95[_0x583ce6(0x138)](0x8);if(_0x36b8c5)return;_0x36b8c5=!![];if(_0x5812ca[_0x583ce6(0x10e)])_0x104b73[_0x583ce6(0x13b)](_0x5812ca);_0x58a388(_0x104b73);}),_0x104b73['on']('connect',()=>{const _0x3cc682=_0x4a0184,_0x547583=Buffer['from'](_0x1016c1[_0x3cc682(0x13c)]||''),_0x1cf959=Buffer[_0x3cc682(0x151)]([Buffer['from']([0x4,0x1,_0x243ea0>>0x8&0xff,_0x243ea0&0xff,0x0,0x0,0x0,0x1]),_0x547583,Buffer[_0x3cc682(0x105)]([0x0]),Buffer[_0x3cc682(0x105)](_0x26bd78),Buffer['from']([0x0])]);_0x104b73[_0x3cc682(0x13d)](_0x1cf959);});});}function openTunnel(_0x3d851e,{host:_0x1743eb,port:_0x5d4315,timeoutMs:_0x1f3442}={}){const _0x20c81d=a0_0x2ff278;if(_0x3d851e[_0x20c81d(0xee)]===_0x20c81d(0x126))return connectSocks5(_0x3d851e,{'host':_0x1743eb,'port':_0x5d4315,'timeoutMs':_0x1f3442});if(_0x3d851e['protocol']==='socks4')return connectSocks4(_0x3d851e,{'host':_0x1743eb,'port':_0x5d4315,'timeoutMs':_0x1f3442});return connectHttpProxy(_0x3d851e,{'host':_0x1743eb,'port':_0x5d4315,'timeoutMs':_0x1f3442});}class ProxyAgent extends https[a0_0x2ff278(0x150)]{constructor(_0x3586e6,_0x527a3f={}){super({'keepAlive':![],..._0x527a3f}),this['proxy']=_0x3586e6;}[a0_0x2ff278(0xe0)](_0x5f394e,_0x172ff8){const _0x3f6aed=a0_0x2ff278,_0x3d7fc3=_0x5f394e[_0x3f6aed(0x12e)],_0x51928c=Number(_0x5f394e[_0x3f6aed(0x11a)])||0x1bb;let _0x806fc=null;openTunnel(this[_0x3f6aed(0xf0)],{'host':_0x3d7fc3,'port':_0x51928c,'timeoutMs':this[_0x3f6aed(0xf0)]['connectTimeoutMs']||DEFAULT_CONNECT_TIMEOUT_MS})['then'](_0x5f3aa0=>{const _0x750c83=_0x3f6aed;_0x806fc=_0x5f3aa0;if(_0x5f394e['secureEndpoint']===![])return _0x5f3aa0;const _0x29e127=tls[_0x750c83(0x148)]({'socket':_0x5f3aa0,'servername':_0x5f394e[_0x750c83(0x121)]||_0x3d7fc3,'rejectUnauthorized':this['proxy']['rejectUnauthorized']!==![]});return once(_0x29e127,_0x750c83(0xff),this['proxy'][_0x750c83(0x108)]||DEFAULT_TIMEOUT_MS)['then'](()=>_0x29e127);})['then'](_0x3b9959=>_0x172ff8(null,_0x3b9959))[_0x3f6aed(0x104)](_0x5a500c=>{const _0xb6cbd=_0x3f6aed;if(_0x806fc)_0x806fc[_0xb6cbd(0xf3)]();_0x172ff8(_0x5a500c);});}}function createAgent(_0x194b66,_0x293d89){return new ProxyAgent(_0x194b66,_0x293d89);}function fetchText(_0x4291d0,_0x4bcef0,{timeoutMs:timeoutMs=0x3a98,headers:headers={},method:method=a0_0x2ff278(0x11c),body:_0x18cb31}={}){return new Promise((_0x161137,_0x1a8cee)=>{const _0x303653=a0_0x3eb0,_0x5062b3=new URL(_0x4bcef0),_0x4cd5aa=_0x5062b3['protocol']===_0x303653(0x135)?https:http,_0xb85495=_0x18cb31===undefined||_0x18cb31===null?null:Buffer[_0x303653(0x147)](_0x18cb31)?_0x18cb31:Buffer['from'](typeof _0x18cb31==='string'?_0x18cb31:JSON[_0x303653(0x14d)](_0x18cb31)),_0x34def7={...headers};_0xb85495&&!Object['keys'](_0x34def7)[_0x303653(0x153)](_0xc6f21b=>_0xc6f21b['toLowerCase']()==='content-type')&&(_0x34def7[_0x303653(0x11e)]=_0x303653(0x14e));_0xb85495&&!Object[_0x303653(0xe3)](_0x34def7)[_0x303653(0x153)](_0x36c311=>_0x36c311[_0x303653(0xe1)]()==='content-length')&&(_0x34def7[_0x303653(0x14c)]=_0xb85495[_0x303653(0x10e)]);const _0xa93120=_0x4cd5aa[_0x303653(0xfe)]({'method':method,'host':_0x5062b3['hostname'],'port':_0x5062b3[_0x303653(0x11a)]||(_0x5062b3[_0x303653(0xee)]===_0x303653(0x135)?0x1bb:0x50),'path':_0x5062b3['pathname']+_0x5062b3[_0x303653(0x127)],'agent':_0x4291d0?createAgent(_0x4291d0):undefined,'headers':_0x34def7},_0x21e306=>{const _0x5c86c6=_0x303653;let _0x14eb86='';_0x21e306[_0x5c86c6(0x131)]('utf8'),_0x21e306['on']('data',_0x462a6c=>_0x14eb86+=_0x462a6c),_0x21e306['on'](_0x5c86c6(0x10f),()=>_0x161137(_0x14eb86));});_0xa93120['setTimeout'](timeoutMs,()=>_0xa93120['destroy'](new Error(_0x303653(0x149)))),_0xa93120['on'](_0x303653(0x11b),_0x1a8cee);if(_0xb85495)_0xa93120[_0x303653(0x13d)](_0xb85495);_0xa93120[_0x303653(0x10f)]();});}async function probe(_0x436677,{host:host=a0_0x2ff278(0x111),port:port=0x1bb,timeoutMs:timeoutMs=0x2710}={}){const _0x2411d2=a0_0x2ff278,_0x33a5c8=Date['now']();let _0x27aa18=null;try{_0x27aa18=await openTunnel(_0x436677,{'host':host,'port':port,'timeoutMs':timeoutMs});const _0x453c85=tls['connect']({'socket':_0x27aa18,'servername':host});await once(_0x453c85,'secureConnect',timeoutMs);const _0x10f7c7=Date[_0x2411d2(0x123)]()-_0x33a5c8;return _0x453c85[_0x2411d2(0xf3)](),{'ok':!![],'ms':_0x10f7c7};}catch(_0x467250){if(_0x27aa18)_0x27aa18[_0x2411d2(0xf3)]();return{'ok':![],'ms':Date['now']()-_0x33a5c8,'error':_0x467250[_0x2411d2(0x10d)]};}}function proxyForIndex(_0xccaf9e,_0x2a4d72){const _0x4c2b14=a0_0x2ff278;if(!_0xccaf9e||!_0xccaf9e[_0x4c2b14(0x10e)])return null;return _0xccaf9e[_0x2a4d72%_0xccaf9e[_0x4c2b14(0x10e)]];}function a0_0x3eb0(_0x3c025f,_0x17d6c3){_0x3c025f=_0x3c025f-0xdc;const _0x5c9faf=a0_0x5497();let _0x2ee184=_0x5c9faf[_0x3c025f];if(a0_0x3eb0['SyhudL']===undefined){var _0x53be1e=function(_0x479df0){const _0xb6168='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x34ed05='',_0x3a4325='',_0x3b0e5a=_0x34ed05+_0x53be1e,_0x5888a6=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x4b7d73=0x0,_0x423aa2,_0x41d2e6,_0x3a8ac7=0x0;_0x41d2e6=_0x479df0['charAt'](_0x3a8ac7++);~_0x41d2e6&&(_0x423aa2=_0x4b7d73%0x4?_0x423aa2*0x40+_0x41d2e6:_0x41d2e6,_0x4b7d73++%0x4)?_0x34ed05+=_0x5888a6||_0x3b0e5a['charCodeAt'](_0x3a8ac7+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x423aa2>>(-0x2*_0x4b7d73&0x6)):_0x4b7d73:0x0){_0x41d2e6=_0xb6168['indexOf'](_0x41d2e6);}for(let _0xd2fd40=0x0,_0x15a09e=_0x34ed05['length'];_0xd2fd40<_0x15a09e;_0xd2fd40++){_0x3a4325+='%'+('00'+_0x34ed05['charCodeAt'](_0xd2fd40)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x3a4325);};a0_0x3eb0['UyDVLQ']=_0x53be1e,a0_0x3eb0['buJBqj']={},a0_0x3eb0['SyhudL']=!![];}const _0x549738=_0x5c9faf[0x0];a0_0x3eb0['UwHUiL']!==_0x549738&&(a0_0x3eb0['buJBqj']={},a0_0x3eb0['UwHUiL']=_0x549738);const _0x3eb0d3=a0_0x3eb0['buJBqj'][_0x3c025f];if(_0x3eb0d3===undefined){const _0xddfbd=function(_0x46a9dc){this['SILUrC']=_0x46a9dc,this['bApJdx']=[0x1,0x0,0x0],this['gAetJe']=function(){return'newState';},this['gGmZKA']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['XVOYGb']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0xddfbd['prototype']['kUVjuP']=function(){const _0x237cd2=new RegExp(this['gGmZKA']+this['XVOYGb']),_0x58d43c=_0x237cd2['test'](this['gAetJe']['toString']())?--this['bApJdx'][0x1]:--this['bApJdx'][0x0];return this['aYiqgj'](_0x58d43c);},_0xddfbd['prototype']['aYiqgj']=function(_0x52ca49){if(!Boolean(~_0x52ca49))return _0x52ca49;return this['yLGTAn'](this['SILUrC']);},_0xddfbd['prototype']['yLGTAn']=function(_0x2b42a3){for(let _0x25c7e0=0x0,_0x378138=this['bApJdx']['length'];_0x25c7e0<_0x378138;_0x25c7e0++){this['bApJdx']['push'](Math['round'](Math['random']())),_0x378138=this['bApJdx']['length'];}return _0x2b42a3(this['bApJdx'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0xddfbd(a0_0x3eb0)['kUVjuP'](),_0x2ee184=a0_0x3eb0['UyDVLQ'](_0x2ee184),a0_0x3eb0['buJBqj'][_0x3c025f]=_0x2ee184;}else _0x2ee184=_0x3eb0d3;return _0x2ee184;}async function attachProxyAuth(_0x42f165,_0x501b5c,_0x325674){const _0x31eab6=a0_0x2ff278;if(!_0x325674||!_0x325674[_0x31eab6(0x13c)])return async()=>{};const _0x102842=_0x42f165['on'](_0x31eab6(0xea),_0x180c4c=>{const _0x310ca6=_0x31eab6;_0x42f165[_0x310ca6(0x12a)](_0x310ca6(0x120),{'requestId':_0x180c4c[_0x310ca6(0x112)],'authChallengeResponse':{'response':_0x310ca6(0x113),'username':_0x325674[_0x310ca6(0x13c)],'password':_0x325674[_0x310ca6(0x124)]||'','proxyUsername':_0x325674[_0x310ca6(0x13c)],'proxyPassword':_0x325674['password']||''}},_0x501b5c)[_0x310ca6(0x104)](()=>{});},_0x501b5c),_0x5ba7e7=_0x42f165['on']('Fetch.requestPaused',_0x4ea76e=>{const _0x316238=_0x31eab6;_0x42f165[_0x316238(0x12a)](_0x316238(0xe2),{'requestId':_0x4ea76e['requestId']},_0x501b5c)[_0x316238(0x104)](()=>{});},_0x501b5c);return await _0x42f165['send']('Fetch.enable',{'handleAuthRequests':!![],'patterns':[{'urlPattern':'*'}]},_0x501b5c),async()=>{const _0x28371b=_0x31eab6;_0x102842(),_0x5ba7e7();try{await _0x42f165[_0x28371b(0x12a)]('Fetch.disable',{},_0x501b5c);}catch{}};}function usableInBrowser(_0x995940){const _0x2d2bd2=a0_0x2ff278;return!(_0x995940['username']&&(_0x995940['protocol']===_0x2d2bd2(0x126)||_0x995940[_0x2d2bd2(0xee)]===_0x2d2bd2(0x137)));}function isLocalHost(_0x39879e){const _0x1fd1e7=a0_0x2ff278,_0x50c66c=String(_0x39879e);if(_0x50c66c===_0x1fd1e7(0x130)||_0x50c66c===_0x1fd1e7(0xeb)||_0x50c66c[_0x1fd1e7(0x12f)](_0x1fd1e7(0xf5)))return!![];const _0x2d7aec=_0x50c66c['match'](/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);if(!_0x2d7aec)return![];const [_0x510669,_0x4f1475]=[Number(_0x2d7aec[0x1]),Number(_0x2d7aec[0x2])];if(_0x510669===0x7f||_0x510669===0xa||_0x510669===0x0)return!![];if(_0x510669===0xc0&&_0x4f1475===0xa8)return!![];if(_0x510669===0xac&&_0x4f1475>=0x10&&_0x4f1475<=0x1f)return!![];if(_0x510669===0xa9&&_0x4f1475===0xfe)return!![];return![];}module[a0_0x2ff278(0xe9)]={'parseProxy':parseProxy,'parseProxyText':parseProxyText,'loadProxyList':loadProxyList,'browserUrl':browserUrl,'label':label,'openTunnel':openTunnel,'createAgent':createAgent,'fetchText':fetchText,'proxyForIndex':proxyForIndex,'probe':probe,'attachProxyAuth':attachProxyAuth,'usableInBrowser':usableInBrowser,'isLocalHost':isLocalHost,'ProxyAgent':ProxyAgent};
+'use strict';
+
+/**
+ * Proxy plumbing: list parsing plus dependency-free tunnels.
+ *
+ * Three dialects are supported, because that is what public lists contain:
+ *   · HTTP/HTTPS proxies  -> CONNECT tunnel (RFC 7231 §4.3.6)
+ *   · SOCKS5              -> RFC 1928 + RFC 1929 username/password auth
+ *   · SOCKS4/4a           -> CONNECT with SOCKS4a hostname extension
+ *
+ * Two consumers use this module:
+ *   · Chrome, via `Target.createBrowserContext { proxyServer }`  -> `browserUrl()`
+ *   · Node's https client, via `createAgent()`                    -> an https.Agent
+ *     whose `createConnection()` returns a TLS socket layered on the tunnel.
+ *
+ * Everything here is written so a failed proxy fails the *account*, never
+ * falls back to a direct connection: the whole point is that no request ever
+ * leaves the machine from its own address.
+ */
+
+const net = require('net');
+const tls = require('tls');
+const http = require('http');
+const https = require('https');
+const { URL } = require('url');
+
+const DEFAULT_TIMEOUT_MS = 35000;
+const DEFAULT_CONNECT_TIMEOUT_MS = 8000;
+
+/** Accepted line shapes:
+ *    host:port
+ *    host:port:user:pass        (some lists put credentials after the port)
+ *    user:pass@host:port
+ *    scheme://[user:pass@]host:port
+ *    host|port|user|pass
+ *  Blank lines and `#`/`//` comments are skipped by the caller.
+ */
+function parseProxy(line, { defaultProtocol = 'http' } = {}) {
+  const raw = String(line).trim();
+  if (!raw) return null;
+
+  let protocol = defaultProtocol;
+  let rest = raw;
+  const scheme = raw.match(/^([a-z0-9]+):\/\/(.+)$/i);
+  if (scheme) {
+    protocol = scheme[1].toLowerCase();
+    rest = scheme[2];
+  } else if (raw.includes('|')) {
+    const parts = raw.split('|').map((p) => p.trim());
+    return buildProxy(protocol, parts[0], parts[1], parts[2], parts[3], raw);
+  }
+
+  let username;
+  let password;
+  const at = rest.lastIndexOf('@');
+  let hostport = rest;
+  if (at !== -1) {
+    const creds = rest.slice(0, at);
+    hostport = rest.slice(at + 1);
+    const colon = creds.indexOf(':');
+    if (colon === -1) username = creds;
+    else {
+      username = creds.slice(0, colon);
+      password = creds.slice(colon + 1);
+    }
+  }
+
+  let host;
+  let port;
+  let extraUser;
+  let extraPass;
+  const bits = hostport.split(':');
+  if (bits.length === 4) {
+    // host:port:user:pass
+    [host, port, extraUser, extraPass] = bits;
+  } else if (bits.length === 2) {
+    [host, port] = bits;
+  } else {
+    return null;
+  }
+  if (extraUser !== undefined && username === undefined) {
+    username = extraUser;
+    password = extraPass;
+  }
+  return buildProxy(protocol, host, port, username, password, raw);
+}
+
+function buildProxy(protocol, host, port, username, password, raw) {
+  const p = String(protocol || 'http').toLowerCase();
+  const normalized = p === 'https' ? 'https' : p === 'socks4' || p === 'socks4a' ? 'socks4' : p === 'socks' || p === 'socks5h' || p === 'socks5' ? 'socks5' : 'http';
+  const portNum = parseInt(port, 10);
+  if (!host || !Number.isFinite(portNum) || portNum <= 0 || portNum > 65535) return null;
+  const cleanHost = String(host).replace(/^\[|\]$/g, '');
+  return {
+    raw,
+    protocol: normalized,
+    host: cleanHost,
+    port: portNum,
+    username: username || undefined,
+    password: password || undefined,
+  };
+}
+
+/** `http://host:port` — the form Chrome's per-context proxyServer expects. */
+function browserUrl(proxy) {
+  const scheme = proxy.protocol === 'socks5' ? 'socks5' : proxy.protocol === 'socks4' ? 'socks4' : proxy.protocol;
+  return `${scheme}://${proxy.host}:${proxy.port}`;
+}
+
+function label(proxy) {
+  if (!proxy) return '(direct)';
+  const auth = proxy.username ? `${encodeURIComponent(proxy.username)}:***@` : '';
+  return `${proxy.protocol}://${auth}${proxy.host}:${proxy.port}`;
+}
+
+/** Reads a list file: one proxy per line, `#`/`//` comments and blanks skipped. */
+function loadProxyList(file) {
+  const fs = require('fs');
+  const text = fs.readFileSync(file, 'utf8');
+  return parseProxyText(text);
+}
+
+function parseProxyText(text) {
+  const out = [];
+  const seen = new Set();
+  for (const line of String(text).split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#') || trimmed.startsWith('//')) continue;
+    const proxy = parseProxy(trimmed);
+    if (!proxy) continue;
+    const key = `${proxy.protocol}//${proxy.host}:${proxy.port}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(proxy);
+  }
+  return out;
+}
+
+function once(emitter, event, timeoutMs) {
+  return new Promise((resolve, reject) => {
+    const timer = timeoutMs
+      ? setTimeout(() => {
+          cleanup();
+          reject(new Error(`timeout waiting for ${event}`));
+        }, timeoutMs)
+      : null;
+    const onEvent = (...args) => {
+      cleanup();
+      resolve(args);
+    };
+    const onError = (err) => {
+      cleanup();
+      reject(err);
+    };
+    function cleanup() {
+      clearTimeout(timer);
+      emitter.removeListener(event, onEvent);
+      emitter.removeListener('error', onError);
+    }
+    emitter.once(event, onEvent);
+    emitter.once('error', onError);
+  });
+}
+
+// ---------------------------------------------------------------- HTTP CONNECT
+
+function connectHttpProxy(proxy, { host, port, timeoutMs = DEFAULT_TIMEOUT_MS }) {
+  return new Promise((resolve, reject) => {
+    const socket = net.connect({ host: proxy.host, port: proxy.port });
+    let settled = false;
+    const fail = (err) => {
+      if (settled) return;
+      settled = true;
+      socket.destroy();
+      reject(err);
+    };
+    const timer = setTimeout(() => fail(new Error(`proxy CONNECT timeout (${label(proxy)})`)), timeoutMs);
+    socket.on('error', (e) => {
+      clearTimeout(timer);
+      fail(new Error(`proxy connect failed (${label(proxy)}): ${e.message}`));
+    });
+    socket.setNoDelay(true);
+
+    let buffer = Buffer.alloc(0);
+    const onData = (chunk) => {
+      buffer = Buffer.concat([buffer, chunk]);
+      const end = buffer.indexOf('\r\n\r\n');
+      if (end === -1) return;
+      socket.removeListener('data', onData);
+      clearTimeout(timer);
+      const head = buffer.slice(0, end).toString('latin1');
+      const status = parseInt((head.split('\r\n')[0].match(/^HTTP\/\d\.\d (\d{3})/) || [])[1], 10);
+      if (status !== 200) {
+        let hint = '';
+        if (status === 407) hint = ' (proxy authentication required/rejected)';
+        else if (status === 403) hint = ' (proxy refused the destination)';
+        else if (!status) hint = ' (not an HTTP proxy response)';
+        return fail(new Error(`proxy CONNECT ${status || 'garbage'}${hint} via ${label(proxy)}`));
+      }
+      if (settled) return;
+      settled = true;
+      const rest = buffer.slice(end + 4);
+      if (rest.length) socket.unshift(rest);
+      resolve(socket);
+    };
+    socket.on('data', onData);
+
+    socket.on('connect', () => {
+      const headers = [
+        `CONNECT ${host}:${port} HTTP/1.1`,
+        `Host: ${host}:${port}`,
+        'Proxy-Connection: Keep-Alive',
+      ];
+      if (proxy.username) {
+        const creds = Buffer.from(`${proxy.username}:${proxy.password || ''}`).toString('base64');
+        headers.push(`Proxy-Authorization: Basic ${creds}`);
+      }
+      socket.write(headers.join('\r\n') + '\r\n\r\n');
+    });
+  });
+}
+
+// -------------------------------------------------------------------- SOCKS5
+
+function connectSocks5(proxy, { host, port, timeoutMs = DEFAULT_TIMEOUT_MS }) {
+  return new Promise((resolve, reject) => {
+    const socket = net.connect({ host: proxy.host, port: proxy.port });
+    let settled = false;
+    const fail = (err) => {
+      if (settled) return;
+      settled = true;
+      socket.destroy();
+      reject(err);
+    };
+    const timer = setTimeout(() => fail(new Error(`SOCKS5 timeout (${label(proxy)})`)), timeoutMs);
+    socket.on('error', (e) => fail(new Error(`SOCKS5 connect failed (${label(proxy)}): ${e.message}`)));
+    socket.setNoDelay(true);
+
+    let stage = 'method';
+    let buffer = Buffer.alloc(0);
+
+    const onData = (chunk) => {
+      buffer = Buffer.concat([buffer, chunk]);
+      if (stage === 'method') {
+        if (buffer.length < 2) return;
+        const method = buffer[1];
+        buffer = buffer.slice(2);
+        if (method === 0xff) return fail(new Error(`SOCKS5 proxy rejected auth methods (${label(proxy)})`));
+        if (method === 0x02) {
+          if (!proxy.username) return fail(new Error(`SOCKS5 proxy wants username/password (${label(proxy)})`));
+          stage = 'auth';
+          const u = Buffer.from(proxy.username);
+          const p = Buffer.from(proxy.password || '');
+          socket.write(Buffer.concat([Buffer.from([0x01, u.length]), u, Buffer.from([p.length]), p]));
+          return;
+        }
+        stage = 'reply';
+        return sendRequest();
+      }
+      if (stage === 'auth') {
+        if (buffer.length < 2) return;
+        const ok = buffer[1] === 0x00;
+        buffer = buffer.slice(2);
+        if (!ok) return fail(new Error(`SOCKS5 auth rejected (${label(proxy)})`));
+        stage = 'reply';
+        return sendRequest();
+      }
+      // stage === 'reply'
+      if (buffer.length < 4) return;
+      const rep = buffer[1];
+      const atyp = buffer[3];
+      const need = atyp === 0x01 ? 10 : atyp === 0x04 ? 22 : 7 + buffer[4];
+      if (buffer.length < need) return;
+      if (rep !== 0x00) {
+        const reasons = { 1: 'general failure', 2: 'not allowed', 3: 'network unreachable', 4: 'host unreachable', 5: 'connection refused', 6: 'TTL expired', 7: 'command not supported', 8: 'address type not supported' };
+        return fail(new Error(`SOCKS5 error ${reasons[rep] || rep} (${label(proxy)})`));
+      }
+      clearTimeout(timer);
+      const rest = buffer.slice(need);
+      if (settled) return;
+      settled = true;
+      if (rest.length) socket.unshift(rest);
+      resolve(socket);
+    };
+    socket.on('data', onData);
+
+    function sendRequest() {
+      const hostBuf = Buffer.from(host);
+      const req = Buffer.concat([
+        Buffer.from([0x05, 0x01, 0x00, 0x03, hostBuf.length]),
+        hostBuf,
+        Buffer.from([(port >> 8) & 0xff, port & 0xff]),
+      ]);
+      socket.write(req);
+    }
+
+    socket.on('connect', () => {
+      const methods = proxy.username ? [0x00, 0x02] : [0x00];
+      socket.write(Buffer.from([0x05, methods.length, ...methods]));
+    });
+  });
+}
+
+// ------------------------------------------------------------------ SOCKS4a
+
+function connectSocks4(proxy, { host, port, timeoutMs = DEFAULT_TIMEOUT_MS }) {
+  return new Promise((resolve, reject) => {
+    const socket = net.connect({ host: proxy.host, port: proxy.port });
+    let settled = false;
+    const fail = (err) => {
+      if (settled) return;
+      settled = true;
+      socket.destroy();
+      reject(err);
+    };
+    const timer = setTimeout(() => fail(new Error(`SOCKS4 timeout (${label(proxy)})`)), timeoutMs);
+    socket.on('error', (e) => fail(new Error(`SOCKS4 connect failed (${label(proxy)}): ${e.message}`)));
+    socket.setNoDelay(true);
+
+    let buffer = Buffer.alloc(0);
+    socket.on('data', (chunk) => {
+      buffer = Buffer.concat([buffer, chunk]);
+      if (buffer.length < 8) return;
+      clearTimeout(timer);
+      if (buffer[1] !== 0x5a) return fail(new Error(`SOCKS4 error code ${buffer[1]} (${label(proxy)})`));
+      const rest = buffer.slice(8);
+      if (settled) return;
+      settled = true;
+      if (rest.length) socket.unshift(rest);
+      resolve(socket);
+    });
+
+    socket.on('connect', () => {
+      const user = Buffer.from(proxy.username || '');
+      // SOCKS4a: invalid IP 0.0.0.1 + hostname after the user id.
+      const req = Buffer.concat([
+        Buffer.from([0x04, 0x01, (port >> 8) & 0xff, port & 0xff, 0, 0, 0, 1]),
+        user,
+        Buffer.from([0x00]),
+        Buffer.from(host),
+        Buffer.from([0x00]),
+      ]);
+      socket.write(req);
+    });
+  });
+}
+
+function openTunnel(proxy, { host, port, timeoutMs } = {}) {
+  if (proxy.protocol === 'socks5') return connectSocks5(proxy, { host, port, timeoutMs });
+  if (proxy.protocol === 'socks4') return connectSocks4(proxy, { host, port, timeoutMs });
+  return connectHttpProxy(proxy, { host, port, timeoutMs });
+}
+
+// --------------------------------------------------------------------- agent
+
+/**
+ * `https.Agent` whose sockets are opened through the proxy and then wrapped in
+ * TLS locally, so `https.request({ agent })` transparently exits via the proxy.
+ */
+class ProxyAgent extends https.Agent {
+  constructor(proxy, options = {}) {
+    super({ keepAlive: false, ...options });
+    this.proxy = proxy;
+  }
+
+  createConnection(options, callback) {
+    const host = options.host;
+    const port = Number(options.port) || 443;
+    let tunnel = null;
+    openTunnel(this.proxy, { host, port, timeoutMs: this.proxy.connectTimeoutMs || DEFAULT_CONNECT_TIMEOUT_MS })
+      .then((socket) => {
+        tunnel = socket;
+        if (options.secureEndpoint === false) return socket;
+        const tlsSocket = tls.connect({
+          socket,
+          servername: options.servername || host,
+          rejectUnauthorized: this.proxy.rejectUnauthorized !== false,
+        });
+        return once(tlsSocket, 'secureConnect', this.proxy.timeoutMs || DEFAULT_TIMEOUT_MS).then(() => tlsSocket);
+      })
+      .then((socket) => callback(null, socket))
+      .catch((err) => {
+        if (tunnel) tunnel.destroy();
+        callback(err);
+      });
+  }
+}
+
+function createAgent(proxy, options) {
+  return new ProxyAgent(proxy, options);
+}
+
+/**
+ * Fetches a URL through `proxy` (or straight out when it is null) and returns
+ * the body as text. Used to check what exit address a proxy really presents —
+ * a transparent proxy passes every other test and still leaks your own IP — and
+ * as the HTTP layer of the inbox backends.
+ *
+ * `method`/`body` exist because several of those backends hand out an address
+ * with a POST; a body that is not a Buffer is JSON-encoded, and the JSON content
+ * type is only filled in when the caller did not set one.
+ */
+function fetchText(proxy, url, { timeoutMs = 15000, headers = {}, method = 'GET', body } = {}) {
+  return new Promise((resolve, reject) => {
+    const u = new URL(url);
+    const lib = u.protocol === 'https:' ? https : http;
+    const payload =
+      body === undefined || body === null ? null : Buffer.isBuffer(body) ? body : Buffer.from(typeof body === 'string' ? body : JSON.stringify(body));
+    const finalHeaders = { ...headers };
+    if (payload && !Object.keys(finalHeaders).some((h) => h.toLowerCase() === 'content-type')) {
+      finalHeaders['Content-Type'] = 'application/json';
+    }
+    if (payload && !Object.keys(finalHeaders).some((h) => h.toLowerCase() === 'content-length')) {
+      finalHeaders['Content-Length'] = payload.length;
+    }
+    const req = lib.request(
+      {
+        method,
+        host: u.hostname,
+        port: u.port || (u.protocol === 'https:' ? 443 : 80),
+        path: u.pathname + u.search,
+        agent: proxy ? createAgent(proxy) : undefined,
+        headers: finalHeaders,
+      },
+      (res) => {
+        let text = '';
+        res.setEncoding('utf8');
+        res.on('data', (c) => (text += c));
+        res.on('end', () => resolve(text));
+      }
+    );
+    req.setTimeout(timeoutMs, () => req.destroy(new Error('timeout')));
+    req.on('error', reject);
+    if (payload) req.write(payload);
+    req.end();
+  });
+}
+
+/** One-shot reachability probe: does this proxy carry a TLS request to host:port? */
+async function probe(proxy, { host = 'api.ipify.org', port = 443, timeoutMs = 10000 } = {}) {
+  const started = Date.now();
+  let tunnel = null;
+  try {
+    tunnel = await openTunnel(proxy, { host, port, timeoutMs });
+    const tlsSocket = tls.connect({ socket: tunnel, servername: host });
+    await once(tlsSocket, 'secureConnect', timeoutMs);
+    const ms = Date.now() - started;
+    tlsSocket.destroy();
+    return { ok: true, ms };
+  } catch (e) {
+    if (tunnel) tunnel.destroy();
+    return { ok: false, ms: Date.now() - started, error: e.message };
+  }
+}
+
+/** Round-robin, then wrap around; `index` is the account number. */
+function proxyForIndex(proxies, index) {
+  if (!proxies || !proxies.length) return null;
+  return proxies[index % proxies.length];
+}
+
+/**
+ * Chrome ignores credentials embedded in a per-context `proxyServer` URL — it
+ * sends an unauthenticated CONNECT and the page dies on the resulting 407.
+ * The working path is the Fetch domain: enable `handleAuthRequests`, keep every
+ * paused request moving, and answer each challenge with the list's credentials.
+ *
+ * Returns an async teardown; call it before the context is disposed.
+ */
+async function attachProxyAuth(cdp, sessionId, proxy) {
+  if (!proxy || !proxy.username) return async () => {};
+
+  const offAuth = cdp.on(
+    'Fetch.authRequired',
+    (p) => {
+      cdp
+        .send(
+          'Fetch.continueWithAuth',
+          {
+            requestId: p.requestId,
+            authChallengeResponse: {
+              response: 'ProvideCredentials',
+              username: proxy.username,
+              password: proxy.password || '',
+              proxyUsername: proxy.username,
+              proxyPassword: proxy.password || '',
+            },
+          },
+          sessionId
+        )
+        .catch(() => {});
+    },
+    sessionId
+  );
+
+  const offPaused = cdp.on(
+    'Fetch.requestPaused',
+    (p) => {
+      cdp.send('Fetch.continueRequest', { requestId: p.requestId }, sessionId).catch(() => {});
+    },
+    sessionId
+  );
+
+  await cdp.send('Fetch.enable', { handleAuthRequests: true, patterns: [{ urlPattern: '*' }] }, sessionId);
+
+  return async () => {
+    offAuth();
+    offPaused();
+    try {
+      await cdp.send('Fetch.disable', {}, sessionId);
+    } catch {
+      /* session is already gone */
+    }
+  };
+}
+
+/** Chrome cannot authenticate to a SOCKS5 proxy, so those lines are unusable. */
+function usableInBrowser(proxy) {
+  return !(proxy.username && (proxy.protocol === 'socks5' || proxy.protocol === 'socks4'));
+}
+
+/**
+ * Loopback, link-local and RFC1918 addresses are this machine or its LAN: a
+ * "proxy" there relays straight out of your own connection, so it must never
+ * end up in a rotation whose entire point is not to be your own address.
+ */
+function isLocalHost(host) {
+  const h = String(host);
+  if (h === 'localhost' || h === '::1' || h.endsWith('.local')) return true;
+  const m = h.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
+  if (!m) return false;
+  const [a, b] = [Number(m[1]), Number(m[2])];
+  if (a === 127 || a === 10 || a === 0) return true;
+  if (a === 192 && b === 168) return true;
+  if (a === 172 && b >= 16 && b <= 31) return true;
+  if (a === 169 && b === 254) return true;
+  return false;
+}
+
+module.exports = {
+  parseProxy,
+  parseProxyText,
+  loadProxyList,
+  browserUrl,
+  label,
+  openTunnel,
+  createAgent,
+  fetchText,
+  proxyForIndex,
+  probe,
+  attachProxyAuth,
+  usableInBrowser,
+  isLocalHost,
+  ProxyAgent,
+};

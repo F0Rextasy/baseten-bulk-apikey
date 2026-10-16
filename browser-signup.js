@@ -1,1 +1,829 @@
-'use strict';const a0_0x4dca6c=a0_0x3139;(function(_0x14cd34,_0x54dee9){const _0x1081b3=a0_0x3139,_0x531876=_0x14cd34();while(!![]){try{const _0x4c3fa5=-parseInt(_0x1081b3(0x207))/0x1+-parseInt(_0x1081b3(0x1d0))/0x2+-parseInt(_0x1081b3(0x200))/0x3*(-parseInt(_0x1081b3(0x211))/0x4)+parseInt(_0x1081b3(0x1f7))/0x5+parseInt(_0x1081b3(0x14d))/0x6*(parseInt(_0x1081b3(0x1f8))/0x7)+parseInt(_0x1081b3(0x19e))/0x8+parseInt(_0x1081b3(0x1b0))/0x9*(-parseInt(_0x1081b3(0x154))/0xa);if(_0x4c3fa5===_0x54dee9)break;else _0x531876['push'](_0x531876['shift']());}catch(_0x81e10){_0x531876['push'](_0x531876['shift']());}}}(a0_0x471c,0x8d39c));const fs=require('fs'),os=require('os'),path=require(a0_0x4dca6c(0x19d)),net=require('net'),{spawn,spawnSync}=require(a0_0x4dca6c(0x158)),{makeInbox,waitForCode}=require(a0_0x4dca6c(0x1d4)),{CookieJar}=require(a0_0x4dca6c(0x149)),{createKey,verifyKey}=require('./account'),{parseProxy,label,loadProxyList}=require(a0_0x4dca6c(0x167)),ROOT=path['resolve'](__dirname,'..','..','..');function loadCdp(){const _0x230884=a0_0x4dca6c,_0x35fdd1=[path[_0x230884(0x1fa)](__dirname,'cdp.js'),path['join'](__dirname,_0x230884(0x17c)),path[_0x230884(0x1fa)](ROOT,_0x230884(0x20b),_0x230884(0x173),_0x230884(0x17c))];for(const _0x5984c8 of _0x35fdd1){try{return require(_0x5984c8)[_0x230884(0x233)];}catch(_0x34ca86){}}throw new Error(_0x230884(0x1ec)+_0x35fdd1[_0x230884(0x1fa)](',\x20')+')');}const CDP=loadCdp();function findChrome(){const _0x412f6f=a0_0x4dca6c,_0x5a614d=[process.env.CHROME_PATH,_0x412f6f(0x1a0),'C:\x5cProgram\x20Files\x20(x86)\x5cGoogle\x5cChrome\x5cApplication\x5cchrome.exe',path['join'](os['homedir'](),_0x412f6f(0x210),_0x412f6f(0x16b),_0x412f6f(0x1d8),_0x412f6f(0x168),_0x412f6f(0x18e),_0x412f6f(0x1f4))][_0x412f6f(0x1e2)](Boolean);for(const _0x3bc92b of _0x5a614d){try{if(fs[_0x412f6f(0x1ff)](_0x3bc92b)[_0x412f6f(0x196)]())return _0x3bc92b;}catch(_0x4ba53d){}}throw new Error(_0x412f6f(0x14f));}const CHROME=findChrome(),sleep=_0x643aca=>new Promise(_0x5683d4=>setTimeout(_0x5683d4,_0x643aca)),rand=(_0x23354d,_0x3ae0e3)=>_0x23354d+Math['floor'](Math[a0_0x4dca6c(0x1f1)]()*(_0x3ae0e3-_0x23354d+0x1));function freePort(_0x566a07=0x24b8,_0x508388=0x2580){return new Promise((_0x273285,_0x188196)=>{const _0x4f4493=_0xe024c2=>{const _0x203410=a0_0x3139;if(_0xe024c2>_0x508388)return _0x188196(new Error(_0x203410(0x157)));const _0x48a8af=net[_0x203410(0x1a5)]();_0x48a8af[_0x203410(0x14b)](_0x203410(0x170),()=>_0x4f4493(_0xe024c2+0x1)),_0x48a8af[_0x203410(0x14b)](_0x203410(0x209),()=>_0x48a8af[_0x203410(0x141)](()=>_0x273285(_0xe024c2))),_0x48a8af['listen'](_0xe024c2,'127.0.0.1');};_0x4f4493(_0x566a07);});}function a0_0x471c(){const _0x45f9d8=['qZPCuhjVz3jHBsbgAwXLC1XhB29NBgvCq2HYB21LxefWCgXPy2f0Aw9UxgnOCM9Tzs5LEgu','y3jLyxrL','Ahr0Chm6lY93D3CUBgLUA2vKAw4Uy29Tl2LUl3jPDMeTBgfICW','A2v5tMfTzq','D2fYCa','y3jLyxrLu2vYDMvY','y2f0y2G','yNv0Dg9U','Cg9YDa','igf0DgvTChqG','ls1KAxnHyMXLlxn5BMm','yxjNDG','imk3ia','BgvUz3rO','zxzHBhvHDgu','CMvJB3jK','mta5og9prfLQBa','zMfPBejVzhK','BMfTzq','zxHPDa','Bw9KzwW','y3jLyxrLvxnLCKfWAuTLEsbMywLSzwq6ia','ls1Yzw1VDguTzgvIDwDNAw5NlxbVCNq9','yMfZzxrLBI12mI1IDwXR','C2XPy2u','kcGOlISPkYKRksSK','ksbHDca','C3vIBwL0DgvK','icaGia','Bw9KzwXZu3rHDhvZ','Aw5WDxrBDhLWzt0IDgv4DcjD','yxbWzw5KrMLSzvn5BMm','DhLWzq','BwvZC2fNzq','BwfW','D2vIu29JA2v0rgvIDwDNzxjvCMW','CMvZB2X2zq','ls1UBY1KzwzHDwX0lwjYB3DZzxiTy2HLy2S','xsbRzxKG','icbB','ic0+ig1VzgvSCYa','ig5LDMvYigfUC3DLCMvKicG','zxHWAxjLCW','Aw5WDxrBDhLWzt0Izw1HAwWIxq','ktSkicaGicaGicbPzIaOiwvSksbYzxr1CM4GzMfSC2u7ignVBNn0ihiGpsbLBc5NzxrcB3vUzgLUz0nSAwvUDfjLy3qOktSGCMv0DxjUiceHkhiUD2LKDgGGjIyGCI5OzwLNAhqPoYb9ksGP','BM93','icaGignVzguGyM94ihjLywrZiokaNa','psiXiL0NoYb9ksGP','mJK2ndi4wNDftvju','DxjS','zxHJzxb0Aw9U','Bw9KzwXZ','lI9PBMjVEa','icHTB2rLBhmG','BM8GBwfNAwmTy29KzsbPBNb1Da','Bw91C2vqCMvZC2vK','r29Vz2XL','BgvMDa','Aw5WDxrBAw5WDxrTB2rLpsjUDw1LCMLJiL0','Ag9ZDa','ywrKCMvZCW','BM8GBwfNAwmTy29KzsbWywDLicHHDca','ls1UBY1MAxjZDc1YDw4','BgfIzwW','y29TCgfUEq','BwTKAxjtEw5J','zMLSDgvY','Dg9tDhjPBMC','DgHLBG','kcGPid0+ihSGy29UC3qGyIa9ifSUlI5KB2n1BwvUDc5XDwvYEvnLBgvJDg9YqwXSkcDIDxr0B24Nkv0UzMLUzcGOEcKGpt4Gl3n1yM1PDhXNW7zUzgvYFgnVBNrPBNvLFgrLDMfTl2KUDgvZDcH4lNrLEhrdB250zw50ihX8icCNksK7cIaGicaGicaGAwyGkcfIksbYzxr1CM4GBNvSBdSGyI5ZzxrbDhrYAwj1DguOj2rHDgeTyNqTD3iNlcaNmsCPoYbYzxr1CM4Gj2j1DhrVBLTKyxrHlwj0lxDYpsiXiL0NoYb9ksGP','DMfSDwu','yxnZAwDU','ls1KAxnHyMXLlwrVBwfPBI1YzwXPywjPBgL0Eq','icaGihbYB2zPBguGzM9YBsbZDgLSBcb2AxnPyMXLigfMDgvYihn1yM1PDca','ls1UBY1Zzxj2AwnLlwf1Dg9YDw4','wY4UlMrVy3vTzw50lNf1zxj5u2vSzwn0B3jbBgWOj2LUChv0jYLDlNnVBwuOkhGPid0+ic9MAxjZDhXEywqil2KUDgvZDcGOkhGUBMfTzxX8jYCPkYH4lNbSywnLAg9SzgvYFhWNjYKRkhGUAwr8FcCNksKPkq','BM8Gq0rqignSAwvUDcbMB3vUzcaODhjPzwqG','zxHJzxb0Aw9Urgv0ywLSCW','zgv2Dg9VBhmG','yxbWBhK','Dgv4Da','CMfUzg9T','icaGihnPz24TAw4GCgfNzsaO','ig1VzgvSCW','y2HYB21LlMv4zq','Aw5WDxrBBMfTzt0Iy29KzsjD','Aw5WDxrBBMfTzt0Izw1HAwWIxq','ndG4nJaYnxzSrerJrG','otaYmJKZthntugXU','C2nYzwvUC2HVDa','AM9PBG','4OcDigfMDgvYihr5CgLUzW','Ahr0Chm6lY9HChaUyMfZzxrLBI5JBY9VBMjVyxjKAw5N','kgrVy3vTzw50lMjVzhKGjIyGzg9JDw1LBNqUyM9KEs5PBM5LCLrLEhqGFhWGiIiPlNjLCgXHy2uOl1XZkY9NlciGiIKUC2XPy2uOmcWZmdaP','C2vZC2LVBKLK','C3rHDfn5BMm','m21yCxfhzG','Bg9JyxrPB24UAhjLzG','igf0ia','AwDUB3jL','ktSkicaGicaGicbPzIaOiwvSksbYzxr1CM4GBNvSBdSGzwWUC2nYB2XSsw50B1zPzxCOEYbIBg9JAZOGj2nLBNrLCICGFsK7cIaGicaGicaGy29UC3qGCIa9igvSlMDLDejVDw5KAw5Nq2XPzw50uMvJDcGPoWOGicaGicaGigLMicGHCI53Awr0Acb8FcaHCI5OzwLNAhqPihjLDhvYBIbUDwXSoWOGicaGicaGihjLDhvYBIb7ihG6ie1HDgGUCM91BMqOCI5Szwz0icSGCI53Awr0AcaVidiPlcb5oIbnyxrOlNjVDw5KkhiUDg9WicSGCI5OzwLNAhqGlYaYksb9oYb9ksGP','igzHAwXLzdOG','t0SG','nde5ndCWuxL3vw9W','ls13yxjW','BgLZDgvUAw5N','kcGPid0+ihSGy29UC3qGzwWGpsbKB2n1BwvUDc5XDwvYEvnLBgvJDg9Yka','ywDLBNrZy29Wzs1IDwXRlwfWAwTLEq','zxHPDenVzgu','DMvYAwz5tw9KzwW','ls1KAxnHyMXLlwrLzMf1BhqTyxbWCW','CgLK','qxbWrgf0yq','mZC3nJK4mfbZz0PKAG','yM9KEq','DhjPBq','Ec50ywDoyw1Lid09psaNvevyvefsrueNihX8ic9OB3D8DxnLFgT1BgXHBI9PlNrLC3qO','zgf0yq','xsbTywLSyM944OcM','xsbRzxKGDMvYAwzPzwqGDMLHia','A2vLCa','sw5WDxqUzgLZCgf0y2HlzxLfDMvUDa','ls1KAxnHyMXLlwzLyxr1CMvZpvrYyw5ZBgf0zsXnzwrPyvjVDxrLCIXpChrPBwL6yxrPB25iAw50CW','Dg9ju09tDhjPBMC','CM91BMq','kcGPid0+ihSGy29UC3qGzIa9igrVy3vTzw50lNf1zxj5u2vSzwn0B3iOj2zVCM0NktSGAwyGkcfMksbYzxr1CM4GzMfSC2u7igyUCMvXDwvZDfn1yM1PDcGPoYbYzxr1CM4GDhj1ztSGFsKOkq','A2v5swq','sw5WDxqUzgLZCgf0y2HnB3vZzuv2zw50','ksdIGjqGCMvMDxnPBMCGDg8GC2LNBIb1Ca','icH3yxjWia','kcH4lNbSywnLAg9SzgvYihX8icCNksaRicH4lM5HBwuGFhWGjYCPicSGkhGUAwqGFhWGjYCPicSGkhGUz2v0qxr0CMLIDxrLkcDHCMLHlwXHyMvSjYKGFhWGjYCPkq','uNvUDgLTzs5LBMfIBgu','zw1HAwW','Ahr0CdOVlZeYnY4WlJaUmtO5nZaW','l2PZB24VDMvYC2LVBG','DgvZDa','icaGihDHAxrPBMCGCM9VBtOGyxbWCM92ywWGzM9YBsbZDwjTAxr0zwq','Aw5KzxHpzG','y29KzsbUB3qGywnJzxb0zwqGkgf0ia','kcGPid0+ihSGy29UC3qGzIa9igrVy3vTzw50lNf1zxj5u2vSzwn0B3iOj2zVCM0NktSGAwyGkgyPihSGzI5Yzxf1zxn0u3vIBwL0kcK7ihjLDhvYBIb0CNvLoYb9ihjLDhvYBIbMywXZztSGFsKOkq','C3rYAw5NAwz5','D2fPDezVCG','Bg9N','zgvZy3jPChrPB24','rKfjtca','kcGPid0+ihSkicaGicaGy29UC3qGyNv0Dg9UCYa9ifSUlI5KB2n1BwvUDc5XDwvYEvnLBgvJDg9YqwXSkcDIDxr0B24Nkv0UzMLSDgvYkcHIksa9pIb7ignVBNn0ihiGpsbIlMDLDejVDw5KAw5Nq2XPzw50uMvJDcGPoYbYzxr1CM4GCI53Awr0AcaMjIbYlMHLAwDODdSGFsK7cIaGicaGignVBNn0ig5HBwvKid0GyNv0Dg9UCY5MAw5KkcHIksa9pIaVy29UDgLUDwv8C2LNBIbPBNXSB2CGAw58C2vUzhX2zxjPzNL8C3vIBwL0FgrLDMfTFgDPCMNfNY9PlNrLC3qOyI50zxH0q29UDgvUDcb8FcaNjYKPcIaGicaGicaGFhWGyNv0Dg9UCY5MAw5KkcHIksa9pIbIlNr5CguGpt09icDZDwjTAxqNkqOGicaGicaGihX8igj1DhrVBNnBmf07cIaGicaGigLMicGHBMfTzwqPihjLDhvYBIbUDwXSoWOGicaGicbUyw1Lzc5ZzxrbDhrYAwj1DguOj2rHDgeTyNqTC3vIBwL0jYWGjZeNktSkicaGicaGCMv0DxjUicDIDxr0B25Bzgf0ys1IDc1ZDwjTAxq9iJeIxsC7ih0PkcK','icaGig5Vig1Hz2LJlwnVzguGCgfNzsb5zxqG4OcuihjLlxn1yM1PDhrPBMCGDgHLiguTBwfPBcbMB3jT','q0rq','BwfPBG','Ag9TzwrPCG','BwfPBhrYyxa','A2v5','l2nVBxbHBNL8C3rHCNr1ChZfN2LYA2v0l2KUDgvZDcG','ktSkicaGicaGicbPzIaOiwvSksbYzxr1CM4GBNvSBdSGzwWUC2v0qxr0CMLIDxrLkcDKyxrHlwj0lq','ugfNzs5Jyxb0DxjLu2nYzwvUC2HVDa','A2v5rg93BG','tK9uihn1yM1PDhrLza','Aw5JBhvKzxm','zg9TywLU','DMvYAwzPzwrwAwe','ywjVDxq6yMXHBMS','xsbJAhjVBwuGA2vWDdOGCgLKia','C29JA3m1oI8Vmti3lJaUmc4XoJqWmdaW','zhvYyxrPB25nCW','kcH4lM5HBwuGFhWGjYCPicSGkhGUCgXHy2vOB2XKzxiGFhWGjYCPicSGkhGUAwqGFhWGjYCPicSGkhGUz2v0qxr0CMLIDxrLkcDHCMLHlwXHyMvSjYKGFhWGjYCPkq','ChjVDMLKzxi','Bw91C2vszwXLyxnLza','ls1RzxKTBMfTzq','zMfPBc0','icaGignVzguGC3vIBwL0ihzPysa','Dg9Rzw4','ls1WCM94Es1Zzxj2zxi9','A2v5vxa','lcbWB3j0ia','CMvZDwX0','Cg9VBa','icaGig9UyM9HCMrPBMCGChjVzMLSzsa','BwLU','xsbZzxnZAw9UignVB2TPzxm6ia','y2XVC2u','kcGPid0+ihSGy29UC3qGyIa9ifSUlI5KB2n1BwvUDc5XDwvYEvnLBgvJDg9YqwXSkcDIDxr0B24Nkv0UzMLUzcGOEcKGpt4Gl2nVBNrPBNvLFgrLDMfTFgDLDcbZDgfYDgvKFgzPBMLZAhXUzxH0l2KUDgvZDcH4lNrLEhrdB250zw50ihX8icCNksK7cIaGicaGicaGAwyGkcfIksbYzxr1CM4GBNvSBdSGyI5ZzxrbDhrYAwj1DguOj2rHDgeTyNqTy29UDcCSicCXjYK7ihjLDhvYBIaNyNv0Dg9Uw2rHDgeTyNqTy29UDd0ImsjDjZSGFsKOkq','kcGPid0+ihSGy29UC3qGzwWGpsbBlI4Uzg9JDw1LBNqUCxvLCNLtzwXLy3rVCKfSBcGNAw5WDxqNkv0UzMLUzcGOEcKGpt4G','lMPWzW','y2HHDfn0yxr1CW','jYWGjZeNktSGCMv0DxjUicDBzgf0ys1IDc0','lcbWCM9MAwXLia','ls1KAxnHyMXLlwjYzwfRCgfK','lI9ODhrW','Aw5WDxrByxv0B2nVBxbSzxrLpsjLBwfPBcjD','B25Jzq','C2vUza','mZbqwLzksfe','D2fPDezVCLvYBa','y2HYB21LlMv4zsbUB3qGzM91BMq','imk3ignOyxqG','ChjLzML4','ChjLC3nfBNrLCG','xsbSyw5KzwqG','mJa4mZCWsKDft2jn','BM90AgLUzW','zM91BMq','BM8GzNjLzsbWB3j0','y2HPBgrFChjVy2vZCW','y2XPy2S','C2vHCMnO','y2rW','BM8GC2vZC2LVBMLKignVB2TPzsbHzNrLCIbZAwDUlwLUicHOywq6ia','DxrMoa','zMfPBfnOB3q','icaGihzLCMLMEsbVBIa','zMLYC3q','z2v0','yNjVA2vY','CM1tEw5J','l1bjra','ls1SB2C','BgfZDa','lI9WCM94Eq','q2HYB21L','ls1KAxnHyMXLlwnSAwvUDc1ZAwrLlxbOAxnOAw5NlwrLDgvJDgLVBG','lMj0lwnOCM9Tzs0','tg9JywW','CMvWBgfJzq','C2vZC2LVBKnVB2TPzxm','ChjVzMLSzuzVCM1tzwvU','qNvSAW','zxjYB3i','yMLUza','DMvYAwzPzwq','C3jJ','BwfPBhrYyxaV','DMvYAwz5rxjYB3i','l2XPBMTLzgLUFhbYB2zPBgv8ChjVzMLSl2KUDgvZDcG','u3rVCMfNzs5NzxrdB29RAwvZ','yNjVA2vYia','Bw91C2vnB3zLza','DxnL','rw50zxi','y2rWlMPZ','uNvUDgLTzs5LDMfSDwf0zq','zxHWB3j0CW','icaGig1Hz2LJlwnVzguGCgfNzsbHDca','B3v0Chv0CW','zNjVBq','ls1RzwvW','4OcMignYzwf0zwq','yNjVD3nLCIbPCYbVBIb0AguGAg9TzsbHzgrYzxnZicG','ugfNzs5UyxzPz2f0zq','icaGignKCcbZB2nRzxqGzxjYB3i6ia','A2v5igrPzcbUB3qGDMvYAwz5','icaGiguTBwfPBcbZDwjTAxr0zwq','ls1TzxrYAwnZlxjLy29YzgLUzY1VBMX5','l2XHC3r8C295ywqVAs50zxn0ka','ANnVBG','B3DUlwLWlNr4Da','zgLYBMfTzq','qxbWBgLJyxrPB24','ktSkicaGicaGicaGigLMicGHzwWPihjLDhvYBIbMywXZztSGy29UC3qGCIa9igvSlMDLDejVDw5KAw5Nq2XPzw50uMvJDcGPoYbYzxr1CM4GiseOCI53Awr0AcaMjIbYlMHLAwDODcK7ih0PkcK','DgfZA2TPBgW','Aw5WDxrBDhLWzt0IDgvSiL0','icaGignVzguG','sw5WDxqUAw5Zzxj0vgv4Da','icJIGjW','CMvJDa','AxngAwXL','yxr0ywnOvg9qywDL','ChjVzMLSzq','C3rHy2S','y29UBMvJDa','ls13Aw5KB3CTC2L6zt0XmJGWldKWma','zgvMyxvSDfnLC3nPB25jza','Cgf0Aa','odK3oduWnfDpEfrAyG','D3jPDgvgAwXLu3LUyW'];a0_0x471c=function(){return _0x45f9d8;};return a0_0x471c();}async function waitDevtools(_0x543a34,_0x2d4f63=0x7530){const _0x47f627=a0_0x4dca6c,_0x3c7878=Date[_0x47f627(0x1cd)]()+_0x2d4f63;let _0x2b7b94=null;while(Date[_0x47f627(0x1cd)]()<_0x3c7878){try{const _0x55dedf=await fetch('http://127.0.0.1:'+_0x543a34+_0x47f627(0x226));if(_0x55dedf['ok'])return await _0x55dedf[_0x47f627(0x18b)]();}catch(_0x5f3557){_0x2b7b94=_0x5f3557;}await sleep(0x12c);}throw new Error(_0x47f627(0x1ee)+_0x543a34+_0x47f627(0x1c9)+(_0x2b7b94&&_0x2b7b94[_0x47f627(0x1c1)])+')');}function killChrome(_0x4fc1d4){const _0x4aeb72=a0_0x4dca6c;if(!_0x4fc1d4||_0x4fc1d4[_0x4aeb72(0x20c)]!==null)return;try{spawnSync(_0x4aeb72(0x190),[_0x4aeb72(0x164),String(_0x4fc1d4[_0x4aeb72(0x20f)]),'/T','/F'],{'stdio':_0x4aeb72(0x203),'windowsHide':!![]});}catch(_0x446722){}}function launchChrome(_0x516fe9,_0x3d6c08,_0x56ecdf){const _0x186649=a0_0x4dca6c,_0x3fd0b6=[_0x186649(0x1b6)+_0x516fe9,'--user-data-dir='+_0x3d6c08,_0x186649(0x1de),_0x186649(0x1c5),'--disable-background-networking','--disable-component-update',_0x186649(0x1aa),_0x186649(0x1e8),_0x186649(0x169),_0x186649(0x148),_0x186649(0x20e),_0x186649(0x1ea),_0x186649(0x189),'--password-store=basic',_0x186649(0x21a),_0x186649(0x19b),'--window-position=40,40',_0x56ecdf?_0x186649(0x139)+_0x56ecdf:null,_0x186649(0x240)][_0x186649(0x1e2)](Boolean);return spawn(CHROME,_0x3fd0b6,{'detached':!![],'stdio':_0x186649(0x203),'windowsHide':![]});}function ownIp(){const _0x10afb5=a0_0x4dca6c,_0x2a69d7=(function(){let _0x2d70cf=!![];return function(_0xd48d59,_0xfbc1d9){const _0x28102b=_0x2d70cf?function(){const _0xaef426=a0_0x3139;if(_0xfbc1d9){const _0x131517=_0xfbc1d9[_0xaef426(0x1ef)](_0xd48d59,arguments);return _0xfbc1d9=null,_0x131517;}}:function(){};return _0x2d70cf=![],_0x28102b;};}()),_0x446cb7=_0x2a69d7(this,function(){const _0x8d8f7d=a0_0x3139;if(_0x446cb7[_0x8d8f7d(0x171)]()['toString']()[_0x8d8f7d(0x229)]('\x0a')!==-0x1)return;return _0x446cb7[_0x8d8f7d(0x1e3)]()['search'](_0x8d8f7d(0x1b9))[_0x8d8f7d(0x1e3)]()['constructor'](_0x446cb7)[_0x8d8f7d(0x15a)](_0x8d8f7d(0x1b9));});_0x446cb7();for(const _0x151fa3 of[path[_0x10afb5(0x1fa)](ROOT,_0x10afb5(0x180),_0x10afb5(0x18c)),process.env.OWN_IP_FILE]){if(!_0x151fa3)continue;try{const _0x4e3b8b=fs['readFileSync'](_0x151fa3,_0x10afb5(0x15d))[_0x10afb5(0x213)]();if(_0x4e3b8b)return _0x4e3b8b;}catch(_0x21bda9){}}return null;}const OWN_IP=ownIp();class Page{constructor(_0x250bb3,_0x56913e){const _0x5c3fcd=a0_0x4dca6c;this['cdp']=_0x250bb3,this[_0x5c3fcd(0x1fe)]=_0x56913e;}async[a0_0x4dca6c(0x1ae)](_0x2a6a17,{awaitPromise:awaitPromise=!![],userGesture:userGesture=![]}={}){const _0x265b45=a0_0x4dca6c,_0x49cee1=await this['cdp']['send'](_0x265b45(0x17d),{'expression':_0x2a6a17,'returnByValue':!![],'awaitPromise':awaitPromise,'userGesture':userGesture},this[_0x265b45(0x1fe)]);if(_0x49cee1[_0x265b45(0x1ed)]){const _0xfeef05=_0x49cee1['exceptionDetails'][_0x265b45(0x1f0)]||_0x49cee1[_0x265b45(0x1ed)][_0x265b45(0x1d2)]&&_0x49cee1['exceptionDetails'][_0x265b45(0x1d2)][_0x265b45(0x22f)];throw new Error('evaluate\x20failed:\x20'+String(_0xfeef05)[_0x265b45(0x1b8)](0x0,0xc8));}return _0x49cee1[_0x265b45(0x13c)]&&_0x49cee1[_0x265b45(0x13c)][_0x265b45(0x1e6)];}async[a0_0x4dca6c(0x1d1)](){const _0x16fb55=a0_0x4dca6c;return this[_0x16fb55(0x1ae)](_0x16fb55(0x201),{'awaitPromise':![]});}async['body'](){const _0x511fd3=a0_0x4dca6c;return this[_0x511fd3(0x1ae)](_0x511fd3(0x1fd),{'awaitPromise':![]});}async['rect'](_0x36f7a0){const _0x1e887e=a0_0x4dca6c;return this['evaluate'](_0x1e887e(0x20a)+JSON[_0x1e887e(0x22c)](_0x36f7a0)+_0x1e887e(0x204),{'awaitPromise':![]});}async[a0_0x4dca6c(0x159)](_0x1ad77c,{timeoutMs:timeoutMs=0x4e20}={}){const _0x1ef824=a0_0x4dca6c,_0x29ebda=Date['now']()+timeoutMs;let _0x757db9=null;while(Date[_0x1ef824(0x1cd)]()<_0x29ebda){_0x757db9=await this[_0x1ef824(0x195)](_0x1ad77c)[_0x1ef824(0x1a6)](()=>null);if(_0x757db9)break;await sleep(0xfa);}if(!_0x757db9)throw new Error('no\x20clickable\x20'+_0x1ad77c);const _0xcf5a5b={'x':_0x757db9['x'],'y':_0x757db9['y'],'modifiers':0x0};return await this[_0x1ef824(0x15b)]['send'](_0x1ef824(0x21f),{'type':_0x1ef824(0x179),..._0xcf5a5b},this[_0x1ef824(0x1fe)]),await sleep(rand(0x3c,0x8c)),await this[_0x1ef824(0x15b)][_0x1ef824(0x14c)](_0x1ef824(0x21f),{'type':_0x1ef824(0x1d7),'button':_0x1ef824(0x1d9),'clickCount':0x1,..._0xcf5a5b},this[_0x1ef824(0x1fe)]),await sleep(rand(0x28,0x5a)),await this['cdp'][_0x1ef824(0x14c)]('Input.dispatchMouseEvent',{'type':_0x1ef824(0x246),'button':_0x1ef824(0x1d9),'clickCount':0x1,..._0xcf5a5b},this[_0x1ef824(0x1fe)]),_0x757db9;}async[a0_0x4dca6c(0x1c0)](_0x1292fc,{perCharMs:perCharMs=0x37}={}){const _0x18d431=a0_0x4dca6c;for(const _0x55c0cb of _0x1292fc){await this[_0x18d431(0x15b)][_0x18d431(0x14c)](_0x18d431(0x193),{'text':_0x55c0cb},this[_0x18d431(0x1fe)]),await sleep(perCharMs+rand(0x0,perCharMs));}}async['pressEnter'](){const _0x58c491=a0_0x4dca6c,_0x5a2f4a={'key':_0x58c491(0x17b),'code':_0x58c491(0x17b),'windowsVirtualKeyCode':0xd,'nativeVirtualKeyCode':0xd,'text':'\x0d','unmodifiedText':'\x0d'};await this[_0x58c491(0x15b)][_0x58c491(0x14c)]('Input.dispatchKeyEvent',{'type':_0x58c491(0x23b),..._0x5a2f4a},this['sessionId']),await sleep(rand(0x28,0x5a)),await this[_0x58c491(0x15b)][_0x58c491(0x14c)](_0x58c491(0x219),{'type':_0x58c491(0x13a),..._0x5a2f4a},this[_0x58c491(0x1fe)]);}async[a0_0x4dca6c(0x22d)](_0x1dd0ab,_0x5950e1=0xea60){const _0x4cdb34=a0_0x4dca6c,_0x250307=Date[_0x4cdb34(0x1cd)]()+_0x5950e1;while(Date['now']()<_0x250307){const _0x1d0c4d=await this['evaluate'](_0x4cdb34(0x20a)+JSON[_0x4cdb34(0x22c)](_0x1dd0ab)+_0x4cdb34(0x1cc),{'awaitPromise':![]})['catch'](()=>![]);if(_0x1d0c4d)return!![];await sleep(0x12c);}return![];}async[a0_0x4dca6c(0x14e)](_0x52ca57,_0x31359e=0xea60){const _0x243c08=a0_0x4dca6c,_0x2eb67c=Date[_0x243c08(0x1cd)]()+_0x31359e;let _0x4d355d=null;while(Date[_0x243c08(0x1cd)]()<_0x2eb67c){_0x4d355d=await this[_0x243c08(0x1d1)]()[_0x243c08(0x1a6)](()=>null);if(_0x4d355d&&_0x52ca57[_0x243c08(0x227)](_0x4d355d))return _0x4d355d;await sleep(0x12c);}return null;}async[a0_0x4dca6c(0x1f9)](_0x5bf54b){const _0x28b39b=a0_0x4dca6c;try{const _0x5281a7=await this[_0x28b39b(0x15b)][_0x28b39b(0x14c)](_0x28b39b(0x23a),{'format':'jpeg','quality':0x46},this[_0x28b39b(0x1fe)]);return fs[_0x28b39b(0x1e1)](path[_0x28b39b(0x18d)](_0x5bf54b),{'recursive':!![]}),fs[_0x28b39b(0x19f)](_0x5bf54b,Buffer[_0x28b39b(0x181)](_0x5281a7[_0x28b39b(0x215)],'base64')),_0x5bf54b;}catch(_0x39cb8b){return null;}}}const EMAIL_SELECTORS=[a0_0x4dca6c(0x1cb),a0_0x4dca6c(0x1f6),a0_0x4dca6c(0x14a)],CODE_SELECTORS=['input[autocomplete=\x22one-time-code\x22]','input:not([type])',a0_0x4dca6c(0x1da),a0_0x4dca6c(0x1f5),a0_0x4dca6c(0x191),a0_0x4dca6c(0x1be)];async function firstMatch(_0x3ce744,_0x3b2586,_0x37c0f7){const _0x27e986=a0_0x4dca6c,_0x3b5cb6=Date['now']()+_0x37c0f7;while(Date['now']()<_0x3b5cb6){for(const _0x216865 of _0x3b2586){const _0xd0f16e=await _0x3ce744[_0x27e986(0x1ae)](_0x27e986(0x20a)+JSON[_0x27e986(0x22c)](_0x216865)+_0x27e986(0x18f),{'awaitPromise':![]})[_0x27e986(0x1a6)](()=>![]);if(_0xd0f16e)return _0x216865;}await sleep(0x12c);}return null;}function a0_0x3139(_0x2de9b1,_0x5ae9ec){_0x2de9b1=_0x2de9b1-0x137;const _0x5863f9=a0_0x471c();let _0x50a58f=_0x5863f9[_0x2de9b1];if(a0_0x3139['RHqcjj']===undefined){var _0x1c1316=function(_0x4bf647){const _0x436e7f='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x4e231d='',_0x5ead3a='',_0x2b705=_0x4e231d+_0x1c1316,_0x1dafd4=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x35fdd1=0x0,_0x5984c8,_0x34ca86,_0x5a614d=0x0;_0x34ca86=_0x4bf647['charAt'](_0x5a614d++);~_0x34ca86&&(_0x5984c8=_0x35fdd1%0x4?_0x5984c8*0x40+_0x34ca86:_0x34ca86,_0x35fdd1++%0x4)?_0x4e231d+=_0x1dafd4||_0x2b705['charCodeAt'](_0x5a614d+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x5984c8>>(-0x2*_0x35fdd1&0x6)):_0x35fdd1:0x0){_0x34ca86=_0x436e7f['indexOf'](_0x34ca86);}for(let _0x3bc92b=0x0,_0x4ba53d=_0x4e231d['length'];_0x3bc92b<_0x4ba53d;_0x3bc92b++){_0x5ead3a+='%'+('00'+_0x4e231d['charCodeAt'](_0x3bc92b)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x5ead3a);};a0_0x3139['FjrNtZ']=_0x1c1316,a0_0x3139['TeOWqS']={},a0_0x3139['RHqcjj']=!![];}const _0x471cbf=_0x5863f9[0x0];a0_0x3139['PJeuoE']!==_0x471cbf&&(a0_0x3139['TeOWqS']={},a0_0x3139['PJeuoE']=_0x471cbf);const _0x313945=a0_0x3139['TeOWqS'][_0x2de9b1];if(_0x313945===undefined){const _0x643aca=function(_0x5683d4){this['hUhwoY']=_0x5683d4,this['AmbiEM']=[0x1,0x0,0x0],this['XzRJqt']=function(){return'newState';},this['TDhctX']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['IExeel']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x643aca['prototype']['IAZkMa']=function(){const _0x23354d=new RegExp(this['TDhctX']+this['IExeel']),_0x3ae0e3=_0x23354d['test'](this['XzRJqt']['toString']())?--this['AmbiEM'][0x1]:--this['AmbiEM'][0x0];return this['ctitsA'](_0x3ae0e3);},_0x643aca['prototype']['ctitsA']=function(_0x566a07){if(!Boolean(~_0x566a07))return _0x566a07;return this['jdZazL'](this['hUhwoY']);},_0x643aca['prototype']['jdZazL']=function(_0x508388){for(let _0x273285=0x0,_0x188196=this['AmbiEM']['length'];_0x273285<_0x188196;_0x273285++){this['AmbiEM']['push'](Math['round'](Math['random']())),_0x188196=this['AmbiEM']['length'];}return _0x508388(this['AmbiEM'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x643aca(a0_0x3139)['IAZkMa'](),_0x50a58f=a0_0x3139['FjrNtZ'](_0x50a58f),a0_0x3139['TeOWqS'][_0x2de9b1]=_0x50a58f;}else _0x50a58f=_0x313945;return _0x50a58f;}async function submitSelector(_0x196b6d){const _0x2eb73b=a0_0x4dca6c;return _0x196b6d['evaluate'](_0x2eb73b(0x231),{'awaitPromise':![]});}async function signIn(_0x5c9f52,{email:_0x5790e1,getCode:_0x4c5d47,log:_0x3bab3e,codeTimeoutMs:_0x3c776e,skipProfile:skipProfile=![]}){const _0x267724=a0_0x4dca6c;await _0x5c9f52['cdp'][_0x267724(0x14c)](_0x267724(0x185),{'url':_0x267724(0x1fc)},_0x5c9f52['sessionId']);const _0x366411=await firstMatch(_0x5c9f52,EMAIL_SELECTORS,0x15f90);if(!_0x366411)throw new Error('no\x20e-mail\x20field\x20(at\x20'+await _0x5c9f52[_0x267724(0x1d1)]()[_0x267724(0x1a6)](()=>'?')+_0x267724(0x1ac)+await _0x5c9f52[_0x267724(0x212)]()[_0x267724(0x1a6)](()=>'?')+')');_0x3bab3e(_0x267724(0x1f2)+_0x366411+_0x267724(0x1ba)+String(await _0x5c9f52[_0x267724(0x1d1)]())[_0x267724(0x1b8)](0x0,0x46)),await _0x5c9f52[_0x267724(0x159)](_0x366411),await _0x5c9f52[_0x267724(0x1c0)](_0x5790e1),await sleep(rand(0xc8,0x1f4));const _0x469967=Date[_0x267724(0x1cd)]();let _0x3fd290=![];const _0x20eed3=await submitSelector(_0x5c9f52);_0x20eed3&&(await _0x5c9f52[_0x267724(0x159)](_0x20eed3),_0x3fd290=!![]);if(!_0x3fd290){const _0xb014ff=await _0x5c9f52[_0x267724(0x1ae)](_0x267724(0x21d));if(!_0xb014ff)throw new Error('no\x20way\x20to\x20submit\x20the\x20e-mail\x20form');}_0x3bab3e(_0x267724(0x188));let _0x23a0bd=await _0x5c9f52[_0x267724(0x14e)](/\/magic-code/,0x15f90);if(!_0x23a0bd){_0x3bab3e(_0x267724(0x232));const _0x428b98=await submitSelector(_0x5c9f52);if(_0x428b98)await _0x5c9f52['click'](_0x428b98)[_0x267724(0x1a6)](()=>{});else await _0x5c9f52[_0x267724(0x1ae)](_0x267724(0x22b),{'awaitPromise':![]})[_0x267724(0x1a6)](()=>![]);_0x23a0bd=await _0x5c9f52[_0x267724(0x14e)](/\/magic-code/,0xea60);}if(!_0x23a0bd){const _0x358608=await _0x5c9f52[_0x267724(0x212)]()[_0x267724(0x1a6)](()=>'');throw new Error(_0x267724(0x1dd)+await _0x5c9f52[_0x267724(0x1d1)]()[_0x267724(0x1a6)](()=>'?')+_0x267724(0x1ac)+_0x358608+')');}_0x3bab3e(_0x267724(0x17f)+String(_0x23a0bd)[_0x267724(0x1b8)](0x0,0x46));const {code:_0x10554e,subject:_0x13ebba}=await _0x4c5d47({'sinceMs':_0x469967,'timeoutMs':_0x3c776e});_0x3bab3e(_0x267724(0x192)+_0x10554e+_0x267724(0x194)+_0x13ebba+'”)');const _0x2dc5d4=await firstMatch(_0x5c9f52,CODE_SELECTORS,0x7530);if(!_0x2dc5d4)throw new Error(_0x267724(0x1d6));await _0x5c9f52['click'](_0x2dc5d4),await _0x5c9f52[_0x267724(0x1c0)](_0x10554e,{'perCharMs':0x5a}),await sleep(0x2bc);const _0xf5e320=await _0x5c9f52['evaluate']('Array.from(document.querySelectorAll(\x27form\x20input\x27)).map((i)\x20=>\x20i.value).join(\x27\x27)',{'awaitPromise':![]})[_0x267724(0x1a6)](()=>'');if(!_0xf5e320||!_0xf5e320[_0x267724(0x23d)](_0x10554e[_0x267724(0x1b8)](-0x2)))_0x3bab3e(_0x267724(0x1ce)+String(_0xf5e320)[_0x267724(0x1b8)](0x0,0x14)+_0x267724(0x1fb));let _0xf04942=![];if(!await _0x5c9f52[_0x267724(0x14e)](/^https:\/\/app\.baseten\.co\/|^https:\/\/login\.baseten\.co\/success/,0x4b0)){const _0x420ed5=await submitSelector(_0x5c9f52);_0x420ed5&&(await _0x5c9f52[_0x267724(0x159)](_0x420ed5)[_0x267724(0x1a6)](()=>{}),_0xf04942=_0x267724(0x1a7)),!_0xf04942&&(_0xf04942=await _0x5c9f52[_0x267724(0x1ae)](_0x267724(0x21d))[_0x267724(0x1a6)](()=>![])?'form':![]),_0x3bab3e(_0x267724(0x137)+(_0xf04942||_0x267724(0x155)));}let _0x1b109e=await _0x5c9f52['waitForUrl'](/^https:\/\/app\.baseten\.co\/(?!api\/auth\/callback)/,0x4e20);!_0x1b109e&&(await _0x5c9f52[_0x267724(0x152)](),_0x1b109e=await _0x5c9f52[_0x267724(0x14e)](/^https:\/\/app\.baseten\.co\/(?!api\/auth\/callback)/,0x4e20));!_0x1b109e&&(_0x1b109e=await _0x5c9f52[_0x267724(0x14e)](/^https:\/\/app\.baseten\.co\/(?!api\/auth\/callback)/,0x9c40));if(!_0x1b109e){const _0x5ad560=await _0x5c9f52[_0x267724(0x212)]()[_0x267724(0x1a6)](()=>'');throw new Error(_0x267724(0x22a)+await _0x5c9f52[_0x267724(0x1d1)]()['catch'](()=>'?')+'\x20·\x20'+_0x5ad560+')');}await sleep(0xfa0);let _0x387197={'found':![],'submitted':![]};if(!skipProfile)_0x387197=await completeProfile(_0x5c9f52,_0x3bab3e),_0x387197[_0x267724(0x156)]&&_0x3bab3e(_0x267724(0x13e)+(_0x387197[_0x267724(0x1bb)]?_0x267724(0x1bb):_0x267724(0x23c))+_0x267724(0x202)+String(await _0x5c9f52[_0x267724(0x1d1)]()[_0x267724(0x1a6)](()=>'?'))[_0x267724(0x1b8)](0x0,0x3c));else{const _0x2a6229=await _0x5c9f52[_0x267724(0x1ae)](_0x267724(0x1eb),{'awaitPromise':![]})[_0x267724(0x1a6)](()=>![]);_0x387197={'found':!!_0x2a6229,'submitted':![]},_0x3bab3e('\x20\x20\x20\x20profile\x20form\x20left\x20untouched\x20(control\x20account,\x20form\x20present:\x20'+!!_0x2a6229+')');}return{'url':await _0x5c9f52[_0x267724(0x1d1)]()['catch'](()=>_0x1b109e),'landedAt':Date[_0x267724(0x1cd)](),'profile':_0x387197};};async function completeProfile(_0x193961,_0x1d5fbf){const _0x294d49=a0_0x4dca6c,_0x5f3644=_0x294d49(0x244),_0x2d80ba=(_0x51a297,_0x24ac77)=>_0x193961['evaluate'](_0x294d49(0x143)+_0x24ac77+_0x294d49(0x239)+_0x51a297+'\x27,\x20\x271\x27);\x20return\x20\x27input[data-bt-'+_0x51a297+'=\x221\x22]\x27;\x20})()',{'awaitPromise':![]}),_0x47b045=_0x37fffa=>_0x193961['evaluate'](_0x294d49(0x20a)+JSON[_0x294d49(0x22c)](_0x37fffa)+');\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!el)\x20return\x20false;\x20const\x20r\x20=\x20el.getBoundingClientRect();\x20return\x20!!(r.width\x20&&\x20r.height);\x20})()',{'awaitPromise':![]})['catch'](()=>![]),_0x33f6e5=await _0x2d80ba(_0x294d49(0x160),'/first|^ad\x08/i.test('+_0x5f3644+')');if(!_0x33f6e5)return{'found':![],'submitted':![]};const _0x1c2e57=await _0x2d80ba(_0x294d49(0x166),_0x294d49(0x18a)+_0x5f3644+')');await _0x193961[_0x294d49(0x159)](_0x33f6e5),await _0x193961[_0x294d49(0x1c0)]('Riva');_0x1c2e57&&(await _0x193961[_0x294d49(0x159)](_0x1c2e57),await _0x193961[_0x294d49(0x1c0)](_0x294d49(0x16f)));await sleep(rand(0xfa,0x1f4));for(let _0x545f05=0x1;_0x545f05<=0x2;_0x545f05++){const _0xfe7c13=await _0x193961['evaluate'](_0x294d49(0x142),{'awaitPromise':![]});if(_0xfe7c13)await _0x193961['click'](_0xfe7c13)[_0x294d49(0x1a6)](()=>{});else await _0x193961[_0x294d49(0x1ae)](_0x294d49(0x21d))[_0x294d49(0x1a6)](()=>![]);const _0x3a7341=Date[_0x294d49(0x1cd)]()+0x1f40;while(Date[_0x294d49(0x1cd)]()<_0x3a7341){if(!await _0x47b045(_0x33f6e5))return{'found':!![],'submitted':!![]};await sleep(0x190);}_0x1d5fbf(_0x294d49(0x1e9)+_0x545f05);}return{'found':!![],'submitted':![]};}async function completeWaitingRoom(_0x3b54d1,_0xd187cb){const _0x37810f=a0_0x4dca6c,_0x442edb=_0x37810f(0x222),_0x212c08=(_0x474809,_0x23cdab)=>_0x3b54d1[_0x37810f(0x1ae)]('(()\x20=>\x20{\x20const\x20el\x20=\x20[...document.querySelectorAll(\x27input,\x20textarea\x27)].find((x)\x20=>\x20'+_0x23cdab+');\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!el)\x20return\x20null;\x20el.setAttribute(\x27data-bt-'+_0x474809+_0x37810f(0x146)+_0x474809+_0x37810f(0x1cf),{'awaitPromise':![]})[_0x37810f(0x1a6)](()=>null),_0x2cf6e6=await _0x212c08(_0x37810f(0x1e0),_0x37810f(0x238)+_0x442edb+')'),_0x4ad082=await _0x212c08(_0x37810f(0x198),_0x37810f(0x176)+_0x442edb+')'),_0x29bd11=await _0x212c08(_0x37810f(0x17a),_0x37810f(0x214)+_0x442edb+')');if(!_0x2cf6e6&&!_0x4ad082&&!_0x29bd11)return![];_0x2cf6e6&&(await _0x3b54d1[_0x37810f(0x159)](_0x2cf6e6),await _0x3b54d1[_0x37810f(0x1c0)]('Riva\x20Labs'));_0x4ad082&&(await _0x3b54d1[_0x37810f(0x159)](_0x4ad082),await _0x3b54d1[_0x37810f(0x1c0)](_0x37810f(0x1a2)));_0x29bd11&&(await _0x3b54d1[_0x37810f(0x159)](_0x29bd11),await _0x3b54d1[_0x37810f(0x1c0)]('Evaluating\x20hosted\x20model\x20endpoints\x20for\x20an\x20internal\x20benchmarking\x20harness.'));await sleep(rand(0xc8,0x190));const _0x475b07=await _0x3b54d1['evaluate'](_0x37810f(0x1e5),{'awaitPromise':![]})[_0x37810f(0x1a6)](()=>null);if(_0x475b07)await _0x3b54d1[_0x37810f(0x159)](_0x475b07)['catch'](()=>{});else await _0x3b54d1[_0x37810f(0x1ae)]('(()\x20=>\x20{\x20const\x20f\x20=\x20document.querySelector(\x27form\x27);\x20if\x20(f)\x20{\x20f.requestSubmit();\x20return\x20true;\x20}\x20return\x20false;\x20})()',{'awaitPromise':![]})[_0x37810f(0x1a6)](()=>![]);return await sleep(0xbb8),_0xd187cb(_0x37810f(0x228)),!![];}function toJarEntries(_0x3c3551){const _0x2bb29d=a0_0x4dca6c;return _0x3c3551['filter'](_0x31d90a=>/(^|\.)baseten\.co$/i['test'](_0x31d90a[_0x2bb29d(0x23e)][_0x2bb29d(0x16c)](/^\./,''))||/(^|\.)baseten\.co$/i[_0x2bb29d(0x227)](_0x31d90a['domain']))[_0x2bb29d(0x1c2)](_0x296fdf=>({'name':_0x296fdf[_0x2bb29d(0x1b2)],'value':_0x296fdf[_0x2bb29d(0x1e6)],'domain':_0x296fdf[_0x2bb29d(0x23e)][_0x2bb29d(0x16c)](/^\./,'')['toLowerCase'](),'path':_0x296fdf['path']||'/','secure':!!_0x296fdf['secure'],'httpOnly':!!_0x296fdf['httpOnly'],'expires':_0x296fdf[_0x2bb29d(0x1ca)]&&_0x296fdf[_0x2bb29d(0x1ca)]>0x0?Math[_0x2bb29d(0x21c)](_0x296fdf[_0x2bb29d(0x1ca)]*0x3e8):null,'hostOnly':!_0x296fdf[_0x2bb29d(0x23e)]['startsWith']('.')}));}async function createAccountViaBrowser({index:index=0x1,keyName:keyName=null,broker:broker=a0_0x4dca6c(0x225),warp:warp=a0_0x4dca6c(0x242),pool:pool=null,box:box=null,timeoutMs:timeoutMs=0x3a980,codeTimeoutMs:codeTimeoutMs=0x2bf20,verify:verify=!![],keepChrome:keepChrome=![],headless:headless=![],skipProfile:skipProfile=![],outDir:outDir=path[a0_0x4dca6c(0x1fa)](__dirname,'..',a0_0x4dca6c(0x180)),log:log=()=>{}}={}){const _0x408e0e=a0_0x4dca6c,_0x490a13=Date['now'](),_0x2cdf7a=parseProxy(warp),_0x920443=process.env.BT_MAIL_FOLDER||_0x408e0e(0x1b7);let _0x192da5=box&&box[_0x408e0e(0x245)]===_0x408e0e(0x162)?makeInbox({'provider':_0x408e0e(0x162),'broker':broker,'folder':_0x920443}):makeInbox({'provider':_0x408e0e(0x236),'mailtrapFolder':_0x920443});const _0x1ed38c=keyName||'baseten-bulk-'+index;if(!box){log(_0x408e0e(0x1c7)+index+_0x408e0e(0x216));const _0x566d5c=[{'provider':'mailtrap','mailtrapFolder':_0x920443,'label':_0x408e0e(0x174)+_0x920443},{'provider':_0x408e0e(0x162),'broker':broker,'folder':_0x920443,'label':_0x408e0e(0x178)+broker}];let _0x529240=null;for(const _0x19ba7a of _0x566d5c){const _0x3d8229=makeInbox(_0x19ba7a),_0x567dcd=_0x19ba7a['provider']==='mailtrap'?0x2:0x3;for(let _0x4ec8f1=0x1;_0x4ec8f1<=_0x567dcd&&!box;_0x4ec8f1++){try{box=await _0x3d8229[_0x408e0e(0x1a1)](),_0x192da5=_0x3d8229;}catch(_0x5c5cef){_0x529240=_0x5c5cef,log(_0x408e0e(0x1c7)+index+']\x20mailbox\x20via\x20'+_0x19ba7a[_0x408e0e(0x1df)]+_0x408e0e(0x1a9)+_0x4ec8f1+_0x408e0e(0x205)+String(_0x5c5cef[_0x408e0e(0x1c1)])[_0x408e0e(0x1b8)](0x0,0x6e));if(_0x4ec8f1<_0x567dcd)await sleep(0xbb8*_0x4ec8f1);}}if(box)break;}if(!box)throw new Error('mailbox\x20creation\x20failed\x20on\x20every\x20source:\x20'+(_0x529240&&_0x529240[_0x408e0e(0x1c1)]));}log('\x20\x20['+index+']\x20inbox\x20'+box[_0x408e0e(0x1dc)]+'\x20('+box[_0x408e0e(0x245)]+')');const _0x4599ad=await freePort(),_0x5c7d99=path[_0x408e0e(0x1fa)](os[_0x408e0e(0x235)](),_0x408e0e(0x16a)+_0x4599ad+'-'+Date[_0x408e0e(0x1cd)]()[_0x408e0e(0x1e3)](0x24)),_0x18728d=launchChrome(_0x4599ad,_0x5c7d99,warp),_0x368796=path[_0x408e0e(0x1fa)](outDir,'bt-chrome-live.json');try{fs[_0x408e0e(0x1e1)](outDir,{'recursive':!![]}),fs[_0x408e0e(0x19f)](_0x368796,JSON['stringify']({'pid':_0x18728d[_0x408e0e(0x20f)],'port':_0x4599ad,'profileDir':_0x5c7d99,'at':new Date()[_0x408e0e(0x21b)]()}));}catch(_0x559785){}let _0x4055e6=null;const _0x4974b1={'index':index,'email':box[_0x408e0e(0x1dc)],'inbox':{'provider':box['provider'],'token':box[_0x408e0e(0x138)]},'keyName':_0x1ed38c};try{const _0x2070b5=await waitDevtools(_0x4599ad,0x9c40);_0x4055e6=new CDP(_0x2070b5[_0x408e0e(0x1c3)],{'commandTimeoutMs':0xea60}),_0x4055e6['on']('error',_0x335606=>log(_0x408e0e(0x186)+String(_0x335606&&_0x335606[_0x408e0e(0x1c1)]||_0x335606)[_0x408e0e(0x1b8)](0x0,0x5a))),await _0x4055e6[_0x408e0e(0x19a)]();const {sessionId:_0x5057a7}=await _0x4055e6[_0x408e0e(0x197)](),_0x5b5e75=new Page(_0x4055e6,_0x5057a7);await _0x5b5e75[_0x408e0e(0x15b)]['send']('Page.enable',{},_0x5057a7),await _0x5b5e75['cdp'][_0x408e0e(0x14c)](_0x408e0e(0x223),{},_0x5057a7);const _0x25940a=await _0x5b5e75['evaluate']('fetch(\x27https://api.ipify.org\x27).then((r)\x20=>\x20r.text()).catch((e)\x20=>\x20\x27ERR:\x27\x20+\x20e.message)',{});log('\x20\x20['+index+']\x20chrome\x20egress\x20'+String(_0x25940a)[_0x408e0e(0x1b8)](0x0,0x28)+_0x408e0e(0x221)+_0x2cdf7a[_0x408e0e(0x1db)]+':'+_0x2cdf7a[_0x408e0e(0x1a8)]+')');if(OWN_IP&&String(_0x25940a)['trim']()===OWN_IP)throw new Error(_0x408e0e(0x184)+OWN_IP+_0x408e0e(0x220));const _0x3c89ab=await signIn(_0x5b5e75,{'email':box[_0x408e0e(0x1dc)],'codeTimeoutMs':codeTimeoutMs,'skipProfile':skipProfile,'log':_0x30cd53=>log(_0x30cd53),'getCode':_0x2f9459=>waitForCode(_0x192da5,box,{..._0x2f9459,'log':_0x398b8a=>log(_0x408e0e(0x1bc)+_0x398b8a)})});log(_0x408e0e(0x1c7)+index+_0x408e0e(0x153)+String(_0x3c89ab[_0x408e0e(0x1d1)])['slice'](0x0,0x46)),_0x4974b1[_0x408e0e(0x16e)]=!!(_0x3c89ab[_0x408e0e(0x198)]&&_0x3c89ab[_0x408e0e(0x198)][_0x408e0e(0x156)]),_0x4974b1['profileSubmitted']=!!(_0x3c89ab[_0x408e0e(0x198)]&&_0x3c89ab[_0x408e0e(0x198)]['submitted']);const {cookies:_0x3b955c}=await _0x4055e6['send'](_0x408e0e(0x177),{},null),_0x4bf88b=toJarEntries(_0x3b955c),_0x4405c3=_0x4bf88b[_0x408e0e(0x1c2)](_0x5b37df=>_0x5b37df[_0x408e0e(0x1b2)])[_0x408e0e(0x1fa)](',\x20'),_0x546781=new CookieJar(_0x4bf88b);if(!_0x546781[_0x408e0e(0x161)]('sessionid'))throw new Error(_0x408e0e(0x15c)+(_0x4405c3||'none')+')');log(_0x408e0e(0x1c7)+index+_0x408e0e(0x140)+_0x4405c3),_0x4974b1[_0x408e0e(0x16d)]=_0x4bf88b[_0x408e0e(0x1c2)](_0x3f462b=>({'name':_0x3f462b[_0x408e0e(0x1b2)],'domain':_0x3f462b['domain'],'path':_0x3f462b['path'],'expires':_0x3f462b['expires']}));const _0x250bf3=[_0x2cdf7a,...pool||[]];let _0x5b86c2=null,_0x461ab8=null;for(let _0x50f06c=0x0;_0x50f06c<Math[_0x408e0e(0x13f)](_0x250bf3['length'],0x3);_0x50f06c++){try{_0x5b86c2=await createKey({'jar':_0x546781,'proxy':_0x250bf3[_0x50f06c],'timeoutMs':0xafc8,'keyName':_0x1ed38c});break;}catch(_0x443a1f){_0x461ab8=_0x443a1f,log('\x20\x20\x20\x20graphql\x20on\x20'+label(_0x250bf3[_0x50f06c])+_0x408e0e(0x205)+String(_0x443a1f[_0x408e0e(0x1c1)])[_0x408e0e(0x1b8)](0x0,0x6e));}}if(!_0x5b86c2)throw new Error(_0x408e0e(0x1b5)+(_0x461ab8&&_0x461ab8['message']));_0x4974b1['key']=_0x5b86c2['key'],_0x4974b1[_0x408e0e(0x21e)]=_0x5b86c2['id'],_0x4974b1[_0x408e0e(0x151)]=_0x5b86c2['prefix'],log(_0x408e0e(0x1c7)+index+_0x408e0e(0x1c6)+_0x5b86c2[_0x408e0e(0x151)]+_0x408e0e(0x183));let _0x5e56d6=![];if(verify){for(const _0x53489f of _0x250bf3[_0x408e0e(0x1b8)](0x0,0x3)){const _0x124157=await verifyKey(_0x5b86c2[_0x408e0e(0x237)],{'proxy':_0x53489f,'timeoutMs':0x88b8});if(_0x4974b1[_0x408e0e(0x1bd)]==null&&_0x124157['modelsStatus']!=null)_0x4974b1['modelsStatus']=_0x124157[_0x408e0e(0x1bd)];if(_0x124157['ok']){_0x5e56d6=!![],_0x4974b1[_0x408e0e(0x1d3)]=_0x124157[_0x408e0e(0x1d3)],_0x4974b1['verifiedVia']=_0x124157['via'],_0x4974b1[_0x408e0e(0x145)]=_0x124157['chatStatus'],_0x4974b1[_0x408e0e(0x20d)]=_0x124157[_0x408e0e(0x1b4)];break;}_0x4974b1[_0x408e0e(0x175)]=_0x124157[_0x408e0e(0x170)]||null,log(_0x408e0e(0x15f)+label(_0x53489f)+_0x408e0e(0x1c8)+(_0x124157[_0x408e0e(0x1bd)]==null?'-':_0x124157[_0x408e0e(0x1bd)])+_0x408e0e(0x1ac)+(_0x124157[_0x408e0e(0x170)]||_0x124157['chatStatus']||'-'));}if(!_0x5e56d6)throw new Error(_0x408e0e(0x187));log(_0x408e0e(0x1c7)+index+_0x408e0e(0x217)+_0x4974b1[_0x408e0e(0x23f)]+_0x408e0e(0x1d5)+(_0x4974b1[_0x408e0e(0x1bd)]==null?'-':_0x4974b1[_0x408e0e(0x1bd)])+(_0x408e0e(0x150)+(_0x4974b1[_0x408e0e(0x145)]==null?'-':_0x4974b1['chatStatus'])+(_0x4974b1['models']?_0x408e0e(0x1ac)+_0x4974b1['models']+_0x408e0e(0x1f3):'')+')'));}return _0x4974b1[_0x408e0e(0x172)]=_0x5e56d6,_0x4974b1['egress']=_0x25940a,_0x4974b1['createdAt']=new Date()[_0x408e0e(0x21b)](),_0x4974b1[_0x408e0e(0x243)]=Date[_0x408e0e(0x1cd)]()-_0x490a13,_0x4974b1;}catch(_0x1877b9){_0x4974b1['error']=String(_0x1877b9['message'])[_0x408e0e(0x1b8)](0x0,0x190),_0x4974b1[_0x408e0e(0x243)]=Date['now']()-_0x490a13;if(_0x4055e6&&_0x4055e6[_0x408e0e(0x19c)])try{const _0x4a7c08=new Page(_0x4055e6,_0x4055e6[_0x408e0e(0x19c)]);_0x4974b1['failUrl']=await _0x4a7c08[_0x408e0e(0x1d1)]()[_0x408e0e(0x1a6)](()=>null),_0x4974b1[_0x408e0e(0x1b1)]=await _0x4a7c08[_0x408e0e(0x212)]()[_0x408e0e(0x1a6)](()=>null),_0x4974b1[_0x408e0e(0x15e)]=await _0x4a7c08['screenshot'](path[_0x408e0e(0x1fa)](outDir,_0x408e0e(0x248)+new Date()['toISOString']()['replace'](/[:.]/g,'-')+_0x408e0e(0x144)));}catch(_0x4b4cb8){}throw Object[_0x408e0e(0x1e7)](_0x1877b9,{'record':_0x4974b1});}finally{if(_0x4055e6)try{_0x4055e6[_0x408e0e(0x141)]();}catch(_0x15054a){}if(!keepChrome){killChrome(_0x18728d),await sleep(0x4b0);for(let _0x1e14f9=0x0;_0x1e14f9<0x4;_0x1e14f9++){try{fs['rmSync'](_0x5c7d99,{'recursive':!![],'force':!![]});break;}catch(_0x141478){await sleep(0x384);}}try{fs[_0x408e0e(0x163)](_0x368796,{'force':!![]});}catch(_0x122a03){}}else log(_0x408e0e(0x1c7)+index+_0x408e0e(0x241)+_0x18728d['pid']+_0x408e0e(0x13b)+_0x4599ad+_0x408e0e(0x147)+_0x5c7d99);}}function parseArgs(_0x271531){const _0x1a72eb=a0_0x4dca6c,_0x355ea7={'keep':![],'warp':'socks5://127.0.0.1:40000','broker':_0x1a72eb(0x225),'pool':null};for(let _0x2ba81f=0x2;_0x2ba81f<_0x271531[_0x1a72eb(0x1ad)];_0x2ba81f++){const _0x3847cd=_0x271531[_0x2ba81f];if(_0x3847cd===_0x1a72eb(0x182))_0x355ea7['keep']=!![];else{if(_0x3847cd===_0x1a72eb(0x208))_0x355ea7[_0x1a72eb(0x1a4)]=_0x271531[++_0x2ba81f];else{if(_0x3847cd==='--broker')_0x355ea7['broker']=_0x271531[++_0x2ba81f];else{if(_0x3847cd==='--pool')_0x355ea7[_0x1a72eb(0x13d)]=_0x271531[++_0x2ba81f];else{if(_0x3847cd===_0x1a72eb(0x165))_0x355ea7[_0x1a72eb(0x22e)]=_0x271531[++_0x2ba81f];else{if(_0x3847cd===_0x1a72eb(0x247))_0x355ea7[_0x1a72eb(0x1a3)]=_0x271531[++_0x2ba81f];}}}}}}return _0x355ea7;}if(require[a0_0x4dca6c(0x234)]===module){const args=parseArgs(process[a0_0x4dca6c(0x1ab)]),logFile=args['log']?path[a0_0x4dca6c(0x1c4)](ROOT,args[a0_0x4dca6c(0x22e)]):null,log=_0x56e55a=>{const _0x413eba=a0_0x4dca6c,_0x578f3b=new Date()[_0x413eba(0x21b)]()['slice'](0xb,0x13)+'\x20'+_0x56e55a;console[_0x413eba(0x22e)](_0x578f3b);if(logFile)try{fs[_0x413eba(0x1e1)](path[_0x413eba(0x18d)](logFile),{'recursive':!![]}),fs[_0x413eba(0x1bf)](logFile,_0x578f3b+'\x0a');}catch(_0x5610f8){}},pool=args[a0_0x4dca6c(0x13d)]?loadProxyList(path['resolve'](ROOT,args['pool']))[a0_0x4dca6c(0x1c2)](_0x3a48c3=>parseProxy(_0x3a48c3))['filter'](Boolean):[];createAccountViaBrowser({'index':0x1,'keyName':args[a0_0x4dca6c(0x1a3)],'broker':args[a0_0x4dca6c(0x162)],'warp':args[a0_0x4dca6c(0x1a4)],'pool':pool,'keepChrome':args[a0_0x4dca6c(0x218)],'log':log})[a0_0x4dca6c(0x1e4)](_0x10414f=>{const _0x1d7e88=a0_0x4dca6c;log(_0x1d7e88(0x206)+JSON[_0x1d7e88(0x22c)]({'email':_0x10414f[_0x1d7e88(0x224)],'key':_0x10414f['key'],'verified':_0x10414f[_0x1d7e88(0x172)],'models':_0x10414f[_0x1d7e88(0x1d3)],'ms':_0x10414f[_0x1d7e88(0x243)]})),process[_0x1d7e88(0x1b3)](0x0);})[a0_0x4dca6c(0x1a6)](_0x841b5=>{const _0x6833dc=a0_0x4dca6c;log(_0x6833dc(0x230)+(_0x841b5[_0x6833dc(0x1af)]?JSON[_0x6833dc(0x22c)](_0x841b5[_0x6833dc(0x1af)],null,0x2):_0x841b5[_0x6833dc(0x199)])),process[_0x6833dc(0x1b3)](0x1);});}module[a0_0x4dca6c(0x17e)]={'createAccountViaBrowser':createAccountViaBrowser,'signIn':signIn,'Page':Page,'launchChrome':launchChrome,'killChrome':killChrome,'freePort':freePort,'toJarEntries':toJarEntries};
+'use strict';
+
+/**
+ * Browser-driven Baseten sign-up for ONE account.
+ *
+ * Why: the sign-in host (login.baseten.co, a WorkOS AuthKit deployment) asks
+ * its form as a React server action whose request the deployment's own page
+ * script builds — a hand-rolled replay from Node stalls on `invalid_params` /
+ * 500 (report §7.4). So the first half — e-mail → magic code → session — runs
+ * in a real, headed Chrome that executes the page; the second half (GraphQL key
+ * creation + inference verification) still runs from Node, as proven in
+ * report §4 (`/graphql/` and `/api/auth/callback` are WAF-challenge-free).
+ *
+ * One account = one fresh Chrome profile, one egress line (WARP SOCKS by
+ * default, never the home address), Chrome killed as soon as the session
+ * cookies are out of it. Nothing here touches the mailbox through the account's
+ * line: the broker is on loopback and reaches Mailtrap itself.
+ *
+ * CLI:  node src/browser-signup.js [--keep] [--warp socks5://127.0.0.1:40000]
+ */
+
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+const net = require('net');
+const { spawn, spawnSync } = require('child_process');
+
+const { makeInbox, waitForCode } = require('./inbox');
+const { CookieJar } = require('./http');
+const { createKey, verifyKey } = require('./account');
+const { parseProxy, label, loadProxyList } = require('./proxy');
+
+const ROOT = path.resolve(__dirname, '..', '..', '..'); // the repo root (asd/)
+
+// ---------------------------------------------------------------- dependencies
+
+/** The CDP client lives in a sibling repo; fall back to whatever exists. */
+function loadCdp() {
+  const candidates = [
+    path.join(__dirname, 'cdp.js'),
+    path.join(__dirname, 'cdp.js'),
+    path.join(ROOT, 'agentscope-bulk-apikey', 'src', 'cdp.js'),
+  ];
+  for (const file of candidates) {
+    try {
+      return require(file).CDP;
+    } catch (e) {
+      /* next */
+    }
+  }
+  throw new Error(`no CDP client found (tried ${candidates.join(', ')})`);
+}
+const CDP = loadCdp();
+
+function findChrome() {
+  const candidates = [
+    process.env.CHROME_PATH,
+    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+    'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+    path.join(os.homedir(), 'AppData', 'Local', 'Google', 'Chrome', 'Application', 'chrome.exe'),
+  ].filter(Boolean);
+  for (const file of candidates) {
+    try {
+      if (fs.statSync(file).isFile()) return file;
+    } catch (e) {
+      /* next */
+    }
+  }
+  throw new Error('chrome.exe not found');
+}
+
+const CHROME = findChrome();
+
+// -------------------------------------------------------------------- helpers
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const rand = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
+
+function freePort(start = 9400, end = 9600) {
+  return new Promise((resolve, reject) => {
+    const tryOne = (port) => {
+      if (port > end) return reject(new Error('no free port'));
+      const srv = net.createServer();
+      srv.once('error', () => tryOne(port + 1));
+      srv.once('listening', () => srv.close(() => resolve(port)));
+      srv.listen(port, '127.0.0.1');
+    };
+    tryOne(start);
+  });
+}
+
+async function waitDevtools(port, timeoutMs = 30000) {
+  const deadline = Date.now() + timeoutMs;
+  let lastErr = null;
+  while (Date.now() < deadline) {
+    try {
+      const res = await fetch(`http://127.0.0.1:${port}/json/version`);
+      if (res.ok) return await res.json();
+    } catch (e) {
+      lastErr = e;
+    }
+    await sleep(300);
+  }
+  throw new Error(`devtools ${port} never answered (${lastErr && lastErr.message})`);
+}
+
+function killChrome(child) {
+  if (!child || child.exitCode !== null) return;
+  try {
+    spawnSync('taskkill', ['/PID', String(child.pid), '/T', '/F'], { stdio: 'ignore', windowsHide: true });
+  } catch (e) {
+    /* best effort */
+  }
+}
+
+/** Chrome answers CDP on loopback; the page itself must never see the LAN. */
+function launchChrome(port, profileDir, proxyUrl) {
+  const args = [
+    `--remote-debugging-port=${port}`,
+    `--user-data-dir=${profileDir}`,
+    '--no-first-run',
+    '--no-default-browser-check',
+    '--disable-background-networking',
+    '--disable-component-update',
+    '--disable-sync',
+    '--disable-domain-reliability',
+    '--disable-client-side-phishing-detection',
+    '--disable-breakpad',
+    '--disable-default-apps',
+    '--no-service-autorun',
+    '--metrics-recording-only',
+    '--password-store=basic',
+    '--disable-features=Translate,MediaRouter,OptimizationHints',
+    '--window-size=1280,900',
+    '--window-position=40,40',
+    proxyUrl ? `--proxy-server=${proxyUrl}` : null,
+    'about:blank',
+  ].filter(Boolean);
+  return spawn(CHROME, args, { detached: true, stdio: 'ignore', windowsHide: false });
+}
+
+function ownIp() {
+  for (const file of [path.join(ROOT, 'outputs', 'own-ip.txt'), process.env.OWN_IP_FILE]) {
+    if (!file) continue;
+    try {
+      const ip = fs.readFileSync(file, 'utf8').trim();
+      if (ip) return ip;
+    } catch (e) {
+      /* next */
+    }
+  }
+  return null;
+}
+const OWN_IP = ownIp();
+
+// --------------------------------------------------------------- page control
+
+/** Thin, human-paced wrapper around one CDP page session. */
+class Page {
+  constructor(cdp, sessionId) {
+    this.cdp = cdp;
+    this.sessionId = sessionId;
+  }
+
+  async evaluate(expression, { awaitPromise = true, userGesture = false } = {}) {
+    const r = await this.cdp.send(
+      'Runtime.evaluate',
+      { expression, returnByValue: true, awaitPromise, userGesture },
+      this.sessionId
+    );
+    if (r.exceptionDetails) {
+      const text = r.exceptionDetails.text || (r.exceptionDetails.exception && r.exceptionDetails.exception.description);
+      throw new Error(`evaluate failed: ${String(text).slice(0, 200)}`);
+    }
+    return r.result && r.result.value;
+  }
+
+  async url() {
+    return this.evaluate('location.href', { awaitPromise: false });
+  }
+
+  async body() {
+    return this.evaluate('(document.body && document.body.innerText || "").replace(/\\s+/g," ").slice(0,300)', {
+      awaitPromise: false,
+    });
+  }
+
+  async rect(selector) {
+    return this.evaluate(
+      `(() => { const el = document.querySelector(${JSON.stringify(selector)});
+        if (!el) return null; el.scrollIntoView({ block: 'center' });
+        const r = el.getBoundingClientRect();
+        if (!r.width || !r.height) return null;
+        return { x: Math.round(r.left + r.width / 2), y: Math.round(r.top + r.height / 2) }; })()`,
+      { awaitPromise: false }
+    );
+  }
+
+  /** A real mouse click: move, press, release — plus human jitter. */
+  async click(selector, { timeoutMs = 20000 } = {}) {
+    const deadline = Date.now() + timeoutMs;
+    let rect = null;
+    while (Date.now() < deadline) {
+      rect = await this.rect(selector).catch(() => null);
+      if (rect) break;
+      await sleep(250);
+    }
+    if (!rect) throw new Error(`no clickable ${selector}`);
+    const p = { x: rect.x, y: rect.y, modifiers: 0 };
+    await this.cdp.send('Input.dispatchMouseEvent', { type: 'mouseMoved', ...p }, this.sessionId);
+    await sleep(rand(60, 140));
+    await this.cdp.send('Input.dispatchMouseEvent', { type: 'mousePressed', button: 'left', clickCount: 1, ...p }, this.sessionId);
+    await sleep(rand(40, 90));
+    await this.cdp.send('Input.dispatchMouseEvent', { type: 'mouseReleased', button: 'left', clickCount: 1, ...p }, this.sessionId);
+    return rect;
+  }
+
+  /** Per-character typing, the way the form's own handlers expect it. */
+  async type(text, { perCharMs = 55 } = {}) {
+    for (const ch of text) {
+      await this.cdp.send('Input.insertText', { text: ch }, this.sessionId);
+      await sleep(perCharMs + rand(0, perCharMs));
+    }
+  }
+
+  async pressEnter() {
+    const key = { key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13, text: '\r', unmodifiedText: '\r' };
+    await this.cdp.send('Input.dispatchKeyEvent', { type: 'keyDown', ...key }, this.sessionId);
+    await sleep(rand(40, 90));
+    await this.cdp.send('Input.dispatchKeyEvent', { type: 'keyUp', ...key }, this.sessionId);
+  }
+
+  async waitFor(selector, timeoutMs = 60000) {
+    const deadline = Date.now() + timeoutMs;
+    while (Date.now() < deadline) {
+      const ok = await this.evaluate(`(() => { const el = document.querySelector(${JSON.stringify(selector)});
+        if (!el) return false; const r = el.getBoundingClientRect(); return !!(r.width && r.height); })()`, {
+        awaitPromise: false,
+      }).catch(() => false);
+      if (ok) return true;
+      await sleep(300);
+    }
+    return false;
+  }
+
+  async waitForUrl(re, timeoutMs = 60000) {
+    const deadline = Date.now() + timeoutMs;
+    let href = null;
+    while (Date.now() < deadline) {
+      href = await this.url().catch(() => null);
+      if (href && re.test(href)) return href;
+      await sleep(300);
+    }
+    return null;
+  }
+
+  async screenshot(file) {
+    try {
+      const shot = await this.cdp.send('Page.captureScreenshot', { format: 'jpeg', quality: 70 }, this.sessionId);
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      fs.writeFileSync(file, Buffer.from(shot.data, 'base64'));
+      return file;
+    } catch (e) {
+      return null;
+    }
+  }
+}
+
+// -------------------------------------------------------------- the sign-in
+
+const EMAIL_SELECTORS = ['input[type="email"]', 'input[name="email"]', 'input[autocomplete="email"]'];
+const CODE_SELECTORS = [
+  'input[autocomplete="one-time-code"]',
+  'input:not([type])',
+  'input[inputmode="numeric"]',
+  'input[name="code"]',
+  'input[type="tel"]',
+  'input[type="text"]',
+];
+
+async function firstMatch(page, selectors, timeoutMs) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    for (const sel of selectors) {
+      const ok = await page
+        .evaluate(`(() => { const el = document.querySelector(${JSON.stringify(sel)});
+          if (!el) return false; const r = el.getBoundingClientRect(); return !!(r.width && r.height); })()`, {
+          awaitPromise: false,
+        })
+        .catch(() => false);
+      if (ok) return sel;
+    }
+    await sleep(300);
+  }
+  return null;
+}
+
+/** The submit control, by text first, then by type. */
+async function submitSelector(page) {
+  return page.evaluate(
+    `(() => {
+      const buttons = [...document.querySelectorAll('button')].filter((b) => { const r = b.getBoundingClientRect(); return r.width && r.height; });
+      const named = buttons.find((b) => /continue|sign in|log in|send|verify|submit|devam|giriş/i.test(b.textContent || ''))
+        || buttons.find((b) => b.type === 'submit')
+        || buttons[0];
+      if (!named) return null;
+      named.setAttribute('data-bt-submit', '1');
+      return 'button[data-bt-submit="1"]'; })()`,
+    { awaitPromise: false }
+  );
+}
+
+/**
+ * Runs the whole first half in the page: e-mail form → magic code → landed.
+ * `getCode` is called once the challenge has been requested.
+ */
+async function signIn(page, { email, getCode, log, codeTimeoutMs, skipProfile = false }) {
+  // 1. the app starts the WorkOS chain; the WAF challenge (if any) solves itself
+  await page.cdp.send('Page.navigate', { url: 'https://app.baseten.co/onboarding' }, page.sessionId);
+
+  const emailSel = await firstMatch(page, EMAIL_SELECTORS, 90000);
+  if (!emailSel) {
+    throw new Error(`no e-mail field (at ${await page.url().catch(() => '?')} · ${await page.body().catch(() => '?')})`);
+  }
+  log(`    sign-in page (${emailSel}) at ${String(await page.url()).slice(0, 70)}`);
+
+  // 2. the address
+  await page.click(emailSel);
+  await page.type(email);
+  await sleep(rand(200, 500));
+
+  const startedAt = Date.now();
+  let submitted = false;
+  const submitSel = await submitSelector(page);
+  if (submitSel) {
+    await page.click(submitSel);
+    submitted = true;
+  }
+  if (!submitted) {
+    // no button: the form's own submit path
+    const ok = await page.evaluate(`(() => { const f = document.querySelector('form'); if (!f) return false; f.requestSubmit(); return true; })()`);
+    if (!ok) throw new Error('no way to submit the e-mail form');
+  }
+  log('    e-mail submitted');
+
+  // 3. the challenge page — the send action can stall (measured 18:42Z and
+  //    18:44Z: the form kept the address, the page never advanced), and a
+  //    second click on the same button usually lands those
+  let codeUrl = await page.waitForUrl(/\/magic-code/, 90000);
+  if (!codeUrl) {
+    log('    no magic-code page yet — re-submitting the e-mail form');
+    const again = await submitSelector(page);
+    if (again) await page.click(again).catch(() => {});
+    else
+      await page
+        .evaluate(`(() => { const f = document.querySelector('form'); if (f) { f.requestSubmit(); return true; } return false; })()`, { awaitPromise: false })
+        .catch(() => false);
+    codeUrl = await page.waitForUrl(/\/magic-code/, 60000);
+  }
+  if (!codeUrl) {
+    const body = await page.body().catch(() => '');
+    throw new Error(`no magic-code page (at ${await page.url().catch(() => '?')} · ${body})`);
+  }
+  log(`    magic-code page at ${String(codeUrl).slice(0, 70)}`);
+
+  // 4. the mailbox
+  const { code, subject } = await getCode({ sinceMs: startedAt, timeoutMs: codeTimeoutMs });
+  log(`    code ${code} (“${subject}”)`);
+
+  // 5. the code — one character at a time, then the form's own submit path
+  //    (the recipe measured in baseten-submit-code.js: fill, then
+  //    requestSubmit; OTP handlers move focus on their own)
+  const codeSel = await firstMatch(page, CODE_SELECTORS, 30000);
+  if (!codeSel) throw new Error('no magic-code input');
+  await page.click(codeSel);
+  await page.type(code, { perCharMs: 90 });
+  await sleep(700);
+  const filled = await page
+    .evaluate(
+      `Array.from(document.querySelectorAll('form input')).map((i) => i.value).join('')`,
+      { awaitPromise: false }
+    )
+    .catch(() => '');
+  if (!filled || !filled.includes(code.slice(-2))) log(`    code box reads “${String(filled).slice(0, 20)}” after typing`);
+  let pushed = false;
+  if (!(await page.waitForUrl(/^https:\/\/app\.baseten\.co\/|^https:\/\/login\.baseten\.co\/success/, 1200))) {
+    const submitSel = await submitSelector(page);
+    if (submitSel) {
+      await page.click(submitSel).catch(() => {});
+      pushed = 'button';
+    }
+    if (!pushed) {
+      pushed = (await page
+        .evaluate(`(() => { const f = document.querySelector('form'); if (!f) return false; f.requestSubmit(); return true; })()`)
+        .catch(() => false))
+        ? 'form'
+        : false;
+    }
+    log(`    code submit via ${pushed || 'nothing'}`);
+  }
+  let landed = await page.waitForUrl(/^https:\/\/app\.baseten\.co\/(?!api\/auth\/callback)/, 20000);
+  if (!landed) {
+    await page.pressEnter();
+    landed = await page.waitForUrl(/^https:\/\/app\.baseten\.co\/(?!api\/auth\/callback)/, 20000);
+  }
+  if (!landed) {
+    landed = await page.waitForUrl(/^https:\/\/app\.baseten\.co\/(?!api\/auth\/callback)/, 40000);
+  }
+  if (!landed) {
+    const body = await page.body().catch(() => '');
+    throw new Error(`code not accepted (at ${await page.url().catch(() => '?')} · ${body})`);
+  }
+  // let the app finish its own redirects / WAF hop
+  await sleep(4000);
+  let profile = { found: false, submitted: false };
+  if (!skipProfile) {
+    profile = await completeProfile(page, log);
+    if (profile.found) {
+      log(`    onboarding profile ${profile.submitted ? 'submitted' : 'NOT submitted'} at ${String(await page.url().catch(() => '?')).slice(0, 60)}`);
+    }
+  } else {
+    const hasForm = await page
+      .evaluate(
+        `[...document.querySelectorAll('input')].some((x) => /first|^ad\b/i.test(((x.name||'')+(x.placeholder||'')+(x.id||''))))`,
+        { awaitPromise: false }
+      )
+      .catch(() => false);
+    profile = { found: !!hasForm, submitted: false };
+    log(`    profile form left untouched (control account, form present: ${!!hasForm})`);
+  }
+  return { url: await page.url().catch(() => landed), landedAt: Date.now(), profile };
+};
+
+/**
+ * The landing page for a brand-new account is the profile form (“Welcome to
+ * Baseten! Let’s start by setting up your profile.” / “First name / Last name /
+ * Continue”). Filling it is cheap and marks the account onboarded. Whether it
+ * is also what clears the WAF 202 a fresh key meets on `GET /v1/models` is what
+ * the batch measures — control accounts skip this form on purpose
+ * (`skipProfile`), so a profiled and a non-profiled account can be compared at
+ * the same account age. Returns { found, submitted } and only calls it
+ * submitted when the form actually left the page.
+ */
+async function completeProfile(page, log) {
+  const blob = `((x.name || '') + (x.placeholder || '') + (x.id || '') + (x.getAttribute('aria-label') || ''))`;
+  const mark = (kind, test) =>
+    page.evaluate(
+      `(() => { const el = [...document.querySelectorAll('input')].find((x) => ${test});
+        if (!el) return null; el.setAttribute('data-bt-${kind}', '1'); return 'input[data-bt-${kind}="1"]'; })()`,
+      { awaitPromise: false }
+    );
+  const visible = (selector) =>
+    page
+      .evaluate(
+        `(() => { const el = document.querySelector(${JSON.stringify(selector)});
+          if (!el) return false; const r = el.getBoundingClientRect(); return !!(r.width && r.height); })()`,
+        { awaitPromise: false }
+      )
+      .catch(() => false);
+  const first = await mark('first', `/first|^ad\b/i.test(${blob})`);
+  if (!first) return { found: false, submitted: false };
+  const last = await mark('last', `/last|soyad/i.test(${blob})`);
+  await page.click(first);
+  await page.type('Riva');
+  if (last) {
+    await page.click(last);
+    await page.type('Bulk');
+  }
+  await sleep(rand(250, 500));
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    const cont = await page.evaluate(
+      `(() => { const b = [...document.querySelectorAll('button')].find((x) => /continue|devam|get started|finish|next/i.test(x.textContent || ''));
+        if (!b) return null; b.setAttribute('data-bt-cont', '1'); return 'button[data-bt-cont="1"]'; })()`,
+      { awaitPromise: false }
+    );
+    if (cont) await page.click(cont).catch(() => {});
+    else
+      await page
+        .evaluate(`(() => { const f = document.querySelector('form'); if (!f) return false; f.requestSubmit(); return true; })()`)
+        .catch(() => false);
+    const deadline = Date.now() + 8000;
+    while (Date.now() < deadline) {
+      if (!(await visible(first))) return { found: true, submitted: true };
+      await sleep(400);
+    }
+    log(`    profile form still visible after submit ${attempt}`);
+  }
+  return { found: true, submitted: false };
+}
+
+/**
+ * Some new accounts land on `/waiting_room` instead of the profile form:
+ * "We need more information to approve your account" — company, professional
+ * profile, intended use. Measured 18:49Z after ~5 accounts from the same shared
+ * exit; the account exists (session cookies are issued) but every GraphQL write
+ * answers "The user does not have the authorization to perform the request"
+ * until approval. Filling the form is what a human would do and is the only
+ * lever on that page; whether the review is automatic is unknown — the account
+ * is parked in `browser-pending.json` meanwhile and re-minted on later runs.
+ * Returns true when the form was found and submitted.
+ */
+async function completeWaitingRoom(page, log) {
+  const blob = `((x.placeholder || '') + (x.name || '') + (x.id || '') + (x.getAttribute('aria-label') || ''))`;
+  const mark = (kind, test) =>
+    page
+      .evaluate(
+        `(() => { const el = [...document.querySelectorAll('input, textarea')].find((x) => ${test});
+          if (!el) return null; el.setAttribute('data-bt-${kind}', '1'); return '[data-bt-${kind}="1"]'; })()`,
+        { awaitPromise: false }
+      )
+      .catch(() => null);
+  const company = await mark('company', `/company|startup|şirket/i.test(${blob})`);
+  const profile = await mark('profile', `/linkedin|profile|profil/i.test(${blob})`);
+  const use = await mark('use', `x.tagName === 'TEXTAREA' || /how|use|kullan/i.test(${blob})`);
+  if (!company && !profile && !use) return false;
+  if (company) {
+    await page.click(company);
+    await page.type('Riva Labs');
+  }
+  if (profile) {
+    await page.click(profile);
+    await page.type('https://www.linkedin.com/in/riva-labs');
+  }
+  if (use) {
+    await page.click(use);
+    await page.type('Evaluating hosted model endpoints for an internal benchmarking harness.');
+  }
+  await sleep(rand(200, 400));
+  const submit = await page
+    .evaluate(
+      `(() => { const b = [...document.querySelectorAll('button')].find((x) => /submit|gönder|continue|devam/i.test(x.textContent || ''));
+        if (!b) return null; b.setAttribute('data-bt-wr', '1'); return 'button[data-bt-wr="1"]'; })()`,
+      { awaitPromise: false }
+    )
+    .catch(() => null);
+  if (submit) await page.click(submit).catch(() => {});
+  else
+    await page
+      .evaluate(`(() => { const f = document.querySelector('form'); if (f) { f.requestSubmit(); return true; } return false; })()`, { awaitPromise: false })
+      .catch(() => false);
+  await sleep(3000);
+  log('    waiting room: approval form submitted');
+  return true;
+}
+
+/** CDP cookie objects → the shapes `CookieJar` understands. */
+function toJarEntries(cookies) {
+  return cookies
+    .filter((c) => /(^|\.)baseten\.co$/i.test(c.domain.replace(/^\./, '')) || /(^|\.)baseten\.co$/i.test(c.domain))
+    .map((c) => ({
+      name: c.name,
+      value: c.value,
+      domain: c.domain.replace(/^\./, '').toLowerCase(),
+      path: c.path || '/',
+      secure: !!c.secure,
+      httpOnly: !!c.httpOnly,
+      expires: c.expires && c.expires > 0 ? Math.round(c.expires * 1000) : null,
+      hostOnly: !c.domain.startsWith('.'),
+    }));
+}
+
+// ------------------------------------------------------------------- the whole
+
+/**
+ * One Baseten account, end to end: mailbox → headed Chrome sign-in → session
+ * cookies → Node GraphQL key → inference verification.
+ *
+ * @returns {Promise<object>} the account record (key only when verified)
+ */
+async function createAccountViaBrowser({
+  index = 1,
+  keyName = null,
+  broker = 'http://127.0.0.1:9700',
+  warp = 'socks5://127.0.0.1:40000',
+  pool = null, // optional array of parsed proxy lines for the Node half
+  box = null, // a mailbox to reuse (line retries must not burn a fresh box)
+  timeoutMs = 240000,
+  codeTimeoutMs = 180000,
+  verify = true,
+  keepChrome = false,
+  headless = false,
+  skipProfile = false,
+  outDir = path.join(__dirname, '..', 'outputs'),
+  log = () => {},
+} = {}) {
+  const startedAt = Date.now();
+  const egress = parseProxy(warp);
+  // per-caller folder : no other provider's sweep can ever touch
+  // these boxes, and mine only ever deletes its own
+  const folder = process.env.BT_MAIL_FOLDER || 'baseten-v2-bulk';
+  // the box handed in already knows which path made it; the default (no box)
+  // is direct Mailtrap, the primary of the creation block below
+  let inbox =
+    box && box.provider === 'broker'
+      ? makeInbox({ provider: 'broker', broker, folder })
+      : makeInbox({ provider: 'mailtrap', mailtrapFolder: folder });
+  const name = keyName || `baseten-bulk-${index}`;
+
+  if (!box) {
+    log(`  [${index}] mailbox…`);
+    // Direct Mailtrap first with the broker as the fallback — the broker's
+    // mail calls ride its own proxy chain, which stalls for minutes at a time
+    // (measured on /list and /read), while this line reaches Mailtrap directly.
+    const sources = [
+      { provider: 'mailtrap', mailtrapFolder: folder, label: `mailtrap/${folder}` },
+      { provider: 'broker', broker, folder, label: `broker ${broker}` },
+    ];
+    let boxErr = null;
+    for (const source of sources) {
+      const candidate = makeInbox(source);
+      const attempts = source.provider === 'mailtrap' ? 2 : 3;
+      for (let attempt = 1; attempt <= attempts && !box; attempt++) {
+        try {
+          box = await candidate.create();
+          inbox = candidate;
+        } catch (e) {
+          boxErr = e;
+          log(`  [${index}] mailbox via ${source.label} attempt ${attempt} failed: ${String(e.message).slice(0, 110)}`);
+          if (attempt < attempts) await sleep(3000 * attempt);
+        }
+      }
+      if (box) break;
+    }
+    if (!box) throw new Error(`mailbox creation failed on every source: ${boxErr && boxErr.message}`);
+  }
+  log(`  [${index}] inbox ${box.address} (${box.provider})`);
+
+  const port = await freePort();
+  const profileDir = path.join(os.homedir(), `.bt-chrome-${port}-${Date.now().toString(36)}`);
+  const child = launchChrome(port, profileDir, warp);
+  const stateFile = path.join(outDir, 'bt-chrome-live.json');
+  try {
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(stateFile, JSON.stringify({ pid: child.pid, port, profileDir, at: new Date().toISOString() }));
+  } catch (e) {
+    /* diagnostic only */
+  }
+
+  let cdp = null;
+  const result = { index, email: box.address, inbox: { provider: box.provider, token: box.token }, keyName: name };
+  try {
+    const version = await waitDevtools(port, 40000);
+    cdp = new CDP(version.webSocketDebuggerUrl, { commandTimeoutMs: 60000 });
+    // An unhandled 'error' event on an EventEmitter is a process killer: the
+    // CDP socket resetting mid-flow (measured 18:47Z) took the whole batch down
+    // with it. Swallow it here — pending commands reject via close / their own
+    // timeout, that account fails, the batch moves on.
+    cdp.on('error', (e) => log(`    cdp socket error: ${String((e && e.message) || e).slice(0, 90)}`));
+    await cdp.connect();
+    const { sessionId } = await cdp.attachToPage();
+    const page = new Page(cdp, sessionId);
+    await page.cdp.send('Page.enable', {}, sessionId);
+    await page.cdp.send('Runtime.enable', {}, sessionId);
+
+    // the line is the point of this whole module: prove it before signing up
+    const ip = await page.evaluate(
+      `fetch('https://api.ipify.org').then((r) => r.text()).catch((e) => 'ERR:' + e.message)`,
+      {}
+    );
+    log(`  [${index}] chrome egress ${String(ip).slice(0, 40)} (warp ${egress.host}:${egress.port})`);
+    if (OWN_IP && String(ip).trim() === OWN_IP) {
+      throw new Error(`browser is on the home address (${OWN_IP}) — refusing to sign up`);
+    }
+
+    // 1. first half — in the page
+    const signed = await signIn(page, {
+      email: box.address,
+      codeTimeoutMs,
+      skipProfile,
+      log: (m) => log(m),
+      getCode: (opts) => waitForCode(inbox, box, { ...opts, log: (m) => log(`    ${m}`) }),
+    });
+    log(`  [${index}] landed ${String(signed.url).slice(0, 70)}`);
+    result.profileFormSeen = !!(signed.profile && signed.profile.found);
+    result.profileSubmitted = !!(signed.profile && signed.profile.submitted);
+
+    // 2. the session cookies, straight out of the browser
+    const { cookies } = await cdp.send('Storage.getCookies', {}, null);
+    const entries = toJarEntries(cookies);
+    const names = entries.map((c) => c.name).join(', ');
+    const jar = new CookieJar(entries);
+    if (!jar.get('sessionid')) throw new Error(`no sessionid cookie after sign-in (had: ${names || 'none'})`);
+    log(`  [${index}] session cookies: ${names}`);
+    result.sessionCookies = entries.map((c) => ({ name: c.name, domain: c.domain, path: c.path, expires: c.expires }));
+
+    // 3. the money — from Node, through the same line
+    const lines = [egress, ...(pool || [])];
+    let created = null;
+    let lastErr = null;
+    for (let i = 0; i < Math.min(lines.length, 3); i++) {
+      try {
+        created = await createKey({ jar, proxy: lines[i], timeoutMs: 45000, keyName: name });
+        break;
+      } catch (e) {
+        lastErr = e;
+        log(`    graphql on ${label(lines[i])} failed: ${String(e.message).slice(0, 110)}`);
+      }
+    }
+    if (!created) throw new Error(`createUserApiKey failed: ${lastErr && lastErr.message}`);
+    result.key = created.key;
+    result.keyId = created.id;
+    result.prefix = created.prefix;
+    log(`  [${index}] key ${created.prefix}… created`);
+
+    // 4. the only proof that counts — chat — with /v1/models recorded as the
+    //    cohort marker (a fresh account is WAF-challenged there; verifyKey)
+    let verified = false;
+    if (verify) {
+      for (const line of lines.slice(0, 3)) {
+        const check = await verifyKey(created.key, { proxy: line, timeoutMs: 35000 });
+        if (result.modelsStatus == null && check.modelsStatus != null) result.modelsStatus = check.modelsStatus;
+        if (check.ok) {
+          verified = true;
+          result.models = check.models;
+          result.verifiedVia = check.via;
+          result.chatStatus = check.chatStatus;
+          result.verifyModel = check.model;
+          break;
+        }
+        result.verifyError = check.error || null;
+        log(`    verify on ${label(line)} -> models ${check.modelsStatus == null ? '-' : check.modelsStatus} · ${check.error || check.chatStatus || '-'}`);
+      }
+      if (!verified) throw new Error('key did not verify');
+      log(
+        `  [${index}] key verified via ${result.verifiedVia} (models ${result.modelsStatus == null ? '-' : result.modelsStatus}` +
+          ` · chat ${result.chatStatus == null ? '-' : result.chatStatus}${result.models ? ` · ${result.models} models` : ''})`
+      );
+    }
+    result.verified = verified;
+    result.egress = ip;
+    result.createdAt = new Date().toISOString();
+    result.durationMs = Date.now() - startedAt;
+    return result;
+  } catch (e) {
+    result.error = String(e.message).slice(0, 400);
+    result.durationMs = Date.now() - startedAt;
+    if (cdp && cdp.defaultSessionId) {
+      try {
+        const page = new Page(cdp, cdp.defaultSessionId);
+        result.failUrl = await page.url().catch(() => null);
+        result.failBody = await page.body().catch(() => null);
+        result.failShot = await page.screenshot(path.join(outDir, `fail-${new Date().toISOString().replace(/[:.]/g, '-')}.jpg`));
+      } catch (e2) {
+        /* diagnostics only */
+      }
+    }
+    throw Object.assign(e, { record: result });
+  } finally {
+    if (cdp) {
+      try {
+        cdp.close();
+      } catch (e) {
+        /* ignore */
+      }
+    }
+    if (!keepChrome) {
+      killChrome(child);
+      await sleep(1200);
+      for (let i = 0; i < 4; i++) {
+        try {
+          fs.rmSync(profileDir, { recursive: true, force: true });
+          break;
+        } catch (e) {
+          await sleep(900);
+        }
+      }
+      try {
+        fs.rmSync(stateFile, { force: true });
+      } catch (e) {
+        /* ignore */
+      }
+    } else {
+      log(`  [${index}] chrome kept: pid ${child.pid}, port ${port}, profile ${profileDir}`);
+    }
+  }
+}
+
+// ------------------------------------------------------------------------ CLI
+
+function parseArgs(argv) {
+  const args = { keep: false, warp: 'socks5://127.0.0.1:40000', broker: 'http://127.0.0.1:9700', pool: null };
+  for (let i = 2; i < argv.length; i++) {
+    const a = argv[i];
+    if (a === '--keep') args.keep = true;
+    else if (a === '--warp') args.warp = argv[++i];
+    else if (a === '--broker') args.broker = argv[++i];
+    else if (a === '--pool') args.pool = argv[++i];
+    else if (a === '--log') args.log = argv[++i];
+    else if (a === '--key-name') args.keyName = argv[++i];
+  }
+  return args;
+}
+
+if (require.main === module) {
+  const args = parseArgs(process.argv);
+  const logFile = args.log ? path.resolve(ROOT, args.log) : null;
+  const log = (m) => {
+    const line = `${new Date().toISOString().slice(11, 19)} ${m}`;
+    console.log(line);
+    if (logFile) {
+      try {
+        fs.mkdirSync(path.dirname(logFile), { recursive: true });
+        fs.appendFileSync(logFile, line + '\n');
+      } catch (e) {
+        /* logging must not kill the run */
+      }
+    }
+  };
+  const pool = args.pool ? loadProxyList(path.resolve(ROOT, args.pool)).map((l) => parseProxy(l)).filter(Boolean) : [];
+  createAccountViaBrowser({
+    index: 1,
+    keyName: args.keyName,
+    broker: args.broker,
+    warp: args.warp,
+    pool,
+    keepChrome: args.keep,
+    log,
+  })
+    .then((r) => {
+      log('OK ' + JSON.stringify({ email: r.email, key: r.key, verified: r.verified, models: r.models, ms: r.durationMs }));
+      process.exit(0);
+    })
+    .catch((e) => {
+      log('FAIL ' + (e.record ? JSON.stringify(e.record, null, 2) : e.stack));
+      process.exit(1);
+    });
+}
+
+module.exports = { createAccountViaBrowser, signIn, Page, launchChrome, killChrome, freePort, toJarEntries };

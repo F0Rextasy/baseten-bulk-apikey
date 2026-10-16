@@ -1,1 +1,259 @@
-const a0_0xd0a25f=a0_0x5c66;(function(_0x22e883,_0x12b30b){const _0x574a76=a0_0x5c66,_0xd77d91=_0x22e883();while(!![]){try{const _0xdd7071=-parseInt(_0x574a76(0x1f2))/0x1*(-parseInt(_0x574a76(0x1f0))/0x2)+parseInt(_0x574a76(0x1ed))/0x3*(-parseInt(_0x574a76(0x1f4))/0x4)+-parseInt(_0x574a76(0x205))/0x5*(-parseInt(_0x574a76(0x22d))/0x6)+-parseInt(_0x574a76(0x225))/0x7*(-parseInt(_0x574a76(0x1fa))/0x8)+parseInt(_0x574a76(0x210))/0x9+parseInt(_0x574a76(0x1e7))/0xa*(parseInt(_0x574a76(0x233))/0xb)+-parseInt(_0x574a76(0x228))/0xc;if(_0xdd7071===_0x12b30b)break;else _0xd77d91['push'](_0xd77d91['shift']());}catch(_0xf2ec05){_0xd77d91['push'](_0xd77d91['shift']());}}}(a0_0x23b7,0xe13c4));const a0_0x472cb7=(function(){let _0x61e897=!![];return function(_0x1aca22,_0x3cc5e8){const _0x3121d4=_0x61e897?function(){const _0x2499d4=a0_0x5c66;if(_0x3cc5e8){const _0x274cf2=_0x3cc5e8[_0x2499d4(0x204)](_0x1aca22,arguments);return _0x3cc5e8=null,_0x274cf2;}}:function(){};return _0x61e897=![],_0x3121d4;};}()),a0_0x292de9=a0_0x472cb7(this,function(){const _0xd231d9=a0_0x5c66;if(a0_0x292de9[_0xd231d9(0x21a)]()[_0xd231d9(0x21e)]()['indexOf']('\x0a')!==-0x1)return;return a0_0x292de9[_0xd231d9(0x21e)]()['search'](_0xd231d9(0x229))[_0xd231d9(0x21e)]()[_0xd231d9(0x22c)](a0_0x292de9)['search'](_0xd231d9(0x229));});a0_0x292de9();'use strict';const http=require(a0_0xd0a25f(0x1ef)),https=require(a0_0xd0a25f(0x1e9)),{URL}=require(a0_0xd0a25f(0x1e1)),{createAgent}=require('./proxy');class CookieJar{constructor(_0x548e32=[]){const _0x23c1e3=a0_0xd0a25f;this[_0x23c1e3(0x21f)]=new Map();for(const _0x1e0bd4 of _0x548e32)this[_0x23c1e3(0x21f)][_0x23c1e3(0x1ee)](_0x1e0bd4[_0x23c1e3(0x1e6)]+'\x09'+_0x1e0bd4['path']+'\x09'+_0x1e0bd4[_0x23c1e3(0x232)],_0x1e0bd4);}static[a0_0xd0a25f(0x1e3)](_0x4de1d3){const _0x44829d=a0_0xd0a25f;return new CookieJar(Array[_0x44829d(0x237)](_0x4de1d3)?_0x4de1d3:[]);}[a0_0xd0a25f(0x1df)](){const _0x149ce5=a0_0xd0a25f;return Array['from'](this[_0x149ce5(0x21f)]['values']());}[a0_0xd0a25f(0x203)](_0x1cbdaf,_0x1862ce){const _0x5c6a65=a0_0xd0a25f,_0x1afb63=new URL(_0x1cbdaf);for(const _0x46dd57 of _0x1862ce||[]){const _0x3f0e39=String(_0x46dd57)['split'](';'),[_0x30485d,..._0x4507d5]=_0x3f0e39[0x0]['split']('=');if(!_0x30485d||!_0x30485d['trim']())continue;const _0x2cc23e=_0x4507d5[_0x5c6a65(0x218)]('=')['trim'](),_0x3e279c={'name':_0x30485d[_0x5c6a65(0x1e8)](),'value':_0x2cc23e,'domain':_0x1afb63[_0x5c6a65(0x219)][_0x5c6a65(0x1ec)](),'path':defaultPath(_0x1afb63[_0x5c6a65(0x1fd)]),'secure':![],'expires':null,'hostOnly':!![]};let _0x11a853=null;for(const _0x99116 of _0x3f0e39[_0x5c6a65(0x214)](0x1)){const [_0x1803a0,..._0x40168b]=_0x99116['split']('='),_0x491079=_0x1803a0[_0x5c6a65(0x1e8)]()[_0x5c6a65(0x1ec)](),_0x353a44=_0x40168b[_0x5c6a65(0x218)]('=')[_0x5c6a65(0x1e8)]();if(_0x491079===_0x5c6a65(0x1e6)&&_0x353a44)_0x3e279c['domain']=_0x353a44[_0x5c6a65(0x215)](/^\./,'')[_0x5c6a65(0x1ec)](),_0x3e279c['hostOnly']=![];else{if(_0x491079===_0x5c6a65(0x1fc)&&_0x353a44)_0x3e279c['path']=_0x353a44;else{if(_0x491079===_0x5c6a65(0x1ea))_0x3e279c[_0x5c6a65(0x1ea)]=!![];else{if(_0x491079===_0x5c6a65(0x216))_0x3e279c[_0x5c6a65(0x1e5)]=!![];else{if(_0x491079==='expires'&&_0x353a44){const _0x301bb8=Date['parse'](_0x353a44);if(!Number[_0x5c6a65(0x21b)](_0x301bb8))_0x3e279c[_0x5c6a65(0x1fb)]=_0x301bb8;}else{if(_0x491079==='max-age'&&_0x353a44){const _0x50e44b=parseInt(_0x353a44,0xa);if(!Number[_0x5c6a65(0x21b)](_0x50e44b))_0x11a853=_0x50e44b;}}}}}}}if(_0x11a853!==null)_0x3e279c[_0x5c6a65(0x1fb)]=Date[_0x5c6a65(0x201)]()+_0x11a853*0x3e8;if(_0x3e279c[_0x5c6a65(0x1fb)]!==null&&_0x3e279c[_0x5c6a65(0x1fb)]<=Date[_0x5c6a65(0x201)]()){this['cookies'][_0x5c6a65(0x207)](_0x3e279c[_0x5c6a65(0x1e6)]+'\x09'+_0x3e279c[_0x5c6a65(0x1fc)]+'\x09'+_0x3e279c['name']);continue;}this[_0x5c6a65(0x21f)][_0x5c6a65(0x1ee)](_0x3e279c[_0x5c6a65(0x1e6)]+'\x09'+_0x3e279c[_0x5c6a65(0x1fc)]+'\x09'+_0x3e279c[_0x5c6a65(0x232)],_0x3e279c);}}[a0_0xd0a25f(0x20a)](_0x1bd3cd){const _0xf21fca=a0_0xd0a25f,_0x1cb384=new URL(_0x1bd3cd),_0x4854b6=_0x1cb384[_0xf21fca(0x219)][_0xf21fca(0x1ec)](),_0x10504b=[],_0x53f478=[];for(const _0x5f2649 of this[_0xf21fca(0x21f)][_0xf21fca(0x221)]()){if(_0x5f2649[_0xf21fca(0x1fb)]!==null&&_0x5f2649[_0xf21fca(0x1fb)]<=Date[_0xf21fca(0x201)]())continue;const _0x34d7b8=_0x5f2649[_0xf21fca(0x230)]?_0x4854b6===_0x5f2649['domain']:_0x4854b6===_0x5f2649[_0xf21fca(0x1e6)]||_0x4854b6[_0xf21fca(0x1f7)]('.'+_0x5f2649[_0xf21fca(0x1e6)]);if(!_0x34d7b8)continue;if(!_0x1cb384['pathname'][_0xf21fca(0x21d)](_0x5f2649['path'])&&!(_0x5f2649[_0xf21fca(0x1fc)]==='/'||_0x1cb384[_0xf21fca(0x1fd)]===_0x5f2649[_0xf21fca(0x1fc)][_0xf21fca(0x215)](/\/$/,'')))continue;if(_0x5f2649[_0xf21fca(0x1ea)]&&_0x1cb384[_0xf21fca(0x1f6)]!==_0xf21fca(0x20c))continue;_0x53f478[_0xf21fca(0x209)](_0x5f2649);}_0x53f478[_0xf21fca(0x22e)]((_0x55d20f,_0x4346a7)=>_0x4346a7[_0xf21fca(0x1fc)][_0xf21fca(0x21c)]-_0x55d20f[_0xf21fca(0x1fc)]['length']);for(const _0x1c2786 of _0x53f478)_0x10504b[_0xf21fca(0x209)](_0x1c2786[_0xf21fca(0x232)]+'='+_0x1c2786['value']);return _0x10504b['join'](';\x20');}['get'](_0x170c1a){const _0x568382=a0_0xd0a25f;for(const _0x3ebf2c of this[_0x568382(0x21f)]['values']())if(_0x3ebf2c[_0x568382(0x232)]===_0x170c1a)return _0x3ebf2c[_0x568382(0x1ff)];return null;}}function defaultPath(_0x340ba7){const _0x4b3291=a0_0xd0a25f;if(!_0x340ba7||!_0x340ba7['startsWith']('/'))return'/';const _0x53e810=_0x340ba7[_0x4b3291(0x1f3)]('/');if(_0x53e810<=0x0)return'/';return _0x340ba7[_0x4b3291(0x214)](0x0,_0x53e810);}function a0_0x23b7(){const _0x552bb7=['BgfZDeLUzgv4t2y','mJGYnJy0s2n6wwTZ','r0vu','ChjVDg9JB2W','zw5KC1DPDgG','CMvXDwvZDa','tw96AwXSys81lJaGkfDPBMrVD3mGtLqGmtaUmdSGv2LUnJq7ihG2ncKGqxbWBgvxzwjlAxqVntm3lJm2icHlsfrntcWGBgLRzsbhzwnRBYKGq2HYB21LlZe1ns4WlJaUmcbtywzHCMKVntm3lJm2','odu5ntC4nevxzeLwua','zxHWAxjLCW','Cgf0Aa','Cgf0Ag5HBwu','D3jPDgu','DMfSDwu','Aw5JBhvKzxm','BM93','y29UDgvUDc10ExbL','C2v0rNjVBvjLC3bVBNnL','yxbWBhK','mtbVzKv5vfy','zxjYB3i','zgvSzxrL','ue9tva','ChvZAa','AgvHzgvY','y29UBMvJDfrPBwvVDxrnCW','Ahr0Chm6','C3rHDhvZq29Kzq','zNjVBq','q29UDgvUDc1uExbL','mti4mtCZmJnxD3H6txq','C29Tzq','Ahr0CdO','C2v0lwnVB2TPzq','C2XPy2u','CMvWBgfJzq','Ahr0Cg9UBhK','C2v0rw5JB2rPBMC','AM9PBG','Ag9ZDg5HBwu','yMLUza','Axnoyu4','BgvUz3rO','C3rHCNrZv2L0Aa','Dg9tDhjPBMC','y29VA2LLCW','C2vHCMnO','DMfSDwvZ','Bxm6ia','zw5K','q29UDgvUDc1mzw5NDgG','n09JCNPhyW','C2v0vgLTzw91Da','DgLTzw91DcbHzNrLCIa','mJy1ntiXmdbeEe1jB1m','kcGOlISPkYKRksSK','DxrMoa','CgfYC2u','y29UC3rYDwn0B3i','mty1nZCYoevVv3Huza','C29YDa','A2v5CW','Ag9ZDe9UBhK','AgvHzgvYCW','BMfTzq','mJy0rMT2EwTR','yxbWBgLJyxrPB24VANnVBIWGDgv4Dc9WBgfPBIWGkI8Q','yxbWBgLJyxrPB24VANnVBG','Cg9YDa','AxnbCNjHEq','C3rYAw5N','Dg9ku09o','AxncDwzMzxi','DxjS','zgvZDhjVEq','zNjVBuPtt04','y29UDgvUDc1Szw5NDgG','Ahr0Ce9UBhK','zg9TywLU','ntq0mdKWsuHzzKXH','DhjPBq','Ahr0Chm','C2vJDxjL','Ag9ZDa','Dg9mB3DLCKnHC2u','nJbqwMnfrfe','C2v0','Ahr0Ca','mZGZmdK0D3bOvuf3','zw4TvvmSzw47Ct0WlJK','muPrqNvmAq'];a0_0x23b7=function(){return _0x552bb7;};return a0_0x23b7();}const agents=new Map();function agentFor(_0x3ab379){const _0x1e96cc=a0_0xd0a25f,_0x4bb30e=_0x3ab379[_0x1e96cc(0x1f6)]+'//'+_0x3ab379[_0x1e96cc(0x1eb)]+':'+_0x3ab379[_0x1e96cc(0x236)]+':'+(_0x3ab379[_0x1e96cc(0x20b)]||'')+':'+(_0x3ab379['timeoutMs']||'');let _0x3ac8a2=agents['get'](_0x4bb30e);return!_0x3ac8a2&&(_0x3ac8a2=createAgent(_0x3ab379,{'keepAlive':!![],'maxSockets':0x4}),agents['set'](_0x4bb30e,_0x3ac8a2)),_0x3ac8a2;}const sleep=_0x9413aa=>new Promise(_0x44235a=>setTimeout(_0x44235a,_0x9413aa));async function fetchUrl(_0x4abf4d,_0x28681a={}){const _0x45f046=a0_0xd0a25f,{method:method=_0x45f046(0x1f5),headers:headers={},body:_0x1c156c,jar:jar=null,proxy:proxy=null,timeoutMs:timeoutMs=0xafc8,follow:follow=!![],maxRedirects:maxRedirects=0xa,agent:agent=undefined}=_0x28681a,_0x4c91df=[];let _0x286ae7=_0x4abf4d,_0x520cb6=method,_0x396392=_0x1c156c,_0x32d402=0x0;for(;;){const _0x53eca0=new URL(_0x286ae7),_0x2df35f=_0x396392===undefined||_0x396392===null?null:Buffer[_0x45f046(0x1e0)](_0x396392)?_0x396392:Buffer[_0x45f046(0x20e)](typeof _0x396392===_0x45f046(0x1de)?_0x396392:JSON['stringify'](_0x396392)),_0x58dc4d={'User-Agent':_0x45f046(0x1f9),'Accept':_0x45f046(0x234),'Accept-Language':_0x45f046(0x1f1),...headers};if(_0x2df35f&&!hasHeader(_0x58dc4d,_0x45f046(0x1e4)))_0x58dc4d[_0x45f046(0x224)]=String(_0x2df35f[_0x45f046(0x21c)]);_0x2df35f&&typeof _0x396392!==_0x45f046(0x1de)&&!Buffer[_0x45f046(0x1e0)](_0x396392)&&!hasHeader(_0x58dc4d,_0x45f046(0x202))&&(_0x58dc4d[_0x45f046(0x20f)]=_0x45f046(0x235));if(jar){const _0x280610=jar[_0x45f046(0x20a)](_0x286ae7);if(_0x280610)_0x58dc4d['Cookie']=_0x280610;}const _0x153ebb=await new Promise((_0x512b86,_0x17f7bf)=>{const _0x284d0d=_0x45f046,_0x437a88=_0x53eca0[_0x284d0d(0x1f6)]===_0x284d0d(0x212)?http:https,_0x168278=_0x437a88[_0x284d0d(0x1f8)]({'method':_0x520cb6,'host':_0x53eca0['hostname'],'port':_0x53eca0[_0x284d0d(0x236)]||(_0x53eca0[_0x284d0d(0x1f6)]===_0x284d0d(0x212)?0x50:0x1bb),'path':_0x53eca0['pathname']+_0x53eca0[_0x284d0d(0x220)],'agent':agent!==undefined?agent:proxy?agentFor(proxy):undefined,'headers':_0x58dc4d},_0x512b86);_0x168278[_0x284d0d(0x226)](timeoutMs,()=>_0x168278[_0x284d0d(0x1e2)](new Error(_0x284d0d(0x227)+timeoutMs+_0x284d0d(0x222)+_0x520cb6+'\x20'+_0x286ae7))),_0x168278['on'](_0x284d0d(0x206),_0x17f7bf);if(_0x2df35f)_0x168278[_0x284d0d(0x1fe)](_0x2df35f);_0x168278[_0x284d0d(0x223)]();}),_0x53ebdc=_0x153ebb[_0x45f046(0x231)][_0x45f046(0x213)]||[];_0x4c91df[_0x45f046(0x209)](_0x153ebb[_0x45f046(0x20d)]+'\x20'+_0x520cb6+'\x20'+_0x286ae7);if(jar)jar[_0x45f046(0x203)](_0x286ae7,_0x53ebdc);let _0x312b9e='';_0x153ebb[_0x45f046(0x217)](_0x45f046(0x22a)),await new Promise((_0x52c65f,_0x58a734)=>{const _0x71c421=_0x45f046;_0x153ebb['on']('data',_0x3ecabe=>_0x312b9e+=_0x3ecabe),_0x153ebb['on'](_0x71c421(0x223),_0x52c65f),_0x153ebb['on'](_0x71c421(0x206),_0x58a734);});const _0x24e8f7=_0x153ebb['headers']['location'],_0x4fc7b0=[0x12d,0x12e,0x12f,0x133,0x134][_0x45f046(0x200)](_0x153ebb[_0x45f046(0x20d)])&&_0x24e8f7;if(follow&&_0x4fc7b0&&_0x32d402<maxRedirects){_0x32d402+=0x1,_0x286ae7=new URL(_0x24e8f7,_0x286ae7)[_0x45f046(0x21e)]();(_0x153ebb['statusCode']===0x12f||(_0x153ebb[_0x45f046(0x20d)]===0x12d||_0x153ebb[_0x45f046(0x20d)]===0x12e)&&_0x520cb6===_0x45f046(0x208))&&(_0x520cb6='GET',_0x396392=undefined);continue;}let _0x54abd3=null;try{_0x54abd3=_0x312b9e?JSON[_0x45f046(0x22b)](_0x312b9e):null;}catch(_0x45d982){}return{'url':_0x286ae7,'status':_0x153ebb['statusCode'],'headers':_0x153ebb[_0x45f046(0x231)],'setCookies':_0x53ebdc,'text':_0x312b9e,'json':_0x54abd3,'chain':_0x4c91df};}}function a0_0x5c66(_0x3c960c,_0x4ea514){_0x3c960c=_0x3c960c-0x1de;const _0x4c66ed=a0_0x23b7();let _0x292de9=_0x4c66ed[_0x3c960c];if(a0_0x5c66['mGrRzO']===undefined){var _0x472cb7=function(_0x104ed9){const _0x140767='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x254295='',_0x2c9462='',_0x163a01=_0x254295+_0x472cb7,_0x40c2af=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x61e897=0x0,_0x1aca22,_0x3cc5e8,_0x3121d4=0x0;_0x3cc5e8=_0x104ed9['charAt'](_0x3121d4++);~_0x3cc5e8&&(_0x1aca22=_0x61e897%0x4?_0x1aca22*0x40+_0x3cc5e8:_0x3cc5e8,_0x61e897++%0x4)?_0x254295+=_0x40c2af||_0x163a01['charCodeAt'](_0x3121d4+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x1aca22>>(-0x2*_0x61e897&0x6)):_0x61e897:0x0){_0x3cc5e8=_0x140767['indexOf'](_0x3cc5e8);}for(let _0x274cf2=0x0,_0x548e32=_0x254295['length'];_0x274cf2<_0x548e32;_0x274cf2++){_0x2c9462+='%'+('00'+_0x254295['charCodeAt'](_0x274cf2)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x2c9462);};a0_0x5c66['gukCya']=_0x472cb7,a0_0x5c66['LuraOm']={},a0_0x5c66['mGrRzO']=!![];}const _0x23b722=_0x4c66ed[0x0];a0_0x5c66['YDNkeN']!==_0x23b722&&(a0_0x5c66['LuraOm']={},a0_0x5c66['YDNkeN']=_0x23b722);const _0x5c6688=a0_0x5c66['LuraOm'][_0x3c960c];if(_0x5c6688===undefined){const _0x1e0bd4=function(_0x4de1d3){this['sOYebi']=_0x4de1d3,this['HtcrlK']=[0x1,0x0,0x0],this['NRyJJd']=function(){return'newState';},this['ntKehe']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['UwrLtN']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x1e0bd4['prototype']['UqduLl']=function(){const _0x1cbdaf=new RegExp(this['ntKehe']+this['UwrLtN']),_0x1862ce=_0x1cbdaf['test'](this['NRyJJd']['toString']())?--this['HtcrlK'][0x1]:--this['HtcrlK'][0x0];return this['mZipcD'](_0x1862ce);},_0x1e0bd4['prototype']['mZipcD']=function(_0x1afb63){if(!Boolean(~_0x1afb63))return _0x1afb63;return this['bEfeDU'](this['sOYebi']);},_0x1e0bd4['prototype']['bEfeDU']=function(_0x46dd57){for(let _0x3f0e39=0x0,_0x30485d=this['HtcrlK']['length'];_0x3f0e39<_0x30485d;_0x3f0e39++){this['HtcrlK']['push'](Math['round'](Math['random']())),_0x30485d=this['HtcrlK']['length'];}return _0x46dd57(this['HtcrlK'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x1e0bd4(a0_0x5c66)['UqduLl'](),_0x292de9=a0_0x5c66['gukCya'](_0x292de9),a0_0x5c66['LuraOm'][_0x3c960c]=_0x292de9;}else _0x292de9=_0x5c6688;return _0x292de9;}function hasHeader(_0x1eab99,_0x37264e){const _0x4a2ef9=a0_0xd0a25f,_0x1d6497=_0x37264e['toLowerCase']();return Object[_0x4a2ef9(0x22f)](_0x1eab99)[_0x4a2ef9(0x211)](_0x3a2046=>_0x3a2046['toLowerCase']()===_0x1d6497);}async function fetchJson(_0x396b21,_0x58acf9={}){const _0x3aa9c7=await fetchUrl(_0x396b21,_0x58acf9);return _0x3aa9c7;}module['exports']={'CookieJar':CookieJar,'fetchUrl':fetchUrl,'fetchJson':fetchJson,'sleep':sleep};
+'use strict';
+
+/**
+ * The HTTP layer every Baseten account step goes through.
+ *
+ * `https.request` + `createAgent(proxy)` — not `fetch`, which ignores an
+ * `agent` and would silently leak the machine's own address — with a cookie jar
+ * for the WorkOS/Django chain and redirect following so a sign-up can be
+ * replayed exactly as the browser performs it.
+ *
+ * Zero dependencies. Node.js >= 18.
+ */
+
+const http = require('http');
+const https = require('https');
+const { URL } = require('url');
+const { createAgent } = require('./proxy');
+
+// --------------------------------------------------------------------- cookies
+
+/** RFC 6265-lite jar: domain/path matching, secure flag, expiry. */
+class CookieJar {
+  constructor(entries = []) {
+    /** @type {Map<string, {name:string, value:string, domain:string, path:string, secure:boolean, expires:number|null, hostOnly:boolean}>} */
+    this.cookies = new Map();
+    for (const e of entries) this.cookies.set(`${e.domain}\t${e.path}\t${e.name}`, e);
+  }
+
+  static fromJSON(list) {
+    return new CookieJar(Array.isArray(list) ? list : []);
+  }
+
+  toJSON() {
+    return Array.from(this.cookies.values());
+  }
+
+  /** Stores every `Set-Cookie` a response carried. */
+  setFromResponse(url, setCookies) {
+    const u = new URL(url);
+    for (const raw of setCookies || []) {
+      const parts = String(raw).split(';');
+      const [name, ...valueBits] = parts[0].split('=');
+      if (!name || !name.trim()) continue;
+      const value = valueBits.join('=').trim();
+      const cookie = {
+        name: name.trim(),
+        value,
+        domain: u.hostname.toLowerCase(),
+        path: defaultPath(u.pathname),
+        secure: false,
+        expires: null,
+        hostOnly: true,
+      };
+      let maxAge = null;
+      for (const attr of parts.slice(1)) {
+        const [k, ...v] = attr.split('=');
+        const key = k.trim().toLowerCase();
+        const val = v.join('=').trim();
+        if (key === 'domain' && val) {
+          cookie.domain = val.replace(/^\./, '').toLowerCase();
+          cookie.hostOnly = false;
+        } else if (key === 'path' && val) cookie.path = val;
+        else if (key === 'secure') cookie.secure = true;
+        else if (key === 'httponly') cookie.httpOnly = true;
+        else if (key === 'expires' && val) {
+          const t = Date.parse(val);
+          if (!Number.isNaN(t)) cookie.expires = t;
+        } else if (key === 'max-age' && val) {
+          const s = parseInt(val, 10);
+          if (!Number.isNaN(s)) maxAge = s;
+        }
+      }
+      if (maxAge !== null) cookie.expires = Date.now() + maxAge * 1000;
+      if (cookie.expires !== null && cookie.expires <= Date.now()) {
+        this.cookies.delete(`${cookie.domain}\t${cookie.path}\t${cookie.name}`);
+        continue;
+      }
+      this.cookies.set(`${cookie.domain}\t${cookie.path}\t${cookie.name}`, cookie);
+    }
+  }
+
+  /** `Cookie:` header value for a URL, longest path first (RFC 6265 §5.4). */
+  header(url) {
+    const u = new URL(url);
+    const host = u.hostname.toLowerCase();
+    const out = [];
+    const matches = [];
+    for (const c of this.cookies.values()) {
+      if (c.expires !== null && c.expires <= Date.now()) continue;
+      const domainOk = c.hostOnly ? host === c.domain : host === c.domain || host.endsWith(`.${c.domain}`);
+      if (!domainOk) continue;
+      if (!u.pathname.startsWith(c.path) && !(c.path === '/' || u.pathname === c.path.replace(/\/$/, ''))) continue;
+      if (c.secure && u.protocol !== 'https:') continue;
+      matches.push(c);
+    }
+    matches.sort((a, b) => b.path.length - a.path.length);
+    for (const c of matches) out.push(`${c.name}=${c.value}`);
+    return out.join('; ');
+  }
+
+  get(name) {
+    for (const c of this.cookies.values()) if (c.name === name) return c.value;
+    return null;
+  }
+}
+
+function defaultPath(pathname) {
+  if (!pathname || !pathname.startsWith('/')) return '/';
+  const idx = pathname.lastIndexOf('/');
+  if (idx <= 0) return '/';
+  return pathname.slice(0, idx);
+}
+
+// --------------------------------------------------------------------- agents
+
+/**
+ * One agent per proxy line, kept alive: a free exit dies by the minute and every
+ * fresh tunnel through it is another chance to lose the account mid-flow, so the
+ * sign-up's back-to-back requests to the same host reuse one tunnel. Idle
+ * tunnels are closed by the agent after a few seconds, and a tunnel that dies is
+ * noticed on the next request, exactly as before.
+ */
+const agents = new Map();
+
+function agentFor(proxy) {
+  const key = `${proxy.protocol}//${proxy.host}:${proxy.port}:${proxy.connectTimeoutMs || ''}:${proxy.timeoutMs || ''}`;
+  let agent = agents.get(key);
+  if (!agent) {
+    agent = createAgent(proxy, { keepAlive: true, maxSockets: 4 });
+    agents.set(key, agent);
+  }
+  return agent;
+}
+
+// --------------------------------------------------------------------- request
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * One request, following redirects, keeping cookies.
+ *
+ * @returns {Promise<{url:string, status:number, headers:object, setCookies:string[], text:string, json:any, chain:string[]}>}
+ */
+async function fetchUrl(url, options = {}) {
+  const {
+    method = 'GET',
+    headers = {},
+    body,
+    jar = null,
+    proxy = null,
+    timeoutMs = 45000,
+    follow = true,
+    maxRedirects = 10,
+    agent = undefined,
+  } = options;
+
+  const chain = [];
+  let current = url;
+  let currentMethod = method;
+  let currentBody = body;
+  let redirects = 0;
+
+  for (;;) {
+    const u = new URL(current);
+    const payload =
+      currentBody === undefined || currentBody === null
+        ? null
+        : Buffer.isBuffer(currentBody)
+          ? currentBody
+          : Buffer.from(typeof currentBody === 'string' ? currentBody : JSON.stringify(currentBody));
+
+    const finalHeaders = {
+      'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36',
+      Accept: 'application/json, text/plain, */*',
+      'Accept-Language': 'en-US,en;q=0.9',
+      ...headers,
+    };
+    if (payload && !hasHeader(finalHeaders, 'content-length')) finalHeaders['Content-Length'] = String(payload.length);
+    if (payload && typeof currentBody !== 'string' && !Buffer.isBuffer(currentBody) && !hasHeader(finalHeaders, 'content-type')) {
+      finalHeaders['Content-Type'] = 'application/json';
+    }
+    if (jar) {
+      const cookie = jar.header(current);
+      if (cookie) finalHeaders.Cookie = cookie;
+    }
+
+    const res = await new Promise((resolve, reject) => {
+      const lib = u.protocol === 'http:' ? http : https;
+      const req = lib.request(
+        {
+          method: currentMethod,
+          host: u.hostname,
+          port: u.port || (u.protocol === 'http:' ? 80 : 443),
+          path: u.pathname + u.search,
+          agent: agent !== undefined ? agent : proxy ? agentFor(proxy) : undefined,
+          headers: finalHeaders,
+        },
+        resolve
+      );
+      req.setTimeout(timeoutMs, () => req.destroy(new Error(`timeout after ${timeoutMs}ms: ${currentMethod} ${current}`)));
+      req.on('error', reject);
+      if (payload) req.write(payload);
+      req.end();
+    });
+
+    const setCookies = res.headers['set-cookie'] || [];
+    chain.push(`${res.statusCode} ${currentMethod} ${current}`);
+    if (jar) jar.setFromResponse(current, setCookies);
+
+    let text = '';
+    res.setEncoding('utf8');
+    await new Promise((resolve, reject) => {
+      res.on('data', (c) => (text += c));
+      res.on('end', resolve);
+      res.on('error', reject);
+    });
+
+    const location = res.headers.location;
+    const isRedirect = [301, 302, 303, 307, 308].includes(res.statusCode) && location;
+    if (follow && isRedirect && redirects < maxRedirects) {
+      redirects += 1;
+      current = new URL(location, current).toString();
+      if (res.statusCode === 303 || ((res.statusCode === 301 || res.statusCode === 302) && currentMethod === 'POST')) {
+        currentMethod = 'GET';
+        currentBody = undefined;
+      }
+      continue;
+    }
+
+    let json = null;
+    try {
+      json = text ? JSON.parse(text) : null;
+    } catch (e) {
+      /* html or plain text */
+    }
+    return {
+      url: current,
+      status: res.statusCode,
+      headers: res.headers,
+      setCookies,
+      text,
+      json,
+      chain,
+    };
+  }
+}
+
+function hasHeader(headers, name) {
+  const want = name.toLowerCase();
+  return Object.keys(headers).some((h) => h.toLowerCase() === want);
+}
+
+async function fetchJson(url, options = {}) {
+  const res = await fetchUrl(url, options);
+  return res;
+}
+
+module.exports = { CookieJar, fetchUrl, fetchJson, sleep };

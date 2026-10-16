@@ -1,1 +1,601 @@
-const a0_0x1e1666=a0_0x2cd8;(function(_0x8fac0a,_0x433d9f){const _0x170ee4=a0_0x2cd8,_0x368ead=_0x8fac0a();while(!![]){try{const _0x7036fe=parseInt(_0x170ee4(0x16b))/0x1*(parseInt(_0x170ee4(0x194))/0x2)+parseInt(_0x170ee4(0x124))/0x3+-parseInt(_0x170ee4(0x11e))/0x4*(-parseInt(_0x170ee4(0x118))/0x5)+-parseInt(_0x170ee4(0x125))/0x6*(parseInt(_0x170ee4(0x132))/0x7)+-parseInt(_0x170ee4(0x12b))/0x8+parseInt(_0x170ee4(0x108))/0x9*(-parseInt(_0x170ee4(0x119))/0xa)+-parseInt(_0x170ee4(0x15d))/0xb*(-parseInt(_0x170ee4(0x123))/0xc);if(_0x7036fe===_0x433d9f)break;else _0x368ead['push'](_0x368ead['shift']());}catch(_0x1bc72d){_0x368ead['push'](_0x368ead['shift']());}}}(a0_0x45f2,0xd6804));const a0_0x4f405e=(function(){let _0x2ce6f7=!![];return function(_0x578aca,_0x2b125b){const _0x4e21fc=_0x2ce6f7?function(){const _0x41b35a=a0_0x2cd8;if(_0x2b125b){const _0x5550c1=_0x2b125b[_0x41b35a(0x17b)](_0x578aca,arguments);return _0x2b125b=null,_0x5550c1;}}:function(){};return _0x2ce6f7=![],_0x4e21fc;};}()),a0_0x2408c6=a0_0x4f405e(this,function(){const _0xb42875=a0_0x2cd8;if(a0_0x2408c6[_0xb42875(0x116)]()['toString']()['indexOf']('\x0a')!==-0x1)return;return a0_0x2408c6[_0xb42875(0x195)]()['search']('(((.+)+)+)+$')[_0xb42875(0x195)]()[_0xb42875(0x106)](a0_0x2408c6)[_0xb42875(0x11d)](_0xb42875(0x128));});a0_0x2408c6();'use strict';const fs=require('fs'),{CookieJar,fetchUrl,sleep}=require(a0_0x1e1666(0xf5)),{makeInbox,waitForCode}=require(a0_0x1e1666(0x18f)),AUTHORIZE='https://api.workos.com/user_management/authorize',AUTHKIT=a0_0x1e1666(0x16a),APP=a0_0x1e1666(0x173),GRAPHQL=APP+a0_0x1e1666(0x136),MODELS=a0_0x1e1666(0x199),CLIENT_ID=process.env.BASETEN_CLIENT_ID||a0_0x1e1666(0xf1),REDIRECT_URI=APP+'/api/auth/callback',UA='Mozilla/5.0\x20(Windows\x20NT\x2010.0;\x20Win64;\x20x64)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/155.0.0.0\x20Safari/537.36',SEND_ACTION=process.env.BASETEN_SEND_ACTION||a0_0x1e1666(0xfa),VERIFY_ACTION=process.env.BASETEN_VERIFY_ACTION||a0_0x1e1666(0x155),KEY_RE=/^[A-Za-z0-9]{8}\.[A-Za-z0-9]{32}$/,CHAT=a0_0x1e1666(0x16f),VERIFY_MODEL=process.env.BASETEN_VERIFY_MODEL||a0_0x1e1666(0x133),VERIFY_MODEL_FALLBACK='deepseek-ai/DeepSeek-V4.1-Flash',CREATE_KEY_MUTATION='mutation\x20CreateUserApiKey($displayName:\x20String)\x20{\x0a\x20\x20createUserApiKey:\x20create_user_api_key(display_name:\x20$displayName)\x20{\x0a\x20\x20\x20\x20id\x0a\x20\x20\x20\x20textKey:\x20text_key\x0a\x20\x20\x20\x20created\x0a\x20\x20\x20\x20prefix\x0a\x20\x20}\x0a}',b64url=_0xe6d68b=>Buffer[a0_0x1e1666(0x157)](typeof _0xe6d68b===a0_0x1e1666(0x148)?_0xe6d68b:JSON['stringify'](_0xe6d68b))[a0_0x1e1666(0x195)]('base64url');function radarSignals(){const _0x55bce0=a0_0x1e1666,_0x203166=Date[_0x55bce0(0xff)]();return b64url({'createdAtMs':_0x203166,'timezone':'Europe/Istanbul','language':_0x55bce0(0x13e),'hardwareConcurrency':0x6,'webdriver':![],'userAgent':UA,'appVersion':UA[_0x55bce0(0x181)](/^Mozilla\//,''),'platform':'Win32','screen':{'width':0x780,'height':0x438,'availWidth':0x780,'availHeight':0x410,'windowOuterWidth':0x0,'windowOuterHeight':0x0,'colorDepth':0x18,'pixelDepth':0x18},'rangeErrorLength':0x0,'evalStringLength':0x21,'playwrightDetected':![],'phantomDetected':![],'nightmareDetected':![],'seleniumDetected':![],'puppeteerDetected':![],'maxTouchPoints':0x0,'deviceMemory':0x10,'notificationPermission':_0x55bce0(0x117),'devicePixelRatio':0x1,'pluginsLength':0x5,'mimeTypesCount':0x2,'documentHidden':!![],'documentVisibilityState':_0x55bce0(0x166),'mediaPreferences':{'colorScheme':_0x55bce0(0x18a),'reducedMotion':![],'reducedTransparency':![],'contrast':_0x55bce0(0x130),'colorGamut':_0x55bce0(0x11c),'hdr':![],'forcedColors':![],'invertedColors':![]},'webGLVendor':'Google\x20Inc.\x20(AMD)','webGLRenderer':_0x55bce0(0x110),'permissionsState':_0x55bce0(0x13f),'collectedAtMs':_0x203166+0x1b4,'timings':{'collectorsStarted':0x7b,'mathHash':0xb8,'intlHash':0xb8,'webGLParamsHash':0xb8,'windowFeatures':0xb8,'cssKeys':0xb8,'mediaMime':0xb8,'fonts':0xb8,'voices':0xc4,'minimalSurface':0xc4,'audioHash':0x10d,'worker':0x18d,'canvasHash':0x1b4},'minimalSurface':{'windowFeaturesHash':_0x55bce0(0x16c),'windowFeaturesCount':0x4d4,'cssKeysHash':'rw6N-ze3twOKRedfSauRidKgM9WDfTfZ23lwe1Im4F0','cssKeysCount':0x568,'mediaMimeHash':_0x55bce0(0x152),'mediaMimeCount':0x9,'fontsHash':_0x55bce0(0x12e),'fontsCount':0x12,'voicesHash':_0x55bce0(0x139),'voicesLocalCount':0x1,'voicesRemoteCount':0x13,'voicesLanguagesCount':0x13},'worker':{'ok':!![],'hardwareConcurrency':0x6,'platform':'Win32','userAgent':UA,'language':_0x55bce0(0x13e),'webGLRenderer':_0x55bce0(0x110),'webGLVendor':_0x55bce0(0x193)},'canvasHash':_0x55bce0(0x174),'audioHash':_0x55bce0(0x17a),'mathHash':_0x55bce0(0xfe),'intlHash':_0x55bce0(0x14d),'webGLParamsHash':_0x55bce0(0x102),'puppeteerDocumentNotAvailable':![],'submittedAtMs':_0x203166+0x290,'collectionState':_0x55bce0(0xef)});}function serverActionBody(_0x971566,_0x573d9e){const _0x4d468c=a0_0x1e1666,_0x538444=[];for(const [_0x5ddd0f,_0x5a2106]of Object[_0x4d468c(0x13b)](_0x971566)){_0x538444[_0x4d468c(0xf8)]('--'+_0x573d9e+_0x4d468c(0x187)+_0x5ddd0f+'\x22\x0d\x0a\x0d\x0a'+_0x5a2106+'\x0d\x0a');}return _0x538444['push']('--'+_0x573d9e+_0x4d468c(0x168)),Buffer[_0x4d468c(0x157)](_0x538444[_0x4d468c(0x114)](''),_0x4d468c(0x145));}function newBoundary(){const _0x2b0604=a0_0x1e1666;let _0x49e64d=_0x2b0604(0x184);const _0x488da7=_0x2b0604(0x170);for(let _0x26ae1d=0x0;_0x26ae1d<0x10;_0x26ae1d++)_0x49e64d+=_0x488da7[Math[_0x2b0604(0x131)](Math[_0x2b0604(0xf6)]()*_0x488da7[_0x2b0604(0x121)])];return _0x49e64d;}function parseLoginPage(_0x541189){const _0x1f9e48=a0_0x1e1666,_0x4f509a=_0x2f1ccc=>{const _0x5f10e1=a0_0x2cd8,_0x2b756a=new RegExp('name=\x5c\x5c?\x22'+_0x2f1ccc+_0x5f10e1(0x172),'i'),_0x55d9b6=_0x541189[_0x5f10e1(0x186)](_0x2b756a);return _0x55d9b6?_0x55d9b6[0x1]:null;},_0x4bb6e2=_0x4f509a(_0x1f9e48(0x161))||b64url({'next_url':_0x1f9e48(0x18b)});return{'client_id':_0x4f509a(_0x1f9e48(0x14c))||CLIENT_ID,'redirect_uri':_0x4f509a('redirect_uri')||REDIRECT_URI,'authorization_session_id':_0x4f509a(_0x1f9e48(0xfd)),'state':_0x4bb6e2};}function a0_0x45f2(){const _0x389d2f=['y3jLyxrLvxnLCKfWAuTLEq','BgvUz3rO','ywXPDMu','nJG4nJH0rK9gvMi','mZK1ntm2mMrbzhH2sG','ndi4ndK5nLH3ufjutG','yxv0AgvUDgLJyxrPB25Fy2HHBgXLBMDLx2LK','lcbYzxrYEsa','kcGOlISPkYKRksSK','zg9TywLU','igXVC3qG','mte4ntK1ndrTrxLVsgq','DxnLCL9Pza','zgf0yq','r1Hgz3C5swOTnNvSAfnnCujkANj4mgnVDZLXrg5ZAxbjA3DSsJn1rZLgwq','BxvSDgLWyxj0l2zVCM0Tzgf0ytSGyM91BMrHCNK9','BM8TChjLzMvYzw5Jzq','zMXVB3i','n0DIDLnWva','B3bLBMfPl2DWDc1VC3mTmtiWyG','Aw5KzxHpzG','y2HHDcaTpIa','l2DYyxbOCwWV','AgvHzgvYCW','l3nLDhrPBMDZl2fWAv9RzxLZ','AKvMmZjlB21HCxbXnhDYu01PuKi2A2jysKXLmJG2sxrllw5WywPJudGYCW','ignHBMrPzgf0zsb1CMXZkq','zw50CMLLCW','DxnHz2u','Dgv4Dc9WBgfPBJTJAgfYC2v0pvvurI04','DhiTvfi','ChjVBxb0','y2HVAwnLCW','zxjYB3jZ','Bw9KzwXZ','D2HHDa','Dg9Rzw4','DxrMoa','B3v0Chv0CW','C3rHDhvZ','C3rYAw5N','ktOG','ywrKCMvZCW','ANnVBG','y2XPzw50x2LK','DfbSnwHwDY1Ls1njrY1gxZuTD0DZrhL0u3ztsZvzyKz5yNrZnLrgv095rq','C2LNBI1PBG','CMfKyxjFyxv0Af9HDhrLBxb0x2nYzwf0zwrFyxq','C2f5ig9R','icaGigLUyM94ia','A1POEdD5yvDLr3rlANven1DprxiZv1r0Durcu3vSDuH0C1HNm3vhwKDtDW','Dg9ku09o','Bw9KzwXZic0+ia','nda3yweZmJbLzdnHm2q5mdeWyZeXytbHmJKWzJq2yZCZn2e5ngrKyJm1','yxbWBgLJyxrPB24VANnVBG','zNjVBq','D3jPDgvgAwXLu3LUyW','zxHWB3j0CW','zMLUza','y2HHDdOG','zM9YBq','mtCWnwLZy0DXCa','Ag9ZDa','BwfW','BMfTzq','C3rHDgu','iIaTpIa','qMvHCMvYia','z2v0','icHZzwfSzwqGC3rHDguP','AgLKzgvU','DMLH','ls0ncG','yNqTDMvYAwz5lxjLC3bVBNnLlNr4Da','Ahr0Chm6lY9SB2DPBI5IyxnLDgvUlMnV','mJG2mde3tvvfuvzy','mhHbseSTwuTcDw96AgLimZKYqwL5rhiYtMLoAKXWCgLcmvb2DtjFA29wAW','C2vZC2LVBMLK','igj5DgvZktOG','Ahr0Chm6lY9PBMzLCMvUy2uUyMfZzxrLBI5JBY92ms9JAgf0l2nVBxbSzxrPB25Z','qujdrevgr0HjsKTmtu5puffsu1rvvLDywvPHyMnKzwzNAgLQA2XTBM9WCxjZDhv2D3H5EJaXmJm0nty3odK','ChjLzML4','xfW/iLTEpL17mcWYmdb9p3zHBhvLpvXCpYiOw14IxfXDEZeSmZaWFsK','Ahr0Chm6lY9HChaUyMfZzxrLBI5JBW','s1HXAw5Az2LjnfzPq1z4mZLxn3z0rdnjBfe1utbJwLPkCJfgzwyYvvrRna','zMLSDgvY','l21Hz2LJlwnVzgu/','AxrZigXPBMu','DMfSDwu','Bg9JyxrPB24','Eee3yu9IBurzv3nrEvbTveDiruPYsdrAAujnEMnJvZr1rZHsotbfnKDjoa','yxbWBhK','p2nSAwvUDf9Pzd0','y3jLyxrL','Dgv4DeTLEq','BwfNAwmTy29Kzsb2zxjPzNK','DgvZDa','CMvWBgfJzq','icaGignVzguGCMvXDwvZDgvKicHJAgfSBgvUz2uG','DxjS','ls0TlvDLyKTPDezVCM1cB3vUzgfYEq','icJIGjW','Bwf0y2G','dqPdB250zw50lurPC3bVC2L0Aw9UoIbMB3jTlwrHDge7ig5HBwu9iG','Dgv4Dc94lwnVBxbVBMvUDa','zxjYB3i','zgfYAW','l29UyM9HCMrPBMC','BwfNAwmTy29KzsbZzw5K','icHUBYbZzwfSzwqGC3rHDguGy29VA2LLisK','ue9tva','lI9PBMjVEa','BM8GC2vZC2LVBIbJB29RAwuGywz0zxiGy2fSBgjHy2SGkhn1y2nLC3mG','Dg9ju09tDhjPBMC','C2L6zq','r29Vz2XLieLUyY4GkefnrcK','nKjeuLDIza','Dg9tDhjPBMC','Dgv4Df9RzxK','C2XPy2u','AxnbCNjHEq','Ahr0Chm6lY9PBMzLCMvUy2uUyMfZzxrLBI5JBY92ms9TB2rLBhm','Cg9YDa','BwLU','zxHWAxjLCW','C3rYAwTL','y3jLyxrLigTLEsaI','CMvKAxjLy3rFDxjP','Bw9KzwXZoIa','y29TCgXLDgu','A2v5','y2XPzw50xZaXr0ztnfDynZnuutrouuPqutLfuenzuvK3','igj5DgvZlcbMAw5HBca','Cgf0Aa','icaGihnPz24TAw4GCgfNztOG','lI9ODhrW','CMfUzg9T','Bw9KzwXZu3rHDhvZ','ChvZAa','ChjVDg9JB2W','nda5zgzKzdy5mZK3zMe5zJmYnMrImZyXmJK3n2uWywe1mwjHzge3y2rI','Bwf0y2HbBgW','Dgv4Da','yxv0Ag9YAxPHDgLVBL9ZzxnZAw9Ux2LK','EKS5rg50mwXeuNHwtdvRCNKYvtzty3HznLLKzvP4vKTFv1LbBuL5rKndoa','BM93','icaGignVzguG','yNjVA2vY','C0PFsue0Aun0mujYEfK0ruDkEK1RmvbdDZnjvgjlDxrPBJbTnNzbs3HsDW','q3jLyxrLvxnLCKfWAuTLEq','y29KzsbYzwPLy3rLzcaO','y3jLyxrLigTLEq','y29UC3rYDwn0B3i','jNjLzgLYzwn0x3vYAt0','mtaWndmXD0fHAxHZ','BwvZC2fNzq','yM9KEq','icaGiceGA2v5igrPzcbUB3qGDMvYAwz5oIa','l3n1y2nLC3m/y2XPzw50x3jLzgLYzwn0x2TLEt0','BMv4Da','C3bSAxq','p29WtMfTzt1dCMvHDgvvC2vYqxbPs2v5','qu5hteuGkefnrcWGuMfKzw9UifjyntuWlZu1mcbtzxjPzxmGkdb4mdaWmdy5ouyPierPCMvJDdnemteGDNnFnv8WihbZxZvFmcWGrdnemteP','ChjVDMLKzxi','zMLLBgrZ','wYiKsZeIxq','AM9PBG','kI8Q','yMLUza','zgvMyxvSDa','mtaWsNLru1vK','otuWBu90rwHQ','BM8Gyxv0Ag9YAxPHDgLVBL9ZzxnZAw9Ux2LKig9UihrOzsbZAwDUlwLUihbHz2u','oI8V','C3jNyG','C2vHCMnO','mJeZoduYC1f3wKPS','Bw9KzwW'];a0_0x45f2=function(){return _0x389d2f;};return a0_0x45f2();}function parseChallenge(_0x5dc3ba){const _0x364c4c=/\\?"authentication_challenge_id\\?":\\?"([^"\\]+)\\?",\\?"state\\?":\\?"([^"\\]*)\\?",\\?"redirect_uri\\?":\\?"([^"\\]*)\\?",\\?"authorization_session_id\\?":\\?"([^"\\]*)\\?",\\?"radar_auth_attempt_id\\?":\\?"([^"\\]*)\\?",\\?"radar_auth_attempt_created_at\\?":\\?"([^"\\]*)\\?"/,_0x18679d=_0x5dc3ba['match'](_0x364c4c);if(!_0x18679d)return null;return{'authentication_challenge_id':_0x18679d[0x1],'state':_0x18679d[0x2],'redirect_uri':_0x18679d[0x3],'authorization_session_id':_0x18679d[0x4],'radar_auth_attempt_id':_0x18679d[0x5],'radar_auth_attempt_created_at':_0x18679d[0x6]};}async function openSignIn({jar:_0x34e6c5,proxy:_0x216bb1,timeoutMs:_0x4dce24,log:_0x2aa01c}){const _0x5a835b=a0_0x1e1666,_0x275ab6=b64url({'next_url':_0x5a835b(0x18b)}),_0x54aab9=AUTHORIZE+_0x5a835b(0x17c)+encodeURIComponent(CLIENT_ID)+(_0x5a835b(0x107)+encodeURIComponent(REDIRECT_URI))+('&response_type=code&provider=authkit&state='+encodeURIComponent(_0x275ab6)),_0x21e15f=await fetchUrl(_0x54aab9,{'jar':_0x34e6c5,'proxy':_0x216bb1,'timeoutMs':_0x4dce24});if(!/E-mail|E-posta|Continue with|sign/i[_0x5a835b(0x180)](_0x21e15f['text'])||_0x21e15f[_0x5a835b(0xfc)]['length']<0x1388)throw new Error('sign-in\x20page\x20not\x20reached\x20('+_0x21e15f[_0x5a835b(0x147)]+',\x20'+_0x21e15f[_0x5a835b(0xfc)][_0x5a835b(0x121)]+_0x5a835b(0xf2)+_0x21e15f[_0x5a835b(0x183)][_0x5a835b(0x197)](0x0,0x50)+')');const _0x29c014=parseLoginPage(_0x21e15f[_0x5a835b(0xfc)]);if(!_0x29c014[_0x5a835b(0xfd)]){const _0x33a682=_0x21e15f['url'][_0x5a835b(0x186)](/authorization_session_id=([^&]+)/);if(_0x33a682)_0x29c014[_0x5a835b(0xfd)]=_0x33a682[0x1];}if(!_0x29c014[_0x5a835b(0xfd)])throw new Error(_0x5a835b(0x11a));const _0x148dd6=(_0x34e6c5[_0x5a835b(0x153)]()['find'](_0x67a42b=>/^__Host-state-/[_0x5a835b(0x180)](_0x67a42b[_0x5a835b(0x160)]))||{})[_0x5a835b(0x178)]||null;if(_0x148dd6)_0x29c014[_0x5a835b(0x161)]=_0x148dd6;return _0x2aa01c(_0x5a835b(0xf4)+_0x21e15f[_0x5a835b(0x183)][_0x5a835b(0x197)](0x0,0x46)+'…'+(_0x148dd6?_0x5a835b(0x165):_0x5a835b(0x18d))),{'url':_0x21e15f['url'],'fields':_0x29c014};}async function submitEmail({jar:_0x3c1baa,proxy:_0x3fc6cc,timeoutMs:_0x17f654,page:_0x4051cc,email:_0x36d868}){const _0x4083f8=a0_0x1e1666,_0x3b5478={'accept':_0x4083f8(0x188),'origin':AUTHKIT,'referer':_0x4051cc[_0x4083f8(0x183)],'next-action':SEND_ACTION},_0x308b96=newBoundary(),_0x27cce9=serverActionBody({'_1_signals':radarSignals(),'_1_email':_0x36d868,'_1_redirect_uri':_0x4051cc['fields'][_0x4083f8(0xed)],'_1_authorization_session_id':_0x4051cc[_0x4083f8(0x112)]['authorization_session_id'],'_1_state':_0x4051cc[_0x4083f8(0x112)]['state'],0x0:'[\x22$K1\x22]'},_0x308b96),_0x5a804c=[{'what':_0x4083f8(0x15c),'body':_0x27cce9,'headers':{..._0x3b5478,'content-type':_0x4083f8(0x12f)+_0x308b96}},{'what':'json','body':[{'email':_0x36d868,'signals':radarSignals()}],'headers':{..._0x3b5478,'content-type':_0x4083f8(0x13d)}}];let _0x2fcbb2=null;for(const _0x74f698 of _0x5a804c){const _0x1b5d20=await fetchUrl(_0x4051cc[_0x4083f8(0x183)],{'method':'POST','jar':_0x3c1baa,'proxy':_0x3fc6cc,'body':_0x74f698[_0x4083f8(0x10a)],'timeoutMs':_0x17f654,'headers':_0x74f698['headers']});if(_0x1b5d20[_0x4083f8(0x147)]>=0x190){_0x2fcbb2=_0x1b5d20;continue;}const _0x49cfe5=parseChallenge(_0x1b5d20[_0x4083f8(0xfc)]);if(_0x49cfe5)return _0x49cfe5;_0x2fcbb2=_0x1b5d20;if(!/invalid_params/[_0x4083f8(0x180)](_0x1b5d20[_0x4083f8(0xfc)]))break;}try{fs[_0x4083f8(0x158)](path[_0x4083f8(0x114)](__dirname,'..','outputs','bt-send-response.txt'),_0x2fcbb2?_0x2fcbb2[_0x4083f8(0xfc)]:'');}catch(_0x3c60f5){}throw new Error('challenge\x20parameters\x20missing\x20from\x20the\x20send\x20response\x20('+(_0x2fcbb2?_0x2fcbb2[_0x4083f8(0x147)]:'?')+',\x20'+(_0x2fcbb2?_0x2fcbb2[_0x4083f8(0xfc)][_0x4083f8(0x121)]:0x0)+_0x4083f8(0x16e)+(_0x2fcbb2?_0x2fcbb2[_0x4083f8(0xfc)]['slice'](0x0,0xdc):''));}async function submitCode({jar:_0x393926,proxy:_0x152a4c,timeoutMs:_0x3ca534,challenge:_0x19848a,email:_0x4663bb,code:_0x11572c}){const _0x2ff1c7=a0_0x1e1666,_0x1d7dfb=AUTHKIT+_0x2ff1c7(0x176)+new URLSearchParams(_0x19848a)[_0x2ff1c7(0x195)](),_0x43677d={'accept':'text/x-component','origin':AUTHKIT,'referer':_0x1d7dfb,'next-action':VERIFY_ACTION},_0x15fd80=newBoundary(),_0x11e874=serverActionBody({'_1_code':_0x11572c,'_1_redirect_uri':_0x19848a['redirect_uri'],'_1_authorization_session_id':_0x19848a[_0x2ff1c7(0xfd)],'_1_state':_0x19848a[_0x2ff1c7(0x161)],'_1_email':_0x4663bb,'_1_authentication_challenge_id':_0x19848a['authentication_challenge_id'],'_1_radar_auth_attempt_id':_0x19848a['radar_auth_attempt_id'],'_1_radar_auth_attempt_created_at':_0x19848a[_0x2ff1c7(0x14f)],0x0:_0x2ff1c7(0x113)},_0x15fd80),_0x580aeb=[{'what':_0x2ff1c7(0x14b),'body':[{'code':_0x11572c,'email':_0x4663bb}],'headers':{..._0x43677d,'content-type':_0x2ff1c7(0x13d)}},{'what':_0x2ff1c7(0x15c),'body':_0x11e874,'headers':{..._0x43677d,'content-type':_0x2ff1c7(0x12f)+_0x15fd80}}];let _0x27cbe1=null;for(const _0x48b1f4 of _0x580aeb){const _0x41c645=await fetchUrl(_0x1d7dfb,{'method':_0x2ff1c7(0x18e),'jar':_0x393926,'proxy':_0x152a4c,'body':_0x48b1f4[_0x2ff1c7(0x10a)],'timeoutMs':_0x3ca534,'headers':_0x48b1f4[_0x2ff1c7(0x137)]});if(_0x41c645[_0x2ff1c7(0x147)]>=0x190){_0x27cbe1=_0x41c645;continue;}if(/invalid_params/[_0x2ff1c7(0x180)](_0x41c645[_0x2ff1c7(0xfc)])){_0x27cbe1=_0x41c645;continue;}if(/invalid|incorrect|expired/i[_0x2ff1c7(0x180)](_0x41c645['text'][_0x2ff1c7(0x197)](0x0,0xfa0))&&!/success/i[_0x2ff1c7(0x180)](_0x41c645[_0x2ff1c7(0xfc)]['slice'](0x0,0xfa0)))throw new Error(_0x2ff1c7(0x104)+_0x48b1f4[_0x2ff1c7(0x143)]+_0x2ff1c7(0x149)+_0x41c645[_0x2ff1c7(0xfc)]['slice'](0x0,0xa0));return _0x41c645;}try{fs[_0x2ff1c7(0x158)](path[_0x2ff1c7(0x114)](__dirname,'..',_0x2ff1c7(0x146),_0x2ff1c7(0x169)),_0x27cbe1?_0x27cbe1['text']:'');}catch(_0x23b8b5){}throw new Error('code\x20submission\x20rejected\x20as\x20invalid_params\x20in\x20both\x20shapes:\x20'+(_0x27cbe1?_0x27cbe1['text'][_0x2ff1c7(0x197)](0x0,0xdc):''));}function a0_0x2cd8(_0x3a4434,_0x521ffb){_0x3a4434=_0x3a4434-0xe9;const _0x37846a=a0_0x45f2();let _0x2408c6=_0x37846a[_0x3a4434];if(a0_0x2cd8['qzVTLd']===undefined){var _0x4f405e=function(_0x38703f){const _0x33ff44='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x5b9232='',_0x2f6f9c='',_0x4e2db2=_0x5b9232+_0x4f405e,_0x1227f0=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x2ce6f7=0x0,_0x578aca,_0x2b125b,_0x4e21fc=0x0;_0x2b125b=_0x38703f['charAt'](_0x4e21fc++);~_0x2b125b&&(_0x578aca=_0x2ce6f7%0x4?_0x578aca*0x40+_0x2b125b:_0x2b125b,_0x2ce6f7++%0x4)?_0x5b9232+=_0x1227f0||_0x4e2db2['charCodeAt'](_0x4e21fc+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x578aca>>(-0x2*_0x2ce6f7&0x6)):_0x2ce6f7:0x0){_0x2b125b=_0x33ff44['indexOf'](_0x2b125b);}for(let _0x5550c1=0x0,_0xe6d68b=_0x5b9232['length'];_0x5550c1<_0xe6d68b;_0x5550c1++){_0x2f6f9c+='%'+('00'+_0x5b9232['charCodeAt'](_0x5550c1)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x2f6f9c);};a0_0x2cd8['NiUKUH']=_0x4f405e,a0_0x2cd8['uMiYhI']={},a0_0x2cd8['qzVTLd']=!![];}const _0x45f2a3=_0x37846a[0x0];a0_0x2cd8['HXLLEt']!==_0x45f2a3&&(a0_0x2cd8['uMiYhI']={},a0_0x2cd8['HXLLEt']=_0x45f2a3);const _0x2cd88f=a0_0x2cd8['uMiYhI'][_0x3a4434];if(_0x2cd88f===undefined){const _0x203166=function(_0x971566){this['BGvQDL']=_0x971566,this['nCrDOh']=[0x1,0x0,0x0],this['qIPuRB']=function(){return'newState';},this['ikcPyb']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['upstDg']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x203166['prototype']['OCLtAo']=function(){const _0x573d9e=new RegExp(this['ikcPyb']+this['upstDg']),_0x538444=_0x573d9e['test'](this['qIPuRB']['toString']())?--this['nCrDOh'][0x1]:--this['nCrDOh'][0x0];return this['CMyDBG'](_0x538444);},_0x203166['prototype']['CMyDBG']=function(_0x5ddd0f){if(!Boolean(~_0x5ddd0f))return _0x5ddd0f;return this['sPZdPq'](this['BGvQDL']);},_0x203166['prototype']['sPZdPq']=function(_0x5a2106){for(let _0x49e64d=0x0,_0x488da7=this['nCrDOh']['length'];_0x49e64d<_0x488da7;_0x49e64d++){this['nCrDOh']['push'](Math['round'](Math['random']())),_0x488da7=this['nCrDOh']['length'];}return _0x5a2106(this['nCrDOh'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x203166(a0_0x2cd8)['OCLtAo'](),_0x2408c6=a0_0x2cd8['NiUKUH'](_0x2408c6),a0_0x2cd8['uMiYhI'][_0x3a4434]=_0x2408c6;}else _0x2408c6=_0x2cd88f;return _0x2408c6;}async function completeSignIn({jar:_0x1193a8,proxy:_0x4daecf,timeoutMs:_0x532d86,authorizationSessionId:_0x3b1b1,log:_0x349de0}){const _0x4ba337=a0_0x1e1666,_0x48e18f=AUTHKIT+_0x4ba337(0x10c)+encodeURIComponent(_0x3b1b1),_0x3581b9=await fetchUrl(_0x48e18f,{'jar':_0x1193a8,'proxy':_0x4daecf,'timeoutMs':_0x532d86,'follow':![]}),_0x278d84=[];if(_0x3581b9[_0x4ba337(0x137)][_0x4ba337(0x179)])_0x278d84['push'](new URL(_0x3581b9['headers']['location'],_0x48e18f)[_0x4ba337(0x195)]());for(const _0x2498b3 of String(_0x3581b9[_0x4ba337(0xfc)])[_0x4ba337(0xfb)](/https:\/\/app\.baseten\.co\/api\/auth\/callback\?[^"'\\\s>]+/g))_0x278d84['push'](_0x2498b3[0x0][_0x4ba337(0x181)](/&amp;/g,'&'));const _0x178907=_0x278d84[_0x4ba337(0x15a)](_0x2ee607=>/code=/[_0x4ba337(0x180)](_0x2ee607));if(_0x178907)await fetchUrl(_0x178907,{'jar':_0x1193a8,'proxy':_0x4daecf,'timeoutMs':_0x532d86});const _0x567927=_0x1193a8['get'](_0x4ba337(0x16d));if(!_0x567927)throw new Error(_0x4ba337(0x190)+_0x3581b9['status']+',\x20'+_0x278d84[_0x4ba337(0x121)]+_0x4ba337(0x13a));return _0x349de0('\x20\x20\x20\x20session\x20established\x20(user_id\x20'+(_0x1193a8[_0x4ba337(0x164)](_0x4ba337(0x12c))||'?')+')'),{'sessionid':_0x567927,'candidates':_0x278d84};}async function createKey({jar:_0x46b7c7,proxy:_0xe1bcf9,timeoutMs:_0x26072f,keyName:_0x2e648b}){const _0x11099d=a0_0x1e1666,_0x219a5c=await fetchUrl(GRAPHQL+_0x11099d(0x10f),{'method':'POST','jar':_0x46b7c7,'proxy':_0xe1bcf9,'timeoutMs':_0x26072f,'body':{'operationName':_0x11099d(0x103),'variables':{'displayName':_0x2e648b},'query':CREATE_KEY_MUTATION},'headers':{'content-type':_0x11099d(0x156),'accept':_0x11099d(0x115),'origin':APP,'referer':APP+_0x11099d(0x138)}}),_0x72b314=_0x219a5c[_0x11099d(0x14b)]&&_0x219a5c[_0x11099d(0x14b)]['data']&&_0x219a5c[_0x11099d(0x14b)][_0x11099d(0x12d)][_0x11099d(0x120)],_0x3a44ca=_0x72b314&&(_0x72b314[_0x11099d(0x17e)]||_0x72b314[_0x11099d(0x196)]);if(!_0x3a44ca){const _0x49ece7=_0x219a5c['json']&&_0x219a5c[_0x11099d(0x14b)]['errors']&&_0x219a5c[_0x11099d(0x14b)][_0x11099d(0x141)][0x0]&&_0x219a5c[_0x11099d(0x14b)][_0x11099d(0x141)][0x0][_0x11099d(0x109)];throw new Error(_0x11099d(0xec)+_0x2e648b+_0x11099d(0x162)+_0x219a5c[_0x11099d(0x147)]+(_0x49ece7?':\x20'+_0x49ece7:':\x20'+_0x219a5c[_0x11099d(0xfc)][_0x11099d(0x197)](0x0,0x8c)));}return{'key':_0x3a44ca,'id':_0x72b314['id']||null,'prefix':_0x72b314[_0x11099d(0x171)]||_0x3a44ca[_0x11099d(0x197)](0x0,0x8),'raw':_0x72b314};}async function verifyKey(_0x3bf671,{proxy:proxy=null,timeoutMs:timeoutMs=0x7530,model:model=VERIFY_MODEL,modelsOnly:modelsOnly=![]}={}){const _0x368293=a0_0x1e1666,_0x1a4fab={'ok':![],'status':0x0,'modelsStatus':null,'models':null,'chatStatus':null,'via':modelsOnly?'models':'chat','model':modelsOnly?null:model};try{const _0x5bb839=await fetchUrl(MODELS,{'proxy':proxy,'timeoutMs':timeoutMs,'headers':{'Authorization':_0x368293(0x163)+_0x3bf671,'accept':_0x368293(0x156)}});_0x1a4fab[_0x368293(0xf7)]=_0x5bb839['status'],_0x1a4fab[_0x368293(0x147)]=_0x5bb839[_0x368293(0x147)],_0x1a4fab[_0x368293(0x142)]=_0x5bb839[_0x368293(0x14b)]&&Array['isArray'](_0x5bb839[_0x368293(0x14b)][_0x368293(0x12d)])?_0x5bb839[_0x368293(0x14b)][_0x368293(0x12d)][_0x368293(0x121)]:null;if(_0x5bb839[_0x368293(0x147)]===0xc8)return _0x1a4fab['ok']=!![],_0x1a4fab[_0x368293(0x167)]='models',_0x1a4fab;if(_0x5bb839[_0x368293(0x147)]===0x191||_0x5bb839[_0x368293(0x147)]===0x193)return _0x1a4fab[_0x368293(0x189)]=_0x368293(0x154)+_0x5bb839[_0x368293(0x147)],_0x1a4fab;if(modelsOnly)return _0x1a4fab['error']=_0x368293(0x154)+_0x5bb839[_0x368293(0x147)],_0x1a4fab;}catch(_0x9c8682){_0x1a4fab[_0x368293(0x189)]=_0x368293(0xee)+String(_0x9c8682[_0x368293(0x109)])['slice'](0x0,0x64);if(modelsOnly)return _0x1a4fab;}const _0x2724c7=[model,VERIFY_MODEL_FALLBACK][_0x368293(0x175)]((_0x4b3201,_0xd44ec9,_0x58b11b)=>_0x4b3201&&_0x58b11b[_0x368293(0x134)](_0x4b3201)===_0xd44ec9)[_0x368293(0x197)](0x0,0x2);for(const _0x29ac2f of _0x2724c7){try{const _0x554c4c=await fetchUrl(CHAT,{'method':_0x368293(0x18e),'proxy':proxy,'timeoutMs':timeoutMs,'headers':{'Authorization':_0x368293(0x163)+_0x3bf671,'content-type':_0x368293(0x156),'accept':'application/json'},'body':{'model':_0x29ac2f,'messages':[{'role':'user','content':_0x368293(0x150)}],'max_tokens':0x8}});_0x1a4fab['chatStatus']=_0x554c4c['status'],_0x1a4fab[_0x368293(0x147)]=_0x554c4c['status'],_0x1a4fab[_0x368293(0x11f)]=_0x29ac2f;if(_0x554c4c[_0x368293(0x147)]===0xc8&&_0x554c4c['json']&&Array[_0x368293(0x198)](_0x554c4c[_0x368293(0x14b)][_0x368293(0x140)])&&_0x554c4c[_0x368293(0x14b)][_0x368293(0x140)][_0x368293(0x121)])return _0x1a4fab['ok']=!![],_0x1a4fab[_0x368293(0x167)]='chat',_0x1a4fab[_0x368293(0x13c)]=_0x554c4c['json'][_0x368293(0x13c)]||null,_0x1a4fab[_0x368293(0x189)]=null,_0x1a4fab;_0x1a4fab['error']=_0x368293(0x135)+_0x554c4c[_0x368293(0x147)]+':\x20'+String(_0x554c4c['text']||'')[_0x368293(0x181)](/\s+/g,'\x20')[_0x368293(0x197)](0x0,0x8c);if(_0x554c4c[_0x368293(0x147)]===0x191||_0x554c4c[_0x368293(0x147)]===0x193)return _0x1a4fab;}catch(_0x31b267){_0x1a4fab[_0x368293(0x189)]=_0x368293(0x15b)+String(_0x31b267['message'])[_0x368293(0x197)](0x0,0x78);}}return _0x1a4fab;}async function createAccount({index:index=0x1,keyName:keyName=null,proxy:proxy=null,pool:pool=null,inboxProvider:inboxProvider=a0_0x1e1666(0x101),broker:broker='http://127.0.0.1:9700',mailtrapToken:mailtrapToken=null,timeoutMs:timeoutMs=0x2bf20,verify:verify=!![],log:log=()=>{}}={}){const _0x2edcb3=a0_0x1e1666,_0x31d671=Date[_0x2edcb3(0xff)](),_0x97b028=new CookieJar(),_0x20ad12=makeInbox({'provider':inboxProvider,'proxy':proxy,'broker':broker,'mailtrapToken':mailtrapToken}),_0xd3122c=()=>pool&&pool[_0x2edcb3(0x192)]&&pool[_0x2edcb3(0x122)]()?pool[_0x2edcb3(0x10d)]():proxy,_0x2c9884=/timeout after|ECONN|ECONNRESET|ETIMEDOUT|EPIPE|socket hang|tunnel|EAI_AGAIN|ENETUNREACH|EHOSTUNREACH|secureConnect/i,_0x236d95=async(_0x1bd531,_0x5c58f5)=>{const _0x4be592=_0x2edcb3;let _0x2e3528=null;for(let _0x42c427=0x0;_0x42c427<0x3;_0x42c427++){const _0x2a5136=_0xd3122c();try{return await _0x5c58f5(_0x2a5136);}catch(_0x597d61){_0x2e3528=_0x597d61;const _0x4d89e4=String(_0x597d61['message']||_0x597d61);if(_0x42c427===0x2||!_0x2c9884['test'](_0x4d89e4))throw _0x597d61;const _0x2bd86b=_0x2a5136&&/^(127\.0\.0\.1|localhost|\[?::1\]?)$/i[_0x4be592(0x180)](_0x2a5136['host']);if(_0x2a5136&&pool&&!_0x2bd86b)pool[_0x4be592(0xeb)](_0x2a5136);log('\x20\x20\x20\x20~\x20'+_0x1bd531+_0x4be592(0x12a)+(_0x2a5136?label(_0x2a5136):_0x4be592(0x177))+_0x4be592(0x127)+(_0x42c427+0x1)+':\x20'+_0x4d89e4[_0x4be592(0x10e)]('\x0a')[0x0][_0x4be592(0x197)](0x0,0x50));}}throw _0x2e3528;},_0x488a98=await _0x236d95(_0x2edcb3(0x14e),_0x24bba1=>openSignIn({'jar':_0x97b028,'proxy':_0x24bba1,'timeoutMs':timeoutMs,'log':log})),_0x4fc5b6=await _0x20ad12[_0x2edcb3(0x17d)]();log(_0x2edcb3(0x151)+_0x4fc5b6[_0x2edcb3(0x14a)]+'\x20('+_0x4fc5b6[_0x2edcb3(0x111)]+')');const _0x2c5b4a=await _0x236d95(_0x2edcb3(0x18c),_0x1bede1=>submitEmail({'jar':_0x97b028,'proxy':_0x1bede1,'timeoutMs':timeoutMs,'page':_0x488a98,'email':_0x4fc5b6[_0x2edcb3(0x14a)]}));log(_0x2edcb3(0x182)+String(_0x2c5b4a[_0x2edcb3(0x126)])[_0x2edcb3(0x197)](0x0,0x18)+'…)');const {code:_0x3f1ba2,subject:_0xbb613c}=await waitForCode(_0x20ad12,_0x4fc5b6,{'timeoutMs':timeoutMs,'sinceMs':_0x31d671,'log':log});log(_0x2edcb3(0x100)+_0x3f1ba2+_0x2edcb3(0x185)+_0xbb613c+'”)'),await _0x236d95(_0x2edcb3(0x17f),_0x14fd12=>submitCode({'jar':_0x97b028,'proxy':_0x14fd12,'timeoutMs':timeoutMs,'challenge':_0x2c5b4a,'email':_0x4fc5b6[_0x2edcb3(0x14a)],'code':_0x3f1ba2})),await _0x236d95('session',_0x142aa4=>completeSignIn({'jar':_0x97b028,'proxy':_0x142aa4,'timeoutMs':timeoutMs,'authorizationSessionId':_0x2c5b4a[_0x2edcb3(0xfd)],'log':log}));const _0x5424de=keyName||'baseten-bulk-'+index,_0x371d40=await _0x236d95(_0x2edcb3(0x105),_0x212293=>createKey({'jar':_0x97b028,'proxy':_0x212293,'timeoutMs':timeoutMs,'keyName':_0x5424de}));log('\x20\x20\x20\x20key\x20'+_0x371d40[_0x2edcb3(0x171)]+'…\x20created');let _0x4a0db8=![];if(verify){const _0x43a048=await verifyKey(_0x371d40['key'],{'proxy':_0xd3122c(),'timeoutMs':Math[_0x2edcb3(0xe9)](timeoutMs,0xafc8)});_0x4a0db8=_0x43a048['ok'];if(!_0x43a048['ok'])log(_0x2edcb3(0x10b)+(_0x43a048[_0x2edcb3(0x147)]||_0x43a048[_0x2edcb3(0x189)]));}return{'email':_0x4fc5b6[_0x2edcb3(0x14a)],'inbox':{'provider':_0x4fc5b6[_0x2edcb3(0x111)],'token':_0x4fc5b6[_0x2edcb3(0x144)]},'key':_0x371d40[_0x2edcb3(0xf0)],'keyId':_0x371d40['id'],'prefix':_0x371d40['prefix'],'keyName':_0x5424de,'sessionCookies':_0x97b028[_0x2edcb3(0x153)]()[_0x2edcb3(0x15f)](_0x21b34b=>({'name':_0x21b34b[_0x2edcb3(0x160)],'domain':_0x21b34b[_0x2edcb3(0x129)],'path':_0x21b34b[_0x2edcb3(0xf3)],'expires':_0x21b34b[_0x2edcb3(0xea)]})),'verified':_0x4a0db8,'createdAt':new Date()[_0x2edcb3(0x191)](),'proxy':proxy?proxy[_0x2edcb3(0xf9)]+_0x2edcb3(0x11b)+proxy[_0x2edcb3(0x15e)]+':'+proxy[_0x2edcb3(0x19a)]:null};}module[a0_0x1e1666(0x159)]={'createAccount':createAccount,'createKey':createKey,'verifyKey':verifyKey,'openSignIn':openSignIn,'submitEmail':submitEmail,'submitCode':submitCode,'completeSignIn':completeSignIn,'parseLoginPage':parseLoginPage,'parseChallenge':parseChallenge,'radarSignals':radarSignals,'serverActionBody':serverActionBody,'KEY_RE':KEY_RE,'CLIENT_ID':CLIENT_ID,'REDIRECT_URI':REDIRECT_URI,'AUTHORIZE':AUTHORIZE,'GRAPHQL':GRAPHQL,'MODELS':MODELS,'CHAT':CHAT,'VERIFY_MODEL':VERIFY_MODEL,'UA':UA};
+'use strict';
+
+/**
+ * One Baseten account → one API key, over plain HTTP.
+ *
+ * The whole chain, as captured from the browser (see report.md) and replayed
+ * here without a browser:
+ *
+ *   GET  api.workos.com/user_management/authorize?client_id=…&redirect_uri=…&state=…
+ *   →    login.baseten.co/bootstrap → login.baseten.co/?…            (WorkOS AuthKit)
+ *   POST login.baseten.co/?…            next-action=<send>   multipart  → e-mail sent
+ *   POST login.baseten.co/magic-code?…  next-action=<verify> multipart  → code accepted
+ *   GET  login.baseten.co/success?client_redirect_key=…
+ *   →    app.baseten.co/api/auth/callback?code=…&state=…   Set-Cookie: sessionid, csrftoken
+ *   POST app.baseten.co/graphql/?opName=CreateUserApiKey   → { textKey }
+ *   GET  inference.baseten.co/v1/models                    Authorization: Bearer <textKey>
+ *
+ * Notes that cost real debugging:
+ *   · the WorkOS `state` value does not have to be signed by Baseten — the
+ *     payload `{"next_url":"/onboarding"}` base64url-encoded is accepted and
+ *     keeps us out of app.baseten.co's AWS WAF, whose *page* routes answer a
+ *     JS challenge to anything that is not a browser;
+ *   · the two AuthKit POSTs are Next.js server actions: multipart bodies with
+ *     `_1_<field>` names plus a bound-arguments part, and a `next-action`
+ *     header holding the deployment's action id;
+ *   · `/graphql/` and `/api/auth/callback` are challenge-free.
+ *
+ * Zero dependencies. Node.js >= 18.
+ */
+
+const fs = require('fs');
+const { CookieJar, fetchUrl, sleep } = require('./http');
+const { makeInbox, waitForCode } = require('./inbox');
+
+const AUTHORIZE = 'https://api.workos.com/user_management/authorize';
+const AUTHKIT = 'https://login.baseten.co';
+const APP = 'https://app.baseten.co';
+const GRAPHQL = `${APP}/graphql/`;
+const MODELS = 'https://inference.baseten.co/v1/models';
+
+const CLIENT_ID = process.env.BASETEN_CLIENT_ID || 'client_01GFS4WX73TQ4NQJPQ9EPCYQY7';
+const REDIRECT_URI = `${APP}/api/auth/callback`;
+const UA =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36';
+
+/** Next.js server-action ids of the hosted AuthKit deployment. */
+const SEND_ACTION = process.env.BASETEN_SEND_ACTION || '409dfdd69397fa9f326db3612977e0aa51bada7cdb';
+const VERIFY_ACTION = process.env.BASETEN_VERIFY_ACTION || '407aa320ed3a3d9010c11a0a290f46c737a94ddb35';
+
+const KEY_RE = /^[A-Za-z0-9]{8}\.[A-Za-z0-9]{32}$/;
+
+const CHAT = 'https://inference.baseten.co/v1/chat/completions';
+/** The model the verification completion asks for — small, and on every plan. */
+const VERIFY_MODEL = process.env.BASETEN_VERIFY_MODEL || 'openai/gpt-oss-120b';
+const VERIFY_MODEL_FALLBACK = 'deepseek-ai/DeepSeek-V4.1-Flash';
+
+const CREATE_KEY_MUTATION = `mutation CreateUserApiKey($displayName: String) {
+  createUserApiKey: create_user_api_key(display_name: $displayName) {
+    id
+    textKey: text_key
+    created
+    prefix
+  }
+}`;
+
+// --------------------------------------------------------------------- helpers
+
+const b64url = (obj) => Buffer.from(typeof obj === 'string' ? obj : JSON.stringify(obj)).toString('base64url');
+
+/**
+ * The Radar side of the form — the browser payload captured in
+ * `out/bt-post-0.txt`, complete. WorkOS's send action answers
+ * `{"code":"invalid_params"}` when Radar's behavioural block (`timings`,
+ * `minimalSurface`, `worker`, the four `*Hash` values, `collectionState`) is
+ * missing, which is exactly what a hand-built payload gets wrong. Values are
+ * this machine's real Chrome fingerprints; only the timestamps are fresh.
+ */
+function radarSignals() {
+  const now = Date.now();
+  return b64url({
+    createdAtMs: now,
+    timezone: 'Europe/Istanbul',
+    language: 'tr-TR',
+    hardwareConcurrency: 6,
+    webdriver: false,
+    userAgent: UA,
+    appVersion: UA.replace(/^Mozilla\//, ''),
+    platform: 'Win32',
+    screen: {
+      width: 1920,
+      height: 1080,
+      availWidth: 1920,
+      availHeight: 1040,
+      windowOuterWidth: 0,
+      windowOuterHeight: 0,
+      colorDepth: 24,
+      pixelDepth: 24,
+    },
+    rangeErrorLength: 0,
+    evalStringLength: 33,
+    playwrightDetected: false,
+    phantomDetected: false,
+    nightmareDetected: false,
+    seleniumDetected: false,
+    puppeteerDetected: false,
+    maxTouchPoints: 0,
+    deviceMemory: 16,
+    notificationPermission: 'default',
+    devicePixelRatio: 1,
+    pluginsLength: 5,
+    mimeTypesCount: 2,
+    documentHidden: true,
+    documentVisibilityState: 'hidden',
+    mediaPreferences: {
+      colorScheme: 'dark',
+      reducedMotion: false,
+      reducedTransparency: false,
+      contrast: 'no-preference',
+      colorGamut: 'srgb',
+      hdr: false,
+      forcedColors: false,
+      invertedColors: false,
+    },
+    webGLVendor: 'Google Inc. (AMD)',
+    webGLRenderer: 'ANGLE (AMD, Radeon RX550/550 Series (0x0000699F) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+    permissionsState: 'prompt',
+    collectedAtMs: now + 436,
+    timings: {
+      collectorsStarted: 123,
+      mathHash: 184,
+      intlHash: 184,
+      webGLParamsHash: 184,
+      windowFeatures: 184,
+      cssKeys: 184,
+      mediaMime: 184,
+      fonts: 184,
+      voices: 196,
+      minimalSurface: 196,
+      audioHash: 269,
+      worker: 397,
+      canvasHash: 436,
+    },
+    minimalSurface: {
+      windowFeaturesHash: '0xAHK-YKBuozhiH392AiyDr2NiNjLppiB1Pvu2_koVk',
+      windowFeaturesCount: 1236,
+      cssKeysHash: 'rw6N-ze3twOKRedfSauRidKgM9WDfTfZ23lwe1Im4F0',
+      cssKeysCount: 1384,
+      mediaMimeHash: 'kZhx7yaWeGtKjuD7WOEr3WTtuDBSuluHtsXg3uGZGSw',
+      mediaMimeCount: 9,
+      fontsHash: 'GXFgw9Ij-6ulhSMqBJjrx0cow9qDnsipIkwlJ3uG9FY',
+      fontsCount: 18,
+      voicesHash: 'jEf32Komaqpq4wrSMiRB6kbXJLe286ItK-npajcP82s',
+      voicesLocalCount: 1,
+      voicesRemoteCount: 19,
+      voicesLanguagesCount: 19,
+    },
+    worker: {
+      ok: true,
+      hardwareConcurrency: 6,
+      platform: 'Win32',
+      userAgent: UA,
+      language: 'tr-TR',
+      webGLRenderer: 'ANGLE (AMD, Radeon RX550/550 Series (0x0000699F) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+      webGLVendor: 'Google Inc. (AMD)',
+    },
+    canvasHash: 'KXqinZgiI4ViCVx39W7vtD3IlQ5Q0cZZJr1Fef2UTk4',
+    audioHash: 'xA7aObmDYWsQyPmTGHEJrH4ZiBMzccW4uG8R90E6GI8',
+    mathHash: 'zK9Dnt1lDRxVL5kry2U6ScxY6YdeZxVK_WYAmIyFCC8',
+    intlHash: 'tPl5hVw-eKSIG-F_5-wGsDytSvSK5YbFybts6TFWOyE',
+    webGLParamsHash: 'sJ_IA4iCt1BrxY4EGJzMk1PCw3ITbKutin0m6vAKxRw',
+    puppeteerDocumentNotAvailable: false,
+    submittedAtMs: now + 656,
+    collectionState: 'complete',
+  });
+}
+
+/** multipart/form-data body for a React server action. */
+function serverActionBody(fields, boundary) {
+  const chunks = [];
+  for (const [name, value] of Object.entries(fields)) {
+    chunks.push(`--${boundary}\r\nContent-Disposition: form-data; name="${name}"\r\n\r\n${value}\r\n`);
+  }
+  chunks.push(`--${boundary}--\r\n`);
+  return Buffer.from(chunks.join(''), 'utf8');
+}
+
+function newBoundary() {
+  let out = '----WebKitFormBoundary';
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (let i = 0; i < 16; i++) out += alphabet[Math.floor(Math.random() * alphabet.length)];
+  return out;
+}
+
+/** Pulls the hidden fields the sign-in page carries in its RSC payload. */
+function parseLoginPage(html) {
+  const grab = (name) => {
+    const re = new RegExp(`name=\\\\?"${name}\\\\?"[^>]{0,200}?value=\\\\?"([^"\\\\]{1,300})`, 'i');
+    const m = html.match(re);
+    return m ? m[1] : null;
+  };
+  const state = grab('state') || b64url({ next_url: '/onboarding' });
+  return {
+    client_id: grab('client_id') || CLIENT_ID,
+    redirect_uri: grab('redirect_uri') || REDIRECT_URI,
+    authorization_session_id: grab('authorization_session_id'),
+    state,
+  };
+}
+
+/** Reads the magic-code page parameters out of a server-action flight payload. */
+function parseChallenge(flight) {
+  const re =
+    /\\?"authentication_challenge_id\\?":\\?"([^"\\]+)\\?",\\?"state\\?":\\?"([^"\\]*)\\?",\\?"redirect_uri\\?":\\?"([^"\\]*)\\?",\\?"authorization_session_id\\?":\\?"([^"\\]*)\\?",\\?"radar_auth_attempt_id\\?":\\?"([^"\\]*)\\?",\\?"radar_auth_attempt_created_at\\?":\\?"([^"\\]*)\\?"/;
+  const m = flight.match(re);
+  if (!m) return null;
+  return {
+    authentication_challenge_id: m[1],
+    state: m[2],
+    redirect_uri: m[3],
+    authorization_session_id: m[4],
+    radar_auth_attempt_id: m[5],
+    radar_auth_attempt_created_at: m[6],
+  };
+}
+
+// ------------------------------------------------------------------ auth flow
+
+/** Step 1+2: authorize → sign-in page. Returns the page HTML and its fields. */
+async function openSignIn({ jar, proxy, timeoutMs, log }) {
+  const state = b64url({ next_url: '/onboarding' });
+  const url =
+    `${AUTHORIZE}?client_id=${encodeURIComponent(CLIENT_ID)}` +
+    `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
+    `&response_type=code&provider=authkit&state=${encodeURIComponent(state)}`;
+  const res = await fetchUrl(url, { jar, proxy, timeoutMs });
+  if (!/E-mail|E-posta|Continue with|sign/i.test(res.text) || res.text.length < 5000) {
+    throw new Error(`sign-in page not reached (${res.status}, ${res.text.length} bytes, final ${res.url.slice(0, 80)})`);
+  }
+  const fields = parseLoginPage(res.text);
+  if (!fields.authorization_session_id) {
+    const m = res.url.match(/authorization_session_id=([^&]+)/);
+    if (m) fields.authorization_session_id = m[1];
+  }
+  if (!fields.authorization_session_id) throw new Error('no authorization_session_id on the sign-in page');
+  // The action validates the body's `state` against the session's own sealed
+  // state (the page sets `__Host-state-<session>`; a fabricated one earns
+  // {"code":"invalid_params"}), so the session's value always wins.
+  const sealed = (jar.toJSON().find((c) => /^__Host-state-/.test(c.name)) || {}).value || null;
+  if (sealed) fields.state = sealed;
+  log(`    sign-in page: ${res.url.slice(0, 70)}…${sealed ? ' (sealed state)' : ' (no sealed state cookie!)'}`);
+  return { url: res.url, fields };
+}
+
+/**
+ * Step 3: submit the address; the flight payload names the challenge.
+ *
+ * The same action accepts two shapes: the JS-enabled browser posts a JSON
+ * argument list as `text/plain` (report §1, the wire capture), while a
+ * progressive-enhancement form posts multipart `_1_<field>` parts. WorkOS
+ * answers `{"code":"invalid_params"}` to the shape it did not expect, so both
+ * are tried before giving up.
+ */
+async function submitEmail({ jar, proxy, timeoutMs, page, email }) {
+  const baseHeaders = { accept: 'text/x-component', origin: AUTHKIT, referer: page.url, 'next-action': SEND_ACTION };
+
+  const boundary = newBoundary();
+  const form = serverActionBody(
+    {
+      _1_signals: radarSignals(),
+      _1_email: email,
+      _1_redirect_uri: page.fields.redirect_uri,
+      _1_authorization_session_id: page.fields.authorization_session_id,
+      _1_state: page.fields.state,
+      0: '["$K1"]',
+    },
+    boundary
+  );
+
+  const shapes = [
+    {
+      what: 'form',
+      body: form,
+      headers: { ...baseHeaders, 'content-type': `multipart/form-data; boundary=${boundary}` },
+    },
+    {
+      what: 'json',
+      body: [{ email, signals: radarSignals() }],
+      headers: { ...baseHeaders, 'content-type': 'text/plain;charset=UTF-8' },
+    },
+  ];
+
+  let last = null;
+  for (const shape of shapes) {
+    const res = await fetchUrl(page.url, { method: 'POST', jar, proxy, body: shape.body, timeoutMs, headers: shape.headers });
+    if (res.status >= 400) {
+      // a shape the server cannot even parse is not a verdict — try the other one
+      last = res;
+      continue;
+    }
+    const challenge = parseChallenge(res.text);
+    if (challenge) return challenge;
+    last = res;
+    if (!/invalid_params/.test(res.text)) break; // a different complaint will not improve with the other shape
+  }
+
+  try {
+    fs.writeFileSync(path.join(__dirname, '..', 'outputs', 'bt-send-response.txt'), last ? last.text : '');
+  } catch (e) {
+    /* diagnostics only */
+  }
+  throw new Error(`challenge parameters missing from the send response (${last ? last.status : '?'}, ${last ? last.text.length : 0} bytes): ${last ? last.text.slice(0, 220) : ''}`);
+}
+
+/** Step 5: submit the code — same two shapes as the send step. */
+async function submitCode({ jar, proxy, timeoutMs, challenge, email, code }) {
+  const url = `${AUTHKIT}/magic-code?${new URLSearchParams(challenge).toString()}`;
+  const baseHeaders = { accept: 'text/x-component', origin: AUTHKIT, referer: url, 'next-action': VERIFY_ACTION };
+
+  const boundary = newBoundary();
+  const form = serverActionBody(
+    {
+      _1_code: code,
+      _1_redirect_uri: challenge.redirect_uri,
+      _1_authorization_session_id: challenge.authorization_session_id,
+      _1_state: challenge.state,
+      _1_email: email,
+      _1_authentication_challenge_id: challenge.authentication_challenge_id,
+      _1_radar_auth_attempt_id: challenge.radar_auth_attempt_id,
+      _1_radar_auth_attempt_created_at: challenge.radar_auth_attempt_created_at,
+      0: '["$K1"]',
+    },
+    boundary
+  );
+
+  const shapes = [
+    { what: 'json', body: [{ code, email }], headers: { ...baseHeaders, 'content-type': 'text/plain;charset=UTF-8' } },
+    { what: 'form', body: form, headers: { ...baseHeaders, 'content-type': `multipart/form-data; boundary=${boundary}` } },
+  ];
+
+  let last = null;
+  for (const shape of shapes) {
+    const res = await fetchUrl(url, { method: 'POST', jar, proxy, body: shape.body, timeoutMs, headers: shape.headers });
+    if (res.status >= 400) {
+      last = res;
+      continue;
+    }
+    if (/invalid_params/.test(res.text)) {
+      last = res;
+      continue;
+    }
+    if (/invalid|incorrect|expired/i.test(res.text.slice(0, 4000)) && !/success/i.test(res.text.slice(0, 4000))) {
+      throw new Error(`code rejected (${shape.what}): ${res.text.slice(0, 160)}`);
+    }
+    return res;
+  }
+  try {
+    fs.writeFileSync(path.join(__dirname, '..', 'outputs', 'bt-verify-response.txt'), last ? last.text : '');
+  } catch (e) {
+    /* diagnostics only */
+  }
+  throw new Error(`code submission rejected as invalid_params in both shapes: ${last ? last.text.slice(0, 220) : ''}`);
+}
+
+/**
+ * Step 6: /success → app callback → the Django session cookies.
+ *
+ * `/success` answers 200 with a page whose payload carries the callback URL
+ * (the browser follows it with JS), so the URL is fished out of the body — and
+ * a plain 302 is honoured just as well, in case the deployment ever switches.
+ */
+async function completeSignIn({ jar, proxy, timeoutMs, authorizationSessionId, log }) {
+  const success = `${AUTHKIT}/success?client_redirect_key=${encodeURIComponent(authorizationSessionId)}`;
+  const res = await fetchUrl(success, { jar, proxy, timeoutMs, follow: false });
+  const candidates = [];
+  if (res.headers.location) candidates.push(new URL(res.headers.location, success).toString());
+  for (const m of String(res.text).matchAll(/https:\/\/app\.baseten\.co\/api\/auth\/callback\?[^"'\\\s>]+/g)) candidates.push(m[0].replace(/&amp;/g, '&'));
+  const callback = candidates.find((u) => /code=/.test(u));
+  if (callback) await fetchUrl(callback, { jar, proxy, timeoutMs });
+  const sessionid = jar.get('sessionid');
+  if (!sessionid) {
+    throw new Error(`no session cookie after callback (success ${res.status}, ${candidates.length} candidate urls)`);
+  }
+  log(`    session established (user_id ${jar.get('user_id') || '?'})`);
+  return { sessionid, candidates };
+}
+
+// ------------------------------------------------------------------ the money
+
+/** One key, exactly one, for the account this session belongs to. */
+async function createKey({ jar, proxy, timeoutMs, keyName }) {
+  const res = await fetchUrl(`${GRAPHQL}?opName=CreateUserApiKey`, {
+    method: 'POST',
+    jar,
+    proxy,
+    timeoutMs,
+    body: { operationName: 'CreateUserApiKey', variables: { displayName: keyName }, query: CREATE_KEY_MUTATION },
+    headers: {
+      'content-type': 'application/json',
+      accept: '*/*',
+      origin: APP,
+      referer: `${APP}/settings/api_keys`,
+    },
+  });
+  const data = res.json && res.json.data && res.json.data.createUserApiKey;
+  const key = data && (data.textKey || data.text_key);
+  if (!key) {
+    const first = res.json && res.json.errors && res.json.errors[0] && res.json.errors[0].message;
+    throw new Error(`create key "${keyName}" -> ${res.status}${first ? `: ${first}` : `: ${res.text.slice(0, 140)}`}`);
+  }
+  return { key, id: data.id || null, prefix: data.prefix || key.slice(0, 8), raw: data };
+}
+
+/**
+ * A key is only kept if the inference API answers with it.
+ *
+ * Two probes, because the edge treats the two routes differently (measured
+ * 2026-10-14): a key minted for a brand-new account is handed an AWS-WAF
+ * *challenge* — 202, empty body, `x-amzn-waf-action: challenge` — on
+ * `GET /v1/models`, while `POST /chat/completions` for the same key answers
+ * 200 with real usage. The challenge is attached to the key, not to the line:
+ * a no-key request answers a plain 401, and a fresh key gets the same 202 from
+ * the home line and from WARP alike. So a 202 on /v1/models means "this
+ * account's cohort is challenged on the listing route", it is recorded as
+ * `modelsStatus`, and chat is the proof that counts.
+ */
+async function verifyKey(key, { proxy = null, timeoutMs = 30000, model = VERIFY_MODEL, modelsOnly = false } = {}) {
+  const out = {
+    ok: false,
+    status: 0,
+    modelsStatus: null,
+    models: null,
+    chatStatus: null,
+    via: modelsOnly ? 'models' : 'chat',
+    model: modelsOnly ? null : model,
+  };
+  try {
+    const res = await fetchUrl(MODELS, { proxy, timeoutMs, headers: { Authorization: `Bearer ${key}`, accept: 'application/json' } });
+    out.modelsStatus = res.status;
+    out.status = res.status;
+    out.models = res.json && Array.isArray(res.json.data) ? res.json.data.length : null;
+    if (res.status === 200) {
+      out.ok = true;
+      out.via = 'models';
+      return out;
+    }
+    if (res.status === 401 || res.status === 403) {
+      out.error = `models -> ${res.status}`; // the key itself is refused; chat cannot save it
+      return out;
+    }
+    if (modelsOnly) {
+      out.error = `models -> ${res.status}`;
+      return out;
+    }
+  } catch (e) {
+    out.error = `models: ${String(e.message).slice(0, 100)}`;
+    if (modelsOnly) return out;
+  }
+  const models = [model, VERIFY_MODEL_FALLBACK].filter((m, i, a) => m && a.indexOf(m) === i).slice(0, 2);
+  for (const m of models) {
+    try {
+      const res = await fetchUrl(CHAT, {
+        method: 'POST',
+        proxy,
+        timeoutMs,
+        headers: { Authorization: `Bearer ${key}`, 'content-type': 'application/json', accept: 'application/json' },
+        body: { model: m, messages: [{ role: 'user', content: 'say ok' }], max_tokens: 8 },
+      });
+      out.chatStatus = res.status;
+      out.status = res.status;
+      out.model = m;
+      if (res.status === 200 && res.json && Array.isArray(res.json.choices) && res.json.choices.length) {
+        out.ok = true;
+        out.via = 'chat';
+        out.usage = res.json.usage || null;
+        out.error = null;
+        return out;
+      }
+      out.error = `chat -> ${res.status}: ${String(res.text || '').replace(/\s+/g, ' ').slice(0, 140)}`;
+      if (res.status === 401 || res.status === 403) return out; // key refused — the fallback model will not change that
+    } catch (e) {
+      out.error = `chat: ${String(e.message).slice(0, 120)}`;
+    }
+  }
+  return out;
+}
+
+// ------------------------------------------------------------------ the whole
+
+/**
+ * Creates one account and mints its single key.
+ *
+ * @returns {Promise<{email, inbox, key, prefix, keyId, sessionCookies, verified, createdAt, proxy}>}
+ */
+async function createAccount({
+  index = 1,
+  keyName = null,
+  proxy = null,
+  pool = null,
+  inboxProvider = 'broker',
+  broker = 'http://127.0.0.1:9700',
+  mailtrapToken = null,
+  timeoutMs = 180000,
+  verify = true,
+  log = () => {},
+} = {}) {
+  const startedAt = Date.now();
+  const jar = new CookieJar();
+  const inbox = makeInbox({ provider: inboxProvider, proxy, broker, mailtrapToken });
+
+  /** State lives in the cookie jar, not in the line: each request may take the
+   *  next pool line, because a free exit rarely survives a whole sign-up. */
+  const pick = () => (pool && pool.size && pool.alive() ? pool.next() : proxy);
+
+  /**
+   * A free exit drops the odd tunnel without being dead yet, so a step that
+   * fails at the transport level gets two more goes — on fresh lines, since the
+   * jar carries everything the far side knows. Business errors (an HTTP answer)
+   * are final.
+   */
+  const networkish = /timeout after|ECONN|ECONNRESET|ETIMEDOUT|EPIPE|socket hang|tunnel|EAI_AGAIN|ENETUNREACH|EHOSTUNREACH|secureConnect/i;
+  const step = async (what, fn) => {
+    let lastErr = null;
+    for (let i = 0; i < 3; i++) {
+      const line = pick();
+      try {
+        return await fn(line);
+      } catch (e) {
+        lastErr = e;
+        const msg = String(e.message || e);
+        if (i === 2 || !networkish.test(msg)) throw e;
+        const local = line && /^(127\.0\.0\.1|localhost|\[?::1\]?)$/i.test(line.host);
+        if (line && pool && !local) pool.strike(line);
+        log(`    ~ ${what} lost ${line ? label(line) : 'its line'}, retry ${i + 1}: ${msg.split('\n')[0].slice(0, 80)}`);
+      }
+    }
+    throw lastErr;
+  };
+
+  // The sign-in page is fetched first, on purpose: free exits die by the minute,
+  // so the line's first request must not wait for a mailbox to be minted.
+  const page = await step('sign-in', (line) => openSignIn({ jar, proxy: line, timeoutMs, log }));
+
+  const box = await inbox.create();
+  log(`    inbox ${box.address} (${box.provider})`);
+
+  const challenge = await step('magic-code send', (line) => submitEmail({ jar, proxy: line, timeoutMs, page, email: box.address }));
+  log(`    code requested (challenge ${String(challenge.authentication_challenge_id).slice(0, 24)}…)`);
+
+  const { code, subject } = await waitForCode(inbox, box, { timeoutMs, sinceMs: startedAt, log });
+  log(`    code ${code} (“${subject}”)`);
+
+  await step('magic-code verify', (line) => submitCode({ jar, proxy: line, timeoutMs, challenge, email: box.address, code }));
+  await step('session', (line) => completeSignIn({ jar, proxy: line, timeoutMs, authorizationSessionId: challenge.authorization_session_id, log }));
+
+  const name = keyName || `baseten-bulk-${index}`;
+  const created = await step('create key', (line) => createKey({ jar, proxy: line, timeoutMs, keyName: name }));
+  log(`    key ${created.prefix}… created`);
+
+  let verified = false;
+  if (verify) {
+    const check = await verifyKey(created.key, { proxy: pick(), timeoutMs: Math.min(timeoutMs, 45000) });
+    verified = check.ok;
+    if (!check.ok) log(`    ! key did not verify: ${check.status || check.error}`);
+  }
+
+  return {
+    email: box.address,
+    inbox: { provider: box.provider, token: box.token },
+    key: created.key,
+    keyId: created.id,
+    prefix: created.prefix,
+    keyName: name,
+    sessionCookies: jar.toJSON().map((c) => ({ name: c.name, domain: c.domain, path: c.path, expires: c.expires })),
+    verified,
+    createdAt: new Date().toISOString(),
+    proxy: proxy ? `${proxy.protocol}://${proxy.host}:${proxy.port}` : null,
+  };
+}
+
+module.exports = {
+  createAccount,
+  createKey,
+  verifyKey,
+  openSignIn,
+  submitEmail,
+  submitCode,
+  completeSignIn,
+  parseLoginPage,
+  parseChallenge,
+  radarSignals,
+  serverActionBody,
+  KEY_RE,
+  CLIENT_ID,
+  REDIRECT_URI,
+  AUTHORIZE,
+  GRAPHQL,
+  MODELS,
+  CHAT,
+  VERIFY_MODEL,
+  UA,
+};

@@ -1,1 +1,550 @@
-'use strict';const a0_0x2f32b1=a0_0x853d;(function(_0x1d6dfd,_0x200071){const _0x209d83=a0_0x853d,_0x302c4d=_0x1d6dfd();while(!![]){try{const _0x55ba35=-parseInt(_0x209d83(0x1a7))/0x1+-parseInt(_0x209d83(0x16b))/0x2*(parseInt(_0x209d83(0x171))/0x3)+parseInt(_0x209d83(0x11f))/0x4+parseInt(_0x209d83(0x162))/0x5*(-parseInt(_0x209d83(0x127))/0x6)+-parseInt(_0x209d83(0x189))/0x7*(-parseInt(_0x209d83(0x17f))/0x8)+parseInt(_0x209d83(0x176))/0x9*(-parseInt(_0x209d83(0x175))/0xa)+-parseInt(_0x209d83(0x14b))/0xb*(-parseInt(_0x209d83(0x119))/0xc);if(_0x55ba35===_0x200071)break;else _0x302c4d['push'](_0x302c4d['shift']());}catch(_0x1cdb34){_0x302c4d['push'](_0x302c4d['shift']());}}}(a0_0x6c7b,0x82a5c));function a0_0x6c7b(){const _0x2d0985=['DMvYAwz5ic0+ig1VzgvSCYa','zxHPDa','lI9Hy2nVDw50','mJiZmJiZmtzTyLjvrLO','igf0ia','zw1HAwW','ChjVzMLSzvn1yM1PDhrLza','igXPBMuOCYKSigfSBcb2zxjPzMLLza','CMvUyw1Lu3LUyW','mZG2mJy1nLfssg9zCa','y2HHDfn0yxr1CW','AgfZ','l1bjra','DgvZDa','ls1TyxGTzMfPBhvYzxm','C3rHDhvZ','ChjVzMLSzuzVCM1tzwvU','nK56tKHRsG','CMvHCgvKihn0CMf5ignOCM9TzsbWAwqG','y2f0y2G','yMfZzxrLBI12mI1IDwXR','ls1WzxiTCNvU','BgfIzwW','CgvUzgLUzW','igXPBMvZ','lI9WCM94Eq','oIbpsYdIGjqG','BM8GBgLUzsbHDhrLBxb0ihbYB2r1y2vKigeGCMvJB3jK','4OcMig1PBNrLzcbSyxrL','AM9PBG','Ahr0Chm6lY9PBMzLCMvUy2uUyMfZzxrLBI5JBY92ms9TB2rLBhm','yMfZzwXPBMu6ic92ms9TB2rLBhmGD2L0Ag91DcbHigTLEsaTpIa','C2TPCfbYB2zPBgvgB3i','C3bSAxq','C29JA3m1oI8Vmti3lJaUmc4XoJqWmdaW','ls13yxjW','C2HPzNq','oIbRzxKG','DhjPzxm','zgLYBMfTzq','BwfW','C3rYAw5NAwz5','yMfZzwXPBMuTB2XKlwnVAg9YDa','yxjNDG','zMfPBfvYBa','yMfZzwXPBMuTBM9HDxrO','igf0DgvTChrLzcWG','C3rYAwTL','yMfZzwXPBMu6ic92ms9TB2rLBhmGD2L0AcbHBIbVBgqTy29OB3j0igTLEsaO','ihbLBMrPBMCGBwLUDcHZksWGzwDYzxnZia','Cg9YDa','Dg9ju09tDhjPBMC','CMvJAgvJAYa','mtfdwLrNz08','A2v5CW','yNjVA2vY','zwDYzxnZ','DMvYAwzPzwrwAwe','Bw9KzwXZ','yNjVD3nLCI1IyxrJAc5SB2C','A2v5swq','lNrTCa','ChjLzML4','ls1JB2rLlxrPBwvVDxq','D3jPDgvgAwXLu3LUyW','Ahr0Chm6lY9SB2DPBI5IyxnLDgvUlMnVlW','oIbSAw5LigrPzwqGBwLKlwzSB3CGka','y2HPBgrFChjVy2vZCW','Dg9tDhjPBMC','BgLUzsbXDwv1ztOG','4OcMksaTpIa','A2v5CY5ZAw5NBguTywnJB3vUDc5IywS','ihrVDgfSkq','CgfYC2u','yNqTy2HYB21LlwXPDMuUANnVBG','D2fYCa','mZGXoteXnwviA25dAG','yxbWzw5KrMLSzvn5BMm','oIbgquLmruqG4Ocuia','CMvJAgvJAW','C2vZC2LVBMLK','igzYzxnOigXPBMuOCYKGzNjVBsa','oIbUBYbSAxzLihbVB2WGBgLUzsdIGjqGzMfSBgLUzYbIywnRihrVia','ignVBNnLy3v0AxzLigzHAwX1CMvZ','imk3ia','ndz6EvzQBLa','oIbTywLSyM94ihzPysa','ywrKCMvZCW','CgvYuNvU','igzHAwXLzdOG','CMvZB2X2zq','mte1ndG1tNfRuKjW','BM8GBwfPBgjVEcbZB3vYy2uGD29YA2vKoIa','oIbYzwnVDMvYzwqGka','y29KzvrPBwvVDxrnCW','nZK2nZbSq1jUtwK','odfYwNDRC3a','CMvJB3jK','yNjVD3nLCI1Wzw5KAw5NlMPZB24','ls1WB29SlwjYB3DZzxi','C2L6zq','DgfYz2v0','ywrK','DMLH','yMfZzxrLBI1IDwXRlq','oeHMr1bpwG','yNjVD3nLCI1Hy2nVDw50CY5QC29UBa','yMf0y2GGzgLLzdOG','ywnJB3vUDca','Bw9KzwXZu3rHDhvZ','Bwf4rMfPBhvYzxm','CgLJAW','DxrMoa','BM93','ANnVBMW','nJq1oty3u2PYB1jm','Bw9KzwXZuhjVyMu','icHWB29Skq','y2HYB21Lu3rHDgu','lcbWB29Sia','icHWB3j0ia','oIbUBYbZzxnZAw9UAwqGAw4GDgHLihnHDMvKignVB2TPzxmG4OcuigrYB3bWAw5N','ywnJB3vUDhm','ls1ZA2LWlxbYB2zPBguTzM9Y','BwfPBhrYyxa','oIbZDgLSBcbMywLSAw5NiokaLca','zhvYyxrPB25nCW','oIbTywLSyM94ia','CMvHzezPBgvtEw5J','igHHCYa','ls10yxjNzxq','oIbLz3jLC3mG','Aw5KzxHpzG','CgvUzgLUzYa','yMf0y2GGC3rHCNq6ia','lI9ODhrW','y3jLyxrLzef0','AwDUB3jL','y29UBMvJDfrPBwvVDxrnCW','Dg9gAxHLza','C2XPy2u','ywnJB3vUDhmUANnVBG','ihzLCMLMAwvKicG','zMLUywW','Cg9VBa','nJyYmdK1EM5TsNPM','BwvZC2fNzq','ihzLCMLMAwvKigTLExmSia','ksdIGjqGCMv0CNLPBMCGB24GDgHLig5LEhqGBgLUzq','A2v5tMfTzq','DhjPBq','DgLTzw91De1Z','ihbLBMrPBMCG4OcuihrOAxmGCNvUoIa','BgvUz3rO','zMLUywWGChjVyMuG','kcGOlISPkYKRksSK','igrVzxmGBM90igfUC3DLCIbSB2DPBI5IyxnLDgvUlMnViokaLcbZA2LWCgvK','ChjVDMLKzxi','Ahr0CdOVlZeYnY4WlJaUmtO5nZaW','ignVBNnLy3v0AxzLigzHAwX1CMvZkq','zMLSDgvY','A2v5','zxHWB3j0CW','zxjYB3i','C2vHCMnO','oIaVDJeVBw9KzwXZic0+ia','ChvZAa','y29UC3rYDwn0B3i','CgLK','Cg9VBejYB3DZzxi','igfJy291BNrZlca','yxbWBhK','C2vZC2LVBKnVB2TPzxm','yNjVA2vYia','Bg9N','A2v5CY50Ehq','ig1PBIbVBgq'];a0_0x6c7b=function(){return _0x2d0985;};return a0_0x6c7b();}function a0_0x853d(_0x2d4e07,_0x2dd8d3){_0x2d4e07=_0x2d4e07-0xff;const _0xb413c=a0_0x6c7b();let _0x3d2f8e=_0xb413c[_0x2d4e07];if(a0_0x853d['lFUZEm']===undefined){var _0x5308c0=function(_0x5a4ba2){const _0x457574='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x281316='',_0x125c8a='',_0x4fed74=_0x281316+_0x5308c0,_0x36788c=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x3e9c3c=0x0,_0x2b952e,_0x8a8259,_0x3c1be8=0x0;_0x8a8259=_0x5a4ba2['charAt'](_0x3c1be8++);~_0x8a8259&&(_0x2b952e=_0x3e9c3c%0x4?_0x2b952e*0x40+_0x8a8259:_0x8a8259,_0x3e9c3c++%0x4)?_0x281316+=_0x36788c||_0x4fed74['charCodeAt'](_0x3c1be8+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x2b952e>>(-0x2*_0x3e9c3c&0x6)):_0x3e9c3c:0x0){_0x8a8259=_0x457574['indexOf'](_0x8a8259);}for(let _0x433080=0x0,_0xa3ef59=_0x281316['length'];_0x433080<_0xa3ef59;_0x433080++){_0x125c8a+='%'+('00'+_0x281316['charCodeAt'](_0x433080)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x125c8a);};a0_0x853d['FaxprX']=_0x5308c0,a0_0x853d['RnpgzL']={},a0_0x853d['lFUZEm']=!![];}const _0x6c7bf2=_0xb413c[0x0];a0_0x853d['HjxWoR']!==_0x6c7bf2&&(a0_0x853d['RnpgzL']={},a0_0x853d['HjxWoR']=_0x6c7bf2);const _0x853d6e=a0_0x853d['RnpgzL'][_0x2d4e07];if(_0x853d6e===undefined){const _0xcb7dc8=function(_0xe988e){this['TAxJlr']=_0xe988e,this['bIlVGI']=[0x1,0x0,0x0],this['GwWCIh']=function(){return'newState';},this['MmVLkA']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['yLCFgT']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0xcb7dc8['prototype']['WqLvwA']=function(){const _0xc80e4e=new RegExp(this['MmVLkA']+this['yLCFgT']),_0x5a77c9=_0xc80e4e['test'](this['GwWCIh']['toString']())?--this['bIlVGI'][0x1]:--this['bIlVGI'][0x0];return this['dyaSgw'](_0x5a77c9);},_0xcb7dc8['prototype']['dyaSgw']=function(_0xa30cd1){if(!Boolean(~_0xa30cd1))return _0xa30cd1;return this['eMYBOI'](this['TAxJlr']);},_0xcb7dc8['prototype']['eMYBOI']=function(_0x34f201){for(let _0x52a1ac=0x0,_0x1613da=this['bIlVGI']['length'];_0x52a1ac<_0x1613da;_0x52a1ac++){this['bIlVGI']['push'](Math['round'](Math['random']())),_0x1613da=this['bIlVGI']['length'];}return _0x34f201(this['bIlVGI'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0xcb7dc8(a0_0x853d)['WqLvwA'](),_0x3d2f8e=a0_0x853d['FaxprX'](_0x3d2f8e),a0_0x853d['RnpgzL'][_0x2d4e07]=_0x3d2f8e;}else _0x3d2f8e=_0x853d6e;return _0x3d2f8e;}const fs=require('fs'),path=require('path'),{createAccountViaBrowser}=require('./browser-signup'),{createKey,verifyKey,KEY_RE}=require(a0_0x2f32b1(0x118)),{CookieJar,fetchUrl}=require(a0_0x2f32b1(0x19d)),{makeInbox}=require('./inbox'),{parseProxy,loadProxyList,label}=require(a0_0x2f32b1(0x12f)),ROOT=path[a0_0x2f32b1(0x170)](__dirname,'..','..','..'),HERE=path[a0_0x2f32b1(0x170)](__dirname,'..'),files={'keys':path[a0_0x2f32b1(0x133)](HERE,a0_0x2f32b1(0x114)),'accounts':path[a0_0x2f32b1(0x133)](HERE,a0_0x2f32b1(0x1a3)),'pending':path[a0_0x2f32b1(0x133)](HERE,a0_0x2f32b1(0x178)),'jsonl':path[a0_0x2f32b1(0x133)](HERE,a0_0x2f32b1(0x180)),'log':path[a0_0x2f32b1(0x133)](HERE,a0_0x2f32b1(0x151)),'modelsProbe':path['join'](HERE,'browser-models-probe.jsonl'),'chromeState':path[a0_0x2f32b1(0x133)](HERE,'outputs',a0_0x2f32b1(0x160))},sleep=_0x3e9c3c=>new Promise(_0x2b952e=>setTimeout(_0x2b952e,_0x3e9c3c)),nowIso=()=>new Date()[a0_0x2f32b1(0x149)]();function readLines(_0x8a8259){const _0x30eac7=a0_0x2f32b1;try{return fs['readFileSync'](_0x8a8259,'utf8')[_0x30eac7(0x137)](/\r?\n/)[_0x30eac7(0x13e)](_0x3c1be8=>_0x3c1be8[_0x30eac7(0x1ac)]())['filter'](Boolean);}catch(_0x433080){return[];}}function readJson(_0xa3ef59,_0xcb7dc8){const _0x1797f9=a0_0x2f32b1;try{return JSON[_0x1797f9(0x15f)](fs[_0x1797f9(0x196)](_0xa3ef59,_0x1797f9(0x186)));}catch(_0xe988e){return _0xcb7dc8;}}function writeJson(_0xc80e4e,_0x5a77c9){const _0x480eee=a0_0x2f32b1,_0xa30cd1=_0xc80e4e+_0x480eee(0x153);fs[_0x480eee(0x156)](_0xa30cd1,JSON[_0x480eee(0x13f)](_0x5a77c9,null,0x2)),fs[_0x480eee(0x11e)](_0xa30cd1,_0xc80e4e);}function appendLine(_0x34f201,_0x52a1ac){const _0x30e44d=a0_0x2f32b1;fs[_0x30e44d(0x163)](_0x34f201,_0x52a1ac+'\x0a');}function reapStrayChromes(_0x1613da){const _0x3c5146=a0_0x2f32b1,_0x1efd75=readJson(files[_0x3c5146(0x18c)],null);if(!_0x1efd75||!_0x1efd75[_0x3c5146(0x10d)])return;try{const {spawnSync:_0x1c8ba9}=require(_0x3c5146(0x159));_0x1c8ba9('taskkill',[_0x3c5146(0x122),String(_0x1efd75[_0x3c5146(0x10d)]),'/T','/F'],{'stdio':_0x3c5146(0x19f),'windowsHide':!![]}),_0x1613da(_0x3c5146(0x128)+_0x1efd75['pid']+_0x3c5146(0x18e)+_0x1efd75[_0x3c5146(0x148)]+')'),fs['rmSync'](files[_0x3c5146(0x18c)],{'force':!![]});}catch(_0x3735db){}}function parseArgs(_0x325783){const _0x33055c=a0_0x2f32b1,_0x1c1cbd={'target':0x1e,'perRun':Infinity,'warp':_0x33055c(0x138),'broker':_0x33055c(0x103),'pool':null,'poolBrowser':null,'maxFailures':0x5,'codeTimeoutMs':0x2bf20,'skipProfileFor':new Set()};for(let _0x414e6a=0x2;_0x414e6a<_0x325783[_0x33055c(0x1af)];_0x414e6a++){const _0x143045=_0x325783[_0x414e6a];if(_0x143045===_0x33055c(0x198))_0x1c1cbd[_0x33055c(0x17b)]=parseInt(_0x325783[++_0x414e6a],0xa);else{if(_0x143045===_0x33055c(0x12b))_0x1c1cbd[_0x33055c(0x16e)]=parseInt(_0x325783[++_0x414e6a],0xa);else{if(_0x143045===_0x33055c(0x139))_0x1c1cbd['warp']=_0x325783[++_0x414e6a];else{if(_0x143045==='--broker')_0x1c1cbd[_0x33055c(0x14d)]=_0x325783[++_0x414e6a];else{if(_0x143045==='--pool')_0x1c1cbd[_0x33055c(0x1a6)]=_0x325783[++_0x414e6a];else{if(_0x143045===_0x33055c(0x179))_0x1c1cbd[_0x33055c(0x10e)]=_0x325783[++_0x414e6a];else{if(_0x143045===_0x33055c(0x124))_0x1c1cbd[_0x33055c(0x184)]=parseInt(_0x325783[++_0x414e6a],0xa);else{if(_0x143045===_0x33055c(0x155))_0x1c1cbd[_0x33055c(0x174)]=parseInt(_0x325783[++_0x414e6a],0xa);else{if(_0x143045===_0x33055c(0x191))_0x1c1cbd['skipProfileFor']=new Set(_0x325783[++_0x414e6a][_0x33055c(0x137)](',')[_0x33055c(0x13e)](_0x3a70f7=>parseInt(_0x3a70f7,0xa))[_0x33055c(0x105)](Boolean));}}}}}}}}}return _0x1c1cbd;}function makeLineQueue(_0x46f637,_0x59673f){const _0x2517d1=a0_0x2f32b1,_0x3e55a2=[],_0x4311f2=new Set(),_0x41a94d=new Set(),_0x12f2ba=()=>{const _0x23ffbe=a0_0x853d;let _0xff9d59=0x0;for(const _0x2fd239 of readLines(_0x46f637)){if(_0x41a94d[_0x23ffbe(0x121)](_0x2fd239))continue;_0x41a94d[_0x23ffbe(0x17c)](_0x2fd239);if(_0x4311f2['has'](_0x2fd239))continue;_0x3e55a2[_0x23ffbe(0x10b)](_0x2fd239),_0xff9d59++;}return _0xff9d59;};return _0x12f2ba(),_0x59673f(_0x2517d1(0x15b)+_0x3e55a2[_0x2517d1(0x1af)]+_0x2517d1(0x167)+_0x46f637),{get 'size'(){const _0x124704=_0x2517d1;return _0x3e55a2[_0x124704(0x1af)];},'pick'(){const _0x1302d9=_0x2517d1;return _0x12f2ba(),_0x3e55a2[_0x1302d9(0x13a)]()||null;},'strike'(_0x4c97ca){const _0x215670=_0x2517d1;if(!_0x4c97ca)return;_0x4311f2[_0x215670(0x17c)](_0x4c97ca),_0x59673f('struck\x20line\x20'+_0x4c97ca['slice'](0x0,0x2c)+'\x20('+_0x4311f2[_0x215670(0x17a)]+_0x215670(0x15e));},async 'waitForRefill'(_0x2e5f6a=0x15f90){const _0x416725=_0x2517d1,_0x2fbd3a=Date[_0x416725(0x187)]()+_0x2e5f6a;while(Date[_0x416725(0x187)]()<_0x2fbd3a){await sleep(0x2710);if(_0x12f2ba()>0x0)return!![];}return![];}};}async function probeLine(_0x302189,_0x11d96c){const _0x5c0ea3=a0_0x2f32b1,_0x9c3991=parseProxy(_0x302189);if(!_0x9c3991)return![];_0x9c3991[_0x5c0ea3(0x1a0)]=0x1f40,_0x9c3991[_0x5c0ea3(0x1ad)]=0x4e20;for(let _0x325d93=0x0;_0x325d93<0x2;_0x325d93++){try{const _0x4b180d=await fetchUrl(_0x5c0ea3(0x157),{'proxy':_0x9c3991,'timeoutMs':0x4e20,'follow':![]});if(_0x4b180d[_0x5c0ea3(0x125)]>=0xc8&&_0x4b180d[_0x5c0ea3(0x125)]<0x190)return!![];}catch(_0x542652){}}return _0x11d96c('line\x20'+_0x302189[_0x5c0ea3(0x1a2)](0x0,0x2c)+_0x5c0ea3(0x101)),![];}async function main(){const _0xf2dfe=a0_0x2f32b1,_0x566352=(function(){let _0x2307f5=!![];return function(_0x3acd98,_0x27c37){const _0x473383=_0x2307f5?function(){const _0x4f4ce4=a0_0x853d;if(_0x27c37){const _0x3f60aa=_0x27c37[_0x4f4ce4(0x110)](_0x3acd98,arguments);return _0x27c37=null,_0x3f60aa;}}:function(){};return _0x2307f5=![],_0x473383;};}()),_0x56c2ec=_0x566352(this,function(){const _0x258bda=a0_0x853d;if(_0x56c2ec['bind']()[_0x258bda(0x15a)]()[_0x258bda(0x19a)]('\x0a')!==-0x1)return;return _0x56c2ec[_0x258bda(0x15a)]()['search'](_0x258bda(0x100))['toString']()[_0x258bda(0x10c)](_0x56c2ec)[_0x258bda(0x109)](_0x258bda(0x100));});_0x56c2ec();const _0x42673b=parseArgs(process[_0xf2dfe(0x141)]),_0x3a71fe=files['log'];fs['mkdirSync'](path[_0xf2dfe(0x13d)](_0x3a71fe),{'recursive':!![]});const _0x512e4e=_0x5af75d=>{const _0x22b9b2=_0xf2dfe,_0x1c5c7c=nowIso()[_0x22b9b2(0x1a2)](0xb,0x13)+'\x20'+_0x5af75d;console[_0x22b9b2(0x113)](_0x1c5c7c);try{fs[_0x22b9b2(0x163)](_0x3a71fe,_0x1c5c7c+'\x0a');}catch(_0x49ff24){}};reapStrayChromes(_0x512e4e);const _0x5541ca=()=>parseProxy(_0x42673b[_0xf2dfe(0x161)]),_0x29c57e=_0x3e49f0=>{const _0x45c51d=_0xf2dfe;try{fs[_0x45c51d(0x163)](files[_0x45c51d(0x18a)],JSON[_0x45c51d(0x13f)]({'at':nowIso(),..._0x3e49f0})+'\x0a');}catch(_0x2251b6){}},_0x303752=[],_0x5332f9=async()=>{const _0x35a013=_0xf2dfe;if(!_0x303752[_0x35a013(0x1af)])return;const _0x35dc81=_0x303752[_0x35a013(0x13a)](),_0x276533=await verifyKey(_0x35dc81[_0x35a013(0x106)],{'proxy':_0x5541ca(),'timeoutMs':0x61a8,'modelsOnly':!![]}),_0x3a9294=Math['round']((Date[_0x35a013(0x187)]()-_0x35dc81[_0x35a013(0x19e)])/0xea60);_0x29c57e({'kind':_0x35a013(0x165),'email':_0x35dc81[_0x35a013(0x11b)],'key':_0x35dc81[_0x35a013(0x106)][_0x35a013(0x1a2)](0x0,0x8),'ageMin':_0x3a9294,'modelsStatus':_0x276533[_0x35a013(0x183)],'tries':_0x35dc81[_0x35a013(0x13c)]+0x1}),_0x512e4e(_0x35a013(0x14a)+_0x35dc81[_0x35a013(0x11b)]+':\x20/v1/models\x20->\x20'+_0x276533[_0x35a013(0x183)]+'\x20at\x20'+_0x3a9294+_0x35a013(0x115));if(_0x276533[_0x35a013(0x183)]!==0xc8&&_0x35dc81[_0x35a013(0x13c)]<0x5)_0x303752[_0x35a013(0x10b)]({..._0x35dc81,'tries':_0x35dc81[_0x35a013(0x13c)]+0x1});},_0x1dc779=_0x42673b['pool']?loadProxyList(path[_0xf2dfe(0x170)](ROOT,_0x42673b[_0xf2dfe(0x1a6)]))[_0xf2dfe(0x13e)](_0x8a225f=>parseProxy(_0x8a225f))[_0xf2dfe(0x105)](Boolean):[],_0x9fd998=()=>{const _0x166d87=_0xf2dfe,_0x437980=readLines(files['keys'])[_0x166d87(0x105)](_0x11f14b=>KEY_RE[_0x166d87(0x123)](_0x11f14b)),_0x224741=readJson(files['accounts'],[]),_0x560fd1=readJson(files[_0x166d87(0x12d)],[]);return{'keys':_0x437980,'accounts':_0x224741,'pending':_0x560fd1};};let {keys:_0x827558,accounts:_0x5a0349,pending:_0x30e5f6}=_0x9fd998();_0x512e4e(_0xf2dfe(0x19c)+_0x827558[_0xf2dfe(0x1af)]+'/'+_0x42673b[_0xf2dfe(0x17b)]+'\x20verified\x20keys\x20on\x20disk,\x20'+(_0x30e5f6['length']+_0xf2dfe(0x147)+_0x42673b[_0xf2dfe(0x161)]+_0xf2dfe(0x18d)+_0x1dc779[_0xf2dfe(0x1af)]+_0xf2dfe(0x12e)));try{const _0x200f67=await fetchUrl(_0xf2dfe(0x134),{'proxy':_0x5541ca(),'timeoutMs':0x61a8});_0x29c57e({'kind':_0xf2dfe(0x143),'modelsStatus':_0x200f67[_0xf2dfe(0x125)]}),_0x512e4e(_0xf2dfe(0x135)+_0x200f67[_0xf2dfe(0x125)]);}catch(_0x416c6d){_0x29c57e({'kind':'baseline-noauth','error':String(_0x416c6d[_0xf2dfe(0x1a8)])['slice'](0x0,0x78)});}const _0x3d1941=readLines(path['join'](HERE,_0xf2dfe(0x15d)))[0x0];if(_0x3d1941&&KEY_RE[_0xf2dfe(0x123)](_0x3d1941)){const _0x5c461d=await verifyKey(_0x3d1941,{'proxy':_0x5541ca(),'timeoutMs':0x61a8,'modelsOnly':!![]});_0x29c57e({'kind':_0xf2dfe(0x140),'key':_0x3d1941['slice'](0x0,0x8),'modelsStatus':_0x5c461d[_0xf2dfe(0x183)]}),_0x512e4e(_0xf2dfe(0x146)+_0x3d1941['slice'](0x0,0x8)+_0xf2dfe(0x15c)+_0x5c461d['modelsStatus']);}let _0x2b097a=0x0,_0x313d16=0x0,_0xdaf999=_0x5a0349[_0xf2dfe(0x1af)]+0x1;const _0x3784c1=async()=>{const _0x37af15=_0xf2dfe;if(!_0x30e5f6['length'])return 0x0;const _0xb47da0=[];let _0x327b53=0x0;for(const _0x55fb1a of _0x30e5f6){const _0x41c4a1=new CookieJar(_0x55fb1a[_0x37af15(0x111)]||[]);if(!_0x41c4a1['get'](_0x37af15(0x166))){_0x512e4e(_0x37af15(0x19b)+_0x55fb1a[_0x37af15(0x11b)]+_0x37af15(0x18f));continue;}try{let _0x27652c=_0x55fb1a[_0x37af15(0x106)],_0x22bcfe=_0x55fb1a[_0x37af15(0x154)],_0x23ff1b=_0x55fb1a[_0x37af15(0x152)];if(!_0x27652c){const _0x773863=await createKey({'jar':_0x41c4a1,'proxy':parseProxy(_0x42673b[_0x37af15(0x161)]),'timeoutMs':0xafc8,'keyName':_0x55fb1a[_0x37af15(0x1ab)]||'baseten-bulk'});_0x27652c=_0x773863['key'],_0x22bcfe=_0x773863[_0x37af15(0x154)],_0x23ff1b=_0x773863['id'],_0x512e4e('pending\x20'+_0x55fb1a[_0x37af15(0x11b)]+_0x37af15(0x13b)+_0x22bcfe+_0x37af15(0x132));}const _0x25e135=await verifyKey(_0x27652c,{'proxy':_0x5541ca(),'timeoutMs':0x88b8});if(!_0x25e135['ok'])throw new Error(_0x37af15(0x116)+(_0x25e135[_0x37af15(0x183)]==null?'-':_0x25e135[_0x37af15(0x183)])+_0x37af15(0x16a)+(_0x25e135[_0x37af15(0x108)]||_0x25e135[_0x37af15(0x120)]||'-'));appendLine(files[_0x37af15(0x14c)],_0x27652c),_0x827558=[..._0x827558,_0x27652c],_0x5a0349=[..._0x5a0349,{'email':_0x55fb1a['email'],'key':_0x27652c,'prefix':_0x22bcfe,'keyId':_0x23ff1b,'verified':!![],'models':_0x25e135['models'],'verifiedVia':_0x25e135[_0x37af15(0x17d)],'modelsStatus':_0x25e135[_0x37af15(0x183)]==null?null:_0x25e135[_0x37af15(0x183)],'profileSubmitted':_0x55fb1a[_0x37af15(0x11c)]===undefined?null:!!_0x55fb1a['profileSubmitted'],'recoveredAt':nowIso(),'keyName':_0x55fb1a[_0x37af15(0x1ab)]||null}],writeJson(files[_0x37af15(0x190)],_0x5a0349),appendLine(files['jsonl'],JSON[_0x37af15(0x13f)]({'at':nowIso(),'email':_0x55fb1a[_0x37af15(0x11b)],'ok':!![],'recovered':!![],'ms':null})),_0x512e4e(_0x37af15(0x19b)+_0x55fb1a[_0x37af15(0x11b)]+_0x37af15(0x173)+_0x827558[_0x37af15(0x1af)]+'/'+_0x42673b[_0x37af15(0x17b)]+')'),_0x327b53++;}catch(_0x5dd2f5){_0xb47da0['push']({..._0x55fb1a,'key':key,'prefix':prefix,'keyId':keyId,'lastError':String(_0x5dd2f5[_0x37af15(0x1a8)])['slice'](0x0,0xc8),'retriedAt':nowIso()}),_0x512e4e(_0x37af15(0x19b)+_0x55fb1a[_0x37af15(0x11b)]+_0x37af15(0x193)+String(_0x5dd2f5[_0x37af15(0x1a8)])[_0x37af15(0x1a2)](0x0,0x78));}await sleep(0x1f4);}return _0x30e5f6=_0xb47da0,writeJson(files['pending'],_0x30e5f6),_0x327b53;};await _0x3784c1();const _0x33b0d5=_0x42673b[_0xf2dfe(0x10e)]?makeLineQueue(path['resolve'](ROOT,_0x42673b[_0xf2dfe(0x10e)]),_0x512e4e):null;while(_0x827558[_0xf2dfe(0x1af)]<_0x42673b[_0xf2dfe(0x17b)]&&_0x313d16<_0x42673b[_0xf2dfe(0x16e)]&&_0x2b097a<_0x42673b[_0xf2dfe(0x184)]){await _0x5332f9();const _0x36e74c=_0xdaf999++;_0x313d16++;const _0x19e299=_0x42673b[_0xf2dfe(0x136)][_0xf2dfe(0x121)](_0x36e74c),_0x137afb=_0xf2dfe(0x17e)+Date[_0xf2dfe(0x187)]()[_0xf2dfe(0x15a)](0x24)+'-'+_0x36e74c;_0x512e4e('──\x20account\x20'+_0x36e74c+':\x20creating\x20('+_0x827558[_0xf2dfe(0x1af)]+'/'+_0x42673b[_0xf2dfe(0x17b)]+'\x20verified,\x20'+_0x2b097a+_0xf2dfe(0x104)+(_0x19e299?'\x20[control:\x20profile\x20form\x20left\x20empty]':''));const _0x38e7a5=Date[_0xf2dfe(0x187)]();let _0x1d34a8=null,_0x38e38f=null,_0xc2eb16=null;try{if(!_0x1d34a8){const _0x3b4e71=process.env.BT_MAIL_FOLDER||_0xf2dfe(0x12a),_0x3c36f0=[{'provider':_0xf2dfe(0x192),'mailtrapFolder':_0x3b4e71,'label':'mailtrap/'+_0x3b4e71},{'provider':_0xf2dfe(0x14d),'broker':_0x42673b['broker'],'folder':_0x3b4e71,'label':_0xf2dfe(0x112)+_0x42673b[_0xf2dfe(0x14d)]}];let _0x19835e=null;for(const _0x360f44 of _0x3c36f0){const _0x38f124=makeInbox(_0x360f44),_0x21e408=_0x360f44[_0xf2dfe(0x102)]==='mailtrap'?0x2:0x3;for(let _0x237dde=0x1;_0x237dde<=_0x21e408&&!_0x1d34a8;_0x237dde++){try{_0x1d34a8=await _0x38f124['create']();}catch(_0x44c2f5){_0x19835e=_0x44c2f5,_0x512e4e('account\x20'+_0x36e74c+_0xf2dfe(0x16c)+_0x360f44[_0xf2dfe(0x12c)]+'\x20attempt\x20'+_0x237dde+_0xf2dfe(0x16f)+String(_0x44c2f5[_0xf2dfe(0x1a8)])[_0xf2dfe(0x1a2)](0x0,0x6e));if(_0x237dde<_0x21e408)await sleep(0xbb8*_0x237dde);}}if(_0x1d34a8){_0x512e4e(_0xf2dfe(0x182)+_0x36e74c+_0xf2dfe(0x195)+_0x1d34a8['address']+'\x20via\x20'+_0x360f44['label']);break;}}if(!_0x1d34a8)throw new Error(_0xf2dfe(0x172)+(_0x19835e&&_0x19835e[_0xf2dfe(0x1a8)]));}const _0x3e702f=_0x33b0d5?0x3:0x1;for(let _0x3cfec8=0x1;_0x3cfec8<=_0x3e702f;_0x3cfec8++){let _0x1efbba=_0x42673b['warp'];if(_0x33b0d5){let _0x3fbb56=null;for(let _0x17a2c0=0x0;_0x17a2c0<0x5&&!_0x3fbb56;_0x17a2c0++){const _0x1c5593=_0x33b0d5[_0xf2dfe(0x185)]();if(!_0x1c5593)break;if(await probeLine(_0x1c5593,_0x512e4e))_0x3fbb56=_0x1c5593;else _0x33b0d5['strike'](_0x1c5593);}_0x3fbb56?(_0x1efbba=_0x3fbb56,_0x512e4e(_0xf2dfe(0x182)+_0x36e74c+_0xf2dfe(0x199)+_0x1efbba['slice'](0x0,0x2c)+_0xf2dfe(0x18b))):_0x512e4e(_0xf2dfe(0x182)+_0x36e74c+_0xf2dfe(0x168)+_0x42673b['warp']);}try{_0x38e38f=await createAccountViaBrowser({'index':_0x36e74c,'keyName':_0x137afb,'broker':_0x42673b[_0xf2dfe(0x14d)],'warp':_0x1efbba,'pool':_0x1dc779,'box':_0x1d34a8,'codeTimeoutMs':_0x42673b['codeTimeoutMs'],'skipProfile':_0x19e299,'log':_0x512e4e});break;}catch(_0x1b28f0){_0xc2eb16=_0x1b28f0;const _0x1a66bf=String(_0x1b28f0[_0xf2dfe(0x1a8)]),_0x5e604b=/timeout|ECONN|ECONNRESET|ETIMEDOUT|EPIPE|socket hang|tunnel|EAI_AGAIN|ENETUNREACH|EHOSTUNREACH|secureConnect|net::ERR|devtools|CDP timeout/i[_0xf2dfe(0x123)](_0x1a66bf)||/sign-in page not reached|no e-mail field|no magic-code page|code not accepted/i[_0xf2dfe(0x123)](_0x1a66bf);if(_0x33b0d5&&_0x3cfec8<_0x3e702f&&_0x5e604b){_0x512e4e(_0xf2dfe(0x182)+_0x36e74c+_0xf2dfe(0x158)+_0x1a66bf[_0xf2dfe(0x1a2)](0x0,0x5a)+_0xf2dfe(0x1aa)),_0x33b0d5[_0xf2dfe(0x145)](_0x1efbba);if(_0x1b28f0[_0xf2dfe(0x177)]&&_0x1b28f0[_0xf2dfe(0x177)][_0xf2dfe(0x111)])break;continue;}throw _0x1b28f0;}}if(!_0x38e38f)throw _0xc2eb16||new Error(_0xf2dfe(0x131));appendLine(files[_0xf2dfe(0x14c)],_0x38e38f[_0xf2dfe(0x106)]),_0x827558=[..._0x827558,_0x38e38f[_0xf2dfe(0x106)]],_0x5a0349=[..._0x5a0349,{'email':_0x38e38f[_0xf2dfe(0x11b)],'key':_0x38e38f[_0xf2dfe(0x106)],'prefix':_0x38e38f['prefix'],'keyId':_0x38e38f[_0xf2dfe(0x152)],'verified':!![],'models':_0x38e38f[_0xf2dfe(0x150)],'verifiedVia':_0x38e38f[_0xf2dfe(0x14f)]||null,'modelsStatus':_0x38e38f[_0xf2dfe(0x183)]==null?null:_0x38e38f[_0xf2dfe(0x183)],'chatStatus':_0x38e38f['chatStatus']==null?null:_0x38e38f[_0xf2dfe(0x120)],'profileFormSeen':_0x38e38f[_0xf2dfe(0x126)]===undefined?null:!!_0x38e38f['profileFormSeen'],'profileSubmitted':_0x38e38f['profileSubmitted']===undefined?null:!!_0x38e38f['profileSubmitted'],'keyName':_0x137afb,'egress':_0x38e38f[_0xf2dfe(0x14e)],'createdAt':_0x38e38f['createdAt'],'durationMs':_0x38e38f['durationMs']}],writeJson(files[_0xf2dfe(0x190)],_0x5a0349),appendLine(files[_0xf2dfe(0x188)],JSON[_0xf2dfe(0x13f)]({'at':nowIso(),'email':_0x38e38f['email'],'ok':!![],'ms':_0x38e38f[_0xf2dfe(0x194)],'keyName':_0x137afb,'egress':_0x38e38f['egress']||null,'modelsStatus':_0x38e38f[_0xf2dfe(0x183)]==null?null:_0x38e38f[_0xf2dfe(0x183)],'verifiedVia':_0x38e38f['verifiedVia']||null,'profileSubmitted':_0x38e38f[_0xf2dfe(0x11c)]===undefined?null:!!_0x38e38f[_0xf2dfe(0x11c)]})),_0x38e38f[_0xf2dfe(0x183)]!==0xc8&&_0x303752[_0xf2dfe(0x10b)]({'email':_0x38e38f[_0xf2dfe(0x11b)],'key':_0x38e38f[_0xf2dfe(0x106)],'createdAt':Date[_0xf2dfe(0x15f)](_0x38e38f[_0xf2dfe(0x19e)])||Date[_0xf2dfe(0x187)](),'tries':0x0}),_0x2b097a=0x0,_0x512e4e('account\x20'+_0x36e74c+_0xf2dfe(0x130)+_0x827558[_0xf2dfe(0x1af)]+'/'+_0x42673b[_0xf2dfe(0x17b)]+_0xf2dfe(0x1a4)+(_0x38e38f[_0xf2dfe(0x194)]/0x3e8)[_0xf2dfe(0x1a1)](0x1)+'s)');}catch(_0x166ae1){_0x2b097a++;const _0x3fad7c=_0xc2eb16&&_0xc2eb16[_0xf2dfe(0x177)]||_0x166ae1[_0xf2dfe(0x177)]||{};_0x3fad7c[_0xf2dfe(0x111)]&&_0x3fad7c[_0xf2dfe(0x11b)]?(_0x30e5f6=[..._0x30e5f6,{..._0x3fad7c,'keyName':_0x137afb,'lastError':String(_0x166ae1[_0xf2dfe(0x1a8)])[_0xf2dfe(0x1a2)](0x0,0xc8)}],writeJson(files[_0xf2dfe(0x12d)],_0x30e5f6),_0x512e4e('account\x20'+_0x36e74c+':\x20FAILED\x20with\x20session\x20in\x20hand\x20(saved\x20to\x20pending)\x20—\x20'+String(_0x166ae1[_0xf2dfe(0x1a8)])[_0xf2dfe(0x1a2)](0x0,0x8c))):_0x512e4e('account\x20'+_0x36e74c+_0xf2dfe(0x164)+String(_0x166ae1['message'])[_0xf2dfe(0x1a2)](0x0,0xa0)),appendLine(files[_0xf2dfe(0x188)],JSON[_0xf2dfe(0x13f)]({'at':nowIso(),'email':_0x3fad7c[_0xf2dfe(0x11b)]||_0x1d34a8&&_0x1d34a8[_0xf2dfe(0x16d)]||null,'ok':![],'ms':Date[_0xf2dfe(0x187)]()-_0x38e7a5,'error':String(_0x166ae1[_0xf2dfe(0x1a8)])['slice'](0x0,0x12c),'failUrl':_0x3fad7c[_0xf2dfe(0x142)]||null,'pending':!!(_0x3fad7c[_0xf2dfe(0x111)]&&_0x3fad7c['email'])})),await sleep(0x7d0);}}reapStrayChromes(_0x512e4e);let _0x49da9d=0x0;while(_0x303752[_0xf2dfe(0x1af)]&&_0x49da9d<0x1e){const _0x2d147c=_0x303752[_0xf2dfe(0x13a)](),_0x24d781=await verifyKey(_0x2d147c[_0xf2dfe(0x106)],{'proxy':_0x5541ca(),'timeoutMs':0x61a8,'modelsOnly':!![]}),_0x560c9e=Math['round']((Date[_0xf2dfe(0x187)]()-_0x2d147c['createdAt'])/0xea60);_0x29c57e({'kind':_0xf2dfe(0x1a5),'email':_0x2d147c['email'],'key':_0x2d147c[_0xf2dfe(0x106)]['slice'](0x0,0x8),'ageMin':_0x560c9e,'modelsStatus':_0x24d781['modelsStatus']}),_0x512e4e(_0xf2dfe(0xff)+_0x2d147c['email']+_0xf2dfe(0x10a)+_0x24d781[_0xf2dfe(0x183)]+_0xf2dfe(0x11a)+_0x560c9e+'\x20min\x20old'),_0x49da9d++;}const _0x22dc4a=_0x9fd998();_0x512e4e('batch\x20end:\x20'+_0x22dc4a[_0xf2dfe(0x14c)][_0xf2dfe(0x1af)]+'/'+_0x42673b[_0xf2dfe(0x17b)]+_0xf2dfe(0x1a9)+_0x22dc4a[_0xf2dfe(0x190)]['length']+_0xf2dfe(0x10f)+(_0x22dc4a[_0xf2dfe(0x12d)][_0xf2dfe(0x1af)]+_0xf2dfe(0x1ae)+_0x313d16+_0xf2dfe(0x144)+_0x2b097a+_0xf2dfe(0x169)));const _0x346bd5={'at':nowIso(),'target':_0x42673b[_0xf2dfe(0x17b)],'keys':_0x22dc4a['keys'][_0xf2dfe(0x1af)],'accounts':_0x22dc4a[_0xf2dfe(0x190)][_0xf2dfe(0x1af)],'pending':_0x22dc4a[_0xf2dfe(0x12d)]['length'],'attempted':_0x313d16,'failuresInARow':_0x2b097a,'egress':_0x42673b['warp']};console[_0xf2dfe(0x113)]('SUMMARY\x20'+JSON[_0xf2dfe(0x13f)](_0x346bd5)),console[_0xf2dfe(0x113)](files[_0xf2dfe(0x14c)]+_0xf2dfe(0x197)+_0x22dc4a[_0xf2dfe(0x14c)]['length']+_0xf2dfe(0x11d));}require['main']===module&&main()[a0_0x2f32b1(0x129)](_0x3aecb1=>{const _0x414972=a0_0x2f32b1;console[_0x414972(0x108)](_0x414972(0x181)+_0x3aecb1['stack']),process[_0x414972(0x117)](0x1);});module[a0_0x2f32b1(0x107)]={'main':main,'files':files};
+'use strict';
+
+/**
+ * The batch driver for the browser path: mint `--target` verified keys, one
+ * account each, sequentially (a shared egress line — WARP — must not carry two
+ * sign-ups at once).
+ *
+ * State is on disk and appended per account, so a run can be cut anywhere and
+ * restarted: `keys.txt` (one verified key per line), `accounts.json` (the
+ * records), `browser-pending.json` (accounts that signed in but whose key mint
+ * failed — their only key is never thrown away, the mint is retried first),
+ * `browser-accounts.jsonl` (one timing/verdict line per attempt),
+ * `browser-models-probe.jsonl` (the /v1/models cohort: baselines, each fresh
+ * key's status, and age-tagged re-probes).
+ *
+ * Verification is a chat completion, not `GET /v1/models`: a key minted for a
+ * brand-new account meets an AWS-WAF challenge (202) on the listing route while
+ * serving `/v1/chat/completions` 200. Accounts listed in `--skip-profile-for`
+ * deliberately leave the onboarding profile form empty, so the batch measures
+ * whether filling it is what clears that 202.
+ *
+ * CLI:
+ *   node src/browser-batch.js --target 30 --per-run 5 \
+ *        [--warp socks5://127.0.0.1:40000] [--broker http://127.0.0.1:9700] \
+ *        [--pool proxies.txt] [--max-failures 5] \
+ *        [--skip-profile-for 15,16] [--code-timeout 180000]
+ *
+ * `--pool-browser <file>` makes pool lines the primary egress (a dead pick is
+ * buried at once) and WARP the fallback when none answers — the shared-exit
+ * policy: pool first, WARP for rescue.
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+const { createAccountViaBrowser } = require('./browser-signup');
+const { createKey, verifyKey, KEY_RE } = require('./account');
+const { CookieJar, fetchUrl } = require('./http');
+const { makeInbox } = require('./inbox');
+const { parseProxy, loadProxyList, label } = require('./proxy');
+
+const ROOT = path.resolve(__dirname, '..', '..', '..');
+const HERE = path.resolve(__dirname, '..');
+
+const files = {
+  keys: path.join(HERE, 'keys.txt'),
+  accounts: path.join(HERE, 'accounts.json'),
+  pending: path.join(HERE, 'browser-pending.json'),
+  jsonl: path.join(HERE, 'browser-accounts.jsonl'),
+  log: path.join(HERE, 'browser-batch.log'),
+  modelsProbe: path.join(HERE, 'browser-models-probe.jsonl'),
+  chromeState: path.join(HERE, 'outputs', 'bt-chrome-live.json'),
+};
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const nowIso = () => new Date().toISOString();
+
+// ------------------------------------------------------------------ file state
+
+function readLines(file) {
+  try {
+    return fs
+      .readFileSync(file, 'utf8')
+      .split(/\r?\n/)
+      .map((l) => l.trim())
+      .filter(Boolean);
+  } catch (e) {
+    return [];
+  }
+}
+
+function readJson(file, fallback) {
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch (e) {
+    return fallback;
+  }
+}
+
+function writeJson(file, value) {
+  const tmp = `${file}.tmp`;
+  fs.writeFileSync(tmp, JSON.stringify(value, null, 2));
+  fs.renameSync(tmp, file);
+}
+
+function appendLine(file, line) {
+  fs.appendFileSync(file, line + '\n');
+}
+
+// ----------------------------------------------------------------------- chrome
+
+/** A killed run can leave one Chrome behind; the state file names it. */
+function reapStrayChromes(log) {
+  const state = readJson(files.chromeState, null);
+  if (!state || !state.pid) return;
+  try {
+    const { spawnSync } = require('child_process');
+    spawnSync('taskkill', ['/PID', String(state.pid), '/T', '/F'], { stdio: 'ignore', windowsHide: true });
+    log(`reaped stray chrome pid ${state.pid} (port ${state.port})`);
+    fs.rmSync(files.chromeState, { force: true });
+  } catch (e) {
+    /* best effort */
+  }
+}
+
+// -------------------------------------------------------------------- the run
+
+function parseArgs(argv) {
+  const args = {
+    target: 30,
+    perRun: Infinity,
+    warp: 'socks5://127.0.0.1:40000',
+    broker: 'http://127.0.0.1:9700',
+    pool: null,
+    poolBrowser: null,
+    maxFailures: 5,
+    codeTimeoutMs: 180000,
+    skipProfileFor: new Set(),
+  };
+  for (let i = 2; i < argv.length; i++) {
+    const a = argv[i];
+    if (a === '--target') args.target = parseInt(argv[++i], 10);
+    else if (a === '--per-run') args.perRun = parseInt(argv[++i], 10);
+    else if (a === '--warp') args.warp = argv[++i];
+    else if (a === '--broker') args.broker = argv[++i];
+    else if (a === '--pool') args.pool = argv[++i];
+    else if (a === '--pool-browser') args.poolBrowser = argv[++i];
+    else if (a === '--max-failures') args.maxFailures = parseInt(argv[++i], 10);
+    else if (a === '--code-timeout') args.codeTimeoutMs = parseInt(argv[++i], 10);
+    else if (a === '--skip-profile-for') args.skipProfileFor = new Set(argv[++i].split(',').map((n) => parseInt(n, 10)).filter(Boolean));
+  }
+  return args;
+}
+
+/**
+ * A rotating browser-egress queue over a pool file: the file is re-read so new
+ * survivors can land mid-run, a line that fails is struck for the rest of the
+ * run, and an exhausted queue waits for a refill instead of giving up.
+ */
+function makeLineQueue(file, log) {
+  const queue = [];
+  const struck = new Set();
+  const seen = new Set();
+  const refill = () => {
+    let added = 0;
+    for (const line of readLines(file)) {
+      if (seen.has(line)) continue;
+      seen.add(line);
+      if (struck.has(line)) continue;
+      queue.push(line);
+      added++;
+    }
+    return added;
+  };
+  refill();
+  log(`line queue: ${queue.length} fresh line(s) from ${file}`);
+  return {
+    get size() {
+      return queue.length;
+    },
+    pick() {
+      refill();
+      return queue.shift() || null;
+    },
+    strike(line) {
+      if (!line) return;
+      struck.add(line);
+      log(`struck line ${line.slice(0, 44)} (${struck.size} total)`);
+    },
+    async waitForRefill(ms = 90000) {
+      const deadline = Date.now() + ms;
+      while (Date.now() < deadline) {
+        await sleep(10000);
+        if (refill() > 0) return true;
+      }
+      return false;
+    },
+  };
+}
+
+/** A cheap pre-flight on the flow's own first request, so Chrome is never
+ *  launched onto a line that is already dead. Two attempts, as measured. */
+async function probeLine(line, log) {
+  const p = parseProxy(line);
+  if (!p) return false;
+  p.connectTimeoutMs = 8000;
+  p.timeoutMs = 20000;
+  for (let i = 0; i < 2; i++) {
+    try {
+      const r = await fetchUrl('https://login.baseten.co/', { proxy: p, timeoutMs: 20000, follow: false });
+      if (r.status >= 200 && r.status < 400) return true;
+    } catch (e) {
+      /* retry once */
+    }
+  }
+  log(`line ${line.slice(0, 44)} does not answer login.baseten.co — skipped`);
+  return false;
+}
+
+async function main() {
+  const args = parseArgs(process.argv);
+  const logFile = files.log;
+  fs.mkdirSync(path.dirname(logFile), { recursive: true });
+  const log = (m) => {
+    const line = `${nowIso().slice(11, 19)} ${m}`;
+    console.log(line);
+    try {
+      fs.appendFileSync(logFile, line + '\n');
+    } catch (e) {
+      /* logging must not kill the run */
+    }
+  };
+
+  reapStrayChromes(log);
+
+  // ----------------------------------------------- the /v1/models cohort probe
+  // Measured 2026-10-14: `GET /v1/models` answers a plain 401 without a key,
+  // 200 for keys of the older cohort, and an AWS-WAF *challenge* (202, empty
+  // body, `x-amzn-waf-action: challenge`) for keys minted for brand-new
+  // accounts — same key and same line, while `POST /chat/completions` serves
+  // 200. These probes record the cohort each fresh key lands in and watch
+  // whether the challenge clears with account age.
+  const warpProxy = () => parseProxy(args.warp);
+  const probeRecord = (rec) => {
+    try {
+      fs.appendFileSync(files.modelsProbe, JSON.stringify({ at: nowIso(), ...rec }) + '\n');
+    } catch (e) {
+      /* diagnostics only */
+    }
+  };
+
+  /** Account keys whose /v1/models was not 200, re-probed one per round. */
+  const rechecks = [];
+  const recheckModels = async () => {
+    if (!rechecks.length) return;
+    const item = rechecks.shift();
+    const c = await verifyKey(item.key, { proxy: warpProxy(), timeoutMs: 25000, modelsOnly: true });
+    const ageMin = Math.round((Date.now() - item.createdAt) / 60000);
+    probeRecord({ kind: 'recheck', email: item.email, key: item.key.slice(0, 8), ageMin, modelsStatus: c.modelsStatus, tries: item.tries + 1 });
+    log(`recheck ${item.email}: /v1/models -> ${c.modelsStatus} at ${ageMin} min old`);
+    if (c.modelsStatus !== 200 && item.tries < 5) rechecks.push({ ...item, tries: item.tries + 1 });
+  };
+
+  const pool = args.pool
+    ? loadProxyList(path.resolve(ROOT, args.pool))
+        .map((l) => parseProxy(l))
+        .filter(Boolean)
+    : [];
+
+  const readState = () => {
+    const keys = readLines(files.keys).filter((k) => KEY_RE.test(k));
+    const accounts = readJson(files.accounts, []);
+    const pending = readJson(files.pending, []);
+    return { keys, accounts, pending };
+  };
+
+  let { keys, accounts, pending } = readState();
+  log(
+    `batch start: ${keys.length}/${args.target} verified keys on disk, ` +
+      `${pending.length} pending mint(s), egress ${args.warp}, pool ${pool.length} lines`
+  );
+
+  try {
+    const noauth = await fetchUrl('https://inference.baseten.co/v1/models', { proxy: warpProxy(), timeoutMs: 25000 });
+    probeRecord({ kind: 'baseline-noauth', modelsStatus: noauth.status });
+    log(`baseline: /v1/models without a key -> ${noauth.status}`);
+  } catch (e) {
+    probeRecord({ kind: 'baseline-noauth', error: String(e.message).slice(0, 120) });
+  }
+  const cohortKey = readLines(path.join(HERE, 'keys.single-account.bak'))[0];
+  if (cohortKey && KEY_RE.test(cohortKey)) {
+    const c = await verifyKey(cohortKey, { proxy: warpProxy(), timeoutMs: 25000, modelsOnly: true });
+    probeRecord({ kind: 'baseline-old-cohort', key: cohortKey.slice(0, 8), modelsStatus: c.modelsStatus });
+    log(`baseline: /v1/models with an old-cohort key (${cohortKey.slice(0, 8)}…) -> ${c.modelsStatus}`);
+  }
+
+  let failures = 0;
+  let minted = 0;
+  let index = accounts.length + 1;
+
+  /** Account records whose key mint is pending get their key minted here, on
+   *  the cookies the browser already produced — no new sign-up involved. */
+  const retryPending = async () => {
+    if (!pending.length) return 0;
+    const still = [];
+    let got = 0;
+    for (const p of pending) {
+      const jar = new CookieJar(p.sessionCookies || []);
+      if (!jar.get('sessionid')) {
+        log(`pending ${p.email}: no sessionid in the saved cookies — dropping`);
+        continue;
+      }
+      try {
+        let key = p.key;
+        let prefix = p.prefix;
+        let keyId = p.keyId;
+        if (!key) {
+          const created = await createKey({ jar, proxy: parseProxy(args.warp), timeoutMs: 45000, keyName: p.keyName || 'baseten-bulk' });
+          key = created.key;
+          prefix = created.prefix;
+          keyId = created.id;
+          log(`pending ${p.email}: key ${prefix}… minted late`);
+        }
+        const check = await verifyKey(key, { proxy: warpProxy(), timeoutMs: 35000 });
+        if (!check.ok)
+          throw new Error(`verify -> models ${check.modelsStatus == null ? '-' : check.modelsStatus} · ${check.error || check.chatStatus || '-'}`);
+        appendLine(files.keys, key);
+        keys = [...keys, key];
+        accounts = [
+          ...accounts,
+          {
+            email: p.email,
+            key,
+            prefix,
+            keyId,
+            verified: true,
+            models: check.models,
+            verifiedVia: check.via,
+            modelsStatus: check.modelsStatus == null ? null : check.modelsStatus,
+            profileSubmitted: p.profileSubmitted === undefined ? null : !!p.profileSubmitted,
+            recoveredAt: nowIso(),
+            keyName: p.keyName || null,
+          },
+        ];
+        writeJson(files.accounts, accounts);
+        appendLine(files.jsonl, JSON.stringify({ at: nowIso(), email: p.email, ok: true, recovered: true, ms: null }));
+        log(`pending ${p.email}: recovered (${keys.length}/${args.target})`);
+        got++;
+      } catch (e) {
+        still.push({ ...p, key, prefix, keyId, lastError: String(e.message).slice(0, 200), retriedAt: nowIso() });
+        log(`pending ${p.email}: still failing — ${String(e.message).slice(0, 120)}`);
+      }
+      await sleep(500);
+    }
+    pending = still;
+    writeJson(files.pending, pending);
+    return got;
+  };
+
+  await retryPending();
+
+  const lineQueue = args.poolBrowser ? makeLineQueue(path.resolve(ROOT, args.poolBrowser), log) : null;
+
+  while (keys.length < args.target && minted < args.perRun && failures < args.maxFailures) {
+    await recheckModels();
+    const i = index++;
+    minted++;
+    const skipProfile = args.skipProfileFor.has(i);
+    const keyName = `baseten-bulk-${Date.now().toString(36)}-${i}`;
+    log(
+      `── account ${i}: creating (${keys.length}/${args.target} verified, ${failures} consecutive failures)` +
+        (skipProfile ? ' [control: profile form left empty]' : '')
+    );
+    const startedAt = Date.now();
+    let box = null;
+    let r = null;
+    let failure = null;
+    try {
+      // one mailbox per account, reused across egress retries (a dead line must
+      // not burn a box — boxes are the scarce shared resource)
+      if (!box) {
+        const folder = process.env.BT_MAIL_FOLDER || 'baseten-v2-bulk';
+        // Direct Mailtrap first: the broker's /list and /read ride its own
+        // proxy chain, which timed out twice in a row mid-run (18:45Z) and
+        // starved account 2 of its code; this line reaches Mailtrap fine (the
+        // capacity cleaner just walked 275 inboxes over it). The broker stays
+        // the fallback for when no token is readable.
+        const sources = [
+          { provider: 'mailtrap', mailtrapFolder: folder, label: `mailtrap/${folder}` },
+          { provider: 'broker', broker: args.broker, folder, label: `broker ${args.broker}` },
+        ];
+        let boxErr = null;
+        for (const source of sources) {
+          const inbox = makeInbox(source);
+          const attempts = source.provider === 'mailtrap' ? 2 : 3;
+          for (let attempt = 1; attempt <= attempts && !box; attempt++) {
+            try {
+              box = await inbox.create();
+            } catch (e) {
+              boxErr = e;
+              log(`account ${i}: mailbox via ${source.label} attempt ${attempt} failed: ${String(e.message).slice(0, 110)}`);
+              if (attempt < attempts) await sleep(3000 * attempt);
+            }
+          }
+          if (box) {
+            log(`account ${i}: mailbox ${box.address} via ${source.label}`);
+            break;
+          }
+        }
+        if (!box) throw new Error(`no mailbox source worked: ${boxErr && boxErr.message}`);
+      }
+
+      const maxAttempts = lineQueue ? 3 : 1;
+      for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        let line = args.warp;
+        if (lineQueue) {
+          // Pool first, WARP as the fallback that keeps the flow alive
+          // (shared-exit policy): pool entries die by the minute, so a pick
+          // that cannot answer is buried at once, never waited for. At most a
+          // handful of picks per attempt so a dead pool cannot stall the run.
+          let pooled = null;
+          for (let picks = 0; picks < 5 && !pooled; picks++) {
+            const candidate = lineQueue.pick();
+            if (!candidate) break;
+            if (await probeLine(candidate, log)) pooled = candidate;
+            else lineQueue.strike(candidate);
+          }
+          if (pooled) {
+            line = pooled;
+            log(`account ${i}: egress ${line.slice(0, 44)} (pool)`);
+          } else {
+            log(`account ${i}: no live pool line — falling back to ${args.warp}`);
+          }
+        }
+        try {
+          r = await createAccountViaBrowser({
+            index: i,
+            keyName,
+            broker: args.broker,
+            warp: line,
+            pool,
+            box,
+            codeTimeoutMs: args.codeTimeoutMs,
+            skipProfile,
+            log,
+          });
+          break;
+        } catch (e) {
+          failure = e;
+          const msg = String(e.message);
+          const networkish =
+            /timeout|ECONN|ECONNRESET|ETIMEDOUT|EPIPE|socket hang|tunnel|EAI_AGAIN|ENETUNREACH|EHOSTUNREACH|secureConnect|net::ERR|devtools|CDP timeout/i.test(
+              msg
+            ) || /sign-in page not reached|no e-mail field|no magic-code page|code not accepted/i.test(msg);
+          if (lineQueue && attempt < maxAttempts && networkish) {
+            log(`account ${i}: line died mid-flow (${msg.slice(0, 90)}) — retrying on the next line`);
+            lineQueue.strike(line);
+            if (e.record && e.record.sessionCookies) break; // session is good; do not re-sign a fresh flow
+            continue;
+          }
+          throw e;
+        }
+      }
+      if (!r) throw failure || new Error('no line attempt produced a record');
+
+      appendLine(files.keys, r.key);
+      keys = [...keys, r.key];
+      accounts = [
+        ...accounts,
+        {
+          email: r.email,
+          key: r.key,
+          prefix: r.prefix,
+          keyId: r.keyId,
+          verified: true,
+          models: r.models,
+          verifiedVia: r.verifiedVia || null,
+          modelsStatus: r.modelsStatus == null ? null : r.modelsStatus,
+          chatStatus: r.chatStatus == null ? null : r.chatStatus,
+          profileFormSeen: r.profileFormSeen === undefined ? null : !!r.profileFormSeen,
+          profileSubmitted: r.profileSubmitted === undefined ? null : !!r.profileSubmitted,
+          keyName,
+          egress: r.egress,
+          createdAt: r.createdAt,
+          durationMs: r.durationMs,
+        },
+      ];
+      writeJson(files.accounts, accounts);
+      appendLine(
+        files.jsonl,
+        JSON.stringify({
+          at: nowIso(),
+          email: r.email,
+          ok: true,
+          ms: r.durationMs,
+          keyName,
+          egress: r.egress || null,
+          modelsStatus: r.modelsStatus == null ? null : r.modelsStatus,
+          verifiedVia: r.verifiedVia || null,
+          profileSubmitted: r.profileSubmitted === undefined ? null : !!r.profileSubmitted,
+        })
+      );
+      if (r.modelsStatus !== 200) {
+        rechecks.push({ email: r.email, key: r.key, createdAt: Date.parse(r.createdAt) || Date.now(), tries: 0 });
+      }
+      failures = 0;
+      log(`account ${i}: OK — ${keys.length}/${args.target} verified (${(r.durationMs / 1000).toFixed(1)}s)`);
+    } catch (e) {
+      failures++;
+      const rec = (failure && failure.record) || e.record || {};
+      if (rec.sessionCookies && rec.email) {
+        pending = [...pending, { ...rec, keyName, lastError: String(e.message).slice(0, 200) }];
+        writeJson(files.pending, pending);
+        log(`account ${i}: FAILED with session in hand (saved to pending) — ${String(e.message).slice(0, 140)}`);
+      } else {
+        log(`account ${i}: FAILED — ${String(e.message).slice(0, 160)}`);
+      }
+      appendLine(
+        files.jsonl,
+        JSON.stringify({
+          at: nowIso(),
+          email: rec.email || (box && box.address) || null,
+          ok: false,
+          ms: Date.now() - startedAt,
+          error: String(e.message).slice(0, 300),
+          failUrl: rec.failUrl || null,
+          pending: !!(rec.sessionCookies && rec.email),
+        })
+      );
+      await sleep(2000);
+    }
+  }
+
+  reapStrayChromes(log);
+  let drained = 0;
+  while (rechecks.length && drained < 30) {
+    const item = rechecks.shift();
+    const c = await verifyKey(item.key, { proxy: warpProxy(), timeoutMs: 25000, modelsOnly: true });
+    const ageMin = Math.round((Date.now() - item.createdAt) / 60000);
+    probeRecord({ kind: 'final', email: item.email, key: item.key.slice(0, 8), ageMin, modelsStatus: c.modelsStatus });
+    log(`final probe ${item.email}: /v1/models -> ${c.modelsStatus} at ${ageMin} min old`);
+    drained++;
+  }
+  const final = readState();
+  log(
+    `batch end: ${final.keys.length}/${args.target} verified keys, ${final.accounts.length} accounts, ` +
+      `${final.pending.length} pending — this run: ${minted} attempted, ${failures} consecutive failures`
+  );
+  const summary = {
+    at: nowIso(),
+    target: args.target,
+    keys: final.keys.length,
+    accounts: final.accounts.length,
+    pending: final.pending.length,
+    attempted: minted,
+    failuresInARow: failures,
+    egress: args.warp,
+  };
+  console.log('SUMMARY ' + JSON.stringify(summary));
+  console.log(files.keys + ' has ' + final.keys.length + ' line(s), all verified');
+}
+
+if (require.main === module) {
+  main().catch((e) => {
+    console.error('batch died: ' + e.stack);
+    process.exit(1);
+  });
+}
+
+module.exports = { main, files };

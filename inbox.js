@@ -1,1 +1,278 @@
-const a0_0x47d844=a0_0x33d1;function a0_0x2f30(){const _0x682ab4=['yxbP','AhrTBa','DxrMoa','qMvHCMvYia','CMvHza','BwfPBhrYyxa','Dg9Rzw4','AhrTBf9IB2r5','icaGigLUyM94igXPC3qGzMfPBgvKoIa','BwvZC2fNzq','CMvJzwL2zwrbDa','l2nYzwf0zq','yMLUza','C2vHCMnO','l2LUyM91BMqVAw5IB3HLCY8','mJq1ndu0zeLOwLzO','l21LC3nHz2vZlW','mJi1mtqWohv1y1f3zq','BwvZC2fNzxm','nde1ntL2AevZzNG','Dg9ju09tDhjPBMC','Dgv4Df9IB2r5','CM91BMq','C2XPy2u','l21LC3nHz2vZ','Ahr0Chm6lY9PBMjVEgvZlMnVBs9HCgKVDJi','BwfPBhrYyxaG','BM8GBwfNAwmGy29KzsbPBIa','C3vIAMvJDa','CwrU','ANnVBG','nJa3ndm3v1HdtNDw','ue9tva','zNjVBv9LBwfPBa','lI9ODhrW','zg9TywLU','mJe5nxbfzxDKzq','ChjVEhK','Dg9tDhjPBMC','Aw5IB3HLCW','Ag9TzwrPCG','zgf0yq','mtq0ouLjBvbyvG','l2LUyM94lW','mta0nZb0DLf3ENq','r0vu','zg9TywLUCW','y3jLyxrLzf9HDa','CMvWBgfJzq','BwfW','AgfZ','Dgv4Da','yxbWBgLJyxrPB24VANnVBG','DwLK','zM9SzgvY','DgvZDa','CMvHzezPBgvtEw5J','igzHAwXLzdOG','zM9SzgvYCW','BgLZDa','l2rVBwfPBG','CMfUzg9T','Cgf0Aa','zw5ZDxjLrM9SzgvY','Aw5KzxHpzG','BMfTzq','Bwf0y2G','BM93','ywrKCMvZCW','l2LUyM91BMqVzM9SzgvYCY8','ihDPDgHPBIa','mJiXnKjjt0TuCG','ic0+ia','yNjVA2vY','zM9SzgvYswq','C2v0','zMXVB3i','kcGOlISPkYKRksSK','C3rHDhvZ','AxnbCNjHEq','l2LUyM91BMqVzM9SzgvYCW','DhjPBq','l2XPC3q/Dg9Rzw49','yMfZzxrLBI1IDwXR','y3jLyxrL','Ahr0CdOVlZeYnY4WlJaUmtO5nZaW','Aw5IB3HLCY5JB20','mJu1mJKWzwT6vvvw','zNjVBq','yNjVA2vYoG','Dw5RBM93BG','lNjPDMvYlw1HAwX0CMfWlxrVA2vU','Cg9VBa','AM9PBG','BgvUz3rO','mtaYrgfYswjH','CgfYC2u'];a0_0x2f30=function(){return _0x682ab4;};return a0_0x2f30();}(function(_0x33e174,_0x457d5f){const _0x5aaf20=a0_0x33d1,_0xffa738=_0x33e174();while(!![]){try{const _0x382ea2=parseInt(_0x5aaf20(0x100))/0x1+-parseInt(_0x5aaf20(0xe7))/0x2+-parseInt(_0x5aaf20(0x110))/0x3+parseInt(_0x5aaf20(0xd7))/0x4*(parseInt(_0x5aaf20(0x115))/0x5)+parseInt(_0x5aaf20(0xef))/0x6*(parseInt(_0x5aaf20(0x104))/0x7)+-parseInt(_0x5aaf20(0x102))/0x8+parseInt(_0x5aaf20(0x11b))/0x9*(parseInt(_0x5aaf20(0x11d))/0xa);if(_0x382ea2===_0x457d5f)break;else _0xffa738['push'](_0xffa738['shift']());}catch(_0x2ac6c2){_0xffa738['push'](_0xffa738['shift']());}}}(a0_0x2f30,0x23cae));const a0_0x55cef7=(function(){let _0x1a96fb=!![];return function(_0x514cb6,_0x1a6d95){const _0xfc7330=_0x1a96fb?function(){if(_0x1a6d95){const _0x2060c8=_0x1a6d95['apply'](_0x514cb6,arguments);return _0x1a6d95=null,_0x2060c8;}}:function(){};return _0x1a96fb=![],_0xfc7330;};}()),a0_0x2d3673=a0_0x55cef7(this,function(){const _0x402184=a0_0x33d1;if(a0_0x2d3673[_0x402184(0xfd)]()['toString']()[_0x402184(0xd0)]('\x0a')!==-0x1)return;return a0_0x2d3673[_0x402184(0x117)]()['search'](_0x402184(0xdd))[_0x402184(0x117)]()['constructor'](a0_0x2d3673)[_0x402184(0xfe)]('(((.+)+)+)+$');});a0_0x2d3673();'use strict';const fs=require('fs'),os=require('os'),path=require(a0_0x47d844(0xce)),{fetchUrl,sleep}=require(a0_0x47d844(0x113)),MAILTRAP_API='https://mailtrap.io/api',INBOXES_API=a0_0x47d844(0x10a),stripTags=_0x273aad=>String(_0x273aad||'')['replace'](/<(script|style)[\s\S]*?<\/\1>/gi,'\x20')[a0_0x47d844(0x121)](/<[^>]*>/g,'\x20')[a0_0x47d844(0x121)](/&nbsp;/g,'\x20')[a0_0x47d844(0x121)](/&amp;/g,'&')['replace'](/&lt;/g,'<')[a0_0x47d844(0x121)](/&gt;/g,'>')[a0_0x47d844(0x121)](/&quot;/g,'\x22')[a0_0x47d844(0x121)](/&#39;/g,'\x27')[a0_0x47d844(0x121)](/\s+/g,'\x20')[a0_0x47d844(0xe1)]();class MailtrapInbox{constructor({proxy:proxy=null,token:token=null,folder:folder=a0_0x47d844(0xe3)}={}){const _0x3b072e=a0_0x47d844;this['proxy']=proxy,this['folder']=folder,this['token']=token||process.env.MAILTRAP_TOKEN||readTokenFile(),this[_0x3b072e(0xda)]=null,this[_0x3b072e(0xd1)]=_0x3b072e(0xf6);}async[a0_0x47d844(0xf1)](_0x250775,_0x48bd08,_0x1a70f9){const _0x9805=a0_0x47d844,_0x585374=await fetchUrl(''+MAILTRAP_API+_0x48bd08,{'method':_0x250775,'body':_0x1a70f9,'proxy':this[_0x9805(0x116)],'headers':{'Authorization':_0x9805(0xf4)+this['token'],'Accept':_0x9805(0x125)}});if(_0x585374['status']>=0x190)throw new Error(_0x9805(0x10b)+_0x250775+'\x20'+_0x48bd08+_0x9805(0xd8)+_0x585374[_0x9805(0xde)]+':\x20'+_0x585374[_0x9805(0x124)]['slice'](0x0,0xa0));return _0x585374[_0x9805(0x10f)];}async[a0_0x47d844(0xcf)](){const _0x34886e=a0_0x47d844;if(this[_0x34886e(0xda)])return this[_0x34886e(0xda)];const _0x4b42b8=await this[_0x34886e(0xf1)]('GET','/inbound/folders'),_0x26831b=Array[_0x34886e(0xdf)](_0x4b42b8)?_0x4b42b8:_0x4b42b8[_0x34886e(0x12b)]||[],_0x497b10=_0x26831b['find'](_0x498bfa=>_0x498bfa[_0x34886e(0xd1)]===this['folder']);if(_0x497b10)return this[_0x34886e(0xda)]=_0x497b10['id'],this[_0x34886e(0xda)];const _0x552178=await this[_0x34886e(0xf1)](_0x34886e(0x111),_0x34886e(0xe0),{'name':this[_0x34886e(0x127)]});return this['folderId']=_0x552178['id'],this[_0x34886e(0xda)];}async['create'](){const _0xbfcf81=a0_0x47d844,_0x409003=await this[_0xbfcf81(0xcf)](),_0x207948='bt'+Math[_0xbfcf81(0xcd)]()[_0xbfcf81(0x117)](0x24)[_0xbfcf81(0x108)](0x2,0x8),_0x329eb8=await this['api'](_0xbfcf81(0x111),_0xbfcf81(0xd5)+_0x409003+'/inboxes',{'name':_0x207948});return{'address':_0x329eb8[_0xbfcf81(0xd4)],'token':String(_0x329eb8['id']),'provider':this[_0xbfcf81(0xd1)]};}async['list'](_0x158bdf){const _0x1358d9=a0_0x47d844,_0x2366e4=await this['api']('GET','/inbound/inboxes/'+_0x158bdf['token']+_0x1358d9(0x109)),_0x74f436=Array['isArray'](_0x2366e4)?_0x2366e4:_0x2366e4[_0x1358d9(0x11a)]||[];return _0x74f436[_0x1358d9(0x122)](_0x34e449=>({'id':String(_0x34e449['id']),'subject':_0x34e449['subject']||'','from':_0x34e449[_0x1358d9(0x112)]||_0x34e449['from']||'','receivedAt':_0x34e449[_0x1358d9(0x120)]||null,'text':_0x34e449[_0x1358d9(0x106)]||'','html':_0x34e449[_0x1358d9(0xf8)]||''}));}async['read'](_0x171d25,_0x4b25f6){const _0x279700=a0_0x47d844,_0x3afe30=await this[_0x279700(0xf1)](_0x279700(0x11e),_0x279700(0xff)+_0x171d25[_0x279700(0xf7)]+_0x279700(0x101)+_0x4b25f6);return{'id':String(_0x3afe30['id']),'subject':_0x3afe30[_0x279700(0x10d)]||'','from':_0x3afe30['from_email']||_0x3afe30[_0x279700(0xe8)]||'','receivedAt':_0x3afe30[_0x279700(0x120)]||null,'text':_0x3afe30[_0x279700(0x106)]||'','html':_0x3afe30[_0x279700(0xf8)]||''};}}function readTokenFile(){const _0x389c0e=a0_0x47d844;for(const _0x24ae99 of[path[_0x389c0e(0xed)](os['homedir'](),_0x389c0e(0xeb)),path[_0x389c0e(0xed)](os[_0x389c0e(0x119)](),'.mailtrap-token')]){try{const _0x285b05=fs[_0x389c0e(0x129)](_0x24ae99,_0x389c0e(0xf3))[_0x389c0e(0xe1)]();if(_0x285b05)return _0x285b05;}catch(_0x472302){}}return null;}class InboxesInbox{constructor({proxy:proxy=null,domains:domains=null}={}){const _0x2f65bf=a0_0x47d844;this['proxy']=proxy,this[_0x2f65bf(0x11f)]=domains,this[_0x2f65bf(0xd1)]=_0x2f65bf(0x118);}async[a0_0x47d844(0xec)](){const _0x2e1475=a0_0x47d844;if(this[_0x2e1475(0x11f)])return this[_0x2e1475(0x11f)];const _0x16aca1=await fetchUrl(INBOXES_API+_0x2e1475(0x12d),{'proxy':this[_0x2e1475(0x116)]}),_0x260a3f=_0x16aca1[_0x2e1475(0x10f)]||{},_0x1c29f6=(_0x260a3f[_0x2e1475(0x11f)]||_0x260a3f||[])['map'](_0x48036b=>_0x48036b[_0x2e1475(0x10e)]||_0x48036b[_0x2e1475(0x114)]||_0x48036b)['filter'](Boolean);if(!_0x1c29f6[_0x2e1475(0xee)])throw new Error('inboxes.com\x20published\x20no\x20domains');return this[_0x2e1475(0x11f)]=_0x1c29f6,_0x1c29f6;}async[a0_0x47d844(0xe4)](){const _0x4fa5e3=a0_0x47d844,_0x400a17=await this[_0x4fa5e3(0xec)](),_0x401a8a='bt'+Math[_0x4fa5e3(0xcd)]()[_0x4fa5e3(0x117)](0x24)[_0x4fa5e3(0x108)](0x2,0x9)+'@'+_0x400a17[Math[_0x4fa5e3(0xdc)](Math[_0x4fa5e3(0xcd)]()*_0x400a17[_0x4fa5e3(0xee)])];return{'address':_0x401a8a,'token':_0x401a8a,'provider':this[_0x4fa5e3(0xd1)]};}async[a0_0x47d844(0x12c)](_0x4ec1f6){const _0xe30d91=a0_0x47d844,_0x52da02=await fetchUrl(INBOXES_API+_0xe30d91(0x11c)+_0x4ec1f6['token'],{'proxy':this[_0xe30d91(0x116)]}),_0x58a923=_0x52da02['json']||{};return(_0x58a923['msgs']||_0x58a923[_0xe30d91(0x103)]||[])[_0xe30d91(0x122)](_0x304f00=>({'id':String(_0x304f00['uid']||_0x304f00['id']),'subject':_0x304f00['s']||_0x304f00[_0xe30d91(0x10d)]||'','from':_0x304f00['f']||_0x304f00[_0xe30d91(0xe8)]||'','receivedAt':_0x304f00['rd']?new Date(Number(_0x304f00['rd'])*0x3e8)[_0xe30d91(0x105)]():null,'text':_0x304f00['ph']||'','html':''}));}async['read'](_0xede1bc,_0x434d07){const _0x39d7b4=a0_0x47d844,_0x1414f9=await fetchUrl(INBOXES_API+'/message/'+_0x434d07,{'proxy':this[_0x39d7b4(0x116)]}),_0x42e404=_0x1414f9[_0x39d7b4(0x10f)]||{};return{'id':String(_0x42e404[_0x39d7b4(0x126)]||_0x434d07),'subject':_0x42e404['s']||_0x42e404[_0x39d7b4(0x10d)]||'','from':_0x42e404['f']||_0x42e404[_0x39d7b4(0xe8)]||'','receivedAt':_0x42e404['rd']?new Date(Number(_0x42e404['rd'])*0x3e8)[_0x39d7b4(0x105)]():null,'text':_0x42e404[_0x39d7b4(0x124)]||'','html':_0x42e404[_0x39d7b4(0xf2)]||''};}}class BrokerInbox{constructor({broker:broker=a0_0x47d844(0xe5),folder:folder=null}={}){const _0x2da575=a0_0x47d844;this['broker']=String(broker)[_0x2da575(0x121)](/\/$/,''),this[_0x2da575(0x127)]=folder,this[_0x2da575(0xd1)]=_0x2da575(0xd9);}async[a0_0x47d844(0xe4)](){const _0xd66305=a0_0x47d844,_0x372cfd=await fetchUrl(this['broker']+_0xd66305(0xfc),{'method':'POST','body':this[_0xd66305(0x127)]?{'folder':this[_0xd66305(0x127)]}:{},'timeoutMs':0x2bf20});if(_0x372cfd['status']>=0x190||!_0x372cfd[_0xd66305(0x10f)])throw new Error('broker\x20/create\x20->\x20'+_0x372cfd[_0xd66305(0xde)]+':\x20'+_0x372cfd[_0xd66305(0x124)][_0xd66305(0x108)](0x0,0x8c));return{'address':_0x372cfd[_0xd66305(0x10f)]['address'],'token':_0x372cfd[_0xd66305(0x10f)][_0xd66305(0xf7)],'provider':_0xd66305(0xe9)+(_0x372cfd['json']['provider']||_0xd66305(0xea))};}async[a0_0x47d844(0x12c)](_0x11ef4f){const _0x5e121e=a0_0x47d844,_0x4be433=await fetchUrl(this[_0x5e121e(0xd9)]+_0x5e121e(0xe2)+encodeURIComponent(_0x11ef4f['token']));return _0x4be433[_0x5e121e(0x10f)]&&_0x4be433[_0x5e121e(0x10f)][_0x5e121e(0x103)]||[];}async[a0_0x47d844(0xf5)](_0x1a5261,_0x5f32e5){const _0x4d7be0=a0_0x47d844,_0x3ec1c0=await fetchUrl(this['broker']+'/read?id='+encodeURIComponent(_0x5f32e5)+'&token='+encodeURIComponent(_0x1a5261[_0x4d7be0(0xf7)]));return _0x3ec1c0[_0x4d7be0(0x10f)]||{};}}function a0_0x33d1(_0x5870fc,_0x58b106){_0x5870fc=_0x5870fc-0xcd;const _0x25e8e6=a0_0x2f30();let _0x2d3673=_0x25e8e6[_0x5870fc];if(a0_0x33d1['lcHBgb']===undefined){var _0x55cef7=function(_0x4232f0){const _0x58aa66='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x17723f='',_0x527d46='',_0x22acd2=_0x17723f+_0x55cef7,_0x442774=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x1a96fb=0x0,_0x514cb6,_0x1a6d95,_0xfc7330=0x0;_0x1a6d95=_0x4232f0['charAt'](_0xfc7330++);~_0x1a6d95&&(_0x514cb6=_0x1a96fb%0x4?_0x514cb6*0x40+_0x1a6d95:_0x1a6d95,_0x1a96fb++%0x4)?_0x17723f+=_0x442774||_0x22acd2['charCodeAt'](_0xfc7330+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x514cb6>>(-0x2*_0x1a96fb&0x6)):_0x1a96fb:0x0){_0x1a6d95=_0x58aa66['indexOf'](_0x1a6d95);}for(let _0x2060c8=0x0,_0x273aad=_0x17723f['length'];_0x2060c8<_0x273aad;_0x2060c8++){_0x527d46+='%'+('00'+_0x17723f['charCodeAt'](_0x2060c8)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x527d46);};a0_0x33d1['bRYhZN']=_0x55cef7,a0_0x33d1['VwIUzj']={},a0_0x33d1['lcHBgb']=!![];}const _0x2f30e2=_0x25e8e6[0x0];a0_0x33d1['vehFDM']!==_0x2f30e2&&(a0_0x33d1['VwIUzj']={},a0_0x33d1['vehFDM']=_0x2f30e2);const _0x33d108=a0_0x33d1['VwIUzj'][_0x5870fc];if(_0x33d108===undefined){const _0x250775=function(_0x48bd08){this['CxFdxg']=_0x48bd08,this['dQxNlF']=[0x1,0x0,0x0],this['iCOGWe']=function(){return'newState';},this['rQYdKs']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['hPfFvs']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x250775['prototype']['OaOxMD']=function(){const _0x1a70f9=new RegExp(this['rQYdKs']+this['hPfFvs']),_0x585374=_0x1a70f9['test'](this['iCOGWe']['toString']())?--this['dQxNlF'][0x1]:--this['dQxNlF'][0x0];return this['IacMUN'](_0x585374);},_0x250775['prototype']['IacMUN']=function(_0x4b42b8){if(!Boolean(~_0x4b42b8))return _0x4b42b8;return this['oZnGXZ'](this['CxFdxg']);},_0x250775['prototype']['oZnGXZ']=function(_0x26831b){for(let _0x497b10=0x0,_0x552178=this['dQxNlF']['length'];_0x497b10<_0x552178;_0x497b10++){this['dQxNlF']['push'](Math['round'](Math['random']())),_0x552178=this['dQxNlF']['length'];}return _0x26831b(this['dQxNlF'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x250775(a0_0x33d1)['OaOxMD'](),_0x2d3673=a0_0x33d1['bRYhZN'](_0x2d3673),a0_0x33d1['VwIUzj'][_0x5870fc]=_0x2d3673;}else _0x2d3673=_0x33d108;return _0x2d3673;}function makeInbox({provider:provider=a0_0x47d844(0xd9),proxy:proxy=null,broker:broker=null,folder:folder=null,mailtrapToken:mailtrapToken=null,mailtrapFolder:mailtrapFolder=null}={}){const _0x596334=a0_0x47d844;if(provider===_0x596334(0xf6))return new MailtrapInbox({'proxy':proxy,'token':mailtrapToken,'folder':mailtrapFolder||'baseten-bulk'});if(provider===_0x596334(0x118)||provider===_0x596334(0xe6))return new InboxesInbox({'proxy':proxy});if(broker)return new BrokerInbox({'broker':broker,'folder':folder});return new BrokerInbox({'folder':folder});}async function waitForCode(_0x36da48,_0x3329d1,{sinceMs:sinceMs=0x0,timeoutMs:timeoutMs=0x1d4c0,pollMs:pollMs=0xbb8,log:log=()=>{}}={}){const _0x3f1409=a0_0x47d844,_0x2b99f2=Date[_0x3f1409(0xd3)]()+timeoutMs,_0x2735d7=new Map();while(Date[_0x3f1409(0xd3)]()<_0x2b99f2){let _0x4173e2=[];try{_0x4173e2=await _0x36da48[_0x3f1409(0x12c)](_0x3329d1);}catch(_0x1283dc){log(_0x3f1409(0xf9)+_0x1283dc[_0x3f1409(0xfa)]),await sleep(pollMs);continue;}for(const _0x25c739 of _0x4173e2){const _0xe8c767=_0x25c739[_0x3f1409(0xfb)]?Date[_0x3f1409(0xf0)](_0x25c739['receivedAt']):Date[_0x3f1409(0xd3)]();if(sinceMs&&_0xe8c767&&_0xe8c767<sinceMs-0x1d4c0)continue;if(!/baseten/i[_0x3f1409(0x128)](_0x25c739['subject']+'\x20'+_0x25c739[_0x3f1409(0xe8)])&&!/code/i['test'](_0x25c739[_0x3f1409(0x10d)]))continue;let _0x3d065c=matchCode(_0x25c739[_0x3f1409(0x10d)]+'\x0a'+_0x25c739['text']+'\x0a'+stripTags(_0x25c739[_0x3f1409(0xf2)]));if(!_0x3d065c&&!_0x2735d7[_0x3f1409(0x123)](_0x25c739['id'])){_0x2735d7[_0x3f1409(0xdb)](_0x25c739['id'],Date[_0x3f1409(0xd3)]());try{const _0x137705=await _0x36da48[_0x3f1409(0xf5)](_0x3329d1,_0x25c739['id']);_0x3d065c=matchCode((_0x137705[_0x3f1409(0x10d)]||_0x25c739['subject'])+'\x0a'+_0x137705[_0x3f1409(0x124)]+'\x0a'+stripTags(_0x137705[_0x3f1409(0xf2)]));if(_0x3d065c)return{'code':_0x3d065c,'subject':_0x137705[_0x3f1409(0x10d)]||_0x25c739[_0x3f1409(0x10d)],'from':_0x137705[_0x3f1409(0xe8)]||_0x25c739[_0x3f1409(0xe8)],'id':_0x25c739['id']};}catch(_0x1ba843){log('\x20\x20\x20\x20inbox\x20read\x20'+_0x25c739['id']+_0x3f1409(0x12a)+_0x1ba843['message']);}}else{if(_0x3d065c)return{'code':_0x3d065c,'subject':_0x25c739[_0x3f1409(0x10d)],'from':_0x25c739[_0x3f1409(0xe8)],'id':_0x25c739['id']};}}await sleep(pollMs);}throw new Error(_0x3f1409(0x10c)+_0x3329d1[_0x3f1409(0xd4)]+_0x3f1409(0xd6)+Math[_0x3f1409(0x107)](timeoutMs/0x3e8)+'s');}function matchCode(_0x1e0bcc){const _0x54b982=a0_0x47d844,_0xac2d17=String(_0x1e0bcc)[_0x54b982(0xd2)](/(?:^|\D)(\d{6})(?:\D|$)/);return _0xac2d17?_0xac2d17[0x1]:null;}module['exports']={'makeInbox':makeInbox,'waitForCode':waitForCode,'MailtrapInbox':MailtrapInbox,'InboxesInbox':InboxesInbox,'BrokerInbox':BrokerInbox,'stripTags':stripTags};
+'use strict';
+
+/**
+ * Disposable inboxes for the sign-up step, behind one small interface:
+ *
+ *   create()            -> { address, token, provider }
+ *   list(box)           -> [{ id, subject, from, receivedAt, text, html }]
+ *   read(box, id)       ->  { id, subject, from, text, html }
+ *
+ * Three backends, all over the same proxy-aware HTTP layer:
+ *
+ *   broker    a local inbox broker (`POST /create`, `GET /list`, `GET /read`),
+ *             itself backed by Mailtrap or inboxes.com
+ *   mailtrap  the Mailtrap inbound API directly (MAILTRAP_TOKEN / ~/.river-mailtrap-token)
+ *   inboxes   inboxes.com's public API — any local part on one of its domains is
+ *             already an inbox, so nothing has to be created
+ *
+ * Zero dependencies. Node.js >= 18.
+ */
+
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+const { fetchUrl, sleep } = require('./http');
+
+const MAILTRAP_API = 'https://mailtrap.io/api';
+const INBOXES_API = 'https://inboxes.com/api/v2';
+
+const stripTags = (html) =>
+  String(html || '')
+    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+
+// ------------------------------------------------------------------- mailtrap
+
+class MailtrapInbox {
+  constructor({ proxy = null, token = null, folder = 'baseten-bulk' } = {}) {
+    this.proxy = proxy;
+    this.folder = folder;
+    this.token = token || process.env.MAILTRAP_TOKEN || readTokenFile();
+    this.folderId = null;
+    this.name = 'mailtrap';
+  }
+
+  async api(method, endpoint, body) {
+    const res = await fetchUrl(`${MAILTRAP_API}${endpoint}`, {
+      method,
+      body,
+      proxy: this.proxy,
+      headers: { Authorization: `Bearer ${this.token}`, Accept: 'application/json' },
+    });
+    if (res.status >= 400) throw new Error(`mailtrap ${method} ${endpoint} -> ${res.status}: ${res.text.slice(0, 160)}`);
+    return res.json;
+  }
+
+  async ensureFolder() {
+    if (this.folderId) return this.folderId;
+    const folders = await this.api('GET', '/inbound/folders');
+    const list = Array.isArray(folders) ? folders : folders.folders || [];
+    const found = list.find((f) => f.name === this.folder);
+    if (found) {
+      this.folderId = found.id;
+      return this.folderId;
+    }
+    const created = await this.api('POST', '/inbound/folders', { name: this.folder });
+    this.folderId = created.id;
+    return this.folderId;
+  }
+
+  async create() {
+    const folderId = await this.ensureFolder();
+    const name = `bt${Math.random().toString(36).slice(2, 8)}`;
+    const inbox = await this.api('POST', `/inbound/folders/${folderId}/inboxes`, { name });
+    return { address: inbox.address, token: String(inbox.id), provider: this.name };
+  }
+
+  async list(box) {
+    const data = await this.api('GET', `/inbound/inboxes/${box.token}/messages`);
+    const list = Array.isArray(data) ? data : data.data || [];
+    return list.map((m) => ({
+      id: String(m.id),
+      subject: m.subject || '',
+      from: m.from_email || m.from || '',
+      receivedAt: m.created_at || null,
+      text: m.text_body || '',
+      html: m.html_body || '',
+    }));
+  }
+
+  async read(box, id) {
+    const m = await this.api('GET', `/inbound/inboxes/${box.token}/messages/${id}`);
+    return {
+      id: String(m.id),
+      subject: m.subject || '',
+      from: m.from_email || m.from || '',
+      receivedAt: m.created_at || null,
+      text: m.text_body || '',
+      html: m.html_body || '',
+    };
+  }
+}
+
+function readTokenFile() {
+  for (const file of [path.join(os.homedir(), '.river-mailtrap-token'), path.join(os.homedir(), '.mailtrap-token')]) {
+    try {
+      const token = fs.readFileSync(file, 'utf8').trim();
+      if (token) return token;
+    } catch (e) {
+      /* next */
+    }
+  }
+  return null;
+}
+
+// -------------------------------------------------------------------- inboxes
+
+/** inboxes.com: no create call — any local part on a published domain exists. */
+class InboxesInbox {
+  constructor({ proxy = null, domains = null } = {}) {
+    this.proxy = proxy;
+    this.domains = domains;
+    this.name = 'inboxes';
+  }
+
+  async pool() {
+    if (this.domains) return this.domains;
+    const res = await fetchUrl(`${INBOXES_API}/domain`, { proxy: this.proxy });
+    const json = res.json || {};
+    const list = (json.domains || json || []).map((d) => d.qdn || d.domain || d).filter(Boolean);
+    if (!list.length) throw new Error('inboxes.com published no domains');
+    this.domains = list;
+    return list;
+  }
+
+  async create() {
+    const domains = await this.pool();
+    const address = `bt${Math.random().toString(36).slice(2, 9)}@${domains[Math.floor(Math.random() * domains.length)]}`;
+    return { address, token: address, provider: this.name };
+  }
+
+  async list(box) {
+    const res = await fetchUrl(`${INBOXES_API}/inbox/${box.token}`, { proxy: this.proxy });
+    const json = res.json || {};
+    return (json.msgs || json.messages || []).map((m) => ({
+      id: String(m.uid || m.id),
+      subject: m.s || m.subject || '',
+      from: m.f || m.from || '',
+      receivedAt: m.rd ? new Date(Number(m.rd) * 1000).toISOString() : null,
+      text: m.ph || '',
+      html: '',
+    }));
+  }
+
+  async read(box, id) {
+    const res = await fetchUrl(`${INBOXES_API}/message/${id}`, { proxy: this.proxy });
+    const m = res.json || {};
+    return {
+      id: String(m.uid || id),
+      subject: m.s || m.subject || '',
+      from: m.f || m.from || '',
+      receivedAt: m.rd ? new Date(Number(m.rd) * 1000).toISOString() : null,
+      text: m.text || '',
+      html: m.html || '',
+    };
+  }
+}
+
+// --------------------------------------------------------------------- broker
+
+/**
+ * Talks to a local inbox broker (`as-inbox-broker.js`), which is the
+ * way a Mailtrap token or a provider that needs a browser can be shared by
+ * several machines. Contract: POST /create -> { address, token }.
+ *
+ * The broker listens on loopback, so its calls are never sent through the
+ * account's proxy: a tunnelled request to 127.0.0.1 would be resolved by the
+ * *proxy* and hit its machine, not this one. The broker reaches Mailtrap on its
+ * own, which also keeps mail independent of proxy churn.
+ */
+class BrokerInbox {
+  constructor({ broker = 'http://127.0.0.1:9700', folder = null } = {}) {
+    this.broker = String(broker).replace(/\/$/, '');
+    this.folder = folder;
+    this.name = 'broker';
+  }
+
+  async create() {
+    // the broker may walk its own proxy chain first: give it the full window
+    const res = await fetchUrl(`${this.broker}/create`, {
+      method: 'POST',
+      body: this.folder ? { folder: this.folder } : {},
+      timeoutMs: 180000,
+    });
+    if (res.status >= 400 || !res.json) throw new Error(`broker /create -> ${res.status}: ${res.text.slice(0, 140)}`);
+    return { address: res.json.address, token: res.json.token, provider: `broker:${res.json.provider || 'unknown'}` };
+  }
+
+  async list(box) {
+    const res = await fetchUrl(`${this.broker}/list?token=${encodeURIComponent(box.token)}`);
+    return (res.json && res.json.messages) || [];
+  }
+
+  async read(box, id) {
+    const res = await fetchUrl(`${this.broker}/read?id=${encodeURIComponent(id)}&token=${encodeURIComponent(box.token)}`);
+    return res.json || {};
+  }
+}
+
+// --------------------------------------------------------------------- shared
+
+function makeInbox({ provider = 'broker', proxy = null, broker = null, folder = null, mailtrapToken = null, mailtrapFolder = null } = {}) {
+  if (provider === 'mailtrap') {
+    return new MailtrapInbox({ proxy, token: mailtrapToken, folder: mailtrapFolder || 'baseten-bulk' });
+  }
+  if (provider === 'inboxes' || provider === 'inboxes.com') return new InboxesInbox({ proxy });
+  if (broker) return new BrokerInbox({ broker, folder });
+  return new BrokerInbox({ folder });
+}
+
+/**
+ * Polls the inbox until a 6-digit Baseten code shows up.
+ *
+ * The mail is sent by `support@mail.baseten.co` with the subject "Create your
+ * Baseten account" and the code is the only six-digit number in the body; the
+ * matching is tolerant to near-misses (localised subjects, HTML-only bodies)
+ * because the mailbox provider decides what the body looks like.
+ */
+async function waitForCode(inbox, box, { sinceMs = 0, timeoutMs = 120000, pollMs = 3000, log = () => {} } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  const inspected = new Map();
+  while (Date.now() < deadline) {
+    let messages = [];
+    try {
+      messages = await inbox.list(box);
+    } catch (e) {
+      log(`    inbox list failed: ${e.message}`);
+      await sleep(pollMs);
+      continue;
+    }
+    for (const m of messages) {
+      const at = m.receivedAt ? Date.parse(m.receivedAt) : Date.now();
+      if (sinceMs && at && at < sinceMs - 120000) continue;
+      if (!/baseten/i.test(`${m.subject} ${m.from}`) && !/code/i.test(m.subject)) continue;
+      let hit = matchCode(`${m.subject}\n${m.text}\n${stripTags(m.html)}`);
+      // List endpoints often carry only metadata; the body lives in the detail
+      // call, so an entry without a code is re-read once, never twice.
+      if (!hit && !inspected.has(m.id)) {
+        inspected.set(m.id, Date.now());
+        try {
+          const full = await inbox.read(box, m.id);
+          hit = matchCode(`${full.subject || m.subject}\n${full.text}\n${stripTags(full.html)}`);
+          if (hit) return { code: hit, subject: full.subject || m.subject, from: full.from || m.from, id: m.id };
+        } catch (e) {
+          log(`    inbox read ${m.id} failed: ${e.message}`);
+        }
+      } else if (hit) {
+        return { code: hit, subject: m.subject, from: m.from, id: m.id };
+      }
+    }
+    await sleep(pollMs);
+  }
+  throw new Error(`no magic code in ${box.address} within ${Math.round(timeoutMs / 1000)}s`);
+}
+
+function matchCode(blob) {
+  const match = String(blob).match(/(?:^|\D)(\d{6})(?:\D|$)/);
+  return match ? match[1] : null;
+}
+
+module.exports = { makeInbox, waitForCode, MailtrapInbox, InboxesInbox, BrokerInbox, stripTags };

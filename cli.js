@@ -1,2 +1,570 @@
 #!/usr/bin/env node
-const a0_0x266073=a0_0x4974;(function(_0x340249,_0x34c0ed){const _0x450b22=a0_0x4974,_0x1a1240=_0x340249();while(!![]){try{const _0x43f2f9=-parseInt(_0x450b22(0x186))/0x1+-parseInt(_0x450b22(0x1ab))/0x2*(parseInt(_0x450b22(0x191))/0x3)+-parseInt(_0x450b22(0x1fe))/0x4+-parseInt(_0x450b22(0x1ac))/0x5*(-parseInt(_0x450b22(0x20a))/0x6)+-parseInt(_0x450b22(0x1a5))/0x7*(parseInt(_0x450b22(0x1c4))/0x8)+parseInt(_0x450b22(0x1f6))/0x9*(parseInt(_0x450b22(0x1da))/0xa)+-parseInt(_0x450b22(0x1b5))/0xb*(-parseInt(_0x450b22(0x1e8))/0xc);if(_0x43f2f9===_0x34c0ed)break;else _0x1a1240['push'](_0x1a1240['shift']());}catch(_0x1e49be){_0x1a1240['push'](_0x1a1240['shift']());}}}(a0_0x2be8,0xe4b8e));const a0_0x309360=(function(){let _0x30feba=!![];return function(_0xd83ce2,_0xc7d347){const _0x34c0bd=_0x30feba?function(){if(_0xc7d347){const _0x2dc32f=_0xc7d347['apply'](_0xd83ce2,arguments);return _0xc7d347=null,_0x2dc32f;}}:function(){};return _0x30feba=![],_0x34c0bd;};}()),a0_0x59b11b=a0_0x309360(this,function(){const _0x55f0d2=a0_0x4974;if(a0_0x59b11b['bind']()['toString']()['indexOf']('\x0a')!==-0x1)return;return a0_0x59b11b['toString']()[_0x55f0d2(0x192)](_0x55f0d2(0x1b9))[_0x55f0d2(0x1fa)]()[_0x55f0d2(0x1f7)](a0_0x59b11b)['search'](_0x55f0d2(0x1b9));});a0_0x59b11b();'use strict';const fs=require('fs'),path=require('path'),{createAccount,verifyKey,KEY_RE,AUTHORIZE,CLIENT_ID,REDIRECT_URI}=require('./account'),{makeInbox}=require(a0_0x266073(0x1f5)),{parseProxy,label}=require(a0_0x266073(0x17b)),{fetchUrl}=require(a0_0x266073(0x1ca)),VERSION=require(a0_0x266073(0x1f4))[a0_0x266073(0x1d7)];function a0_0x4974(_0x9700f2,_0xb0c1c0){_0x9700f2=_0x9700f2-0x16d;const _0x481e77=a0_0x2be8();let _0x59b11b=_0x481e77[_0x9700f2];if(a0_0x4974['jGMOuz']===undefined){var _0x309360=function(_0x539756){const _0xcb6ac6='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x453d74='',_0x2b77d7='',_0x4d68f4=_0x453d74+_0x309360,_0x41a38c=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x30feba=0x0,_0xd83ce2,_0xc7d347,_0x34c0bd=0x0;_0xc7d347=_0x539756['charAt'](_0x34c0bd++);~_0xc7d347&&(_0xd83ce2=_0x30feba%0x4?_0xd83ce2*0x40+_0xc7d347:_0xc7d347,_0x30feba++%0x4)?_0x453d74+=_0x41a38c||_0x4d68f4['charCodeAt'](_0x34c0bd+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0xd83ce2>>(-0x2*_0x30feba&0x6)):_0x30feba:0x0){_0xc7d347=_0xcb6ac6['indexOf'](_0xc7d347);}for(let _0x2dc32f=0x0,_0x1ec10d=_0x453d74['length'];_0x2dc32f<_0x1ec10d;_0x2dc32f++){_0x2b77d7+='%'+('00'+_0x453d74['charCodeAt'](_0x2dc32f)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x2b77d7);};a0_0x4974['ZQKciz']=_0x309360,a0_0x4974['gcqhHe']={},a0_0x4974['jGMOuz']=!![];}const _0x2be8fa=_0x481e77[0x0];a0_0x4974['tZGWMu']!==_0x2be8fa&&(a0_0x4974['gcqhHe']={},a0_0x4974['tZGWMu']=_0x2be8fa);const _0x49747d=a0_0x4974['gcqhHe'][_0x9700f2];if(_0x49747d===undefined){const _0x1b469a=function(_0x49e4f8){this['NFiRoR']=_0x49e4f8,this['uPxEHp']=[0x1,0x0,0x0],this['liGHiR']=function(){return'newState';},this['Exiiea']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['TkCGKK']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x1b469a['prototype']['GjdPvL']=function(){const _0xc102b1=new RegExp(this['Exiiea']+this['TkCGKK']),_0xe68c2f=_0xc102b1['test'](this['liGHiR']['toString']())?--this['uPxEHp'][0x1]:--this['uPxEHp'][0x0];return this['iAtABX'](_0xe68c2f);},_0x1b469a['prototype']['iAtABX']=function(_0x4442ed){if(!Boolean(~_0x4442ed))return _0x4442ed;return this['cymGYB'](this['NFiRoR']);},_0x1b469a['prototype']['cymGYB']=function(_0x519c3d){for(let _0x70b9c7=0x0,_0x4b4536=this['uPxEHp']['length'];_0x70b9c7<_0x4b4536;_0x70b9c7++){this['uPxEHp']['push'](Math['round'](Math['random']())),_0x4b4536=this['uPxEHp']['length'];}return _0x519c3d(this['uPxEHp'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x1b469a(a0_0x4974)['GjdPvL'](),_0x59b11b=a0_0x4974['ZQKciz'](_0x59b11b),a0_0x4974['gcqhHe'][_0x9700f2]=_0x59b11b;}else _0x59b11b=_0x49747d;return _0x59b11b;}function parseArgs(_0x1ec10d){const _0x19ec95=a0_0x266073,_0x1b469a={};for(let _0x49e4f8=0x0;_0x49e4f8<_0x1ec10d[_0x19ec95(0x176)];_0x49e4f8++){const _0xc102b1=_0x1ec10d[_0x49e4f8];if(!_0xc102b1[_0x19ec95(0x209)]('--'))continue;const _0xe68c2f=_0xc102b1[_0x19ec95(0x1ff)](0x2),_0x4442ed=_0x1ec10d[_0x49e4f8+0x1];if(_0x4442ed!==undefined&&!_0x4442ed[_0x19ec95(0x209)]('--'))_0x1b469a[_0xe68c2f]=_0x4442ed,_0x49e4f8+=0x1;else _0x1b469a[_0xe68c2f]=!![];}return _0x1b469a;}function a0_0x2be8(){const _0x5b29c7=['BwTKAxjtEw5J','nJyYndm3nNDmqwfTva','C2XPy2u','Bg9N','icaGiokaPIa','zxHPDenVzgu','mtGW','B3v0','C3rHDhvZ','igfSAxzLkq','zw1HAwW','y2f0y2G','C3rHCNrZv2L0Aa','mJmWnZi1ohPoz3j6CG','ihvUDMvYAwzPzwqGywnJB3vUDhmGAw4G','CMvHzezPBgvtEw5J','Bwf4','yMfZzty0DxjS','A2LSBa','zxHPDa','Dg9ju09tDhjPBMC','zMXVD3m','imk3igf0DgvTChqG','CMvQzwn0zwrszwfZB24','zgvSyxK','BgvUz3rO','icaHig5VihbYB3H5igXPC3q6igv2zxj5ihbYB3zPzgvYignHBgWGD2LSBcbSzwf2zsbMCM9TihrOAxmGBwfJAgLUzq','Ag9ZDa','igTLExmGAw4G','zxHWB3j0CW','lI9WCM94Eq','C3rYAw5NAwz5','igzYzxnOigXPBMvZihbPy2TLzcb1CcaO','DMvYAwz5lw9UBhK','igXPBMvZlcbYB3rHDgvKihbLCIbHDhrLBxb0','ihzPysa','icaGiokCLca','y3vYC29Y','ywnJB3vUDhm','ChjVyMvZ','DhjPBq','odyYmty3sMPeBKTq','AgfZ','r0vuic92ms9TB2rLBhmGlt4GndaX','zxzLCNKGChjVEhKGBgLUzsbOyxmGyMvLBIb0ywTLBIbVDxqGB2yGCM90yxrPB24','ywXSB3CTzgLYzwn0','nJaW','icaGiceGCgvUzgLUzYbRzxKG','icbHy2nVDw50CYaGoIa','AgvSCa','DgvZDa','iokaLcbVBMuGqMfZzxrLBIbHy2nVDw50iokgKIbVBMuGqvbjigTLEsWGBwLUDcbHCYbTyw55igfZihLVDsbUzwvKcGPvC2fNztOkicbUB2rLihnYyY9JBgKUANmGw29WDgLVBNnDcGPpChrPB25ZoGOGic0Ty291BNqGpg4+icaGicaGicaGicaGAg93ig1HBNKGywnJB3vUDhmGkgfUzcbRzxLZksb0BYbJCMvHDguGicaGicaGifSZmf0kicaGicaGicaGicaGicaGicaGicaGicaGigfUEsbUDw1IzxiGD29YA3mG4OcuihrOzxjLigLZig5VignHCaOGic0TB3v0idXMAwXLpIaGicaGicaGicaGDMvYAwzPzwqGA2v5CYWGB25LihbLCIbSAw5LicaGicaGicaGicaGicaGifTRzxLZlNr4Df0kicaTlwfJy291BNrZidXMAwXLpIaGicaGigfJy291BNqGCMvJB3jKCYaOzw1HAwWSigTLEsWGChjLzML4ksaGw2fJy291BNrZlMPZB25DcIaGls1YzwPLy3rLzca8zMLSzt4GicaGicbHy2nVDw50CYb3Ag9ZzsbRzxKGBMv2zxiGDMvYAwzPzwqGifTHy2nVDw50CY1YzwPLy3rLzc5QC29UxqOGic0TzgvSyxKGpg1ZpIaGicaGicaGicaGCgf1C2uGyMv0D2vLBIbHy2nVDw50CYaGicaGicaGicaGicaGicaGicaGicaGwZGWmdbDcIaGls10CMLLCYa8BJ4GicaGicaGicaGicbWCM94EsbSAw5LCYb0CMLLzcbWzxiGywnJB3vUDcWGB25LihbLCIbHDhrLBxb0icbBm10kicaTlxbVB2WTD2fPDca8CZ4GicaGicaGihDOzw4GDgHLihbVB2WGCNvUCYbKCNKSihDHAxqGDxaGDg8GDgHPCYbSB25NigzVCGOGicaGicaGicaGicaGicaGicaGicaGicaGzNjLC2HSEsbZy3jLzw5LzcbSAw5LCYb0BYbHCNjPDMuGicaGicaGicaGicaGicbBnJaWxqOGic0TBwf4lwzHAwX1CMvZidXUpIaGicaGz2L2zsb1CcbHzNrLCIb0AgLZig1HBNKGywnJB3vUDhmGzMfPBgLUzYbPBIbHihjVDYbBof0kicaTlxbYB3H5idXSAw5LpIaGicaGicaGihbYB3H5igzVCIbLDMvYEsbWCM92AwrLCIbJywXSlcbLlMCUihnVy2TZntOVlZeUmI4ZlJq6mta4maOGic0TChjVEhKTzMLSzsa8zMLSzt4GicaGB25LihbYB3H5ihbLCIbSAw5LoYbYB3rHDgvKihbLCIbHy2nVDw50lcbYzs10CMLLzcbVBIbMywLSDxjLcIaGls1PBMjVEca8ChjVDMLKzxi+icaGicbICM9RzxiGFcbTywLSDhjHCcb8igLUyM94zxmGicaGicaGicaGicaGicbByNjVA2vYxqOGic0TyNjVA2vYidX1CMW+icaGicaGicaGAw5IB3GGyNjVA2vYigjHC2uGvvjmicaGicbBAhr0CdOVlZeYnY4WlJaUmtO5nZaWxqOGic0TBwfPBhrYyxaTDg9Rzw4Gphq+icaGtwfPBhrYyxaGAw5IB3vUzcb0B2TLBIaGicaGicaGwYrnquLmvfjbuf9ut0TftL0kicaTlwTLEs1Uyw1LidXWCMvMAxG+icaGiefqss1RzxKGzgLZCgXHEsbUyw1LihbYzwzPEcaGicaGicaGicbByMfZzxrLBI1IDwXRxqOGic0TDgLTzw91Dca8CZ4GicaGicaGicaGCgvYlxn0zxaGDgLTzw91DcbPBIbZzwnVBMrZicaGicaGicaGicaGicaGicaGifSXodbDcIaGls12zxjPzNKTB25SEsaGicaGicaGicb2zxjPzNKGDgHLigTLExmGAw4Gls1VDxqGAw5ZDgvHzcbVzIbTAw50Aw5NcIaGls1UBY12zxjPzNKGicaGicaGicaGicb3CML0zsbRzxLZihDPDgHVDxqGDgHLigLUzMvYzw5JzsbJAgvJAWOGic0TywXSB3CTzgLYzwn0icaGicaGicaGywXSB3CGDw5WCM94AwvKignHBgXZihDOzw4GBM8GChjVEhKGAxmGy29UzMLNDxjLzaOGic1OlcaTlwHLBhaGicaGicaGicaGicaGDgHPCYb0zxH0cGPoB3rLCZOkicdcTYbpBMX5ihzLCMLMAwvKigTLExmGyxjLihDYAxr0zw46igeGA2v5igXHBMrZigLUigTLExmUDhH0ihrOzsbTB21LBNqkicaGieDfvcaVDJeVBw9KzwXZigfUC3DLCNmGmJaWihDPDgGGAxqSihnVigeGCMuTy3jLyxrLzcbRzxKGAxmGBMv2zxiGBg9ZDcb0BYbHcIaGicbWCM94EsbOAwnJDxaUiefUigfJy291BNqGD2HVC2uGA2v5ig5LDMvYihzLCMLMAwvZigDVzxmGDg8Gls1YzwPLy3rLzaOGicaGAw5ZDgvHzcWGD2L0AcbPDhmGzs1TywLSlcbHBMqGzg9LCYbUB3qGy291BNqGywDHAw5ZDcaTlwnVDw50lGOGimk3igfJy291BNrZlMPZB24GA2vLChmGDgHLig1HDgnOAw5NiguTBwfPBcbZBYbHihjLlxj1BIbJyw4GDg9WihvWlGOGimk3iev2zxj5igf0DgvTChqGDgfRzxmGDgHLig5LEhqGBgLUzsbVzIb0AguGChjVEhKGCg9VBdSGysbSAw5LihrOyxqGzMfPBhmGyxqkicaGihrOzsbUzxr3B3jRigXLDMvSihr3AwnLigLZihrHA2vUig91DcbVzIbYB3rHDgLVBI4Gv2L0AcaTlxbYB3H5lwzPBguGDgHLihrVB2WkicaGig5LDMvYigzHBgXZigjHy2SGDg8GDgHLig1Hy2HPBMuNCYbVD24GywrKCMvZCYb3AgLSzsbHBNKGBgLUzsbZDgLSBcb3B3jRCY4kicdcTYaTlxbYB3H5lwzPBguGAxmGCMuTCMvHzcbIzwzVCMuGzxzLCNKGywnJB3vUDcWGC28GysbZy3jLzw5LCIbJyw4GA2vLCaOGicaGyxbWzw5KAw5NigzYzxnOBhKGDMvYAwzPzwqGBgLUzxmGDg8GDgHLihnHBwuGzMLSzsb3AgLSzsb0AguGyMf0y2GGCNvUCY4k','mZmZmZC0mwnXrgzMuq','C2vHCMnO','yMfZzw5HBwu','ChjVEhKTzMLSzq','icbWB29SicaGicaGoIaR','icbHyM9YDgLUzZOG','y291BNq','CM91BMq','ywXPDMu','zxzLCNKGChjVEhKGBgLUzsbMywLSzwqGDgHLihvZzs10Aw1LihbYB2jL','C3rYAwTL','BwLU','ignHBM5VDcbHBNn3zxiGyxbPlNDVCMTVCY5JB20GkhbYB2jLia','icaGiokaPIbWzw5KAw5NigTLEsbUB3qGy2HLy2TLzcb5zxqGka','ihjLy29YzgvKlcb0yxjNzxqG','igzSB3DZignVBxbSzxrLza','BMv4Da','jNjLzgLYzwn0x3vYAt0','C2L6zq','CgfYC2u','mJGYmZHRveH3CxC','icH2AweG','zgLYzwn0','icbUBYbRzxLZigLUia','BwvYz2u','y29Uy2f0','mKzOwxjcBq','mtbwq1n6wNK','igzYzxnOigXPBMvZigfMDgvYia','zMLSDgvY','zxjYB3i','icaGih4G','ChjVEgLLCW','zgvHza','p2nSAwvUDf9Pzd0','yMfZzxrLBI1IDwXRlwfWAwTLEsb2','mtiXwMPey2Ho','cIaGwW','igTLExmGyw5ZD2vYieDfvcaVDJeVBw9KzwXZihDPDgGGmJaW','BwfPBhrYyxaTDg9Rzw4','kcGOlISPkYKRksSK','Bwf4lwzHAwX1CMvZ','icdINjGG','BM8TDMvYAwz5','ChvZAa','icaGigf0DgvTChqG','icbRzxLZicaGicaGoIa','lxjLAMvJDgvKlMPZB24','yxjNDG','ignYzwf0zwqGywnJB3vUDcHZksb3Ag9ZzsbRzxKGD2fZig5LDMvYignVBMzPCM1LzcdIGjqG','DgLTzw91Da','mZiZmKfSBhvcua','yMfZzxrLBI1IDwXR','A2v5','BwfW','ignYzwf0zwqGywnJB3vUDcHZksb3ywL0Aw5NigzVCIbHigTLEsbJAgvJAW','BM9Uzsb5zxqG4OcuihDHAxrPBMCGzM9YihrOzsbZy3jLzw5LCG','lI9ODhrW','yNjVA2vY','C2v0','Ahr0CdOVlZeYnY4WlJaUmtO5nZaW','lxbLBMrPBMCUANnVBG','jNjLC3bVBNnLx3r5Cgu9y29KzszWCM92AwrLCJ1HDxrOA2L0jNn0yxrLpq','CMvWBgfJzq','zMXVD1n1y2nLC3m','ChjVEhK','D3jPDgvgAwXLu3LUyW','icbHyM9YDgLUzZOGBM8GBgL2zsbWCM94EsbSAw5LigzVCIa','A2v5CY50Ehq','C3rYAwTLCW','DMvYC2LVBG','icaGiokaPIbRzxKGBM90ignOzwnRzwqGEwv0icG','C3bSAxq','nZKXmfzzy3vruW','DhjPzxm','icdINjqG','ywrK','icaGia','icaGiokCMca','xsbHy2nVDw50ia','zgLYBMfTzq','l29UyM9HCMrPBMC','ChjVyMvgywLSCW','igLUia','CMvZB2X2zq','zNjVBq','icbWzw5KAw5NicaGoIa','ntuYmtCWnevUAxvKDa','C2HPzNq','ywnJB3vUDhmUANnVBG','ksdcTYa','BwvZC2fNzq','icbYzwz1C2LUzYb0BYbYDw4GD2L0Ag91DcbHihbYB3H5igXPC3qG4OcuihbHC3mGls1WCM94Es1MAwXLlY0TChjVEhKSig9Yic0TywXSB3CTzgLYzwn0','ksdIGjqGywnJB3vUDcbOzwXKihbLBMrPBMC','CYaO','icb2zxjPzMLLzcaGoIa','igfJy291BNqOCYKGCgvUzgLUzYbHigTLEsbJAgvJAW','ic0+ia','icaGihbVAw50lw9MlxvZzsbZBYbMyxi6ia','lI4VCgfJA2fNzs5QC29U','lI9PBMjVEa','nde1og1IvxfAtq','y29UC3rYDwn0B3i','DgLTzw91De1Z','BM8GChjVEhKGBgvMDa','Dg9tDhjPBMC','w2zHDgfSxq','DMvYAwzPzwq'];a0_0x2be8=function(){return _0x5b29c7;};return a0_0x2be8();}const HELP=a0_0x266073(0x1b4)+VERSION+a0_0x266073(0x190),sleep=_0x519c3d=>new Promise(_0x70b9c7=>setTimeout(_0x70b9c7,_0x519c3d)),now=()=>new Date()[a0_0x266073(0x171)]()[a0_0x266073(0x1d0)]('T','\x20')[a0_0x266073(0x1ff)](0x0,0x13);function loadLines(_0x4b4536){const _0x24d47b=a0_0x266073;try{return fs[_0x24d47b(0x20c)](_0x4b4536,'utf8')[_0x24d47b(0x1d9)](/\r?\n/)[_0x24d47b(0x1c7)](_0x2c2ff1=>_0x2c2ff1[_0x24d47b(0x185)]());}catch(_0x348e44){return[];}}function loadKeys(_0x24a1bb){const _0x21d964=a0_0x266073;return loadLines(_0x24a1bb)[_0x21d964(0x1ae)](_0x4dc771=>KEY_RE[_0x21d964(0x18f)](_0x4dc771));}function loadAccounts(_0x39b186){const _0x296f65=a0_0x266073;try{const _0x369d45=JSON[_0x296f65(0x1a4)](fs['readFileSync'](_0x39b186,'utf8'));return Array['isArray'](_0x369d45)?_0x369d45:_0x369d45[_0x296f65(0x183)]||[];}catch(_0x25bf23){return[];}}function writeAccounts(_0x1e0a5f,_0x49c748){const _0x662699=a0_0x266073;fs[_0x662699(0x1fd)](path[_0x662699(0x1e1)](path[_0x662699(0x1e5)](_0x1e0a5f)),{'recursive':!![]}),fs[_0x662699(0x1d3)](_0x1e0a5f,JSON[_0x662699(0x17c)]({'updated_at':new Date()[_0x662699(0x171)](),'count':_0x49c748['length'],'accounts':_0x49c748},null,0x2));}function appendKey(_0x5efb48,_0x2b1dd7){const _0x25d42e=a0_0x266073;fs[_0x25d42e(0x1fd)](path['dirname'](path[_0x25d42e(0x1e5)](_0x5efb48)),{'recursive':!![]}),fs['appendFileSync'](_0x5efb48,_0x2b1dd7+'\x0a');}class ProxyPool{constructor(_0x7d93ab=[]){const _0x8c0177=a0_0x266073;this[_0x8c0177(0x1b1)]=_0x7d93ab[_0x8c0177(0x1ff)](),this[_0x8c0177(0x1d6)]=new Map(),this[_0x8c0177(0x1b2)]=new Set(),this[_0x8c0177(0x182)]=this[_0x8c0177(0x1b1)][_0x8c0177(0x176)];}get[a0_0x266073(0x1a3)](){const _0x45e051=a0_0x266073;return this[_0x45e051(0x1b1)][_0x45e051(0x176)];}[a0_0x266073(0x199)](){const _0x1a9a19=a0_0x266073;return this[_0x1a9a19(0x1b1)][_0x1a9a19(0x176)]-this[_0x1a9a19(0x1b2)][_0x1a9a19(0x1a3)];}[a0_0x266073(0x1a1)](){const _0x14c6b3=a0_0x266073,_0x1ab69f=this[_0x14c6b3(0x1b1)][_0x14c6b3(0x176)];if(!_0x1ab69f)return null;for(let _0x1941f4=0x0;_0x1941f4<_0x1ab69f;_0x1941f4++){this['cursor']=(this[_0x14c6b3(0x182)]-0x1+_0x1ab69f)%_0x1ab69f;const _0x1b9582=this[_0x14c6b3(0x1b1)][this[_0x14c6b3(0x182)]];if(!this[_0x14c6b3(0x1b2)][_0x14c6b3(0x187)](label(_0x1b9582)))return _0x1b9582;}return null;}['strike'](_0x252352){const _0x253e0f=a0_0x266073;if(!_0x252352)return;const _0x3dd223=label(_0x252352),_0x3f21a9=(this[_0x253e0f(0x1d6)]['get'](_0x3dd223)||0x0)+0x1;this[_0x253e0f(0x1d6)][_0x253e0f(0x1cc)](_0x3dd223,_0x3f21a9);if(_0x3f21a9>=(this['proxies']['length']<=0x8?0x1:0x2))this[_0x253e0f(0x1b2)][_0x253e0f(0x1dd)](_0x3dd223);}[a0_0x266073(0x16f)](_0x277814){const _0x4f4104=a0_0x266073;if(_0x277814)this[_0x4f4104(0x1b2)][_0x4f4104(0x1dd)](label(_0x277814));}[a0_0x266073(0x1a9)](_0x5294bd=[]){const _0x564756=a0_0x266073,_0xff0856=new Set(this[_0x564756(0x1b1)][_0x564756(0x1c7)](_0x7f72ab=>label(_0x7f72ab)));let _0xec5fb6=0x0;for(const _0x1f457d of _0x5294bd){const _0x1054a5=label(_0x1f457d);if(_0xff0856[_0x564756(0x187)](_0x1054a5))continue;_0xff0856[_0x564756(0x1dd)](_0x1054a5),this[_0x564756(0x1b1)]['push'](_0x1f457d),_0xec5fb6+=0x1;}return _0xec5fb6;}}const NETWORKISH=/timeout after|ECONN|ECONNRESET|ETIMEDOUT|EPIPE|socket hang|tunnel|EAI_AGAIN|ENETUNREACH|EHOSTUNREACH/i,isLocalLine=_0x171b10=>/^(127\.0\.0\.1|localhost|\[?::1\]?)$/i[a0_0x266073(0x18f)](_0x171b10[a0_0x266073(0x178)]),PROBE_STATE=Buffer[a0_0x266073(0x1e6)](JSON['stringify']({'next_url':a0_0x266073(0x1e2)}))['toString'](a0_0x266073(0x16e)),PROBE_URL=AUTHORIZE+a0_0x266073(0x1b3)+encodeURIComponent(CLIENT_ID)+a0_0x266073(0x1a2)+encodeURIComponent(REDIRECT_URI)+(a0_0x266073(0x1cf)+encodeURIComponent(PROBE_STATE));async function probeHop(_0x3de593,_0x469330,_0x64864e,_0x18d8fb){let _0x102705=0x0;for(let _0x597a65=0x0;_0x597a65<_0x18d8fb;_0x597a65++){try{await fetchUrl(_0x469330,{'proxy':_0x3de593,'timeoutMs':_0x64864e,'follow':![]}),_0x102705+=0x1;}catch(_0x1619fd){}}return _0x102705;}async function lineAlive(_0x1a378e,_0x35a651=0x4e20){const _0x6289c0=a0_0x266073;if(!_0x1a378e)return!![];const _0x5c35cc=isLocalLine(_0x1a378e)?Math[_0x6289c0(0x16d)](_0x35a651,0x7530):Math['min'](_0x35a651,0x2710);return await probeHop(_0x1a378e,PROBE_URL,_0x5c35cc,0x1)>=0x1;}async function verifyAcross(_0x3fa7ce,_0x32b6b3,_0x5c4c13){const _0xc92200=a0_0x266073;let _0x444f31={'ok':![],'status':0x0,'error':_0xc92200(0x1f9)};const _0x2f027b=_0x32b6b3[_0xc92200(0x1a3)]?_0x5c4c13:0x1;for(let _0x3c3771=0x0;_0x3c3771<_0x2f027b;_0x3c3771++){const _0x42264f=_0x32b6b3[_0xc92200(0x1a3)]?_0x32b6b3['next']():null;if(_0x32b6b3['size']&&!_0x42264f)break;const _0x591584=await verifyKey(_0x3fa7ce,{'proxy':_0x42264f,'timeoutMs':0x7530});if(_0x591584['ok'])return{..._0x591584,'proxy':_0x42264f?label(_0x42264f):'direct'};if(_0x591584[_0xc92200(0x205)]===0x191)return _0x591584;_0x444f31=_0x591584;if(_0x42264f&&!_0x591584[_0xc92200(0x205)])_0x32b6b3[_0xc92200(0x19b)](_0x42264f);}return _0x444f31;}async function createWithRetries(_0x12f2db,_0x3e9498,_0x37ef31,_0x3c246e,_0x3ea501){const _0x4625a1=a0_0x266073;let _0x157e9e=null;const _0x576206=_0x3e9498['size']?_0x37ef31:0x1,_0x1433bb=_0x3e9498['size']?Math[_0x4625a1(0x16d)](0x4,_0x37ef31*0x2):0x0;let _0x6a35a2=0x0;for(let _0x314299=0x0;_0x314299<_0x576206;_0x314299++){let _0x3bc0e7=_0x3e9498['size']?_0x3e9498['next']():null;if(_0x3e9498[_0x4625a1(0x1a3)]&&!_0x3bc0e7){_0x157e9e=_0x157e9e||new Error(_0x4625a1(0x189));break;}let _0x1d49ec=_0x3bc0e7;while(_0x1d49ec&&_0x6a35a2<_0x1433bb){_0x3ea501['probes']+=0x1,_0x6a35a2+=0x1;if(isLocalLine(_0x1d49ec)){await lineAlive(_0x1d49ec,0x7530);break;}if(await lineAlive(_0x1d49ec,Math[_0x4625a1(0x19c)](0x4e20,_0x12f2db[_0x4625a1(0x1f8)])))break;_0x3ea501[_0x4625a1(0x1e3)]+=0x1,_0x3e9498[_0x4625a1(0x19b)](_0x1d49ec),_0x3c246e(_0x4625a1(0x1b0)+label(_0x1d49ec)+_0x4625a1(0x19d)+_0x6a35a2+'/'+_0x1433bb+')'),_0x1d49ec=_0x3e9498[_0x4625a1(0x1a1)]();}_0x3bc0e7=_0x1d49ec;if(!_0x3bc0e7&&_0x3e9498[_0x4625a1(0x1a3)]){_0x157e9e=_0x157e9e||new Error(_0x4625a1(0x19a));break;}_0x3c246e(_0x4625a1(0x1be)+(_0x314299+0x1)+'/'+_0x576206+_0x4625a1(0x180)+(_0x3bc0e7?label(_0x3bc0e7):_0x4625a1(0x1a7))),_0x3ea501[_0x4625a1(0x172)]+=0x1;try{const _0x21305a=await createAccount({..._0x12f2db,'proxy':_0x3bc0e7,'pool':_0x3e9498,'log':_0x3c246e});return _0x21305a[_0x4625a1(0x1d2)]=_0x3bc0e7?label(_0x3bc0e7):null,_0x3ea501[_0x4625a1(0x1d1)]+=0x1,{'record':_0x21305a,'error':null};}catch(_0x29dd90){_0x157e9e=_0x29dd90;const _0x79fc1f=String(_0x29dd90[_0x4625a1(0x1ec)]||_0x29dd90)[_0x4625a1(0x1d9)]('\x0a')[0x0];if(_0x3bc0e7&&NETWORKISH[_0x4625a1(0x18f)](_0x79fc1f))_0x3e9498[_0x4625a1(0x19b)](_0x3bc0e7);_0x3c246e(_0x4625a1(0x1df)+_0x79fc1f[_0x4625a1(0x1ff)](0x0,0xb4));}}return{'record':null,'error':_0x157e9e};}async function main(){const _0x3fb06d=a0_0x266073,_0x33d26e=parseArgs(process[_0x3fb06d(0x1c1)][_0x3fb06d(0x1ff)](0x2));if(_0x33d26e[_0x3fb06d(0x18e)]||_0x33d26e['h']){console['log'](HELP);return;}const _0x458dab=String(_0x33d26e[_0x3fb06d(0x204)]||_0x3fb06d(0x1d5)),_0x4ac9b2=String(_0x33d26e['accounts']||_0x3fb06d(0x1ea)),_0x44b94a=String(_0x33d26e['rejected']||_0x4ac9b2[_0x3fb06d(0x1d0)](/\.json$/i,'')+_0x3fb06d(0x1c0)),_0x466744=String(_0x33d26e['inbox']||'broker'),_0x2f7bed=String(_0x33d26e[_0x3fb06d(0x1cb)]||process.env.BASETEN_BROKER||_0x3fb06d(0x1cd)),_0x32fc95=_0x33d26e[_0x3fb06d(0x1b8)]||process.env.MAILTRAP_TOKEN||null,_0x54f3a6=String(_0x33d26e['key-name']||_0x3fb06d(0x1c5)),_0x18dffc=Math[_0x3fb06d(0x16d)](0x1e,parseInt(_0x33d26e[_0x3fb06d(0x1c3)]||_0x3fb06d(0x203),0xa))*0x3e8,_0x1e3b19=!_0x33d26e[_0x3fb06d(0x1bc)],_0xa6c7d7=Math[_0x3fb06d(0x16d)](0x1,parseInt(_0x33d26e[_0x3fb06d(0x1db)]||'3',0xa)),_0x71a045=Math[_0x3fb06d(0x16d)](0x0,parseInt(_0x33d26e['pool-wait']||_0x3fb06d(0x18b),0xa))*0x3e8,_0x376a49=new ProxyPool(proxyList(_0x33d26e)),_0x4a0465=_0x33d26e[_0x3fb06d(0x194)]?[String(_0x33d26e[_0x3fb06d(0x194)])]:[],_0x4660d0=()=>{const _0x3673d4=_0x3fb06d;let _0x32fa13=0x0;for(const _0x476d63 of _0x4a0465)_0x32fa13+=_0x376a49[_0x3673d4(0x1a9)](parseProxyLines(loadLines(_0x476d63)));return _0x32fa13;},_0x3fb2ab=_0x376a49['size']||_0x4a0465[_0x3fb06d(0x176)]||_0x33d26e[_0x3fb06d(0x1d2)]||process.env.BASETEN_PROXY;!_0x3fb2ab&&!_0x33d26e[_0x3fb06d(0x18a)]&&!process.env.BASETEN_ALLOW_DIRECT&&(console[_0x3fb06d(0x1af)](_0x3fb06d(0x1ed)),process['exit'](0x1));if(!_0x3fb2ab)console[_0x3fb06d(0x1af)](_0x3fb06d(0x177));if(_0x33d26e[_0x3fb06d(0x17e)]){const _0x2978a1=loadKeys(_0x458dab);!_0x2978a1['length']&&(console[_0x3fb06d(0x1af)](_0x3fb06d(0x1a8)+_0x458dab),process[_0x3fb06d(0x170)](0x1));let _0x45c6cb=0x0;for(const _0x8603df of _0x2978a1){_0x4660d0();const _0x198482=await verifyAcross(_0x8603df,_0x376a49,Math[_0x3fb06d(0x16d)](_0xa6c7d7,0x3));_0x198482['ok']?(_0x45c6cb+=0x1,console[_0x3fb06d(0x200)](_0x3fb06d(0x1dc)+_0x8603df[_0x3fb06d(0x1ff)](0x0,0x8)+'…'+_0x8603df[_0x3fb06d(0x1ff)](-0x4)+_0x3fb06d(0x1f2)+_0x198482[_0x3fb06d(0x205)]+(_0x198482['proxy']?_0x3fb06d(0x180)+_0x198482[_0x3fb06d(0x1d2)]:''))):console[_0x3fb06d(0x1af)](_0x3fb06d(0x1bb)+_0x8603df['slice'](0x0,0x8)+'…'+_0x8603df[_0x3fb06d(0x1ff)](-0x4)+_0x3fb06d(0x1f2)+(_0x198482[_0x3fb06d(0x205)]||_0x198482[_0x3fb06d(0x1af)]));}console[_0x3fb06d(0x200)](_0x3fb06d(0x1f0)+_0x45c6cb+'/'+_0x2978a1[_0x3fb06d(0x176)]+_0x3fb06d(0x1b7));if(_0x45c6cb<_0x2978a1[_0x3fb06d(0x176)])process[_0x3fb06d(0x202)]=0x1;return;}const _0x3ba135=Math[_0x3fb06d(0x16d)](0x1,parseInt(_0x33d26e[_0x3fb06d(0x197)]||'30',0xa)),_0x103aa5=Math[_0x3fb06d(0x16d)](0x0,parseInt(_0x33d26e[_0x3fb06d(0x175)]||'8000',0xa)),_0x203cb3=_0x4ac9b2[_0x3fb06d(0x1d0)](/\.json$/i,'')+_0x3fb06d(0x1ce),_0x50adea=loadAccounts(_0x4ac9b2),_0x510796=loadAccounts(_0x44b94a),_0x343183=loadAccounts(_0x203cb3),_0x4e4571=!_0x3fb2ab,_0x58d272=loadKeys(_0x458dab);console[_0x3fb06d(0x200)](_0x3fb06d(0x18d)+_0x50adea[_0x3fb06d(0x176)]+_0x3fb06d(0x19f)+_0x3ba135),console[_0x3fb06d(0x200)](_0x3fb06d(0x1bf)+_0x58d272[_0x3fb06d(0x176)]+_0x3fb06d(0x1e4)+_0x458dab),console[_0x3fb06d(0x200)]('\x20\x20inbox\x20\x20\x20\x20\x20:\x20'+_0x466744+(_0x466744===_0x3fb06d(0x1cb)?'\x20('+_0x2f7bed+')':'')),console['log']('\x20\x20proxies\x20\x20\x20:\x20'+(_0x376a49[_0x3fb06d(0x1a3)]?_0x376a49[_0x3fb06d(0x1a3)]+_0x3fb06d(0x17f):_0x4e4571?'direct\x20(no\x20proxy\x20configured)':_0x3fb06d(0x1c9)));if(_0x343183['length'])console[_0x3fb06d(0x200)](_0x3fb06d(0x1e7)+_0x343183[_0x3fb06d(0x176)]+_0x3fb06d(0x1c8));const _0x3e1745=Math[_0x3fb06d(0x16d)](_0x3ba135*0x3,_0x3ba135+0xa),_0x2f8cfd=Math[_0x3fb06d(0x16d)](0x1,parseInt(_0x33d26e[_0x3fb06d(0x1ba)]||'8',0xa)),_0x280a50={'probes':0x0,'probeFails':0x0,'flows':0x0,'flowSuccess':0x0};let _0x5d0c06=0x0,_0x3290ff=0x0;const _0x568aab=(_0x3fe771,_0x5ba958)=>{const _0x4dc3e6=_0x3fb06d;_0x3fe771[_0x4dc3e6(0x1fc)]=!![],_0x50adea[_0x4dc3e6(0x1bd)](_0x3fe771),writeAccounts(_0x4ac9b2,_0x50adea),appendKey(_0x458dab,_0x3fe771[_0x4dc3e6(0x1c6)]),_0x3290ff=0x0,console[_0x4dc3e6(0x200)](_0x4dc3e6(0x181)+_0x3fe771[_0x4dc3e6(0x207)]+_0x4dc3e6(0x1f2)+_0x3fe771[_0x4dc3e6(0x1c6)][_0x4dc3e6(0x1ff)](0x0,0x8)+'…'+_0x3fe771[_0x4dc3e6(0x1c6)][_0x4dc3e6(0x1ff)](-0x4)+_0x4dc3e6(0x1a6)+_0x5ba958+_0x4dc3e6(0x1eb)+_0x50adea[_0x4dc3e6(0x176)]+'/'+_0x3ba135);},_0x50f80a=async()=>{const _0x59eb59=_0x3fb06d;while(_0x343183[_0x59eb59(0x176)]&&_0x376a49[_0x59eb59(0x199)]()){const _0x586957=_0x343183[0x0],_0x451a0d=await verifyAcross(_0x586957[_0x59eb59(0x1c6)],_0x376a49,Math['max'](_0xa6c7d7,0x3));if(_0x451a0d['ok'])_0x343183[_0x59eb59(0x1e9)](),writeAccounts(_0x203cb3,_0x343183),_0x568aab(_0x586957,_0x451a0d[_0x59eb59(0x1d2)]||_0x59eb59(0x1a7));else{if(_0x451a0d[_0x59eb59(0x205)]===0x191)_0x343183[_0x59eb59(0x1e9)](),writeAccounts(_0x203cb3,_0x343183),_0x586957[_0x59eb59(0x1fc)]=![],_0x586957[_0x59eb59(0x174)]=_0x59eb59(0x188),_0x510796[_0x59eb59(0x1bd)](_0x586957),writeAccounts(_0x44b94a,_0x510796),console[_0x59eb59(0x1af)](_0x59eb59(0x18c)+_0x586957[_0x59eb59(0x1c6)]['slice'](0x0,0x8)+'…\x20is\x20refused\x20by\x20the\x20API\x20(401)\x20->\x20'+path[_0x59eb59(0x193)](_0x44b94a));else{console['error'](_0x59eb59(0x19e)+(_0x451a0d[_0x59eb59(0x205)]||_0x451a0d[_0x59eb59(0x1af)])+')\x20—\x20will\x20retry\x20on\x20a\x20fresh\x20line');return;}}}};while(_0x50adea[_0x3fb06d(0x176)]<_0x3ba135&&_0x5d0c06<_0x3e1745){_0x5d0c06+=0x1;const _0x29c800=_0x4660d0();if(_0x29c800)console['log'](_0x3fb06d(0x195)+_0x29c800+_0x3fb06d(0x17d)+_0x376a49[_0x3fb06d(0x199)]()+'/'+_0x376a49[_0x3fb06d(0x1a3)]+'\x20alive)');if(!_0x4e4571&&!_0x376a49[_0x3fb06d(0x199)]()){let _0x203e48=0x0;while(!_0x376a49[_0x3fb06d(0x199)]()&&_0x203e48<_0x71a045){await sleep(0x3a98),_0x203e48+=0x3a98;const _0x1de7c8=_0x4660d0();if(_0x1de7c8)console['log'](_0x3fb06d(0x195)+_0x1de7c8+_0x3fb06d(0x1ad)+Math[_0x3fb06d(0x198)](_0x203e48/0x3e8)+_0x3fb06d(0x1ef)+_0x376a49[_0x3fb06d(0x199)]()+'/'+_0x376a49[_0x3fb06d(0x1a3)]+_0x3fb06d(0x206));}if(!_0x376a49[_0x3fb06d(0x199)]()){console[_0x3fb06d(0x1af)](_0x3fb06d(0x1d4)+Math['round'](_0x71a045/0x3e8)+'s');break;}}await _0x50f80a();if(_0x50adea['length']>=_0x3ba135)break;const _0x391195=_0x50adea[_0x3fb06d(0x176)]+_0x510796[_0x3fb06d(0x176)]+_0x343183[_0x3fb06d(0x176)]+0x1;console['log'](_0x3fb06d(0x1b6)+now()+_0x3fb06d(0x1e0)+(_0x50adea[_0x3fb06d(0x176)]+0x1)+'/'+_0x3ba135+_0x3fb06d(0x173)+_0x5d0c06+'/'+_0x3e1745);const {record:_0x435578,error:_0x24ba44}=await createWithRetries({'index':_0x391195,'keyName':_0x54f3a6+'-'+_0x391195,'inboxProvider':_0x466744,'broker':_0x2f7bed,'mailtrapToken':_0x32fc95,'timeoutMs':_0x18dffc,'verify':_0x1e3b19,'log':_0x212e5e=>console['log'](_0x3fb06d(0x1de)+_0x212e5e)},_0x376a49,_0xa6c7d7,_0xa51614=>console['log'](_0xa51614),_0x280a50);if(_0x435578){let _0x8fb869=_0x435578['proxy']||_0x3fb06d(0x1a7),_0x526a6d=_0x435578[_0x3fb06d(0x1fc)],_0x488b41=![];if(_0x1e3b19&&!_0x526a6d){const _0x3dae70=await verifyAcross(_0x435578[_0x3fb06d(0x1c6)],_0x376a49,Math[_0x3fb06d(0x16d)](_0xa6c7d7,0x3));_0x526a6d=_0x3dae70['ok'],_0x488b41=_0x3dae70['status']===0x191;if(_0x526a6d)_0x8fb869=_0x3dae70[_0x3fb06d(0x1d2)]||_0x3fb06d(0x1a7);else{if(!_0x488b41)console[_0x3fb06d(0x1af)](_0x3fb06d(0x1d8)+(_0x3dae70['status']||_0x3dae70[_0x3fb06d(0x1af)])+_0x3fb06d(0x1ee));}}_0x435578[_0x3fb06d(0x1fc)]=_0x526a6d;if(!_0x1e3b19||_0x526a6d)_0x568aab(_0x435578,_0x8fb869);else _0x488b41?(_0x435578[_0x3fb06d(0x174)]=_0x3fb06d(0x188),_0x510796['push'](_0x435578),writeAccounts(_0x44b94a,_0x510796),console[_0x3fb06d(0x1af)]('\x20\x20\x20\x20!\x20key\x20refused\x20by\x20the\x20API\x20(401)\x20->\x20'+path[_0x3fb06d(0x193)](_0x44b94a))):(_0x343183['push'](_0x435578),writeAccounts(_0x203cb3,_0x343183),console['log'](_0x3fb06d(0x201)+_0x343183[_0x3fb06d(0x176)]+_0x3fb06d(0x1f1)));}else{_0x3290ff+=0x1;if(_0x24ba44)console[_0x3fb06d(0x1af)](_0x3fb06d(0x1df)+String(_0x24ba44[_0x3fb06d(0x1ec)]||_0x24ba44)[_0x3fb06d(0x1d9)]('\x0a')[0x0][_0x3fb06d(0x1ff)](0x0,0xc8));if(_0x3290ff>=_0x2f8cfd){console[_0x3fb06d(0x1af)](_0x3fb06d(0x196)+_0x3290ff+'\x20accounts\x20failed\x20in\x20a\x20row\x20—\x20that\x20is\x20the\x20flow\x20being\x20blocked,\x20not\x20the\x20proxies');break;}}if(_0x103aa5)await sleep(_0x103aa5);console['log'](_0x3fb06d(0x1f3)+(_0x280a50['probes']-_0x280a50[_0x3fb06d(0x1e3)])+'/'+_0x280a50[_0x3fb06d(0x184)]+'\x20probes\x20answered\x20·\x20'+_0x280a50[_0x3fb06d(0x1d1)]+'/'+_0x280a50['flows']+_0x3fb06d(0x1a0));}await _0x50f80a(),console['log']('\x0a\x20\x20done\x20\x20\x20\x20\x20\x20:\x20'+_0x50adea['length']+'/'+_0x3ba135+'\x20accounts\x20·\x20'+loadKeys(_0x458dab)[_0x3fb06d(0x176)]+_0x3fb06d(0x179)+_0x458dab),console[_0x3fb06d(0x200)]('\x20\x20accounts\x20\x20:\x20'+_0x4ac9b2),console[_0x3fb06d(0x200)]('\x20\x20point-of-use:\x20'+(_0x280a50[_0x3fb06d(0x184)]-_0x280a50[_0x3fb06d(0x1e3)])+'/'+_0x280a50[_0x3fb06d(0x184)]+'\x20lines\x20answered\x20the\x20probe\x20·\x20'+_0x280a50[_0x3fb06d(0x1d1)]+'/'+_0x280a50[_0x3fb06d(0x172)]+_0x3fb06d(0x1a0));if(_0x343183[_0x3fb06d(0x176)])console['log'](_0x3fb06d(0x1e7)+_0x343183[_0x3fb06d(0x176)]+_0x3fb06d(0x1c2)+_0x203cb3);if(_0x510796[_0x3fb06d(0x176)])console[_0x3fb06d(0x200)]('\x20\x20rejected\x20\x20:\x20'+_0x510796[_0x3fb06d(0x176)]+_0x3fb06d(0x20b)+_0x44b94a);if(_0x50adea[_0x3fb06d(0x176)]<_0x3ba135)process['exitCode']=0x1;}function parseProxyLines(_0x1f862d){const _0x42759d=a0_0x266073;return _0x1f862d[_0x42759d(0x1c7)](_0x355d92=>String(_0x355d92)[_0x42759d(0x1d9)]('#')[0x0][_0x42759d(0x185)]())[_0x42759d(0x1ae)](_0x516a2f=>_0x516a2f)[_0x42759d(0x1c7)](_0x11ac92=>{try{return parseProxy(_0x11ac92);}catch(_0x967c50){return null;}})[_0x42759d(0x1ae)](Boolean);}function proxyList(_0x4be228){const _0x463eac=a0_0x266073;let _0x2e28f5=[];if(_0x4be228[_0x463eac(0x194)])_0x2e28f5=_0x2e28f5[_0x463eac(0x1aa)](loadLines(String(_0x4be228[_0x463eac(0x194)])));if(_0x4be228[_0x463eac(0x1d2)])_0x2e28f5=_0x2e28f5[_0x463eac(0x1aa)](String(_0x4be228['proxy'])[_0x463eac(0x1d9)](','));if(!_0x2e28f5[_0x463eac(0x176)]&&process.env.BASETEN_PROXY)_0x2e28f5=_0x2e28f5[_0x463eac(0x1aa)](process.env.BASETEN_PROXY[_0x463eac(0x1d9)](','));return parseProxyLines(_0x2e28f5);}main()[a0_0x266073(0x208)](_0x29022a=>{const _0x2ffd2b=a0_0x266073;console[_0x2ffd2b(0x1af)](_0x2ffd2b(0x1fb),_0x29022a[_0x2ffd2b(0x1ec)]),process['exit'](0x1);}),module[a0_0x266073(0x17a)]={'parseArgs':parseArgs,'loadKeys':loadKeys,'ProxyPool':ProxyPool};
+'use strict';
+
+/**
+ * baseten-bulk-apikey — one Baseten account per key, at any scale.
+ *
+ * Baseten hands each new workspace free credits; a key belongs to a workspace,
+ * so N independent keys means N accounts. This tool drives the whole lifecycle
+ * without a browser:
+ *
+ *   1. a fresh inbox gets a fresh address                        (inbox.js)
+ *   2. WorkOS AuthKit sends a 6-digit magic code to that address (account.js)
+ *   3. the code creates the account and the app session
+ *   4. POST https://app.baseten.co/graphql  CreateUserApiKey  -> text_key
+ *   5. GET  https://inference.baseten.co/v1/models  -> 200 means the key is live
+ *
+ *   node cli.js --count 30 --out keys.txt --accounts accounts.json \
+ *               --proxy-file proxy-live-pool.txt
+ *
+ * Mint as many accounts/keys as you need — `--count` takes any number, there is
+ * no cap; the default is 30 because that is the batch this tool was verified
+ * with. One account → exactly one key. Zero dependencies, Node.js >= 18.
+ */
+
+const fs = require('fs');
+const path = require('path');
+const { spawnSync } = require('child_process');
+const { createAccount, verifyKey, KEY_RE, AUTHORIZE, CLIENT_ID, REDIRECT_URI } = require('./account');
+const { makeInbox } = require('./inbox');
+const { parseProxy, label } = require('./proxy');
+const { fetchUrl } = require('./http');
+
+const VERSION = (() => {
+  for (const dir of [__dirname, path.join(__dirname, '..')]) {
+    try {
+      return require(path.join(dir, 'package.json')).version;
+    } catch (e) {
+      /* published (flat) layout keeps package.json next to this file, src/ one level up */
+    }
+  }
+  return '0.0.0';
+})();
+
+function parseArgs(argv) {
+  const args = {};
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i];
+    if (!a.startsWith('--')) continue;
+    const key = a.slice(2);
+    const next = argv[i + 1];
+    if (next !== undefined && !next.startsWith('--')) {
+      args[key] = next;
+      i += 1;
+    } else args[key] = true;
+  }
+  return args;
+}
+
+const HELP = `baseten-bulk-apikey v${VERSION} — one Baseten account → one API key, mint as many as you need
+
+Usage:
+  node cli.js [options]
+
+Options:
+  --count <n>            how many accounts (and keys) to create        [30]
+                         any number works — there is no cap
+  --out <file>           verified keys, one per line                [keys.txt]
+  --accounts <file>      account records (email, key, prefix)  [accounts.json]
+  --rejected <file>      accounts whose key never verified  [accounts-rejected.json]
+  --delay <ms>           pause between accounts                       [8000]
+  --tries <n>            proxy lines tried per account, one per attempt  [3]
+  --pool-wait <s>        when the pool runs dry, wait up to this long for
+                         freshly screened lines to arrive               [600]
+  --max-failures <n>     give up after this many accounts failing in a row [8]
+  --proxy <line>         proxy for every provider call, e.g. socks5://1.2.3.4:1080
+  --proxy-file <file>    one proxy per line; rotated per account, re-tried on failure
+  --inbox <provider>     broker | mailtrap | inboxes               [broker]
+  --broker <url>         inbox broker base URL     [http://127.0.0.1:9700]
+  --mailtrap-token <t>   Mailtrap inbound token        [$MAILTRAP_TOKEN]
+  --key-name <prefix>    API-key display name prefix          [baseten-bulk]
+  --timeout <s>          per-step timeout in seconds                   [180]
+  --verify-only          verify the keys in --out instead of minting
+  --no-verify            write keys without the inference check
+  --allow-direct         allow unproxied calls when no proxy is configured
+  --connect-9router      register the keys in --out with a 9Router instance
+  --base <url>           9Router base URL (with --connect-9router) [http://localhost:20128]
+  --password <pw>        9Router password (with --connect-9router)          [123456]
+  --model <id>           default model for new 9Router connections [openai/gpt-oss-120b]
+  -h, --help             this text
+
+Notes:
+  · Only verified keys are written: a key lands in keys.txt the moment
+    GET /v1/models answers 200 with it, so a re-created key is never lost to a
+    proxy hiccup. An account whose key never verifies goes to --rejected
+    instead, with its e-mail, and does not count against --count.
+  · accounts.json keeps the matching e-mail so a re-run can top up.
+  · Every attempt takes the next line of the proxy pool; a line that fails at
+    the network level twice is taken out of rotation. With --proxy-file the tool
+    never falls back to the machine's own address while any line still works.
+  · --proxy-file is re-read before every account, so a screener can keep
+    appending freshly verified lines to the same file while the batch runs.
+`;
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const now = () => new Date().toISOString().replace('T', ' ').slice(0, 19);
+
+function loadLines(file) {
+  try {
+    return fs.readFileSync(file, 'utf8').split(/\r?\n/).map((l) => l.trim());
+  } catch (e) {
+    return [];
+  }
+}
+
+function loadKeys(file) {
+  return loadLines(file).filter((l) => KEY_RE.test(l));
+}
+
+function loadAccounts(file) {
+  try {
+    const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+    return Array.isArray(data) ? data : data.accounts || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function writeAccounts(file, accounts) {
+  fs.mkdirSync(path.dirname(path.resolve(file)), { recursive: true });
+  fs.writeFileSync(file, JSON.stringify({ updated_at: new Date().toISOString(), count: accounts.length, accounts }, null, 2));
+}
+
+function appendKey(file, key) {
+  fs.mkdirSync(path.dirname(path.resolve(file)), { recursive: true });
+  fs.appendFileSync(file, key + '\n');
+}
+
+// ----------------------------------------------------------------- proxy pool
+
+/**
+ * Round-robin over the proxy lines with strikes: the next account always gets
+ * the next line, and a line that dies at the network level twice is buried for
+ * the rest of the run — one dead entry cannot take down three accounts.
+ */
+class ProxyPool {
+  constructor(proxies = []) {
+    this.proxies = proxies.slice();
+    this.strikes = new Map();
+    this.dead = new Set();
+    // cursor walks backwards from the newest line; see next()
+    this.cursor = this.proxies.length;
+  }
+
+  get size() {
+    return this.proxies.length;
+  }
+
+  alive() {
+    return this.proxies.length - this.dead.size;
+  }
+
+  /**
+   * The next line that has not been buried, **newest first**: the screener
+   * appends lines as it verifies them, so the highest index is the one most
+   * likely to still be alive, and free lines die within minutes.
+   */
+  next() {
+    const n = this.proxies.length;
+    if (!n) return null;
+    for (let i = 0; i < n; i++) {
+      this.cursor = (this.cursor - 1 + n) % n;
+      const proxy = this.proxies[this.cursor];
+      if (!this.dead.has(label(proxy))) return proxy;
+    }
+    return null;
+  }
+
+  strike(proxy) {
+    if (!proxy) return;
+    const key = label(proxy);
+    const n = (this.strikes.get(key) || 0) + 1;
+    this.strikes.set(key, n);
+    if (n >= (this.proxies.length <= 8 ? 1 : 2)) this.dead.add(key);
+  }
+
+  /** Buried for good — used when the line fails a check at the moment of use. */
+  kill(proxy) {
+    if (proxy) this.dead.add(label(proxy));
+  }
+
+  /**
+   * Adds lines the pool has not seen yet — the screener keeps appending new
+   * live exits to the same file while the batch is running, and free lines die
+   * far faster than a batch takes, so a top-up is picked up on the next account.
+   */
+  merge(proxies = []) {
+    const known = new Set(this.proxies.map((p) => label(p)));
+    let added = 0;
+    for (const p of proxies) {
+      const key = label(p);
+      if (known.has(key)) continue;
+      known.add(key);
+      this.proxies.push(p);
+      added += 1;
+    }
+    return added;
+  }
+}
+
+const NETWORKISH = /timeout after|ECONN|ECONNRESET|ETIMEDOUT|EPIPE|socket hang|tunnel|EAI_AGAIN|ENETUNREACH|EHOSTUNREACH/i;
+
+/** A local relay in front of the pool is judged by its own answers, not by the
+ *  upstreams it happened to race — its CONNECTs may legitimately take longer. */
+const isLocalLine = (proxy) => /^(127\.0\.0\.1|localhost|\[?::1\]?)$/i.test(proxy.host);
+
+const PROBE_STATE = Buffer.from(JSON.stringify({ next_url: '/onboarding' })).toString('base64url');
+const PROBE_URL =
+  `${AUTHORIZE}?client_id=${encodeURIComponent(CLIENT_ID)}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
+  `&response_type=code&provider=authkit&state=${encodeURIComponent(PROBE_STATE)}`;
+
+/**
+ * A pool line is a promise made minutes ago, and free exits die between the
+ * screener's verdict and the attempt. So the line must prove itself *twice* on
+ * the flow's first request (the authorize URL) and once on the WAF edge the
+ * sign-up comes back through; a single lucky CONNECT is not enough, a line in a
+ * bad phase fails one of the three and is buried without costing an attempt.
+ */
+async function probeHop(proxy, url, timeoutMs, attempts) {
+  let ok = 0;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      await fetchUrl(url, { proxy, timeoutMs, follow: false });
+      ok += 1;
+    } catch (e) {
+      /* keep the count honest */
+    }
+  }
+  return ok;
+}
+
+async function lineAlive(proxy, timeoutMs = 20000) {
+  if (!proxy) return true;
+  // one cheap ask: the steps themselves retry across lines, this only keeps the
+  // clearly dead entries from being handed out at all
+  const budget = isLocalLine(proxy) ? Math.max(timeoutMs, 30000) : Math.min(timeoutMs, 10000);
+  return (await probeHop(proxy, PROBE_URL, budget, 1)) >= 1;
+}
+
+/**
+ * GET /v1/models with `key`, on the next pool line each try. A 401 is final —
+ * that is the key's own answer, no proxy will change it; anything else gets
+ * another line.
+ */
+async function verifyAcross(key, pool, tries) {
+  let last = { ok: false, status: 0, error: 'no proxy left' };
+  const attempts = pool.size ? tries : 1;
+  for (let t = 0; t < attempts; t++) {
+    const proxy = pool.size ? pool.next() : null;
+    if (pool.size && !proxy) break;
+    const res = await verifyKey(key, { proxy, timeoutMs: 30000 });
+    if (res.ok) return { ...res, proxy: proxy ? label(proxy) : 'direct' };
+    if (res.status === 401) return res;
+    last = res;
+    if (proxy && !res.status) pool.strike(proxy);
+  }
+  return last;
+}
+
+/**
+ * createAccount, retried on a fresh pool line per attempt. Each line is probed at
+ * the moment of use — free exits die between the screener's verdict and the
+ * attempt — and a line that cannot answer is buried there and then, without
+ * costing one of the account's attempts.
+ */
+async function createWithRetries(baseOpts, pool, tries, log, stats) {
+  let lastErr = null;
+  const attempts = pool.size ? tries : 1;
+  const maxProbes = pool.size ? Math.max(4, tries * 2) : 0;
+  let probes = 0;
+  for (let t = 0; t < attempts; t++) {
+    let proxy = pool.size ? pool.next() : null;
+    if (pool.size && !proxy) {
+      lastErr = lastErr || new Error('every proxy line has been taken out of rotation');
+      break;
+    }
+    let chosen = proxy;
+    while (chosen && probes < maxProbes) {
+      stats.probes += 1;
+      probes += 1;
+      if (isLocalLine(chosen)) {
+        // the pool's façade: ask once and use it either way — its upstreams are
+        // raced per CONNECT, so a probe failure here says nothing about the line
+        await lineAlive(chosen, 30000);
+        break;
+      }
+      if (await lineAlive(chosen, Math.min(20000, baseOpts.timeoutMs))) break;
+      stats.probeFails += 1;
+      pool.strike(chosen);
+      log(`    ~ ${label(chosen)} cannot answer api.workos.com (probe ${probes}/${maxProbes})`);
+      chosen = pool.next();
+    }
+    proxy = chosen;
+    if (!proxy && pool.size) {
+      lastErr = lastErr || new Error('every proxy line failed the use-time probe');
+      break;
+    }
+    log(`    attempt ${t + 1}/${attempts} via ${proxy ? label(proxy) : 'direct'}`);
+    stats.flows += 1;
+    try {
+      const record = await createAccount({ ...baseOpts, proxy, pool, log });
+      record.proxy = proxy ? label(proxy) : null;
+      stats.flowSuccess += 1;
+      return { record, error: null };
+    } catch (e) {
+      lastErr = e;
+      const msg = String(e.message || e).split('\n')[0];
+      if (proxy && NETWORKISH.test(msg)) pool.strike(proxy);
+      log(`    ✘ ${msg.slice(0, 180)}`);
+    }
+  }
+  return { record: null, error: lastErr };
+}
+
+// ---------------------------------------------------------------------- main
+
+async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  if (args.help || args.h) {
+    console.log(HELP);
+    return;
+  }
+
+  const outFile = String(args.out || 'keys.txt');
+
+  if (args['connect-9router']) {
+    const child = spawnSync(
+      process.execPath,
+      [
+        path.join(__dirname, 'connect-9router.js'),
+        '--keys-file', outFile,
+        ...(args.base ? ['--base', String(args.base)] : []),
+        ...(args.password ? ['--password', String(args.password)] : []),
+        ...(args.model ? ['--model', String(args.model)] : []),
+      ],
+      { windowsHide: true, stdio: 'inherit' }
+    );
+    process.exit(child.status === null ? 1 : child.status);
+  }
+  const accountsFile = String(args.accounts || 'accounts.json');
+  const rejectedFile = String(args.rejected || accountsFile.replace(/\.json$/i, '') + '-rejected.json');
+  const inboxProvider = String(args.inbox || 'broker');
+  const broker = String(args.broker || process.env.BASETEN_BROKER || 'http://127.0.0.1:9700');
+  const mailtrapToken = args['mailtrap-token'] || process.env.MAILTRAP_TOKEN || null;
+  const keyPrefix = String(args['key-name'] || 'baseten-bulk');
+  const stepTimeoutMs = Math.max(30, parseInt(args.timeout || '180', 10)) * 1000;
+  const verify = !args['no-verify'];
+  const tries = Math.max(1, parseInt(args.tries || '3', 10));
+  const poolWaitMs = Math.max(0, parseInt(args['pool-wait'] || '600', 10)) * 1000;
+  const pool = new ProxyPool(proxyList(args));
+  const poolFiles = args['proxy-file'] ? [String(args['proxy-file'])] : [];
+  const refreshPool = () => {
+    let added = 0;
+    for (const file of poolFiles) added += pool.merge(parseProxyLines(loadLines(file)));
+    return added;
+  };
+  const hasSource = pool.size || poolFiles.length || args.proxy || process.env.BASETEN_PROXY;
+  if (!hasSource && !args['allow-direct'] && !process.env.BASETEN_ALLOW_DIRECT) {
+    console.error('  refusing to run without a proxy list — pass --proxy-file/--proxy, or --allow-direct');
+    process.exit(1);
+  }
+  if (!hasSource) console.error('  ! no proxy list: every provider call will leave from this machine');
+
+  // ---- verification-only mode -------------------------------------------
+  if (args['verify-only']) {
+    const keys = loadKeys(outFile);
+    if (!keys.length) {
+      console.error(`  no keys in ${outFile}`);
+      process.exit(1);
+    }
+    let ok = 0;
+    for (const key of keys) {
+      refreshPool();
+      const res = await verifyAcross(key, pool, Math.max(tries, 3));
+      if (res.ok) {
+        ok += 1;
+        console.log(`  ✔ ${key.slice(0, 8)}…${key.slice(-4)} -> ${res.status}${res.proxy ? ` via ${res.proxy}` : ''}`);
+      } else {
+        console.error(`  ✘ ${key.slice(0, 8)}…${key.slice(-4)} -> ${res.status || res.error}`);
+      }
+    }
+    console.log(`  verified  : ${ok}/${keys.length} keys answer GET /v1/models with 200`);
+    if (ok < keys.length) process.exitCode = 1;
+    return;
+  }
+
+  // ---- minting ------------------------------------------------------------
+  const count = Math.max(1, parseInt(args.count || '30', 10));
+  const delay = Math.max(0, parseInt(args.delay || '8000', 10));
+  const pendingFile = accountsFile.replace(/\.json$/i, '') + '-pending.json';
+  const accounts = loadAccounts(accountsFile);
+  const rejected = loadAccounts(rejectedFile);
+  const pending = loadAccounts(pendingFile);
+  const directOnly = !hasSource; // --allow-direct and no lines anywhere
+  const keys = loadKeys(outFile);
+  console.log(`  accounts  : ${accounts.length} recorded, target ${count}`);
+  console.log(`  keys      : ${keys.length} in ${outFile}`);
+  console.log(`  inbox     : ${inboxProvider}${inboxProvider === 'broker' ? ` (${broker})` : ''}`);
+  console.log(`  proxies   : ${pool.size ? `${pool.size} lines, rotated per attempt` : directOnly ? 'direct (no proxy configured)' : 'none yet — waiting for the screener'}`);
+  if (pending.length) console.log(`  pending   : ${pending.length} created account(s) waiting for a key check`);
+
+  const maxAttempts = Math.max(count * 3, count + 10);
+  const maxFailures = Math.max(1, parseInt(args['max-failures'] || '8', 10));
+  const stats = { probes: 0, probeFails: 0, flows: 0, flowSuccess: 0 };
+  let attempts = 0;
+  let consecutive = 0;
+
+  /** Commits an account whose key answered 200: the only place keys.txt grows. */
+  const commit = (record, how) => {
+    record.verified = true;
+    accounts.push(record);
+    writeAccounts(accountsFile, accounts);
+    appendKey(outFile, record.key);
+    consecutive = 0;
+    console.log(`    ✔ ${record.email} -> ${record.key.slice(0, 8)}…${record.key.slice(-4)} (via ${how}) · ${accounts.length}/${count}`);
+  };
+
+  /**
+   * A key that could not be checked *yet* is not a lost key — a Baseten account
+   * mints exactly one — so created-but-unverified accounts wait in pending and
+   * are checked again on the next fresh line. Only a 401 is final.
+   */
+  const flushPending = async () => {
+    while (pending.length && pool.alive()) {
+      const record = pending[0];
+      const res = await verifyAcross(record.key, pool, Math.max(tries, 3));
+      if (res.ok) {
+        pending.shift();
+        writeAccounts(pendingFile, pending);
+        commit(record, res.proxy || 'direct');
+      } else if (res.status === 401) {
+        pending.shift();
+        writeAccounts(pendingFile, pending);
+        record.verified = false;
+        record.rejectedReason = 'GET /v1/models -> 401';
+        rejected.push(record);
+        writeAccounts(rejectedFile, rejected);
+        console.error(`    ! pending key ${record.key.slice(0, 8)}… is refused by the API (401) -> ${path.basename(rejectedFile)}`);
+      } else {
+        console.error(`    … pending key not checked yet (${res.status || res.error}) — will retry on a fresh line`);
+        return;
+      }
+    }
+  };
+
+  while (accounts.length < count && attempts < maxAttempts) {
+    attempts += 1;
+    const added = refreshPool();
+    if (added) console.log(`  pool      : +${added} fresh lines picked up (${pool.alive()}/${pool.size} alive)`);
+    // Free lines live for minutes; a dry pool usually means the screener is
+    // about to append more, so wait for it instead of writing the run off.
+    if (!directOnly && !pool.alive()) {
+      let waited = 0;
+      while (!pool.alive() && waited < poolWaitMs) {
+        await sleep(15000);
+        waited += 15000;
+        const n = refreshPool();
+        if (n) console.log(`  pool      : +${n} fresh lines after ${Math.round(waited / 1000)}s (${pool.alive()}/${pool.size} alive)`);
+      }
+      if (!pool.alive()) {
+        console.error(`  aborting: no live proxy line for ${Math.round(poolWaitMs / 1000)}s`);
+        break;
+      }
+    }
+
+    await flushPending();
+    if (accounts.length >= count) break;
+
+    const index = accounts.length + rejected.length + pending.length + 1;
+    console.log(`\n  [${now()}] account ${accounts.length + 1}/${count} · attempt ${attempts}/${maxAttempts}`);
+
+    const { record, error } = await createWithRetries(
+      {
+        index,
+        keyName: `${keyPrefix}-${index}`,
+        inboxProvider,
+        broker,
+        mailtrapToken,
+        timeoutMs: stepTimeoutMs,
+        verify,
+        log: (line) => console.log(`    ${line}`),
+      },
+      pool,
+      tries,
+      (line) => console.log(line),
+      stats
+    );
+
+    if (record) {
+      let how = record.proxy || 'direct';
+      let verified = record.verified;
+      let final401 = false;
+      if (verify && !verified) {
+        const res = await verifyAcross(record.key, pool, Math.max(tries, 3));
+        verified = res.ok;
+        final401 = res.status === 401;
+        if (verified) how = res.proxy || 'direct';
+        else if (!final401) console.error(`    … key not checked yet (${res.status || res.error}) — account held pending`);
+      }
+      record.verified = verified;
+      if (!verify || verified) {
+        commit(record, how);
+      } else if (final401) {
+        record.rejectedReason = 'GET /v1/models -> 401';
+        rejected.push(record);
+        writeAccounts(rejectedFile, rejected);
+        console.error(`    ! key refused by the API (401) -> ${path.basename(rejectedFile)}`);
+      } else {
+        pending.push(record);
+        writeAccounts(pendingFile, pending);
+        console.log(`    … ${pending.length} account(s) pending a key check`);
+      }
+    } else {
+      consecutive += 1;
+      if (error) console.error(`    ✘ ${String(error.message || error).split('\n')[0].slice(0, 200)}`);
+      if (consecutive >= maxFailures) {
+        console.error(`  aborting: ${consecutive} accounts failed in a row — that is the flow being blocked, not the proxies`);
+        break;
+      }
+    }
+    if (delay) await sleep(delay);
+    console.log(`    point-of-use so far: ${stats.probes - stats.probeFails}/${stats.probes} probes answered · ${stats.flowSuccess}/${stats.flows} flows completed`);
+  }
+
+  await flushPending();
+  console.log(`\n  done      : ${accounts.length}/${count} accounts · ${loadKeys(outFile).length} keys in ${outFile}`);
+  console.log(`  accounts  : ${accountsFile}`);
+  console.log(`  point-of-use: ${stats.probes - stats.probeFails}/${stats.probes} lines answered the probe · ${stats.flowSuccess}/${stats.flows} flows completed`);
+  if (pending.length) console.log(`  pending   : ${pending.length} created account(s) whose key was never confirmed — ${pendingFile}`);
+  if (rejected.length) console.log(`  rejected  : ${rejected.length} unverified accounts in ${rejectedFile}`);
+  if (accounts.length < count) process.exitCode = 1;
+}
+
+function parseProxyLines(lines) {
+  return lines
+    .map((l) => String(l).split('#')[0].trim()) // some lists carry inline `# exit=…` notes
+    .filter((l) => l)
+    .map((l) => {
+      try {
+        return parseProxy(l);
+      } catch (e) {
+        return null;
+      }
+    })
+    .filter(Boolean);
+}
+
+function proxyList(args) {
+  let raw = [];
+  if (args['proxy-file']) raw = raw.concat(loadLines(String(args['proxy-file'])));
+  if (args.proxy) raw = raw.concat(String(args.proxy).split(','));
+  if (!raw.length && process.env.BASETEN_PROXY) raw = raw.concat(process.env.BASETEN_PROXY.split(','));
+  return parseProxyLines(raw);
+}
+
+main().catch((e) => {
+  console.error('[fatal]', e.message);
+  process.exit(1);
+});
+
+module.exports = { parseArgs, loadKeys, ProxyPool };
