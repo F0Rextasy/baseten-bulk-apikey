@@ -114,7 +114,7 @@ A key is written to `keys.txt` **only after** the inference API answers with it:
 | Check | Result |
 | --- | --- |
 | `POST https://inference.baseten.co/v1/chat/completions` (`zai-org/GLM-5.3-Flash`) as the live proof | **HTTP 200**, real completion (`finish_reason: "stop"`, `usage` present) — this is what decides the key |
-| `GET https://inference.baseten.co/v1/models`, recorded per account as `modelsStatus` | `200` for the older cohort, `202` + `x-amzn-waf-action: challenge` for fresh keys — recorded, **not** a rejection reason; a `401`/`403` is final and sends the account to `accounts-rejected.json` |
+| `GET https://inference.baseten.co/v1/models`, recorded per account as `modelsStatus` | `202` + `x-amzn-waf-action: challenge` for fresh keys (measured 2026-10-18; the older cohort was recorded at `200` on 2026-10-14) — recorded, **not** a rejection reason; a `401`/`403` is final and sends the account to `accounts-rejected.json` |
 | accounts vs keys | one key per account — no account contributes more than one key |
 
 ```bash
