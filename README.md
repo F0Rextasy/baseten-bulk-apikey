@@ -139,17 +139,32 @@ inbox (one address per account)                                  a fresh address
 
 ## ⚙️ CLI options
 
+**`src/browser-batch.js`** — the account-per-key path (Chrome sign-up + Node key mint + live verification):
+
 | Flag | Default | Meaning |
 | --- | --- | --- |
 | `--target <n>` | `30` | how many **verified** keys the list should end up with — any N, no cap |
-| `--out <file>` | `keys.txt` | one verified key per line |
-| `--accounts <file>` | `accounts.json` | account records (e-mail, key, prefix, exit, verification) |
 | `--pool-browser <file>` | — | proxy list for the browser egress (one per line) |
+| `--per-run <n>` | `5` | accounts per browser session |
 | `--max-failures <n>` | `5` | stop after this many consecutive failures |
 | `--code-timeout <ms>` | `180000` | how long to wait for the magic-code mail |
+| `--warp <socks>` | — | pin a WARP SOCKS egress |
+| `--broker <url>` | — | inbox broker endpoint |
+
+**`src/cli.js`** — the older HTTP-only variant:
+
+| Flag | Default | Meaning |
+| --- | --- | --- |
+| `--count <n>` | `30` | accounts to mint |
+| `--out <file>` | `keys.txt` | one verified key per line |
+| `--accounts <file>` | `accounts.json` | account records (e-mail, key, prefix, exit, verification) |
+| `--rejected <file>` | `accounts-rejected.json` | accounts whose key never verified |
+| `--proxy` / `--proxy-file <file>` | — | egress, or a pool file |
+| `--inbox <mode>` · `--broker <url>` | — | inbox backend |
+| `--allow-direct` | off | permit an unproxied run |
 | `--verify-only` | off | re-verify the keys in `--out` instead of minting |
 
-`cli.js` additionally takes `--count`, `--proxy` / `--proxy-file`, `--inbox`, `--broker` and `--allow-direct`.
+Data files are fixed for `browser-batch.js` and live in the repository root: `keys.txt`, `accounts.json`, `browser-pending.json`, `browser-accounts.jsonl`.
 
 ## 🛰️ Behind a proxy
 
