@@ -30,6 +30,9 @@ const { spawnSync } = require('child_process');
 const CONFIG = path.join(ROOT, 'launcher.config.json');
 const BATCH = path.join(__dirname, 'browser-batch.js');
 
+// Leftovers of a crashed browser run (a profile is 40-90 MB each) go after 12 h.
+require('./chrome-flags.js').sweepProfiles('.bt-chrome-');
+
 const defaults = {
   target: 30,
   out: 'keys.txt',

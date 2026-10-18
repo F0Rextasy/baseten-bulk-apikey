@@ -30,6 +30,10 @@ const { CookieJar } = require('./http');
 const { createKey, verifyKey } = require('./account');
 const { parseProxy, label, loadProxyList } = require('./proxy');
 
+// The shared RepoTurbo pack: Chrome binary, lean memory flags, per-profile
+// fingerprint (UA / viewport / locale / timezone) and profile sweeps.
+const { chromePath, leanArgs, fingerprintForSeed } = require('./chrome-flags.js');
+
 const ROOT = path.resolve(__dirname, '..'); // data root (the repo root)
 
 // ---------------------------------------------------------------- dependencies
@@ -48,10 +52,14 @@ function loadCdp() {
 }
 const CDP = loadCdp();
 
+/** Chrome binary: SD_CHROME / the stock install path come from chrome-flags.js
+ *  (the shared pack); CHROME_PATH and this machine's own install stay as
+ *  fallbacks, and only a path that exists on disk is ever returned. */
 function findChrome() {
   const candidates = [
+    process.env.SD_CHROME,
+    chromePath(),
     process.env.CHROME_PATH,
-    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
     'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
     path.join(os.homedir(), 'AppData', 'Local', 'Google', 'Chrome', 'Application', 'chrome.exe'),
   ].filter(Boolean);
@@ -109,30 +117,35 @@ function killChrome(child) {
   }
 }
 
-/** Chrome answers CDP on loopback; the page itself must never see the LAN. */
+/** Chrome answers CDP on loopback; the page itself must never see the LAN.
+ *  Flags and the per-profile identity (viewport, locale, timezone) come from
+ *  the shared chrome-flags.js pack; a headed run keeps Chrome's own UA. */
 function launchChrome(port, profileDir, proxyUrl) {
-  const args = [
-    `--remote-debugging-port=${port}`,
-    `--user-data-dir=${profileDir}`,
-    '--no-first-run',
-    '--no-default-browser-check',
-    '--disable-background-networking',
-    '--disable-component-update',
-    '--disable-sync',
-    '--disable-domain-reliability',
-    '--disable-client-side-phishing-detection',
-    '--disable-breakpad',
-    '--disable-default-apps',
-    '--no-service-autorun',
-    '--metrics-recording-only',
-    '--password-store=basic',
-    '--disable-features=Translate,MediaRouter,OptimizationHints',
-    '--window-size=1280,900',
-    '--window-position=40,40',
-    proxyUrl ? `--proxy-server=${proxyUrl}` : null,
-    'about:blank',
-  ].filter(Boolean);
-  return spawn(CHROME, args, { detached: true, stdio: 'ignore', windowsHide: false });
+  const fp = fingerprintForSeed(profileDir);
+  const args = leanArgs({
+    extra: [
+      `--remote-debugging-port=${port}`,
+      `--user-data-dir=${profileDir}`,
+      '--disable-component-update',
+      '--disable-domain-reliability',
+      '--disable-client-side-phishing-detection',
+      '--disable-breakpad',
+      '--no-service-autorun',
+      '--metrics-recording-only',
+      '--password-store=basic',
+      `--window-size=${fp.windowSize}`,
+      '--window-position=40,40',
+      `--lang=${fp.locale.lang}`,
+      proxyUrl ? `--proxy-server=${proxyUrl}` : null,
+      'about:blank',
+    ].filter(Boolean),
+  });
+  return spawn(CHROME, args, {
+    detached: true,
+    stdio: 'ignore',
+    windowsHide: false,
+    env: { ...process.env, TZ: fp.timezone },
+  });
 }
 
 function ownIp() {
