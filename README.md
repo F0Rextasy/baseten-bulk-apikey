@@ -24,6 +24,12 @@
 
 </div>
 
+<div align="center">
+
+**English** · [Türkçe](README.tr.md) · [中文](README.cn.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)
+
+</div>
+
 ---
 
 ## ✨ Why this exists
@@ -54,13 +60,20 @@ A freshly minted key serves **12 model APIs** on `/v1/chat/completions` (measure
 
 > ⚠️ `GET /v1/models` is **not** a reliable health check for a fresh key: the edge answers a brand-new account's key with **202**, an empty body and `x-amzn-waf-action: challenge`, while the same key answers `/v1/chat/completions` with **200**. A key with no auth header gets a plain **401**. The tool therefore treats the chat completion as the proof and records `modelsStatus` (usually `202`) alongside it.
 
-| Family | Model IDs |
-| --- | --- |
-| **Z.ai (GLM)** | `zai-org/GLM-5.3`, `zai-org/GLM-5.3-Fast`, `zai-org/GLM-5.3-Flash`, `zai-org/GLM-5.2`, `zai-org/GLM-5.2-Fast` |
-| **DeepSeek** | `deepseek-ai/DeepSeek-V4.1-Flash`, `deepseek-ai/DeepSeek-V4.1-Flash-Fast`, `deepseek-ai/DeepSeek-V4-Pro-0813`, `deepseek-ai/DeepSeek-V4-Flash-0731` |
-| **Moonshot** | `moonshotai/Kimi-K3` |
-| **NVIDIA** | `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B` |
-| **OpenAI (open weights)** | `openai/gpt-oss-120b` |
+|Model|✓|
+|---|---|
+|`zai-org/GLM-5.3`|✓|
+|`zai-org/GLM-5.3-Fast`|✓|
+|`zai-org/GLM-5.3-Flash`|✓|
+|`zai-org/GLM-5.2`|✓|
+|`zai-org/GLM-5.2-Fast`|✓|
+|`deepseek-ai/DeepSeek-V4.1-Flash`|✓|
+|`deepseek-ai/DeepSeek-V4.1-Flash-Fast`|✓|
+|`deepseek-ai/DeepSeek-V4-Pro-0813`|✓|
+|`deepseek-ai/DeepSeek-V4-Flash-0731`|✓|
+|`moonshotai/Kimi-K3`|✓|
+|`nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B`|✓|
+|`openai/gpt-oss-120b`|✓|
 
 Live probe of one key — this is exactly what the tool runs before it accepts a key:
 
@@ -113,8 +126,8 @@ A key is written to `keys.txt` **only after** the inference API answers with it:
 
 | Check | Result |
 | --- | --- |
-| `POST https://inference.baseten.co/v1/chat/completions` (`zai-org/GLM-5.3-Flash`) as the live proof | **HTTP 200**, real completion (`finish_reason: "stop"`, `usage` present) — this is what decides the key |
-| `GET https://inference.baseten.co/v1/models`, recorded per account as `modelsStatus` | `202` + `x-amzn-waf-action: challenge` for fresh keys (measured 2026-10-18; the older cohort was recorded at `200` on 2026-10-14) — recorded, **not** a rejection reason; a `401`/`403` is final and sends the account to `accounts-rejected.json` |
+| `POST https://inference.baseten.co/v1/chat/completions` (`zai-org/GLM-5.3-Flash`) as the live proof | **HTTP 200**, real completion (`finish_reason: "stop"`, `usage` present) — the decisive check |
+| `GET https://inference.baseten.co/v1/models`, recorded per account as `modelsStatus` | `202` + waf challenge for fresh keys; older cohort `200`; `401`/`403` final → `accounts-rejected.json` |
 | accounts vs keys | one key per account — no account contributes more than one key |
 
 ```bash
