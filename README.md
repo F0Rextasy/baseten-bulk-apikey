@@ -1,59 +1,66 @@
 <div align="center">
 
 ```
-██████╗   █████╗  ███████╗ ███████╗ ████████╗ ███████╗ ███╗   ██╗
-██╔══██╗ ██╔══██╗ ██╔════╝ ██╔════╝ ╚══██╔══╝ ██╔════╝ ████╗  ██║
-██████╔╝ ███████║ ███████╗ █████╗      ██║    █████╗   ██╔██╗ ██║
-██╔══██╗ ██╔══██║ ╚════██║ ██╔══╝      ██║    ██╔══╝   ██║╚██╗██║
-██████╔╝ ██║  ██║ ███████║ ███████╗    ██║    ███████╗ ██║ ╚████║
-╚═════╝  ╚═╝  ╚═╝ ╚══════╝ ╚══════╝    ╚═╝    ╚══════╝ ╚═╝  ╚══╝
+██████╗  █████╗ ███████╗███████╗████████╗███████╗███╗   ██╗
+██╔══██╗██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔════╝████╗  ██║
+██████╔╝███████║███████╗█████╗     ██║   █████╗  ██╔██╗ ██║
+██╔══██╗██╔══██║╚════██║██╔══╝     ██║   ██╔══╝  ██║╚██╗██║
+██████╔╝██║  ██║███████║███████╗   ██║   ███████╗██║ ╚████║
+╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═══╝
 ```
 
 # baseten-bulk-apikey
 
-**Bulk-create Baseten accounts with auto-generated API keys — OpenAI-compatible + 9Router connector.**
+**Bulk-create Baseten accounts with auto-generated API keys — OpenAI-compatible inference + 9Router connector.**
 
 [![Node](https://img.shields.io/badge/Node-%E2%89%A518-3DA639?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-blue?style=for-the-badge)](#)
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
-[![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6.svg?style=for-the-badge)](#-connect-to-9router)
-[![Models](https://img.shields.io/badge/model%20APIs-12-412991?style=for-the-badge&logo=openai&logoColor=white)](https://docs.baseten.co/)
+[![Models](https://img.shields.io/badge/models-12%20served-412991?style=for-the-badge)](https://docs.baseten.co/)
+[![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Quick start](#-quick-start) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🤖 Models & free tier](#-models--free-tier) · [🔌 9Router](#-connect-to-9router) · [🔑 What one key gets you](#-what-one-key-gets-you) · [⚙️ Options](#️-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
+[🛠 Quick start](#-quick-start) · [🎁 Free tier](#-free-tier--how-much-you-get) · [🤖 Models](#-models--all-12-of-them) · [🧪 Use the API](#-how-to-use-the-api) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
 
 </div>
 
 ---
 
-> **Mint as many accounts/keys as you need — there is no cap.** `--target N` / `--count N` (default `30`)
-> accepts any N.
-
 ## ✨ Why this exists
 
-Baseten gives every **new workspace** its own free credits, and an API key belongs to the workspace —
-so *N independent keys means N accounts*. This tool drives that whole lifecycle end to end: inbox →
-sign-in with the e-mail code → account session → `create_user_api_key` GraphQL mutation → live
-verification with a real chat completion. No dashboard clicking, no key copy-pasted by hand.
+Baseten gives every **new workspace** its own free credits, and an API key belongs to the workspace — so *N independent keys means N accounts*. This tool drives that whole lifecycle end to end: inbox → sign-in with the e-mail code → account session → `create_user_api_key` GraphQL mutation → live verification with a real chat completion. No dashboard clicking, no key copy-pasted by hand.
 
-## 🤖 Models & free tier
+## 🎁 Free tier — how much you get
+
+**Every new Baseten workspace gets free sign-up credits — no card, e-mail sign-up — and the credit lives on the workspace, not on the key.**
+
+| What | Value |
+| --- | --- |
+| Welcome allowance | free credits granted per **new workspace** at sign-up (balance shown at [app.baseten.co](https://app.baseten.co)) |
+| Card required | **No** |
+| What the key carries | a `PERSONAL` key scoped to its workspace, valid on all **12 model endpoints** |
+| Sign-up | e-mail + 6-digit code read from the inbox |
+| The unit that scales | **one workspace = one key** → `--target N` is really "N free workspaces" |
+
+> 💡 The free tier is set by Baseten and can change. Check the live numbers at [baseten.co](https://baseten.co) — and let the tool's own gate decide:
+
+```bash
+node src/cli.js --verify-only     # every key in keys.txt is re-tested with a real chat call
+```
+
+## 🤖 Models — all 12 of them
 
 A freshly minted key answers `GET https://inference.baseten.co/v1/models` with **12 model APIs**:
 
-| Model ID | Notes |
+| Family | Model IDs |
 | --- | --- |
-| `zai-org/GLM-5.3`, `zai-org/GLM-5.3-Fast`, `zai-org/GLM-5.3-Flash` | GLM 5.3 family, fast + flash variants |
-| `zai-org/GLM-5.2`, `zai-org/GLM-5.2-Fast` | previous GLM generation |
-| `deepseek-ai/DeepSeek-V4.1-Flash`, `deepseek-ai/DeepSeek-V4.1-Flash-Fast` | DeepSeek V4.1 flash |
-| `deepseek-ai/DeepSeek-V4-Pro-0813`, `deepseek-ai/DeepSeek-V4-Flash-0731` | DeepSeek V4 pro / flash |
-| `moonshotai/Kimi-K3` | Moonshot Kimi K3 |
-| `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B` | NVIDIA Nemotron 3 Ultra |
-| `openai/gpt-oss-120b` | OpenAI's open-weight 120B |
+| **Z.ai (GLM)** | `zai-org/GLM-5.3`, `zai-org/GLM-5.3-Fast`, `zai-org/GLM-5.3-Flash`, `zai-org/GLM-5.2`, `zai-org/GLM-5.2-Fast` |
+| **DeepSeek** | `deepseek-ai/DeepSeek-V4.1-Flash`, `deepseek-ai/DeepSeek-V4.1-Flash-Fast`, `deepseek-ai/DeepSeek-V4-Pro-0813`, `deepseek-ai/DeepSeek-V4-Flash-0731` |
+| **Moonshot** | `moonshotai/Kimi-K3` |
+| **NVIDIA** | `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B` |
+| **OpenAI (open weights)** | `openai/gpt-oss-120b` |
 
-**The free tier is a workspace, not a key.** Baseten hands every **new workspace** free credits at
-sign-up (e-mail sign-up, **no card**), and the credits live on the workspace. That is exactly the unit
-this tool multiplies: **one account per key**, each account being a fresh workspace with its own
-sign-up credits — so `--target N` is really "N free workspaces".
+Live probe of one key — this is exactly what the tool runs before it accepts a key:
 
 ```bash
 curl https://inference.baseten.co/v1/chat/completions \
@@ -62,60 +69,20 @@ curl https://inference.baseten.co/v1/chat/completions \
   -d '{"model":"zai-org/GLM-5.3-Flash","messages":[{"role":"user","content":"hi"}]}'
 ```
 
-> 💡 Credit amounts, model prices and rate limits are set by Baseten on your plan and change over time.
-> The remaining balance is shown in the dashboard at [app.baseten.co](https://app.baseten.co) — free
-> credits are a sign-up bonus, not an endless supply, so check the balance before you burn through it.
+## 🧪 How to use the API
 
-## 🔌 Connect to 9Router
+The base URL is **`https://inference.baseten.co/v1`** — OpenAI-compatible, so anything that speaks OpenAI works.
 
-Baseten is OpenAI-compatible, so register it once and use every key:
+**Any SDK / curl**
 
-```bash
-node src/connect-9router.js \
-  --base http://localhost:20128 --password 123456 \
-  --keys-file keys.txt
+```python
+from openai import OpenAI
+client = OpenAI(base_url="https://inference.baseten.co/v1", api_key="<your key>")
+print(client.chat.completions.create(model="zai-org/GLM-5.3-Flash",
+      messages=[{"role": "user", "content": "hi"}]).choices[0].message.content)
 ```
 
-Every key in `keys.txt` becomes one connection of the `baseten` provider node
-(`--api-key <key>` registers a single key instead, `--model <id>` overrides the
-default). Then pick a model inside 9Router:
-
-```
-baseten/openai/gpt-oss-120b
-baseten/deepseek-ai/DeepSeek-V4.1-Flash
-baseten/zai-org/GLM-5.3-Flash
-```
-
-Point the connector at a refreshed `keys.txt` to add more accounts; the node and
-its model list stay the same. `node src/launcher.js --connect-9router` runs exactly
-this and asks for the base URL and password first.
-
-## 🔑 What one key gets you
-
-| | |
-| --- | --- |
-| 🏢 Provider | **Baseten** — [baseten.co](https://baseten.co) · dashboard at [app.baseten.co](https://app.baseten.co) |
-| 🎁 What the provider gives | A free workspace (e-mail sign-up, **no card**) with free credits on the workspace, plus OpenAI-compatible **Model APIs** |
-| 🔑 What one key gets you | A `PERSONAL` key scoped to its workspace: all **12 model endpoints above**, at your plan's limits. Credit lives on the **workspace**, which is exactly why this tool creates one account per key |
-| 🌐 API shape | OpenAI-compatible: `POST https://inference.baseten.co/v1/chat/completions` |
-| 🔒 Your data | Only the inbox broker, the sign-in host, `app.baseten.co/graphql/` and `inference.baseten.co` are contacted; keys stay on your machine |
-
-## 🧭 How it works
-
-```
-inbox (broker: Mailtrap / inboxes.com, one address per account)      a fresh address per account
-   │
-   ├─▶ Chrome: sign-in page → e-mail → 6-digit code from the inbox
-   ├─▶ Chrome: code → account session cookies
-   ├─▶ Node:   POST https://app.baseten.co/graphql/  → CreateUserApiKey → { textKey, prefix }
-   │        (the key text is returned exactly once — it is written to disk immediately)
-   └─▶ Node:   POST https://inference.baseten.co/v1/chat/completions  → real content = key is live
-```
-
-The sign-up half runs in a real Chrome (driven over CDP, one window at a time, closed as soon as the
-session cookies are in hand) because the sign-in page issues its own request; the key-minting and
-verification half is plain Node over HTTP. `browser-batch.js` is that account-per-key path;
-`cli.js` is an older pure-HTTP variant kept for reference.
+**Any agent / tool with a custom base URL** (Cursor, OpenCode, Kilo Code, …): set base URL `https://inference.baseten.co/v1`, paste a key, pick any model id from the table above.
 
 ## 🛠 Quick start
 
@@ -124,27 +91,6 @@ verification half is plain Node over HTTP. `browser-batch.js` is that account-pe
 cd baseten-bulk-apikey
 node src/launcher.js          # interactive: mint / verify / settings / help
 ```
-
-### 🖱️ The launcher
-
-```
-╔═══════════════════════════════════════════════════════════════════════════════╗
-║  ███████╗ ██████╗ ██████╗ ███████╗██╗  ██╗████████╗ █████╗ ███████╗██╗   ██╗  ║
-║  ██╔════╝██╔═████╗██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔════╝╚██╗ ██╔╝  ║
-║  █████╗  ██║██╔██║██████╔╝█████╗   ╚███╔╝    ██║   ███████║███████╗ ╚████╔╝   ║
-║  ██╔══╝  ████╔╝██║██╔══██╗██╔══╝   ██╔██╗    ██║   ██╔══██║╚════██║  ╚██╔╝    ║
-║  ██║     ╚██████╔╝██║  ██║███████╗██╔╝ ██╗   ██║   ██║  ██║███████║   ██║     ║
-║  ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝   ╚═╝     ║
-║  baseten-bulk-apikey                                                          ║
-║  one account → one key, any number                                            ║
-╚═══════════════════════════════════════════════════════════════════════════════╝
-  baseten-bulk-apikey contributors · MIT
-```
-
-It asks for the account count, the output file, the inbox backend and an optional proxy / proxy-list,
-remembers the answers in `launcher.config.json`, and runs the CLI for you.
-
-### ⌨️ Directly
 
 ```bash
 # account-per-key path (Chrome sign-up + Node key mint + live verification)
@@ -155,15 +101,9 @@ node src/cli.js --count 30 --out keys.txt --proxy-file proxies.txt \
             --inbox broker --broker http://127.0.0.1:9700
 ```
 
-```
-  accounts  : 0/30 · inbox broker · 1 proxy line(s)
-  [1] <your-mailtrap-inbox> · magic code 7310… · key <key> → chat 200
-  …
-  accounts  : 30/30 · verified 30 · keys.txt (one key per line)
-```
+### 🖱️ The launcher
 
-`--target` / `--count` take any number; the file already on disk counts towards it, so a re-run
-continues where the last one stopped.
+The launcher asks for the account count, the output file, the inbox backend and an optional proxy / proxy-list, remembers the answers in `launcher.config.json`, and runs the CLI for you.
 
 ## ✅ Verified working — every key is tested
 
@@ -171,15 +111,33 @@ A key is written to `keys.txt` **only after** the inference API answers with it:
 
 | Check | Result |
 | --- | --- |
-| `GET https://inference.baseten.co/v1/models` for **every** key right after creation | recorded per account in `accounts.json`; a key that fails goes to `accounts-rejected.json` instead of the list |
+| `GET https://inference.baseten.co/v1/models` for **every** key right after creation | recorded per account in `accounts.json`; a key that fails goes to `accounts-rejected.json` |
 | `POST https://inference.baseten.co/v1/chat/completions` (`zai-org/GLM-5.3-Flash`) as the live proof | **HTTP 200**, real completion (`content: "ok"`, `finish_reason: "stop"`) |
-| Accounts vs keys | one key per account — no account contributes more than one key |
+| accounts vs keys | one key per account — no account contributes more than one key |
 
 ```bash
 node src/cli.js --verify-only --out keys.txt   # re-check the whole list at any time
 ```
 
-## ⚙️ Options
+## 🧭 How it works
+
+```
+inbox (one address per account)                                  a fresh address per account
+   │
+   ├─▶ sign-up: Baseten page → e-mail address → code / link from the inbox
+   ├─▶ session: the account's cookies or access token in hand
+   ├─▶ key mint: the account's key endpoint → plaintext key returned once (written to disk immediately)
+   └─▶ live proof: POST https://inference.baseten.co/v1/chat/completions → real content = the key is live
+```
+
+| Step | Call | Notes |
+| --- | --- | --- |
+| sign-in | Chrome sign-in page → e-mail → 6-digit code from the inbox | driven over CDP, one window at a time |
+| session | the account's cookies | the browser is closed as soon as the cookies are in hand |
+| key | `POST https://app.baseten.co/graphql/` → `CreateUserApiKey` | `{ textKey, prefix }` returned exactly once |
+| check | `POST https://inference.baseten.co/v1/chat/completions` | live 200 required before `keys.txt` |
+
+## ⚙️ CLI options
 
 | Flag | Default | Meaning |
 | --- | --- | --- |
@@ -191,50 +149,61 @@ node src/cli.js --verify-only --out keys.txt   # re-check the whole list at any 
 | `--code-timeout <ms>` | `180000` | how long to wait for the magic-code mail |
 | `--verify-only` | off | re-verify the keys in `--out` instead of minting |
 
-The older `cli.js` path takes `--count`, `--out`, `--proxy` / `--proxy-file`, `--inbox`, `--broker`
-and `--allow-direct`.
-
-A key is written to `keys.txt` **only after** the live chat check passes; accounts whose mint or
-verification failed are kept in `browser-pending.json` / `accounts.json` so nothing is lost.
+`cli.js` additionally takes `--count`, `--proxy` / `--proxy-file`, `--inbox`, `--broker` and `--allow-direct`.
 
 ## 🛰️ Behind a proxy
 
-**Recommended for anything beyond a handful of accounts.** One account per key means one sign-up per
-key, and a proxy list gives every sign-up its own exit.
+**Recommended for anything beyond a handful of accounts.** One account per key means one sign-up per key, and a proxy list gives every sign-up its own exit.
 
 ```bash
 node src/browser-batch.js --target 30 --pool-browser proxies.txt
 node src/cli.js --count 30 --out keys.txt --proxy-file proxies.txt
 ```
 
-Proxies are loaded per line (`http://`, `socks5://`, `socks4://`, or bare `host:port`) and rotated per
-account, with retries on a dead line. `cli.js` refuses to run unproxied unless you pass
-`--allow-direct`, so there is no accidental leak of your own address.
+Proxies are loaded per line (`http://`, `socks5://`, `socks4://`, or bare `host:port`) and rotated per account, with retries on a dead line. `cli.js` refuses to run unproxied unless you pass `--allow-direct`.
 
 ## 📄 Files
 
 | Path | Contents |
 | --- | --- |
-| `src/` | the tool — run it as `node src/<file>.js` from the repository root (`src/launcher.js`, `src/cli.js`, `src/browser-batch.js`) |
 | `keys.txt` | verified keys, one per line — git-ignored, never committed |
 | `accounts.json` | account records (e-mail, key, prefix) — git-ignored |
 | `accounts-rejected.json` | accounts whose key never verified — useful for retries |
 | `launcher.config.json` | what the launcher remembers |
 | `src/connect-9router.js` | registers the keys in `keys.txt` as 9Router connections (zero-dep) |
 
+## 🔌 Connect to 9Router
+
+[9Router](https://9router.com) is a self-hosted, OpenAI-compatible router. Baseten ships an OpenAI-compatible endpoint, so register it once and every key becomes a connection under one provider-node:
+
+```bash
+node src/connect-9router.js \
+  --base http://localhost:20128 --password 123456 \
+  --keys-file keys.txt
+```
+
+Defaults: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Models are then served as `baseten/<model id>` and load-balanced across every key. Point the connector at a refreshed `keys.txt` to add more accounts; the node and its model list stay the same.
+
+## 🔑 What one key gets you
+
+| | |
+| --- | --- |
+| 🏢 Provider | **Baseten** — [baseten.co](https://baseten.co) |
+| 🎁 What the provider gives | one account (workspace) per key — every key chat-verified on the Model APIs |
+| 🔑 What one key gets you | one API key scoped to its own account: the 12 model ids on the endpoint below, at your plan's limits. The quota lives on the **account**, which is exactly why this tool creates one account per key |
+| 🌐 API shape | OpenAI-compatible: `POST https://inference.baseten.co/v1/chat/completions` |
+| 🔒 Your data | only baseten.co and the inbox backend you configure are contacted; keys stay on your machine |
+
 ## 🐞 Issues
 
-If Baseten changes the sign-in flow, the GraphQL mutation or the inbox behaviour, the tool stops at
-that step and says so. **[Open an issue](../../issues)**
-with the command you ran and the exact output; PRs are welcome.
+If Baseten changes the sign-in flow, the GraphQL mutation or the inbox behaviour, the tool stops at that step and says so. **[Open an issue](../../issues)** with the command you ran and the exact output; PRs are welcome.
 
 ## 📄 License
 
-MIT © 2026 — see [LICENSE](LICENSE). Baseten's own terms and rate limits apply to whatever you do with
-the keys; use this for your own accounts.
+MIT © 2026 — see [LICENSE](LICENSE).
 
 <div align="center">
 
-**baseten-bulk-apikey contributors** · **[x.com/bigbullapp](https://x.com/bigbullapp)**
+**[MIT](LICENSE)** © 2026 baseten-bulk-apikey contributors
 
 </div>
