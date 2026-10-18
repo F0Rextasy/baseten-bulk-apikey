@@ -15,6 +15,17 @@ const http = require('http');
 const https = require('https');
 const { URL } = require('url');
 const { createAgent } = require('./proxy');
+const { AsyncLocalStorage } = require('async_hooks');
+const { uaPool } = require('./ua-pool');
+
+// Per-account fingerprint (operator standard v3): a task wrapped in withUa()
+// sends its own UA from the ua-pool; outside such a task the caller's fixed
+// header stays exactly as before. Inside one, the pool UA wins over baseHeaders
+// so no two accounts of a fleet share a UA.
+const SESS = new AsyncLocalStorage();
+const DEFAULT_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36';
+const activeUa = (dflt) => { const s = SESS.getStore(); return (s && s.ua) || dflt; };
+const withUa = (ua, fn) => SESS.run({ ua: ua || uaPool()[0] }, fn);
 
 // --------------------------------------------------------------------- cookies
 
@@ -170,12 +181,14 @@ async function fetchUrl(url, options = {}) {
           : Buffer.from(typeof currentBody === 'string' ? currentBody : JSON.stringify(currentBody));
 
     const finalHeaders = {
-      'User-Agent':
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36',
+      'User-Agent': activeUa(DEFAULT_UA),
       Accept: 'application/json, text/plain, */*',
       'Accept-Language': 'en-US,en;q=0.9',
       ...headers,
     };
+    // A per-account context UA overrides whatever the caller pinned.
+    const sessUa = SESS.getStore() && SESS.getStore().ua;
+    if (sessUa) finalHeaders['User-Agent'] = sessUa;
     if (payload && !hasHeader(finalHeaders, 'content-length')) finalHeaders['Content-Length'] = String(payload.length);
     if (payload && typeof currentBody !== 'string' && !Buffer.isBuffer(currentBody) && !hasHeader(finalHeaders, 'content-type')) {
       finalHeaders['Content-Type'] = 'application/json';
@@ -256,4 +269,4 @@ async function fetchJson(url, options = {}) {
   return res;
 }
 
-module.exports = { CookieJar, fetchUrl, fetchJson, sleep };
+module.exports = { CookieJar, fetchUrl, fetchJson, sleep, activeUa, withUa, DEFAULT_UA };

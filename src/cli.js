@@ -31,7 +31,9 @@ const { spawnSync } = require('child_process');
 const { createAccount, verifyKey, KEY_RE, AUTHORIZE, CLIENT_ID, REDIRECT_URI } = require('./account');
 const { makeInbox } = require('./inbox');
 const { parseProxy, label } = require('./proxy');
-const { fetchUrl } = require('./http');
+const { fetchUrl, withUa } = require('./http');
+const { presetArgv, resolvePreset } = require('./preset');
+const { uaFor } = require('./ua-pool');
 
 const VERSION = (() => {
   for (const dir of [__dirname, path.join(__dirname, '..')]) {
@@ -71,6 +73,10 @@ Options:
   --accounts <file>      account records (email, key, prefix)  [accounts.json]
   --rejected <file>      accounts whose key never verified  [accounts-rejected.json]
   --delay <ms>           pause between accounts                       [8000]
+  --preset=<name>        run shape: turbo (5 accounts in flight) · balanced (4)
+                         · safe (2); sets --conc and the pause unless overridden
+  --conc <n>             accounts created in flight at once                 [1]
+  --gap <s>              pause before every account start, seconds           [8]
   --tries <n>            proxy lines tried per account, one per attempt  [3]
   --pool-wait <s>        when the pool runs dry, wait up to this long for
                          freshly screened lines to arrive               [600]
@@ -399,7 +405,20 @@ async function main() {
 
   // ---- minting ------------------------------------------------------------
   const count = Math.max(1, parseInt(args.count || '30', 10));
-  const delay = Math.max(0, parseInt(args.delay || '8000', 10));
+  // Presets (operator standard v3): --preset=turbo|balanced|safe picks
+  // account-level parallelism (conc) plus the pause between account starts
+  // (gap, seconds). Explicit --conc/--gap/--delay always win, and without
+  // --preset the run keeps today's shape exactly: one account at a time with
+  // an 8000 ms pause.
+  const presetRun = resolvePreset({
+    preset: args.preset || presetArgv(),
+    conc: args.conc != null ? parseInt(String(args.conc), 10) : null,
+    gap: args.gap != null ? parseInt(String(args.gap), 10) : null,
+    defaultConc: 1,
+    defaultGap: 8,
+  });
+  const conc = Math.max(1, presetRun.conc);
+  const delay = Math.max(0, args.delay != null ? parseInt(String(args.delay), 10) : Math.round(Math.max(0, presetRun.gap) * 1000));
   const pendingFile = accountsFile.replace(/\.json$/i, '') + '-pending.json';
   const accounts = loadAccounts(accountsFile);
   const rejected = loadAccounts(rejectedFile);
@@ -426,6 +445,7 @@ async function main() {
     appendKey(outFile, record.key);
     consecutive = 0;
     console.log(`    ✔ ${record.email} -> ${record.key.slice(0, 8)}…${record.key.slice(-4)} (via ${how}) · ${accounts.length}/${count}`);
+    console.log(`✓ #${record.index != null ? record.index : record.email} KEY ALINDI: ${String(record.key).slice(0, 22)}… [${accounts.length} ok / ${attempts} deneme]`);
   };
 
   /**
@@ -456,87 +476,112 @@ async function main() {
     }
   };
 
-  while (accounts.length < count && attempts < maxAttempts) {
-    attempts += 1;
-    const added = refreshPool();
-    if (added) console.log(`  pool      : +${added} fresh lines picked up (${pool.alive()}/${pool.size} alive)`);
-    // Free lines live for minutes; a dry pool usually means the screener is
-    // about to append more, so wait for it instead of writing the run off.
-    if (!directOnly && !pool.alive()) {
-      let waited = 0;
-      while (!pool.alive() && waited < poolWaitMs) {
-        await sleep(15000);
-        waited += 15000;
-        const n = refreshPool();
-        if (n) console.log(`  pool      : +${n} fresh lines after ${Math.round(waited / 1000)}s (${pool.alive()}/${pool.size} alive)`);
+  // Serializes the shared post-processing (account files, pending queue,
+  // consecutive-failure counter) while account creation itself runs conc-wide.
+  let chain = Promise.resolve();
+  const serial = (fn) => {
+    const p = chain.then(fn, fn);
+    chain = p.catch(() => {});
+    return p;
+  };
+
+  async function mintAccount() {
+    while (accounts.length < count && attempts < maxAttempts) {
+      attempts += 1;
+      const added = refreshPool();
+      if (added) console.log(`  pool      : +${added} fresh lines picked up (${pool.alive()}/${pool.size} alive)`);
+      // Free lines live for minutes; a dry pool usually means the screener is
+      // about to append more, so wait for it instead of writing the run off.
+      if (!directOnly && !pool.alive()) {
+        let waited = 0;
+        while (!pool.alive() && waited < poolWaitMs) {
+          await sleep(15000);
+          waited += 15000;
+          const n = refreshPool();
+          if (n) console.log(`  pool      : +${n} fresh lines after ${Math.round(waited / 1000)}s (${pool.alive()}/${pool.size} alive)`);
+        }
+        if (!pool.alive()) {
+          console.error(`  aborting: no live proxy line for ${Math.round(poolWaitMs / 1000)}s`);
+          return;
+        }
       }
-      if (!pool.alive()) {
-        console.error(`  aborting: no live proxy line for ${Math.round(poolWaitMs / 1000)}s`);
-        break;
-      }
+
+      await serial(flushPending);
+      if (accounts.length >= count) return;
+
+      const index = accounts.length + rejected.length + pending.length + 1;
+      console.log(`\n  [${now()}] account ${accounts.length + 1}/${count} · attempt ${attempts}/${maxAttempts}`);
+      console.log(`… #${index} başladı (${pool.alive() ? `pool ${pool.alive()}/${pool.size}` : directOnly ? 'direct' : 'pool dry'})`);
+
+      // Per-account fingerprint: the whole account flow runs inside withUa so
+      // every provider request of this account carries its own UA (ua-pool).
+      const { record, error } = await withUa(uaFor(index).ua, () => createWithRetries(
+        {
+          index,
+          keyName: `${keyPrefix}-${index}`,
+          inboxProvider,
+          broker,
+          mailtrapToken,
+          timeoutMs: stepTimeoutMs,
+          verify,
+          log: (line) => console.log(`    ${line}`),
+        },
+        pool,
+        tries,
+        (line) => console.log(line),
+        stats
+      ));
+
+      let stop = false;
+      await serial(async () => {
+        if (record) {
+          let how = record.proxy || 'direct';
+          let verified = record.verified;
+          let final401 = false;
+          if (verify && !verified) {
+            const res = await verifyAcross(record.key, pool, Math.max(tries, 3));
+            verified = res.ok;
+            final401 = res.status === 401;
+            if (verified) how = res.proxy || 'direct';
+            else if (!final401) console.error(`    … key not checked yet (${res.status || res.error}) — account held pending`);
+          }
+          record.verified = verified;
+          if (!verify || verified) {
+            commit(record, how);
+          } else if (final401) {
+            record.rejectedReason = 'GET /v1/models -> 401';
+            rejected.push(record);
+            writeAccounts(rejectedFile, rejected);
+            console.error(`    ! key refused by the API (401) -> ${path.basename(rejectedFile)}`);
+            console.error(`✗ #${index} key yok: key refused by the API (401)`);
+          } else {
+            pending.push(record);
+            writeAccounts(pendingFile, pending);
+            console.log(`    … ${pending.length} account(s) pending a key check`);
+            console.log(`✗ #${index} key yok: not checked yet (account held pending)`);
+          }
+        } else {
+          consecutive += 1;
+          if (error) console.error(`    ✘ ${String(error.message || error).split('\n')[0].slice(0, 200)}`);
+          console.error(`✗ #${index} key yok: ${String((error && error.message) || error || 'no record').split('\n')[0].slice(0, 200)}`);
+          if (consecutive >= maxFailures) {
+            console.error(`  aborting: ${consecutive} accounts failed in a row — that is the flow being blocked, not the proxies`);
+            stop = true;
+          }
+        }
+      });
+      if (stop) return;
+      if (delay) await sleep(delay);
+      console.log(`    point-of-use so far: ${stats.probes - stats.probeFails}/${stats.probes} probes answered · ${stats.flowSuccess}/${stats.flows} flows completed`);
     }
-
-    await flushPending();
-    if (accounts.length >= count) break;
-
-    const index = accounts.length + rejected.length + pending.length + 1;
-    console.log(`\n  [${now()}] account ${accounts.length + 1}/${count} · attempt ${attempts}/${maxAttempts}`);
-
-    const { record, error } = await createWithRetries(
-      {
-        index,
-        keyName: `${keyPrefix}-${index}`,
-        inboxProvider,
-        broker,
-        mailtrapToken,
-        timeoutMs: stepTimeoutMs,
-        verify,
-        log: (line) => console.log(`    ${line}`),
-      },
-      pool,
-      tries,
-      (line) => console.log(line),
-      stats
-    );
-
-    if (record) {
-      let how = record.proxy || 'direct';
-      let verified = record.verified;
-      let final401 = false;
-      if (verify && !verified) {
-        const res = await verifyAcross(record.key, pool, Math.max(tries, 3));
-        verified = res.ok;
-        final401 = res.status === 401;
-        if (verified) how = res.proxy || 'direct';
-        else if (!final401) console.error(`    … key not checked yet (${res.status || res.error}) — account held pending`);
-      }
-      record.verified = verified;
-      if (!verify || verified) {
-        commit(record, how);
-      } else if (final401) {
-        record.rejectedReason = 'GET /v1/models -> 401';
-        rejected.push(record);
-        writeAccounts(rejectedFile, rejected);
-        console.error(`    ! key refused by the API (401) -> ${path.basename(rejectedFile)}`);
-      } else {
-        pending.push(record);
-        writeAccounts(pendingFile, pending);
-        console.log(`    … ${pending.length} account(s) pending a key check`);
-      }
-    } else {
-      consecutive += 1;
-      if (error) console.error(`    ✘ ${String(error.message || error).split('\n')[0].slice(0, 200)}`);
-      if (consecutive >= maxFailures) {
-        console.error(`  aborting: ${consecutive} accounts failed in a row — that is the flow being blocked, not the proxies`);
-        break;
-      }
-    }
-    if (delay) await sleep(delay);
-    console.log(`    point-of-use so far: ${stats.probes - stats.probeFails}/${stats.probes} probes answered · ${stats.flowSuccess}/${stats.flows} flows completed`);
   }
 
-  await flushPending();
+  console.log(`  shape     : conc=${conc} gap=${delay / 1000}s${presetRun.name ? ` preset=${presetRun.name}` : ''}`);
+  await Promise.all(Array.from({ length: Math.min(conc, Math.max(1, count)) }, () => mintAccount()));
+
+  await serial(flushPending);
   console.log(`\n  done      : ${accounts.length}/${count} accounts · ${loadKeys(outFile).length} keys in ${outFile}`);
+  console.log(`BASETEN ${accounts.length}/${count} OK`);
   console.log(`  accounts  : ${accountsFile}`);
   console.log(`  point-of-use: ${stats.probes - stats.probeFails}/${stats.probes} lines answered the probe · ${stats.flowSuccess}/${stats.flows} flows completed`);
   if (pending.length) console.log(`  pending   : ${pending.length} created account(s) whose key was never confirmed — ${pendingFile}`);
