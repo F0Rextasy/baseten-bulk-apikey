@@ -12,7 +12,10 @@
  *   2. WorkOS AuthKit sends a 6-digit magic code to that address (account.js)
  *   3. the code creates the account and the app session
  *   4. POST https://app.baseten.co/graphql  CreateUserApiKey  -> text_key
- *   5. GET  https://inference.baseten.co/v1/models  -> 200 means the key is live
+ *   5. POST https://inference.baseten.co/v1/chat/completions  -> 200 = the key is live
+ *      (GET /v1/models answers 202 + an AWS-WAF challenge for a fresh key,
+ *       while chat on the same key answers 200 — chat is the proof, see
+ *       verifyKey() in account.js)
  *
  *   node src/cli.js --count 30 --out keys.txt --accounts accounts.json \
  *               --proxy-file proxy-live-pool.txt
@@ -90,9 +93,10 @@ Options:
 
 Notes:
   · Only verified keys are written: a key lands in keys.txt the moment
-    GET /v1/models answers 200 with it, so a re-created key is never lost to a
-    proxy hiccup. An account whose key never verifies goes to --rejected
-    instead, with its e-mail, and does not count against --count.
+    POST /v1/chat/completions answers 200 with it (GET /v1/models answers a
+    fresh key with a 202 WAF challenge, so the listing is not the verdict).
+    An account whose key never verifies goes to --rejected instead, with its
+    e-mail, and does not count against --count.
   · accounts.json keeps the matching e-mail so a re-run can top up.
   · Every attempt takes the next line of the proxy pool; a line that fails at
     the network level twice is taken out of rotation. With --proxy-file the tool
@@ -388,7 +392,7 @@ async function main() {
         console.error(`  ✘ ${key.slice(0, 8)}…${key.slice(-4)} -> ${res.status || res.error}`);
       }
     }
-    console.log(`  verified  : ${ok}/${keys.length} keys answer GET /v1/models with 200`);
+    console.log(`  verified  : ${ok}/${keys.length} keys answer the inference API with 200 (chat; /v1/models 202 is a WAF challenge, not a verdict)`);
     if (ok < keys.length) process.exitCode = 1;
     return;
   }

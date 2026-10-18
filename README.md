@@ -50,7 +50,9 @@ node src/cli.js --verify-only     # every key in keys.txt is re-tested with a re
 
 ## 🤖 Models — all 12 of them
 
-A freshly minted key answers `GET https://inference.baseten.co/v1/models` with **12 model APIs**:
+A freshly minted key serves **12 model APIs** on `/v1/chat/completions` (measured 2026-10-18: every id below answered **200** from both the home line and a cold proxy exit):
+
+> ⚠️ `GET /v1/models` is **not** a reliable health check for a fresh key: the edge answers a brand-new account's key with **202**, an empty body and `x-amzn-waf-action: challenge`, while the same key answers `/v1/chat/completions` with **200**. A key with no auth header gets a plain **401**. The tool therefore treats the chat completion as the proof and records `modelsStatus` (usually `202`) alongside it.
 
 | Family | Model IDs |
 | --- | --- |
@@ -111,8 +113,8 @@ A key is written to `keys.txt` **only after** the inference API answers with it:
 
 | Check | Result |
 | --- | --- |
-| `GET https://inference.baseten.co/v1/models` for **every** key right after creation | recorded per account in `accounts.json`; a key that fails goes to `accounts-rejected.json` |
-| `POST https://inference.baseten.co/v1/chat/completions` (`zai-org/GLM-5.3-Flash`) as the live proof | **HTTP 200**, real completion (`content: "ok"`, `finish_reason: "stop"`) |
+| `POST https://inference.baseten.co/v1/chat/completions` (`zai-org/GLM-5.3-Flash`) as the live proof | **HTTP 200**, real completion (`finish_reason: "stop"`, `usage` present) — this is what decides the key |
+| `GET https://inference.baseten.co/v1/models`, recorded per account as `modelsStatus` | `200` for the older cohort, `202` + `x-amzn-waf-action: challenge` for fresh keys — recorded, **not** a rejection reason; a `401`/`403` is final and sends the account to `accounts-rejected.json` |
 | accounts vs keys | one key per account — no account contributes more than one key |
 
 ```bash
