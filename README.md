@@ -109,7 +109,7 @@ node src/launcher.js          # interactive: mint / verify / settings / help
 
 ```bash
 # account-per-key path (Chrome sign-up + Node key mint + live verification)
-node src/browser-batch.js --target 30 --pool-browser proxies.txt
+node src/browser-batch.js --target 30 --pool-browser proxies.txt   # the pool is optional — no file = direct
 
 # older HTTP-only variant
 node src/cli.js --count 30 --out keys.txt --proxy-file proxies.txt \
@@ -176,21 +176,21 @@ inbox (one address per account)                                  a fresh address
 | `--rejected <file>` | `accounts-rejected.json` | accounts whose key never verified |
 | `--proxy` / `--proxy-file <file>` | — | egress, or a pool file |
 | `--inbox <mode>` · `--broker <url>` | — | inbox backend |
-| `--allow-direct` | off | permit an unproxied run |
+| `--allow-direct` | off | accepted for compatibility — a run with no proxy list is direct by default |
 | `--verify-only` | off | re-verify the keys in `--out` instead of minting |
 
 Data files are fixed for `browser-batch.js` and live in the repository root: `keys.txt`, `accounts.json`, `browser-pending.json`, `browser-accounts.jsonl`.
 
 ## 🛰️ Behind a proxy
 
-**Recommended for anything beyond a handful of accounts.** One account per key means one sign-up per key, and a proxy list gives every sign-up its own exit.
+**Optional — recommended at scale (per-IP limits, bans).** The tool works without a proxy too: with no `--proxy`/`--proxy-file` (and no `proxies.txt` lines) every call leaves from your own machine and the run logs the hop as `direct`.
 
 ```bash
 node src/browser-batch.js --target 30 --pool-browser proxies.txt
 node src/cli.js --count 30 --out keys.txt --proxy-file proxies.txt
 ```
 
-Proxies are loaded per line (`http://`, `socks5://`, `socks4://`, or bare `host:port`) and rotated per account, with retries on a dead line. `cli.js` refuses to run unproxied unless you pass `--allow-direct`.
+Proxies are loaded per line (`http://`, `socks5://`, `socks4://`, or bare `host:port`) and rotated per account, with retries on a dead line. A run with no proxy list is direct by default (`--allow-direct` is still accepted but no longer needed).
 
 ## 📄 Files
 

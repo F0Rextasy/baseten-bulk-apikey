@@ -90,7 +90,7 @@ Options:
   --timeout <s>          per-step timeout in seconds                   [180]
   --verify-only          verify the keys in --out instead of minting
   --no-verify            write keys without the inference check
-  --allow-direct         allow unproxied calls when no proxy is configured
+  --allow-direct         accepted for compatibility — a run with no proxy list is direct by default
   --connect-9router      register the keys in --out with a 9Router instance
   --base <url>           9Router base URL (with --connect-9router) [http://localhost:20128]
   --password <pw>        9Router password (with --connect-9router)          [123456]
@@ -374,11 +374,11 @@ async function main() {
     return added;
   };
   const hasSource = pool.size || poolFiles.length || args.proxy || process.env.BASETEN_PROXY;
-  if (!hasSource && !args['allow-direct'] && !process.env.BASETEN_ALLOW_DIRECT) {
-    console.error('  refusing to run without a proxy list — pass --proxy-file/--proxy, or --allow-direct');
-    process.exit(1);
-  }
-  if (!hasSource) console.error('  ! no proxy list: every provider call will leave from this machine');
+  // The proxy pool is OPTIONAL: with no proxy list at all the run leaves from
+  // this machine (direct) — a pool is recommended at scale (per-IP limits,
+  // bans). `--allow-direct` / BASETEN_ALLOW_DIRECT stay accepted for
+  // compatibility; they are no longer a gate.
+  if (!hasSource) console.error('  ! no proxy list: running WITHOUT a proxy (direct)');
 
   // ---- verification-only mode -------------------------------------------
   if (args['verify-only']) {
