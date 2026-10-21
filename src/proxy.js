@@ -26,6 +26,9 @@ const { URL } = require('url');
 
 const DEFAULT_TIMEOUT_MS = 35000;
 const DEFAULT_CONNECT_TIMEOUT_MS = 8000;
+/** A CONNECT reply is a header block; anything bigger is a broken or hostile
+ *  proxy, and buffering it until the handshake timeout is unbounded. */
+const MAX_CONNECT_HEADER_BYTES = 16384;
 
 /** Accepted line shapes:
  *    host:port
@@ -185,7 +188,13 @@ function connectHttpProxy(proxy, { host, port, timeoutMs = DEFAULT_TIMEOUT_MS })
     const onData = (chunk) => {
       buffer = Buffer.concat([buffer, chunk]);
       const end = buffer.indexOf('\r\n\r\n');
-      if (end === -1) return;
+      if (end === -1) {
+        // a proxy that streams garbage instead of a reply must not grow this
+        if (buffer.length > MAX_CONNECT_HEADER_BYTES) {
+          return fail(new Error(`proxy CONNECT header too large (>${MAX_CONNECT_HEADER_BYTES} bytes) via ${label(proxy)}`));
+        }
+        return;
+      }
       socket.removeListener('data', onData);
       clearTimeout(timer);
       const head = buffer.slice(0, end).toString('latin1');
@@ -269,6 +278,9 @@ function connectSocks5(proxy, { host, port, timeoutMs = DEFAULT_TIMEOUT_MS }) {
       if (buffer.length < 4) return;
       const rep = buffer[1];
       const atyp = buffer[3];
+      // the domain-length byte is part of the head: without it the frame size is
+      // NaN and a half-read reply would be handed over as tunnel data
+      if (atyp === 0x03 && buffer.length < 5) return;
       const need = atyp === 0x01 ? 10 : atyp === 0x04 ? 22 : 7 + buffer[4];
       if (buffer.length < need) return;
       if (rep !== 0x00) {
@@ -279,6 +291,7 @@ function connectSocks5(proxy, { host, port, timeoutMs = DEFAULT_TIMEOUT_MS }) {
       const rest = buffer.slice(need);
       if (settled) return;
       settled = true;
+      socket.removeListener('data', onData);
       if (rest.length) socket.unshift(rest);
       resolve(socket);
     };
@@ -370,7 +383,6 @@ class ProxyAgent extends https.Agent {
     openTunnel(this.proxy, { host, port, timeoutMs: this.proxy.connectTimeoutMs || DEFAULT_CONNECT_TIMEOUT_MS })
       .then((socket) => {
         tunnel = socket;
-        if (options.secureEndpoint === false) return socket;
         const tlsSocket = tls.connect({
           socket,
           servername: options.servername || host,

@@ -49,7 +49,7 @@ class RawWebSocket extends EventEmitter {
     this.timeoutMs = timeoutMs;
     this.buffer = Buffer.alloc(0);
     this.connected = false;
-    this._queue = [];
+    this._fragments = [];
   }
 
   connect() {
@@ -109,7 +109,7 @@ class RawWebSocket extends EventEmitter {
           this.connected = true;
           this.socket = socket;
           clearTimeout(timer);
-          if (this.buffer.length) this._parse(this.buffer);
+          if (this.buffer.length) this._parse();
           resolve(this);
           return;
         }
@@ -118,8 +118,11 @@ class RawWebSocket extends EventEmitter {
     });
   }
 
+  /** Feeds buffered bytes (no argument: re-parse what is already there) through
+   *  the frame decoder. A message split over several frames is reassembled and
+   *  emitted once, when the frame with FIN arrives. */
   _parse(chunk) {
-    this.buffer = this.buffer.length ? Buffer.concat([this.buffer, chunk]) : chunk;
+    if (chunk !== undefined) this.buffer = this.buffer.length ? Buffer.concat([this.buffer, chunk]) : chunk;
     while (this.buffer.length >= 2) {
       const b0 = this.buffer[0];
       const b1 = this.buffer[1];
@@ -150,8 +153,15 @@ class RawWebSocket extends EventEmitter {
       }
       this.buffer = this.buffer.slice(offset + len);
 
-      if (opcode === 0x1) {
-        this.emit('message', payload.toString('utf8'));
+      if (opcode === 0x1 || opcode === 0x0) {
+        // a message can be split over several frames: keep the pieces and emit
+        // only when the frame with FIN arrives
+        if (opcode === 0x1) this._fragments = [payload];
+        else this._fragments.push(payload);
+        if (!(b0 & 0x80)) continue;
+        const message = Buffer.concat(this._fragments);
+        this._fragments = [];
+        this.emit('message', message.toString('utf8'));
       } else if (opcode === 0x8) {
         this.emit('close');
         this.socket && this.socket.end();
@@ -187,7 +197,6 @@ class CDP extends EventEmitter {
     this.opts = opts;
     this._id = 0;
     this._pending = new Map();
-    this._sessions = new Map();
     this._listeners = new Map();
     this.defaultSessionId = null;
   }
@@ -209,7 +218,8 @@ class CDP extends EventEmitter {
       return;
     }
     if (msg.id !== undefined && this._pending.has(msg.id)) {
-      const { resolve, reject } = this._pending.get(msg.id);
+      const { resolve, reject, timer } = this._pending.get(msg.id);
+      clearTimeout(timer);
       this._pending.delete(msg.id);
       if (msg.error) reject(Object.assign(new Error(msg.error.message), { data: msg.error.data, code: msg.error.code }));
       else resolve(msg.result);
@@ -229,14 +239,14 @@ class CDP extends EventEmitter {
     const payload = { id, method, params };
     if (sessionId) payload.sessionId = sessionId;
     return new Promise((resolve, reject) => {
-      this._pending.set(id, { resolve, reject });
-      this.ws.send(JSON.stringify(payload));
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         if (this._pending.has(id)) {
           this._pending.delete(id);
           reject(new Error(`CDP timeout: ${method}`));
         }
       }, this.opts.commandTimeoutMs || 45000);
+      this._pending.set(id, { resolve, reject, timer });
+      this.ws.send(JSON.stringify(payload));
     });
   }
 

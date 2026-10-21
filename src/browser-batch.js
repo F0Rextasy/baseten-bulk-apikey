@@ -55,6 +55,14 @@ const files = {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const nowIso = () => new Date().toISOString();
 
+/** A numeric flag: a value that is missing or not a number keeps the default —
+ *  `parseInt(true)` is NaN, and NaN is what made the batch run zero accounts
+ *  and still report success. */
+const int = (value, fallback) => {
+  const n = parseInt(value, 10);
+  return Number.isFinite(n) ? n : fallback;
+};
+
 // ------------------------------------------------------------------ file state
 
 function readLines(file) {
@@ -81,6 +89,15 @@ function writeJson(file, value) {
   const tmp = `${file}.tmp`;
   fs.writeFileSync(tmp, JSON.stringify(value, null, 2));
   fs.renameSync(tmp, file);
+}
+
+/** accounts.json is written by both entry points: cli.js wraps the array, this
+ *  file writes it bare. Accept either, so a run of the other tool does not turn
+ *  the account list into a TypeError halfway through a mint. */
+function readAccounts(file) {
+  const data = readJson(file, null);
+  if (Array.isArray(data)) return data;
+  return data && Array.isArray(data.accounts) ? data.accounts : [];
 }
 
 function appendLine(file, line) {
@@ -119,15 +136,19 @@ function parseArgs(argv) {
   };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
-    if (a === '--target') args.target = parseInt(argv[++i], 10);
-    else if (a === '--per-run') args.perRun = parseInt(argv[++i], 10);
-    else if (a === '--warp') args.warp = argv[++i];
-    else if (a === '--broker') args.broker = argv[++i];
-    else if (a === '--pool') args.pool = argv[++i];
-    else if (a === '--pool-browser') args.poolBrowser = argv[++i];
-    else if (a === '--max-failures') args.maxFailures = parseInt(argv[++i], 10);
-    else if (a === '--code-timeout') args.codeTimeoutMs = parseInt(argv[++i], 10);
-    else if (a === '--skip-profile-for') args.skipProfileFor = new Set(argv[++i].split(',').map((n) => parseInt(n, 10)).filter(Boolean));
+    // A flag that carries no value must keep its default and must not swallow
+    // the next flag: `--target` alone used to become NaN, which turned the run
+    // into a no-op that still reported success.
+    const value = () => (argv[i + 1] !== undefined && !argv[i + 1].startsWith('--') ? argv[++i] : null);
+    if (a === '--target') args.target = int(value(), args.target);
+    else if (a === '--per-run') args.perRun = int(value(), args.perRun);
+    else if (a === '--warp') args.warp = value() || args.warp;
+    else if (a === '--broker') args.broker = value() || args.broker;
+    else if (a === '--pool') args.pool = value();
+    else if (a === '--pool-browser') args.poolBrowser = value();
+    else if (a === '--max-failures') args.maxFailures = int(value(), args.maxFailures);
+    else if (a === '--code-timeout') args.codeTimeoutMs = int(value(), args.codeTimeoutMs);
+    else if (a === '--skip-profile-for') args.skipProfileFor = new Set(String(value() || '').split(',').map((n) => parseInt(n, 10)).filter(Boolean));
   }
   return args;
 }
@@ -199,6 +220,12 @@ async function probeLine(line, log) {
 
 async function main() {
   const args = parseArgs(process.argv);
+  // Every Node-side call of the flow rides this line, and a line that does not
+  // parse means no exit at all: refuse before a browser is even opened.
+  if (!parseProxy(args.warp)) {
+    console.error(`[fatal] --warp is not a proxy line: ${args.warp}`);
+    process.exit(2);
+  }
   const logFile = files.log;
   fs.mkdirSync(path.dirname(logFile), { recursive: true });
   const log = (m) => {
@@ -249,7 +276,7 @@ async function main() {
 
   const readState = () => {
     const keys = readLines(files.keys).filter((k) => KEY_RE.test(k));
-    const accounts = readJson(files.accounts, []);
+    const accounts = readAccounts(files.accounts);
     const pending = readJson(files.pending, []);
     return { keys, accounts, pending };
   };

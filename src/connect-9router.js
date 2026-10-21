@@ -48,8 +48,10 @@ async function login9router(base, password) {
     headers: { 'Content-Type': 'application/json', 'User-Agent': UA },
     body: JSON.stringify({ password: password ?? '123456' }),
   });
-  const sc = typeof res.headers.getSetCookie === 'function' ? res.headers.getSetCookie() : [];
-  const cookie = sc.map((c) => c.split(';')[0]).join('; ');
+  // `Headers.getSetCookie` landed in Node 18.14; on an older 18.x the jar would
+  // be empty and login would still report ok, while every later call 401s.
+  const sc = typeof res.headers.getSetCookie === 'function' ? res.headers.getSetCookie() : [res.headers.get('set-cookie')];
+  const cookie = sc.filter(Boolean).map((c) => String(c).split(';')[0]).join('; ');
   return { ok: res.ok, cookie, body: (await res.text()).slice(0, 200) };
 }
 

@@ -18,6 +18,7 @@ Thumbs.db
 # generated at the repository root by a run
 out/
 accounts-rejected.json
+accounts-pending.json
 browser-pending.json
 browser-accounts.jsonl
 browser-models-probe.jsonl

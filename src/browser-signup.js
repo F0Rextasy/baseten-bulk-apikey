@@ -594,8 +594,10 @@ async function createAccountViaBrowser({
 } = {}) {
   const startedAt = Date.now();
   const egress = parseProxy(warp);
-  // per-caller folder : no other provider's sweep can ever touch
-  // these boxes, and mine only ever deletes its own
+  // The whole module exists to keep the sign-up off this machine's address, and
+  // a line that does not parse would leave `--proxy-server` empty: no exit at
+  // all. Refuse before Chrome is launched or a key is minted over it.
+  if (!egress) throw new Error(`no usable egress line (${warp == null ? 'missing' : `"${warp}"`}) — refusing to open a browser without an exit`);
   const folder = process.env.BT_MAIL_FOLDER || 'baseten-v2-bulk';
   // the box handed in already knows which path made it; the default (no box)
   // is direct Mailtrap, the primary of the creation block below

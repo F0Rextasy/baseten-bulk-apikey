@@ -331,6 +331,15 @@ async function createWithRetries(baseOpts, pool, tries, log, stats) {
   return { record: null, error: lastErr };
 }
 
+/** A flag that carries a value; a bare `--flag` parses to `true`, which is not
+ *  a value. A missing or non-numeric number keeps the documented default —
+ *  `parseInt(true)` is NaN, and NaN turns a run into a silent no-op. */
+const str = (value, fallback) => (typeof value === 'string' ? value : fallback);
+const int = (value, fallback) => {
+  const n = parseInt(value, 10);
+  return Number.isFinite(n) ? n : fallback;
+};
+
 // ---------------------------------------------------------------------- main
 
 async function main() {
@@ -340,7 +349,7 @@ async function main() {
     return;
   }
 
-  const outFile = String(args.out || 'keys.txt');
+  const outFile = str(args.out, 'keys.txt');
 
   if (args['connect-9router']) {
     const child = spawnSync(
@@ -356,18 +365,18 @@ async function main() {
     );
     process.exit(child.status === null ? 1 : child.status);
   }
-  const accountsFile = String(args.accounts || 'accounts.json');
-  const rejectedFile = String(args.rejected || accountsFile.replace(/\.json$/i, '') + '-rejected.json');
-  const inboxProvider = String(args.inbox || 'broker');
-  const broker = String(args.broker || process.env.BASETEN_BROKER || 'http://127.0.0.1:9700');
-  const mailtrapToken = args['mailtrap-token'] || process.env.MAILTRAP_TOKEN || null;
-  const keyPrefix = String(args['key-name'] || 'baseten-bulk');
-  const stepTimeoutMs = Math.max(30, parseInt(args.timeout || '180', 10)) * 1000;
+  const accountsFile = str(args.accounts, 'accounts.json');
+  const rejectedFile = str(args.rejected, accountsFile.replace(/\.json$/i, '') + '-rejected.json');
+  const inboxProvider = str(args.inbox, 'broker');
+  const broker = str(args.broker, null) || process.env.BASETEN_BROKER || 'http://127.0.0.1:9700';
+  const mailtrapToken = str(args['mailtrap-token'], null) || process.env.MAILTRAP_TOKEN || null;
+  const keyPrefix = str(args['key-name'], 'baseten-bulk');
+  const stepTimeoutMs = Math.max(30, int(args.timeout, 180)) * 1000;
   const verify = !args['no-verify'];
-  const tries = Math.max(1, parseInt(args.tries || '3', 10));
-  const poolWaitMs = Math.max(0, parseInt(args['pool-wait'] || '600', 10)) * 1000;
+  const tries = Math.max(1, int(args.tries, 3));
+  const poolWaitMs = Math.max(0, int(args['pool-wait'], 600)) * 1000;
   const pool = new ProxyPool(proxyList(args));
-  const poolFiles = args['proxy-file'] ? [String(args['proxy-file'])] : [];
+  const poolFiles = str(args['proxy-file'], null) ? [str(args['proxy-file'], '')] : [];
   const refreshPool = () => {
     let added = 0;
     for (const file of poolFiles) added += pool.merge(parseProxyLines(loadLines(file)));
@@ -404,21 +413,21 @@ async function main() {
   }
 
   // ---- minting ------------------------------------------------------------
-  const count = Math.max(1, parseInt(args.count || '30', 10));
+  const count = Math.max(1, int(args.count, 30));
   // Presets (operator standard v3): --preset=turbo|balanced|safe picks
   // account-level parallelism (conc) plus the pause between account starts
   // (gap, seconds). Explicit --conc/--gap/--delay always win, and without
   // --preset the run keeps today's shape exactly: one account at a time with
   // an 8000 ms pause.
   const presetRun = resolvePreset({
-    preset: args.preset || presetArgv(),
-    conc: args.conc != null ? parseInt(String(args.conc), 10) : null,
-    gap: args.gap != null ? parseInt(String(args.gap), 10) : null,
+    conc: int(args.conc, null),
+    gap: int(args.gap, null),
     defaultConc: 1,
     defaultGap: 8,
   });
   const conc = Math.max(1, presetRun.conc);
-  const delay = Math.max(0, args.delay != null ? parseInt(String(args.delay), 10) : Math.round(Math.max(0, presetRun.gap) * 1000));
+  const delayArg = int(args.delay, null);
+  const delay = Math.max(0, delayArg != null ? delayArg : Math.round(Math.max(0, presetRun.gap) * 1000));
   const pendingFile = accountsFile.replace(/\.json$/i, '') + '-pending.json';
   const accounts = loadAccounts(accountsFile);
   const rejected = loadAccounts(rejectedFile);
@@ -432,7 +441,7 @@ async function main() {
   if (pending.length) console.log(`  pending   : ${pending.length} created account(s) waiting for a key check`);
 
   const maxAttempts = Math.max(count * 3, count + 10);
-  const maxFailures = Math.max(1, parseInt(args['max-failures'] || '8', 10));
+  const maxFailures = Math.max(1, int(args['max-failures'], 8));
   const stats = { probes: 0, probeFails: 0, flows: 0, flowSuccess: 0 };
   let attempts = 0;
   let consecutive = 0;
@@ -440,9 +449,11 @@ async function main() {
   /** Commits an account whose key answered 200: the only place keys.txt grows. */
   const commit = (record, how) => {
     record.verified = true;
+    // The key line goes down first: if the accounts file cannot be written the
+    // run dies, and the key must already be on disk rather than in memory only.
+    appendKey(outFile, record.key);
     accounts.push(record);
     writeAccounts(accountsFile, accounts);
-    appendKey(outFile, record.key);
     consecutive = 0;
     console.log(`    ✔ ${record.email} -> ${record.key.slice(0, 8)}…${record.key.slice(-4)} (via ${how}) · ${accounts.length}/${count}`);
     console.log(`✓ #${record.index != null ? record.index : record.email} KEY ALINDI: ${String(record.key).slice(0, 22)}… [${accounts.length} ok / ${attempts} deneme]`);
@@ -605,9 +616,8 @@ function parseProxyLines(lines) {
 
 function proxyList(args) {
   let raw = [];
-  if (args['proxy-file']) raw = raw.concat(loadLines(String(args['proxy-file'])));
-  if (args.proxy) raw = raw.concat(String(args.proxy).split(','));
-  if (!raw.length && process.env.BASETEN_PROXY) raw = raw.concat(process.env.BASETEN_PROXY.split(','));
+  if (str(args['proxy-file'], null)) raw = raw.concat(loadLines(str(args['proxy-file'], '')));
+  if (str(args.proxy, null)) raw = raw.concat(str(args.proxy, '').split(','));
   return parseProxyLines(raw);
 }
 

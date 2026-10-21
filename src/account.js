@@ -33,6 +33,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..'); // data root (the repo root)
 const { CookieJar, fetchUrl, sleep } = require('./http');
 const { makeInbox, waitForCode } = require('./inbox');
+const { label } = require('./proxy');
 
 const AUTHORIZE = 'https://api.workos.com/user_management/authorize';
 const AUTHKIT = 'https://login.baseten.co';
