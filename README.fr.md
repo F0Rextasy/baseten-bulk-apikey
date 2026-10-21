@@ -163,7 +163,7 @@ inbox (one address per account)                                  a fresh address
 | `--per-run <n>` | `5` | comptes par session de navigateur |
 | `--max-failures <n>` | `5` | arrêter après ce nombre d'échecs consécutifs |
 | `--code-timeout <ms>` | `180000` | combien de temps attendre l'e-mail contenant le code magique |
-| `--warp <socks>` | — | épingler une sortie WARP SOCKS |
+| `--warp <socks>` | — | épingler une sortie proxy SOCKS |
 | `--broker <url>` | — | point de terminaison du broker de boîte de réception |
 
 **`src/cli.js`** — la variante plus ancienne en HTTP uniquement :

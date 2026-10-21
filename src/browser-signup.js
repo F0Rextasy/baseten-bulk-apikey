@@ -11,7 +11,7 @@
  * creation + inference verification) still runs from Node, as proven in
  * report §4 (`/graphql/` and `/api/auth/callback` are WAF-challenge-free).
  *
- * One account = one fresh Chrome profile, one egress line (WARP SOCKS by
+ * One account = one fresh Chrome profile, one egress line (proxy SOCKS by
  * default, never the home address), Chrome killed as soon as the session
  * cookies are out of it. Nothing here touches the mailbox through the account's
  * line: the broker is on loopback and reaches Mailtrap itself.

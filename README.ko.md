@@ -163,7 +163,7 @@ inbox (one address per account)                                  a fresh address
 | `--per-run <n>` | `5` | 브라우저 세션당 계정 수 |
 | `--max-failures <n>` | `5` | 이만큼 연속 실패하면 중단 |
 | `--code-timeout <ms>` | `180000` | 매직 코드 메일을 기다리는 시간 |
-| `--warp <socks>` | — | WARP SOCKS 출구 고정 |
+| `--warp <socks>` | — | proxy SOCKS 출구 고정 |
 | `--broker <url>` | — | 받은편지함 브로커 엔드포인트 |
 
 **`src/cli.js`** — 이전 HTTP 전용 변형:

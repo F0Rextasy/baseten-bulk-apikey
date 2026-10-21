@@ -163,7 +163,7 @@ inbox (one address per account)                                  a fresh address
 | `--per-run <n>` | `5` | accounts per browser session |
 | `--max-failures <n>` | `5` | stop after this many consecutive failures |
 | `--code-timeout <ms>` | `180000` | how long to wait for the magic-code mail |
-| `--warp <socks>` | — | pin a WARP SOCKS egress |
+| `--warp <socks>` | — | pin a proxy SOCKS egress |
 | `--broker <url>` | — | inbox broker endpoint |
 
 **`src/cli.js`** — the older HTTP-only variant:

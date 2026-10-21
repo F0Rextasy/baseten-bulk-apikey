@@ -421,7 +421,7 @@ async function createKey({ jar, proxy, timeoutMs, keyName }) {
  * `GET /v1/models`, while `POST /chat/completions` for the same key answers
  * 200 with real usage. The challenge is attached to the key, not to the line:
  * a no-key request answers a plain 401, and a fresh key gets the same 202 from
- * the home line and from WARP alike. So a 202 on /v1/models means "this
+ * the home line and from proxy alike. So a 202 on /v1/models means "this
  * account's cohort is challenged on the listing route", it is recorded as
  * `modelsStatus`, and chat is the proof that counts.
  */

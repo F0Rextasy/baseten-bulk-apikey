@@ -163,7 +163,7 @@ inbox (one address per account)                                  a fresh address
 | `--per-run <n>` | `5` | ブラウザセッションごとのアカウント数 |
 | `--max-failures <n>` | `5` | この回数の連続失敗後に停止 |
 | `--code-timeout <ms>` | `180000` | マジックコードメールを待つ時間 |
-| `--warp <socks>` | — | WARP SOCKS 出口を固定 |
+| `--warp <socks>` | — | proxy SOCKS 出口を固定 |
 | `--broker <url>` | — | 受信トレイブローカーエンドポイント |
 
 **`src/cli.js`** — 旧来の HTTP のみのバリアント:

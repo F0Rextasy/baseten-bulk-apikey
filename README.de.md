@@ -163,7 +163,7 @@ inbox (one address per account)                                  a fresh address
 | `--per-run <n>` | `5` | Konten pro Browser-Sitzung |
 | `--max-failures <n>` | `5` | nach so vielen aufeinanderfolgenden Fehlern abbrechen |
 | `--code-timeout <ms>` | `180000` | wie lange auf die Magic-Code-Mail gewartet wird |
-| `--warp <socks>` | — | einen WARP-SOCKS-Ausgang festlegen |
+| `--warp <socks>` | — | einen proxy-SOCKS-Ausgang festlegen |
 | `--broker <url>` | — | Posteingangs-Broker-Endpunkt |
 
 **`src/cli.js`** — die ältere reine HTTP-Variante:

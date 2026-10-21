@@ -163,7 +163,7 @@ buzón (una dirección por cuenta)                                  una direcci�
 | `--per-run <n>` | `5` | cuentas por sesión del navegador |
 | `--max-failures <n>` | `5` | detenerse tras tantos fallos consecutivos |
 | `--code-timeout <ms>` | `180000` | tiempo de espera para el correo con el código mágico |
-| `--warp <socks>` | — | fijar una salida SOCKS de WARP |
+| `--warp <socks>` | — | fijar una salida SOCKS de proxy |
 | `--broker <url>` | — | punto final del broker del buzón |
 
 **`src/cli.js`** — la variante más antigua solo HTTP:

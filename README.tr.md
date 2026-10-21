@@ -163,7 +163,7 @@ inbox (one address per account)                                  a fresh address
 | `--per-run <n>` | `5` | tarayıcı oturumu başına hesap |
 | `--max-failures <n>` | `5` | bu kadar ardışık hatadan sonra dur |
 | `--code-timeout <ms>` | `180000` | sihirli kod e-postası için ne kadar bekleneceği |
-| `--warp <socks>` | — | bir WARP SOCKS çıkışı sabitle |
+| `--warp <socks>` | — | bir proxy SOCKS çıkışı sabitle |
 | `--broker <url>` | — | gelen kutusu broker uç noktası |
 
 **`src/cli.js`** — eski yalnızca HTTP varyantı:

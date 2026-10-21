@@ -2,7 +2,7 @@
 
 /**
  * The batch driver for the browser path: mint `--target` verified keys, one
- * account each, sequentially (a shared egress line — WARP — must not carry two
+ * account each, sequentially (a shared egress line — proxy — must not carry two
  * sign-ups at once).
  *
  * State is on disk and appended per account, so a run can be cut anywhere and
@@ -26,8 +26,8 @@
  *        [--skip-profile-for 15,16] [--code-timeout 180000]
  *
  * `--pool-browser <file>` makes pool lines the primary egress (a dead pick is
- * buried at once) and WARP the fallback when none answers — the shared-exit
- * policy: pool first, WARP for rescue.
+ * buried at once) and proxy the fallback when none answers — the shared-exit
+ * policy: pool first, proxy for rescue.
  */
 
 const fs = require('fs');
@@ -394,7 +394,7 @@ async function main() {
       for (let attempt = 1; attempt <= maxAttempts; attempt++) {
         let line = args.warp;
         if (lineQueue) {
-          // Pool first, WARP as the fallback that keeps the flow alive
+          // Pool first, proxy as the fallback that keeps the flow alive
           // (shared-exit policy): pool entries die by the minute, so a pick
           // that cannot answer is buried at once, never waited for. At most a
           // handful of picks per attempt so a dead pool cannot stall the run.

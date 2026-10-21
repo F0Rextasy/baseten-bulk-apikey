@@ -121,7 +121,7 @@ async function mintFlow(cfg) {
   ];
   const poolPath = path.resolve(ROOT, cfg.poolBrowser);
   if (fs.existsSync(poolPath)) args.push('--pool-browser', poolPath);
-  else console.log(`  ! ${cfg.poolBrowser} not found — the run will use the shared WARP SOCKS only`);
+  else console.log(`  ! ${cfg.poolBrowser} not found — the run will use the shared proxy SOCKS only`);
   run(args);
 }
 

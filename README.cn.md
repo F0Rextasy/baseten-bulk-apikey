@@ -163,7 +163,7 @@ inbox (one address per account)                                  a fresh address
 | `--per-run <n>` | `5` | 每个浏览器会话的账户数 |
 | `--max-failures <n>` | `5` | 连续失败达到此数量后停止 |
 | `--code-timeout <ms>` | `180000` | 等待魔法验证码邮件的时间 |
-| `--warp <socks>` | — | 固定一个 WARP SOCKS 出口 |
+| `--warp <socks>` | — | 固定一个 proxy SOCKS 出口 |
 | `--broker <url>` | — | 收件箱 broker 端点 |
 
 **`src/cli.js`** — 较早的纯 HTTP 变体：
