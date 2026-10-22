@@ -155,6 +155,12 @@ async function main() {
     rl.close();
     return;
   }
+
+  if (process.argv.includes('--connect-omniroute')) {
+    await omniRouter(cfg);
+    rl.close();
+    return;
+  }
   banner();
   console.log('  1) Mint keys    — real-browser signup, Node key mint, live chat verification');
   console.log('  2) Verify keys  — re-check every key with GET /v1/models and a chat call');
@@ -169,6 +175,7 @@ async function main() {
   else if (choice === '3') console.log('\n' + JSON.stringify(cfg, null, 2));
   else if (choice === '4') run(['--help']);
   else if (choice === '5') await nineRouter(cfg);
+  else if (choice === '6') await omniRouter(cfg);
   rl.close();
 }
 

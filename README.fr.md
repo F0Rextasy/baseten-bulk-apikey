@@ -18,9 +18,10 @@
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
 [![Models](https://img.shields.io/badge/models-12%20served-412991?style=for-the-badge)](https://docs.baseten.co/)
 [![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
+[![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Démarrage rapide](#-quick-start) · [🎁 Offre gratuite](#-free-tier--how-much-you-get) · [🤖 Modèles](#-models--all-12-of-them) · [🧪 Utiliser l'API](#-how-to-use-the-api) · [✅ Vérifié](#-verified-working--every-key-is-tested) · [🧭 Comment ça marche](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problèmes](#-issues)
+[🛠 Démarrage rapide](#-quick-start) · [🎁 Niveau gratuit](#-free-tier--how-much-you-get) · [🤖 Modèles](#-models--all-12-of-them) · [🧪 Utiliser l'API](#-how-to-use-the-api) · [✅ Vérifié](#-verified-working--every-key-is-tested) · [🧭 Comment ça marche](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problèmes](#-issues)
 
 </div>
 
@@ -34,11 +35,11 @@
 
 ## ✨ Pourquoi cet outil existe
 
-Baseten offre à chaque **nouvel espace de travail** ses propres crédits gratuits, et une clé API appartient à l'espace de travail — donc *N clés indépendantes signifie N comptes*. Cet outil pilote tout ce cycle de vie de bout en bout : boîte de réception → connexion avec le code reçu par e-mail → session du compte → mutation GraphQL `create_user_api_key` → vérification en direct avec une vraie complétion de chat. Aucun clic dans le tableau de bord, aucune clé copiée-collée à la main.
+Baseten offre à chaque **nouvel espace de travail** ses propres crédits gratuits, et une clé API appartient à l'espace de travail — donc *N clés indépendantes signifie N comptes*. Cet outil pilote tout ce cycle de vie de bout en bout : boîte de réception → connexion avec le code par e-mail → session du compte → mutation GraphQL `create_user_api_key` → vérification en direct avec une vraie complétion de chat. Aucun clic dans le tableau de bord, aucune clé copiée-collée à la main.
 
-## 🎁 Offre gratuite — ce que vous obtenez
+## 🎁 Niveau gratuit — ce que vous obtenez
 
-**Chaque nouvel espace de travail Baseten reçoit des crédits gratuits à l'inscription — sans carte, inscription par e-mail — et le crédit est rattaché à l'espace de travail, pas à la clé.**
+**Chaque nouvel espace de travail Baseten reçoit des crédits d'inscription gratuits — sans carte, inscription par e-mail — et le crédit est rattaché à l'espace de travail, pas à la clé.**
 
 | Élément | Valeur |
 | --- | --- |
@@ -46,9 +47,9 @@ Baseten offre à chaque **nouvel espace de travail** ses propres crédits gratui
 | Carte requise | **Non** |
 | Ce que porte la clé | une clé `PERSONAL` limitée à son espace de travail, valable sur les **12 points de terminaison de modèles** |
 | Inscription | e-mail + code à 6 chiffres lu dans la boîte de réception |
-| L'unité qui se multiplie | **un espace de travail = une clé** → `--target N` signifie en réalité « N espaces de travail gratuits » |
+| L'unité qui évolue | **un espace de travail = une clé** → `--target N` signifie en réalité « N espaces de travail gratuits » |
 
-> 💡 L'offre gratuite est définie par Baseten et peut changer. Consultez les chiffres en direct sur [baseten.co](https://baseten.co) — et laissez le contrôle de l'outil trancher :
+> 💡 Le niveau gratuit est défini par Baseten et peut changer. Consultez les chiffres en direct sur [baseten.co](https://baseten.co) — et laissez le contrôle de l'outil décider :
 
 ```bash
 node src/cli.js --verify-only     # every key in keys.txt is re-tested with a real chat call
@@ -56,7 +57,7 @@ node src/cli.js --verify-only     # every key in keys.txt is re-tested with a re
 
 ## 🤖 Modèles — les 12 au complet
 
-Une clé fraîchement générée sert **12 API de modèles** sur `/v1/chat/completions` (mesuré le 2026-10-18 : chaque identifiant ci-dessous a répondu **200** depuis la ligne locale et depuis une sortie proxy froide) :
+Une clé fraîchement créée sert **12 API de modèles** sur `/v1/chat/completions` (mesuré le 2026-10-18 : chaque identifiant ci-dessous a répondu **200** depuis la ligne locale et depuis une sortie proxy froide) :
 
 > ⚠️ `GET /v1/models` n'est **pas** un contrôle de santé fiable pour une clé fraîche : le edge répond à la clé d'un tout nouveau compte avec **202**, un corps vide et `x-amzn-waf-action: challenge`, tandis que la même clé répond à `/v1/chat/completions` avec **200**. Une clé sans en-tête d'authentification reçoit un simple **401**. L'outil considère donc la complétion de chat comme la preuve et enregistre `modelsStatus` (généralement `202`) à côté.
 
@@ -75,7 +76,7 @@ Une clé fraîchement générée sert **12 API de modèles** sur `/v1/chat/compl
 |`nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B`|✓|
 |`openai/gpt-oss-120b`|✓|
 
-Test en direct d'une clé — c'est exactement ce que l'outil exécute avant d'accepter une clé :
+Sonde en direct d'une clé — c'est exactement ce que l'outil exécute avant d'accepter une clé :
 
 ```bash
 curl https://inference.baseten.co/v1/chat/completions \
@@ -102,7 +103,6 @@ print(client.chat.completions.create(model="zai-org/GLM-5.3-Flash",
 ## 🛠 Démarrage rapide
 
 ```bash
-
 # clone this repository (or download the ZIP), then:
 cd baseten-bulk-apikey
 node src/launcher.js          # interactive: mint / verify / settings / help
@@ -110,7 +110,7 @@ node src/launcher.js          # interactive: mint / verify / settings / help
 
 ```bash
 # account-per-key path (Chrome sign-up + Node key mint + live verification)
-node src/browser-batch.js --target 30 --pool-browser proxies.txt
+node src/browser-batch.js --target 30 --pool-browser proxies.txt   # the pool is optional — no file = direct
 
 # older HTTP-only variant
 node src/cli.js --count 30 --out keys.txt --proxy-file proxies.txt \
@@ -123,7 +123,12 @@ Le lanceur demande le nombre de comptes, le fichier de sortie, le backend de bo�
 
 ## ✅ Vérifié et fonctionnel — chaque clé est testée
 
-Une clé n'est écrite dans `keys.txt` **qu'après** que l'API d'inférence ait répondu avec elle :
+> **Contrôles qualité.** Chaque clé ici a passé un `chat-200` en direct avant d'être écrite dans `keys.txt`
+> (les clés mortes ne sont jamais livrées). Les combinaisons de routeur suivent la même règle au niveau du modèle : une entrée est
+> ajoutée **uniquement si le modèle répond `chat-200` et peut appeler des outils** — un modèle sans prise en charge des outils,
+> une clé morte ou un fournisseur mort est écarté au lieu d'être ajouté. Fonctionne avec **9Router et OmniRoute**.
+
+Une clé n'est écrite dans `keys.txt` **qu'après** que l'API d'inférence a répondu avec elle :
 
 | Contrôle | Résultat |
 | --- | --- |
@@ -151,11 +156,11 @@ inbox (one address per account)                                  a fresh address
 | connexion | page de connexion Chrome → e-mail → code à 6 chiffres depuis la boîte de réception | piloté via CDP, une fenêtre à la fois |
 | session | les cookies du compte | le navigateur est fermé dès que les cookies sont en main |
 | clé | `POST https://app.baseten.co/graphql/` → `CreateUserApiKey` | `{ textKey, prefix }` renvoyé exactement une fois |
-| contrôle | `POST https://inference.baseten.co/v1/chat/completions` | un 200 en direct requis avant `keys.txt` |
+| contrôle | `POST https://inference.baseten.co/v1/chat/completions` | 200 en direct requis avant `keys.txt` |
 
 ## ⚙️ Options de la CLI
 
-**`src/browser-batch.js`** — le chemin un compte par clé (inscription Chrome + génération de clé Node + vérification en direct) :
+**`src/browser-batch.js`** — le chemin compte-par-clé (inscription Chrome + création de clé Node + vérification en direct) :
 
 | Option | Défaut | Signification |
 | --- | --- | --- |
@@ -163,11 +168,11 @@ inbox (one address per account)                                  a fresh address
 | `--pool-browser <file>` | — | liste de proxies pour la sortie du navigateur (une par ligne) |
 | `--per-run <n>` | `5` | comptes par session de navigateur |
 | `--max-failures <n>` | `5` | arrêter après ce nombre d'échecs consécutifs |
-| `--code-timeout <ms>` | `180000` | combien de temps attendre l'e-mail contenant le code magique |
+| `--code-timeout <ms>` | `180000` | combien de temps attendre l'e-mail avec le code magique |
 | `--warp <socks>` | — | épingler une sortie proxy SOCKS |
-| `--broker <url>` | — | point de terminaison du broker de boîte de réception |
+| `--broker <url>` | — | point de terminaison du courtier de boîte de réception |
 
-**`src/cli.js`** — la variante plus ancienne en HTTP uniquement :
+**`src/cli.js`** — l'ancienne variante HTTP uniquement :
 
 | Option | Défaut | Signification |
 | --- | --- | --- |
@@ -177,21 +182,21 @@ inbox (one address per account)                                  a fresh address
 | `--rejected <file>` | `accounts-rejected.json` | comptes dont la clé n'a jamais été vérifiée |
 | `--proxy` / `--proxy-file <file>` | — | sortie, ou un fichier de pool |
 | `--inbox <mode>` · `--broker <url>` | — | backend de boîte de réception |
-| `--allow-direct` | désactivé | autoriser une exécution sans proxy |
-| `--verify-only` | désactivé | revérifier les clés dans `--out` au lieu d'en générer |
+| `--allow-direct` | désactivé | accepté pour compatibilité — une exécution sans liste de proxies est directe par défaut |
+| `--verify-only` | désactivé | revérifier les clés dans `--out` au lieu d'en créer |
 
 Les fichiers de données sont fixes pour `browser-batch.js` et se trouvent à la racine du dépôt : `keys.txt`, `accounts.json`, `browser-pending.json`, `browser-accounts.jsonl`.
 
 ## 🛰️ Derrière un proxy
 
-**Recommandé pour tout ce qui dépasse une poignée de comptes.** Un compte par clé signifie une inscription par clé, et une liste de proxies donne à chaque inscription sa propre sortie.
+**Facultatif — recommandé à grande échelle (limites par IP, bannissements).** L'outil fonctionne aussi sans proxy : sans `--proxy`/`--proxy-file` (et sans lignes dans `proxies.txt`), chaque appel part de votre propre machine et l'exécution journalise le saut comme `direct`.
 
 ```bash
 node src/browser-batch.js --target 30 --pool-browser proxies.txt
 node src/cli.js --count 30 --out keys.txt --proxy-file proxies.txt
 ```
 
-Les proxies sont chargés ligne par ligne (`http://`, `socks5://`, `socks4://`, ou `host:port` nu) et mis en rotation à chaque compte, avec des tentatives répétées sur une ligne morte. `cli.js` refuse de s'exécuter sans proxy sauf si vous passez `--allow-direct`.
+Les proxies sont chargés ligne par ligne (`http://`, `socks5://`, `socks4://`, ou `host:port` nu) et alternés par compte, avec des nouvelles tentatives sur une ligne morte. Une exécution sans liste de proxies est directe par défaut (`--allow-direct` est toujours accepté mais n'est plus nécessaire).
 
 ## 📄 Fichiers
 
@@ -205,7 +210,7 @@ Les proxies sont chargés ligne par ligne (`http://`, `socks5://`, `socks4://`, 
 
 ## 🔌 Connexion à 9Router
 
-[9Router](https://9router.com) est un routeur auto-hébergé compatible OpenAI. Baseten fournit un point de terminaison compatible OpenAI, donc enregistrez-le une fois et chaque clé devient une connexion sous un même nœud fournisseur :
+[9Router](https://9router.com) est un routeur auto-hébergé compatible OpenAI. Baseten fournit un point de terminaison compatible OpenAI, alors enregistrez-le une fois et chaque clé devient une connexion sous un même nœud fournisseur :
 
 ```bash
 node src/connect-9router.js \
@@ -213,21 +218,32 @@ node src/connect-9router.js \
   --keys-file keys.txt
 ```
 
-Valeurs par défaut : `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Les modèles sont alors servis sous `baseten/<model id>` et répartis en charge entre toutes les clés. Pointez le connecteur vers un `keys.txt` actualisé pour ajouter des comptes ; le nœud et sa liste de modèles restent identiques.
+Valeurs par défaut : `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Les modèles sont alors servis comme `baseten/<model id>` et répartis en charge sur chaque clé. Pointez le connecteur vers un `keys.txt` actualisé pour ajouter d'autres comptes ; le nœud et sa liste de modèles restent identiques.
 
+## 🔌 Connexion à OmniRoute
+
+[OmniRoute](https://omniroute.online) est un routeur auto-hébergé compatible OpenAI. Baseten fournit un point de terminaison compatible OpenAI, alors enregistrez-le une fois et chaque clé devient une connexion sous un même nœud fournisseur :
+
+```bash
+node src/connect-omniroute.js \
+  --base http://localhost:20128 --password 123456 \
+  --keys-file keys.txt
+```
+
+Valeurs par défaut : `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Les modèles sont alors servis comme `baseten/<model id>` et répartis en charge sur chaque clé. Pointez le connecteur vers un `keys.txt` actualisé pour ajouter d'autres comptes ; le nœud et sa liste de modèles restent identiques.
 ## 🔑 Ce qu'une clé vous apporte
 
 | | |
 | --- | --- |
 | 🏢 Fournisseur | **Baseten** — [baseten.co](https://baseten.co) |
 | 🎁 Ce que le fournisseur donne | un compte (espace de travail) par clé — chaque clé vérifiée par chat sur les API de modèles |
-| 🔑 Ce qu'une clé vous apporte | une clé API limitée à son propre compte : les 12 identifiants de modèles sur le point de terminaison ci-dessous, aux limites de votre offre. Le quota est rattaché au **compte**, ce qui explique précisément pourquoi cet outil crée un compte par clé |
+| 🔑 Ce qu'une clé vous apporte | une clé API limitée à son propre compte : les 12 identifiants de modèles sur le point de terminaison ci-dessous, aux limites de votre forfait. Le quota est rattaché au **compte**, ce qui explique précisément pourquoi cet outil crée un compte par clé |
 | 🌐 Forme de l'API | compatible OpenAI : `POST https://inference.baseten.co/v1/chat/completions` |
 | 🔒 Vos données | seuls baseten.co et le backend de boîte de réception que vous configurez sont contactés ; les clés restent sur votre machine |
 
 ## 🐞 Problèmes
 
-Si Baseten modifie le flux de connexion, la mutation GraphQL ou le comportement de la boîte de réception, l'outil s'arrête à cette étape et le signale. **[Ouvrez un ticket](../../issues)** avec la commande que vous avez exécutée et la sortie exacte ; les PR sont bienvenues.
+Si Baseten modifie le flux de connexion, la mutation GraphQL ou le comportement de la boîte de réception, l'outil s'arrête à cette étape et le signale. **[Ouvrez un ticket](../../issues)** avec la commande que vous avez exécutée et la sortie exacte ; les PR sont les bienvenues.
 
 ## 📄 Licence
 
@@ -242,7 +258,7 @@ MIT © 2026 — voir [LICENSE](LICENSE).
 ## ⚡ Forme d'exécution (préréglages)
 
 `--preset=turbo|balanced|safe` définit les workers + la pause entre les comptes (turbo = 5,
-balanced = 4, safe = 2) ; les `--conc`/`--gap` explicites (ou les options propres du dépôt) l'emportent toujours,
+balanced = 4, safe = 2) ; les `--conc`/`--gap` explicites (ou les propres options du dépôt) l'emportent toujours,
 et sans `--preset` l'outil conserve exactement sa forme historique.
 
-Turbo önerilir (5 worker) ; daha fazlası zayıf bilgisayarda yük/ban riski.
+Turbo önerilir (5 worker); daha fazlası zayıf bilgisayarda yük/ban riski.

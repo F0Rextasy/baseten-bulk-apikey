@@ -18,6 +18,7 @@
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
 [![Models](https://img.shields.io/badge/models-12%20served-412991?style=for-the-badge)](https://docs.baseten.co/)
 [![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
+[![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
 [🛠 Início rápido](#-quick-start) · [🎁 Camada gratuita](#-free-tier--how-much-you-get) · [🤖 Modelos](#-models--all-12-of-them) · [🧪 Use a API](#-how-to-use-the-api) · [✅ Verificado](#-verified-working--every-key-is-tested) · [🧭 Como funciona](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Opções](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problemas](#-issues)
@@ -32,9 +33,9 @@
 
 ---
 
-## ✨ Por que isto existe
+## ✨ Por que isso existe
 
-A Baseten dá a cada **novo workspace** seus próprios créditos gratuitos, e uma chave de API pertence ao workspace — então *N chaves independentes significa N contas*. Esta ferramenta conduz todo esse ciclo de vida de ponta a ponta: caixa de entrada → login com o código do e-mail → sessão da conta → mutação GraphQL `create_user_api_key` → verificação ao vivo com uma conclusão de chat real. Sem clicar em painel, sem chave copiada e colada à mão.
+A Baseten dá a cada **novo workspace** seus próprios créditos gratuitos, e uma chave de API pertence ao workspace — então *N chaves independentes significa N contas*. Esta ferramenta conduz todo esse ciclo de vida de ponta a ponta: caixa de entrada → login com o código por e-mail → sessão da conta → mutação GraphQL `create_user_api_key` → verificação ao vivo com uma conclusão de chat real. Sem clicar no painel, sem chave copiada e colada à mão.
 
 ## 🎁 Camada gratuita — quanto você recebe
 
@@ -46,9 +47,9 @@ A Baseten dá a cada **novo workspace** seus próprios créditos gratuitos, e um
 | Cartão exigido | **Não** |
 | O que a chave carrega | uma chave `PERSONAL` vinculada ao seu workspace, válida em todos os **12 endpoints de modelo** |
 | Cadastro | e-mail + código de 6 dígitos lido da caixa de entrada |
-| A unidade que escala | **um workspace = uma chave** → `--target N` na verdade significa "N workspaces gratuitos" |
+| A unidade que escala | **um workspace = uma chave** → `--target N` é na verdade "N workspaces gratuitos" |
 
-> 💡 A camada gratuita é definida pela Baseten e pode mudar. Confira os números ao vivo em [baseten.co](https://baseten.co) — e deixe o próprio gate da ferramenta decidir:
+> 💡 A camada gratuita é definida pela Baseten e pode mudar. Confira os números atuais em [baseten.co](https://baseten.co) — e deixe o próprio gate da ferramenta decidir:
 
 ```bash
 node src/cli.js --verify-only     # every key in keys.txt is re-tested with a real chat call
@@ -58,7 +59,7 @@ node src/cli.js --verify-only     # every key in keys.txt is re-tested with a re
 
 Uma chave recém-criada serve **12 APIs de modelo** em `/v1/chat/completions` (medido em 2026-10-18: cada id abaixo respondeu **200** tanto pela linha local quanto por uma saída de proxy fria):
 
-> ⚠️ `GET /v1/models` **não** é um health check confiável para uma chave nova: a borda responde à chave de uma conta recém-criada com **202**, corpo vazio e `x-amzn-waf-action: challenge`, enquanto a mesma chave responde `/v1/chat/completions` com **200**. Uma chave sem cabeçalho de autenticação recebe um **401** simples. A ferramenta, portanto, trata a conclusão de chat como a prova e registra `modelsStatus` (geralmente `202`) junto com ela.
+> ⚠️ `GET /v1/models` **não** é uma verificação de saúde confiável para uma chave nova: a borda responde à chave de uma conta recém-criada com **202**, um corpo vazio e `x-amzn-waf-action: challenge`, enquanto a mesma chave responde `/v1/chat/completions` com **200**. Uma chave sem cabeçalho de autenticação recebe um **401** simples. A ferramenta, portanto, trata a conclusão de chat como a prova e registra `modelsStatus` (geralmente `202`) junto com ela.
 
 |Modelo|✓|
 |---|---|
@@ -75,7 +76,7 @@ Uma chave recém-criada serve **12 APIs de modelo** em `/v1/chat/completions` (m
 |`nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B`|✓|
 |`openai/gpt-oss-120b`|✓|
 
-Teste ao vivo de uma chave — é exatamente isto que a ferramenta executa antes de aceitar uma chave:
+Teste ao vivo de uma chave — é exatamente isso que a ferramenta executa antes de aceitar uma chave:
 
 ```bash
 curl https://inference.baseten.co/v1/chat/completions \
@@ -102,7 +103,6 @@ print(client.chat.completions.create(model="zai-org/GLM-5.3-Flash",
 ## 🛠 Início rápido
 
 ```bash
-
 # clone this repository (or download the ZIP), then:
 cd baseten-bulk-apikey
 node src/launcher.js          # interactive: mint / verify / settings / help
@@ -110,7 +110,7 @@ node src/launcher.js          # interactive: mint / verify / settings / help
 
 ```bash
 # account-per-key path (Chrome sign-up + Node key mint + live verification)
-node src/browser-batch.js --target 30 --pool-browser proxies.txt
+node src/browser-batch.js --target 30 --pool-browser proxies.txt   # the pool is optional — no file = direct
 
 # older HTTP-only variant
 node src/cli.js --count 30 --out keys.txt --proxy-file proxies.txt \
@@ -123,7 +123,12 @@ O launcher pergunta a quantidade de contas, o arquivo de saída, o backend da ca
 
 ## ✅ Verificado e funcionando — toda chave é testada
 
-Uma chave só é gravada em `keys.txt` **depois** que a API de inferência responde com ela:
+> **Portões de qualidade.** Toda chave aqui passou por um `chat-200` ao vivo antes de ser gravada em `keys.txt`
+> (chaves mortas nunca são entregues). As combinações de roteador seguem a mesma regra no nível do modelo: uma entrada é
+> adicionada **somente se o modelo responder `chat-200` e conseguir chamar ferramentas** — um modelo sem suporte a ferramentas,
+> uma chave morta ou um provedor morto é descartado em vez de adicionado. Funciona com **9Router e OmniRoute**.
+
+Uma chave é gravada em `keys.txt` **somente depois** que a API de inferência responde com ela:
 
 | Verificação | Resultado |
 | --- | --- |
@@ -146,7 +151,7 @@ inbox (one address per account)                                  a fresh address
    └─▶ live proof: POST https://inference.baseten.co/v1/chat/completions → real content = the key is live
 ```
 
-| Etapa | Chamada | Observações |
+| Etapa | Chamada | Notas |
 | --- | --- | --- |
 | login | página de login do Chrome → e-mail → código de 6 dígitos da caixa de entrada | conduzido via CDP, uma janela por vez |
 | sessão | os cookies da conta | o navegador é fechado assim que os cookies estão em mãos |
@@ -159,12 +164,12 @@ inbox (one address per account)                                  a fresh address
 
 | Flag | Padrão | Significado |
 | --- | --- | --- |
-| `--target <n>` | `30` | com quantas chaves **verificadas** a lista deve terminar — qualquer N, sem limite |
-| `--pool-browser <file>` | — | lista de proxies para a saída do navegador (uma por linha) |
+| `--target <n>` | `30` | quantas chaves **verificadas** a lista deve conter no final — qualquer N, sem limite |
+| `--pool-browser <file>` | — | lista de proxies para a saída do navegador (um por linha) |
 | `--per-run <n>` | `5` | contas por sessão de navegador |
 | `--max-failures <n>` | `5` | parar após esta quantidade de falhas consecutivas |
 | `--code-timeout <ms>` | `180000` | quanto tempo esperar pelo e-mail com o código mágico |
-| `--warp <socks>` | — | fixar uma saída proxy SOCKS |
+| `--warp <socks>` | — | fixar uma saída SOCKS de proxy |
 | `--broker <url>` | — | endpoint do broker da caixa de entrada |
 
 **`src/cli.js`** — a variante mais antiga, somente HTTP:
@@ -177,21 +182,21 @@ inbox (one address per account)                                  a fresh address
 | `--rejected <file>` | `accounts-rejected.json` | contas cuja chave nunca foi verificada |
 | `--proxy` / `--proxy-file <file>` | — | saída, ou um arquivo de pool |
 | `--inbox <mode>` · `--broker <url>` | — | backend da caixa de entrada |
-| `--allow-direct` | desligado | permitir uma execução sem proxy |
-| `--verify-only` | desligado | reverificar as chaves em `--out` em vez de criar |
+| `--allow-direct` | desligado | aceito por compatibilidade — uma execução sem lista de proxies é direta por padrão |
+| `--verify-only` | desligado | reverificar as chaves em `--out` em vez de criar novas |
 
 Os arquivos de dados são fixos para `browser-batch.js` e ficam na raiz do repositório: `keys.txt`, `accounts.json`, `browser-pending.json`, `browser-accounts.jsonl`.
 
 ## 🛰️ Atrás de um proxy
 
-**Recomendado para qualquer coisa além de um punhado de contas.** Uma conta por chave significa um cadastro por chave, e uma lista de proxies dá a cada cadastro sua própria saída.
+**Opcional — recomendado em escala (limites por IP, banimentos).** A ferramenta funciona sem proxy também: sem `--proxy`/`--proxy-file` (e sem linhas em `proxies.txt`) toda chamada sai da sua própria máquina e a execução registra o salto como `direct`.
 
 ```bash
 node src/browser-batch.js --target 30 --pool-browser proxies.txt
 node src/cli.js --count 30 --out keys.txt --proxy-file proxies.txt
 ```
 
-Os proxies são carregados por linha (`http://`, `socks5://`, `socks4://`, ou apenas `host:port`) e rotacionados por conta, com novas tentativas em uma linha morta. `cli.js` se recusa a rodar sem proxy, a menos que você passe `--allow-direct`.
+Os proxies são carregados por linha (`http://`, `socks5://`, `socks4://`, ou apenas `host:port`) e rotacionados por conta, com novas tentativas em uma linha morta. Uma execução sem lista de proxies é direta por padrão (`--allow-direct` ainda é aceito, mas não é mais necessário).
 
 ## 📄 Arquivos
 
@@ -205,7 +210,7 @@ Os proxies são carregados por linha (`http://`, `socks5://`, `socks4://`, ou ap
 
 ## 🔌 Conectar ao 9Router
 
-O [9Router](https://9router.com) é um roteador auto-hospedado e compatível com OpenAI. A Baseten oferece um endpoint compatível com OpenAI, então registre-o uma vez e cada chave se torna uma conexão sob um único nó de provedor:
+O [9Router](https://9router.com) é um roteador auto-hospedado e compatível com OpenAI. A Baseten oferece um endpoint compatível com OpenAI, então registre-o uma vez e cada chave se torna uma conexão sob um nó de provedor:
 
 ```bash
 node src/connect-9router.js \
@@ -215,14 +220,25 @@ node src/connect-9router.js \
 
 Padrões: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Os modelos são então servidos como `baseten/<model id>` e balanceados entre todas as chaves. Aponte o conector para um `keys.txt` atualizado para adicionar mais contas; o nó e sua lista de modelos permanecem os mesmos.
 
-## 🔑 O que uma chave te dá
+## 🔌 Conectar ao OmniRoute
+
+O [OmniRoute](https://omniroute.online) é um roteador auto-hospedado e compatível com OpenAI. A Baseten oferece um endpoint compatível com OpenAI, então registre-o uma vez e cada chave se torna uma conexão sob um nó de provedor:
+
+```bash
+node src/connect-omniroute.js \
+  --base http://localhost:20128 --password 123456 \
+  --keys-file keys.txt
+```
+
+Padrões: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Os modelos são então servidos como `baseten/<model id>` e balanceados entre todas as chaves. Aponte o conector para um `keys.txt` atualizado para adicionar mais contas; o nó e sua lista de modelos permanecem os mesmos.
+## 🔑 O que uma chave oferece
 
 | | |
 | --- | --- |
 | 🏢 Provedor | **Baseten** — [baseten.co](https://baseten.co) |
-| 🎁 O que o provedor dá | uma conta (workspace) por chave — cada chave verificada por chat nas APIs de Modelo |
-| 🔑 O que uma chave te dá | uma chave de API vinculada à sua própria conta: os 12 ids de modelo no endpoint abaixo, nos limites do seu plano. A cota fica na **conta**, e é exatamente por isso que esta ferramenta cria uma conta por chave |
-| 🌐 Formato da API | compatível com OpenAI: `POST https://inference.baseten.co/v1/chat/completions` |
+| 🎁 O que o provedor oferece | uma conta (workspace) por chave — cada chave verificada por chat nas APIs de Modelo |
+| 🔑 O que uma chave oferece | uma chave de API vinculada à sua própria conta: os 12 ids de modelo no endpoint abaixo, nos limites do seu plano. A cota fica na **conta**, que é exatamente por isso que esta ferramenta cria uma conta por chave |
+| 🌐 Formato da API | Compatível com OpenAI: `POST https://inference.baseten.co/v1/chat/completions` |
 | 🔒 Seus dados | apenas baseten.co e o backend de caixa de entrada que você configurar são contatados; as chaves ficam na sua máquina |
 
 ## 🐞 Problemas
@@ -241,8 +257,8 @@ MIT © 2026 — veja [LICENSE](LICENSE).
 
 ## ⚡ Formato de execução (presets)
 
-`--preset=turbo|balanced|safe` define workers + a pausa entre contas (turbo = 5,
-balanced = 4, safe = 2); `--conc`/`--gap` explícitos (ou as próprias flags do repositório) sempre vencem,
+`--preset=turbo|balanced|safe` define os workers + a pausa entre contas (turbo = 5,
+balanced = 4, safe = 2); `--conc`/`--gap` explícitos (ou as flags do próprio repositório) sempre vencem,
 e sem `--preset` a ferramenta mantém exatamente seu formato histórico.
 
 Turbo önerilir (5 worker); daha fazlası zayıf bilgisayarda yük/ban riski.
