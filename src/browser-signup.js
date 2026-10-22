@@ -661,7 +661,6 @@ async function createAccountViaBrowser({
     const { sessionId } = await cdp.attachToPage();
     const page = new Page(cdp, sessionId);
     await page.cdp.send('Page.enable', {}, sessionId);
-    await page.cdp.send('Runtime.enable', {}, sessionId);
 
     // the line is the point of this whole module: prove it before signing up
     const ip = await page.evaluate(
