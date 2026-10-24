@@ -28,7 +28,7 @@ const { spawn, spawnSync } = require('child_process');
 const { makeInbox, waitForCode } = require('./inbox');
 const { CookieJar } = require('./http');
 const { createKey, verifyKey } = require('./account');
-const { parseProxy, label, loadProxyList } = require('./proxy');
+const { parseProxy, label, loadProxyList, browserUrl, attachProxyAuth } = require('./proxy');
 
 // The shared RepoTurbo pack: Chrome binary, lean memory flags, per-profile
 // fingerprint (UA / viewport / locale / timezone) and profile sweeps.
@@ -638,7 +638,7 @@ async function createAccountViaBrowser({
 
   const port = await freePort();
   const profileDir = path.join(os.homedir(), `.bt-chrome-${port}-${Date.now().toString(36)}`);
-  const child = launchChrome(port, profileDir, warp);
+  const child = launchChrome(port, profileDir, browserUrl(egress));
   const stateFile = path.join(outDir, 'bt-chrome-live.json');
   try {
     fs.mkdirSync(outDir, { recursive: true });
@@ -659,6 +659,9 @@ async function createAccountViaBrowser({
     cdp.on('error', (e) => log(`    cdp socket error: ${String((e && e.message) || e).slice(0, 90)}`));
     await cdp.connect();
     const { sessionId } = await cdp.attachToPage();
+    // Chrome sends no userinfo from --proxy-server (ERR_NO_SUPPORTED_PROXIES): a
+    // credentialed exit's 407 is answered here, on the page session (Fetch domain).
+    await attachProxyAuth(cdp, sessionId, egress);
     const page = new Page(cdp, sessionId);
     await page.cdp.send('Page.enable', {}, sessionId);
 

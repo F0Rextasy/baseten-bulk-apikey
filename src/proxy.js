@@ -30,6 +30,12 @@ const DEFAULT_CONNECT_TIMEOUT_MS = 8000;
  *  proxy, and buffering it until the handshake timeout is unbounded. */
 const MAX_CONNECT_HEADER_BYTES = 16384;
 
+/** A black-hole exit accepts the CONNECT and then never answers the TLS hello.
+ *  The handshake therefore gets a ceiling of its own: never the caller's
+ *  request budget, or one dead line stalls the whole wave. 15 s fails that exit
+ *  as a normal per-exit error and the rotation moves on. */
+const HS_TIMEOUT_MS = 15000;
+
 /** Accepted line shapes:
  *    host:port
  *    host:port:user:pass        (some lists put credentials after the port)
@@ -141,12 +147,12 @@ function parseProxyText(text) {
 
 function once(emitter, event, timeoutMs) {
   return new Promise((resolve, reject) => {
-    const timer = timeoutMs
-      ? setTimeout(() => {
-          cleanup();
-          reject(new Error(`timeout waiting for ${event}`));
-        }, timeoutMs)
-      : null;
+    // Never unbounded: a missing or zero budget falls back to the cap, so a
+    // black-hole exit always ends as a normal per-exit error.
+    const timer = setTimeout(() => {
+      cleanup();
+      reject(new Error(`timeout waiting for ${event}`));
+    }, timeoutMs || HS_TIMEOUT_MS);
     const onEvent = (...args) => {
       cleanup();
       resolve(args);
@@ -388,7 +394,12 @@ class ProxyAgent extends https.Agent {
           servername: options.servername || host,
           rejectUnauthorized: this.proxy.rejectUnauthorized !== false,
         });
-        return once(tlsSocket, 'secureConnect', this.proxy.timeoutMs || DEFAULT_TIMEOUT_MS).then(() => tlsSocket);
+        // the handshake never inherits the caller's request budget
+        const handshakeMs = Math.min(this.proxy.timeoutMs || DEFAULT_TIMEOUT_MS, HS_TIMEOUT_MS);
+        return once(tlsSocket, 'secureConnect', handshakeMs).then(() => tlsSocket, (err) => {
+          tlsSocket.destroy();
+          throw err;
+        });
       })
       .then((socket) => callback(null, socket))
       .catch((err) => {
@@ -455,7 +466,7 @@ async function probe(proxy, { host = 'api.ipify.org', port = 443, timeoutMs = 10
   try {
     tunnel = await openTunnel(proxy, { host, port, timeoutMs });
     const tlsSocket = tls.connect({ socket: tunnel, servername: host });
-    await once(tlsSocket, 'secureConnect', timeoutMs);
+    await once(tlsSocket, 'secureConnect', Math.min(timeoutMs || DEFAULT_TIMEOUT_MS, HS_TIMEOUT_MS));
     const ms = Date.now() - started;
     tlsSocket.destroy();
     return { ok: true, ms };

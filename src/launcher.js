@@ -113,7 +113,7 @@ async function mintFlow(cfg) {
   saveConfig(cfg);
 
   const args = [
-    '--target', String(cfg.target),
+    '--auto', '--target', String(cfg.target),
     '--out', cfg.out,
     '--accounts', cfg.accounts,
     '--per-run', String(cfg.perRun),
@@ -148,6 +148,23 @@ async function nineRouter(cfg) {
   if (res.status !== 0) console.log(`  ! exited with code ${res.status}`);
 }
 
+async function omniRouter(cfg) {
+  console.log('\nOmniRoute — register the keys in the key list as one connection each');
+  cfg.nineRouter = cfg.nineRouter || {};
+  cfg.nineRouter.base = await ask('OmniRoute base URL', cfg.nineRouter.base || 'http://localhost:20128');
+  cfg.nineRouter.password = await ask('OmniRoute password', cfg.nineRouter.password || '123456');
+  cfg.nineRouter.out = await ask('Key list to register (one key per line)', cfg.out);
+  cfg.nineRouter.model = await ask('Default model for the connection', cfg.nineRouter.model || 'openai/gpt-oss-120b');
+  saveConfig(cfg);
+  console.log(`\n▶ node src/connect-omniroute.js --base ${cfg.nineRouter.base} --keys-file ${cfg.nineRouter.out} --model ${cfg.nineRouter.model}\n`);
+  const res = spawnSync(
+    process.execPath,
+    [path.join(__dirname, 'connect-omniroute.js'), '--base', cfg.nineRouter.base, '--password', cfg.nineRouter.password, '--keys-file', cfg.nineRouter.out, '--model', cfg.nineRouter.model],
+    { windowsHide: true, cwd: ROOT, stdio: 'inherit' }
+  );
+  if (res.status !== 0) console.log(`  ! exited with code ${res.status}`);
+}
+
 async function main() {
   const cfg = loadConfig();
   if (process.argv.includes('--connect-9router')) {
@@ -166,7 +183,8 @@ async function main() {
   console.log('  2) Verify keys  — re-check every key with GET /v1/models and a chat call');
   console.log('  3) Settings     — show what this launcher remembers');
   console.log('  4) Help         — batch flags and notes');
-  console.log('  5) 9Router      — register the keys in keys.txt with a 9Router instance');
+  console.log('  5) Connect to 9Router   — register the keys in keys.txt with a 9Router instance');
+  console.log('  6) Connect to OmniRoute — register the keys in keys.txt with an OmniRoute instance');
   console.log('  q) Quit\n');
   const choice = (await ask('Choose', '1')).toLowerCase();
 

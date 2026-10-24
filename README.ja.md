@@ -21,7 +21,11 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
+<<<<<<< Updated upstream
 [🛠 クイックスタート](#-quick-start) · [🎁 無料枠](#-free-tier--how-much-you-get) · [🤖 モデル](#-models--all-12-of-them) · [🧪 API の使い方](#-how-to-use-the-api) · [✅ 検証済み](#-verified-working--every-key-is-tested) · [🧭 仕組み](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ オプション](#️-cli-options) · [🛰️ プロキシ](#️-behind-a-proxy) · [🐞 問題](#-issues)
+=======
+[🛠 クイックスタート](#-quick-start) · [🎁 無料枠](#-free-tier--how-much-you-get) · [🤖 モデル](#-models--all-12-of-them) · [🧪 API の使い方](#-how-to-use-the-api) · [✅ 検証済み](#-verified-working--every-key-is-tested) · [🧭 仕組み](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ オプション](#️-cli-options) · [🛰️ プロキシ](#️-behind-a-proxy) · [🐞 問題報告](#-issues)
+>>>>>>> Stashed changes
 
 </div>
 
@@ -103,6 +107,7 @@ print(client.chat.completions.create(model="zai-org/GLM-5.3-Flash",
 ## 🛠 クイックスタート
 
 ```bash
+
 # clone this repository (or download the ZIP), then:
 cd baseten-bulk-apikey
 node src/launcher.js          # interactive: mint / verify / settings / help
@@ -230,7 +235,12 @@ node src/connect-omniroute.js \
   --keys-file keys.txt
 ```
 
+<<<<<<< Updated upstream
 デフォルト: `--base http://localhost:20128`、`--password 123456`、`--name "Baseten"`、`--prefix baseten`、`--base-url https://inference.baseten.co/v1`、`--model openai/gpt-oss-120b`。モデルは `baseten/<model id>` として提供され、すべてのキーにわたって負荷分散されます。コネクタを更新された `keys.txt` に向けてさらにアカウントを追加してください; ノードとそのモデルリストは同じままです。
+=======
+デフォルト: `--base http://localhost:20128`、`--password 123456`、`--name "Baseten"`、`--prefix baseten`、`--base-url https://inference.baseten.co/v1`、`--model openai/gpt-oss-120b`。モデルは `baseten/<model id>` として提供され、すべてのキー間でロードバランスされます。コネクタを更新された `keys.txt` に向けてさらにアカウントを追加してください; ノードとそのモデルリストは同じままです。
+
+>>>>>>> Stashed changes
 ## 🔑 1 つのキーで得られるもの
 
 | | |

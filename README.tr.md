@@ -21,7 +21,7 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Hızlı başlangıç](#-quick-start) · [🎁 Ücretsiz katman](#-free-tier--how-much-you-get) · [🤖 Modeller](#-models--all-12-of-them) · [🧪 API'yi kullanma](#-how-to-use-the-api) · [✅ Doğrulandı](#-verified-working--every-key-is-tested) · [🧭 Nasıl çalışır](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Seçenekler](#️-cli-options) · [🛰️ Proxy'ler](#️-behind-a-proxy) · [🐞 Sorunlar](#-issues)
+[🛠 Hızlı başlangıç](#-quick-start) · [🎁 Ücretsiz katman](#-free-tier--how-much-you-get) · [🤖 Modeller](#-models--all-12-of-them) · [🧪 API'yi kullanma](#-how-to-use-the-api) · [✅ Doğrulandı](#-verified-working--every-key-is-tested) · [🧭 Nasıl çalışır](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Seçenekler](#️-cli-options) · [🛰️ Proxy'ler](#️-behind-a-proxy) · [🐞 Sorunlar](#-issues)
 
 </div>
 
@@ -103,6 +103,7 @@ print(client.chat.completions.create(model="zai-org/GLM-5.3-Flash",
 ## 🛠 Hızlı başlangıç
 
 ```bash
+
 # clone this repository (or download the ZIP), then:
 cd baseten-bulk-apikey
 node src/launcher.js          # interactive: mint / verify / settings / help
@@ -222,7 +223,11 @@ Varsayılanlar: `--base http://localhost:20128`, `--password 123456`, `--name "B
 
 ## 🔌 OmniRoute'a bağlan
 
+<<<<<<< Updated upstream
 [OmniRoute](https://omniroute.online) kendi kendine barındırılan, OpenAI uyumlu bir yönlendiricidir. Baseten OpenAI uyumlu bir uç nokta sunar, bu yüzden bir kez kaydedin ve her anahtar tek bir sağlayıcı düğümü altında bir bağlantı haline gelir:
+=======
+[OmniRoute](https://omniroute.online) kendi kendine barındırılan, OpenAI uyumlu bir yönlendiricidir. Baseten OpenAI uyumlu bir uç nokta sunar, bu yüzden bir kez kaydedin ve her anahtar tek bir sağlayıcı düğümü altında bir bağlantı haline gelsin:
+>>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -231,6 +236,10 @@ node src/connect-omniroute.js \
 ```
 
 Varsayılanlar: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Modeller daha sonra `baseten/<model id>` olarak sunulur ve her anahtar arasında yük dengelenir. Daha fazla hesap eklemek için bağlayıcıyı yenilenmiş bir `keys.txt` dosyasına yönlendirin; düğüm ve model listesi aynı kalır.
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 ## 🔑 Bir anahtar size ne kazandırır
 
 | | |

@@ -26,6 +26,21 @@
  */
 
 const fs = require('fs');
+/** keys-dead.txt standard: key \t reason \t ISO, reason in 401|403|quota|ban.
+ * 429/5xx/transport are transient (retry them — the same key may answer later): never dead. */
+function deadReason(status, text = '') {
+  const s = `${status == null ? '' : status} ${text || ''}`;
+  if (/\b429\b|rate.?limit|\b5\d\d\b|timeout|ECONNRESET|ECONNREFUSED|ETIMEDOUT|EHOSTUNREACH|transport|network/i.test(s)) return null;
+  if (/\b401\b|unauthor/i.test(s)) return '401';
+  if (/\b403\b|forbidden/i.test(s)) return '403';
+  if (/\b402\b|quota|insufficient|no credit|out of credit|balance|exhaust/i.test(s)) return 'quota';
+  if (/banned|suspend|deactivat|disabled/i.test(s)) return 'ban';
+  return null;
+}
+/** The standard line (key \t reason \t ISO), or null when the reason is not final. */
+const deadLine = (key, reason) => (reason ? [key, reason, new Date().toISOString()].join('\t') : null);
+/** The key side of a standard line (dedupe helper). */
+const deadKeyOf = (line) => String(line).split(String.fromCharCode(9))[0];
 const path = require('path');
 const { spawnSync } = require('child_process');
 const { createAccount, verifyKey, KEY_RE, AUTHORIZE, CLIENT_ID, REDIRECT_URI } = require('./account');
@@ -77,7 +92,7 @@ Options:
                          · safe (2); sets --conc and the pause unless overridden
   --conc <n>             accounts created in flight at once                 [1]
   --gap <s>              pause before every account start, seconds           [8]
-  --tries <n>            proxy lines tried per account, one per attempt  [3]
+  --exits <n>            proxy lines tried per account, one per attempt  [6]
   --pool-wait <s>        when the pool runs dry, wait up to this long for
                          freshly screened lines to arrive               [600]
   --max-failures <n>     give up after this many accounts failing in a row [8]
@@ -284,6 +299,7 @@ async function verifyAcross(key, pool, tries) {
  */
 async function createWithRetries(baseOpts, pool, tries, log, stats) {
   let lastErr = null;
+  let transportDead = true; // stays true while no attempt ever reached the panel
   const attempts = pool.size ? tries : 1;
   const maxProbes = pool.size ? Math.max(4, tries * 2) : 0;
   let probes = 0;
@@ -325,10 +341,11 @@ async function createWithRetries(baseOpts, pool, tries, log, stats) {
       lastErr = e;
       const msg = String(e.message || e).split('\n')[0];
       if (proxy && NETWORKISH.test(msg)) pool.strike(proxy);
+      else transportDead = false; // the panel answered — this is not a routing failure
       log(`    ✘ ${msg.slice(0, 180)}`);
     }
   }
-  return { record: null, error: lastErr };
+  return { record: null, error: lastErr, transportDead };
 }
 
 /** A flag that carries a value; a bare `--flag` parses to `true`, which is not
@@ -373,7 +390,7 @@ async function main() {
   const keyPrefix = str(args['key-name'], 'baseten-bulk');
   const stepTimeoutMs = Math.max(30, int(args.timeout, 180)) * 1000;
   const verify = !args['no-verify'];
-  const tries = Math.max(1, int(args.tries, 3));
+  const EXITS = Math.max(1, int(args.exits, 6));
   const poolWaitMs = Math.max(0, int(args['pool-wait'], 600)) * 1000;
   const pool = new ProxyPool(proxyList(args));
   const poolFiles = str(args['proxy-file'], null) ? [str(args['proxy-file'], '')] : [];
@@ -399,7 +416,7 @@ async function main() {
     let ok = 0;
     for (const key of keys) {
       refreshPool();
-      const res = await verifyAcross(key, pool, Math.max(tries, 3));
+      const res = await verifyAcross(key, pool, Math.max(EXITS, 3));
       if (res.ok) {
         ok += 1;
         console.log(`  ✔ ${key.slice(0, 8)}…${key.slice(-4)} -> ${res.status}${res.proxy ? ` via ${res.proxy}` : ''}`);
@@ -444,6 +461,7 @@ async function main() {
   const maxFailures = Math.max(1, int(args['max-failures'], 8));
   const stats = { probes: 0, probeFails: 0, flows: 0, flowSuccess: 0 };
   let attempts = 0;
+  let deadRoutes = 0;
   let consecutive = 0;
 
   /** Commits an account whose key answered 200: the only place keys.txt grows. */
@@ -467,7 +485,7 @@ async function main() {
   const flushPending = async () => {
     while (pending.length && pool.alive()) {
       const record = pending[0];
-      const res = await verifyAcross(record.key, pool, Math.max(tries, 3));
+      const res = await verifyAcross(record.key, pool, Math.max(EXITS, 3));
       if (res.ok) {
         pending.shift();
         writeAccounts(pendingFile, pending);
@@ -526,7 +544,7 @@ async function main() {
 
       // Per-account fingerprint: the whole account flow runs inside withUa so
       // every provider request of this account carries its own UA (ua-pool).
-      const { record, error } = await withUa(uaFor(index).ua, () => createWithRetries(
+      const { record, error, transportDead } = await withUa(uaFor(index).ua, () => createWithRetries(
         {
           index,
           keyName: `${keyPrefix}-${index}`,
@@ -538,7 +556,7 @@ async function main() {
           log: (line) => console.log(`    ${line}`),
         },
         pool,
-        tries,
+        EXITS,
         (line) => console.log(line),
         stats
       ));
@@ -550,7 +568,7 @@ async function main() {
           let verified = record.verified;
           let final401 = false;
           if (verify && !verified) {
-            const res = await verifyAcross(record.key, pool, Math.max(tries, 3));
+            const res = await verifyAcross(record.key, pool, Math.max(EXITS, 3));
             verified = res.ok;
             final401 = res.status === 401;
             if (verified) how = res.proxy || 'direct';
@@ -564,6 +582,19 @@ async function main() {
             rejected.push(record);
             writeAccounts(rejectedFile, rejected);
             console.error(`    ! key refused by the API (401) -> ${path.basename(rejectedFile)}`);
+            {
+              // The API own refusal is final (401): keys-dead.txt beside the keys
+              // file, standard line key<TAB>reason<TAB>ISO.
+              const reason = deadReason(401, record.rejectedReason);
+              if (reason) {
+                const deadFile = path.join(path.dirname(String(args.out || 'keys.txt')), 'keys-dead.txt');
+                const prev = fs.existsSync(deadFile) ? fs.readFileSync(deadFile, 'utf8').split(/\r?\n/).filter(Boolean) : [];
+                const line = deadLine(record.key, reason);
+  // keys-dead.txt standard: key \t reason(401|403|quota|ban) \t new Date().toISOString()
+                if (line && !prev.some((l) => deadKeyOf(l) === record.key)) fs.writeFileSync(deadFile, [...prev, line].join(String.fromCharCode(10)) + String.fromCharCode(10));
+                console.error(`    ! dead key (${reason}) -> ${path.basename(deadFile)}`);
+              }
+            }
             console.error(`✗ #${index} key yok: key refused by the API (401)`);
           } else {
             pending.push(record);
@@ -572,6 +603,7 @@ async function main() {
             console.log(`✗ #${index} key yok: not checked yet (account held pending)`);
           }
         } else {
+          if (transportDead) deadRoutes += 1;
           consecutive += 1;
           if (error) console.error(`    ✘ ${String(error.message || error).split('\n')[0].slice(0, 200)}`);
           console.error(`✗ #${index} key yok: ${String((error && error.message) || error || 'no record').split('\n')[0].slice(0, 200)}`);
@@ -597,6 +629,11 @@ async function main() {
   console.log(`  point-of-use: ${stats.probes - stats.probeFails}/${stats.probes} lines answered the probe · ${stats.flowSuccess}/${stats.flows} flows completed`);
   if (pending.length) console.log(`  pending   : ${pending.length} created account(s) whose key was never confirmed — ${pendingFile}`);
   if (rejected.length) console.log(`  rejected  : ${rejected.length} unverified accounts in ${rejectedFile}`);
+  if (!accounts.length && deadRoutes > 0 && deadRoutes >= attempts) {
+    const route = pool.size ? `${pool.size}-exit pool` : 'direct mode (no proxy list)';
+    console.error(`[fatal] no usable route — ${attempts} attempt(s) × ${EXITS} candidate(s) over ${route}: every attempt died at the transport layer.`);
+    process.exit(1);
+  }
   if (accounts.length < count) process.exitCode = 1;
 }
 

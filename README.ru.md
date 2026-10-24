@@ -21,7 +21,7 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Быстрый старт](#-quick-start) · [🎁 Бесплатный тариф](#-free-tier--how-much-you-get) · [🤖 Модели](#-models--all-12-of-them) · [🧪 Использование API](#-how-to-use-the-api) · [✅ Проверено](#-verified-working--every-key-is-tested) · [🧭 Как это работает](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Опции](#️-cli-options) · [🛰️ Прокси](#️-behind-a-proxy) · [🐞 Проблемы](#-issues)
+[🛠 Быстрый старт](#-quick-start) · [🎁 Бесплатный тариф](#-free-tier--how-much-you-get) · [🤖 Модели](#-models--all-12-of-them) · [🧪 Использование API](#-how-to-use-the-api) · [✅ Проверено](#-verified-working--every-key-is-tested) · [🧭 Как это работает](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Опции](#️-cli-options) · [🛰️ Прокси](#️-behind-a-proxy) · [🐞 Проблемы](#-issues)
 
 </div>
 
@@ -103,6 +103,7 @@ print(client.chat.completions.create(model="zai-org/GLM-5.3-Flash",
 ## 🛠 Быстрый старт
 
 ```bash
+
 # clone this repository (or download the ZIP), then:
 cd baseten-bulk-apikey
 node src/launcher.js          # interactive: mint / verify / settings / help
@@ -222,7 +223,11 @@ node src/connect-9router.js \
 
 ## 🔌 Подключение к OmniRoute
 
+<<<<<<< Updated upstream
 [OmniRoute](https://omniroute.online) — это самостоятельно размещаемый роутер, совместимый с OpenAI. Baseten предоставляет OpenAI-совместимый эндпоинт, поэтому зарегистрируйте его один раз, и каждый ключ станет подключением под одним узлом-провайдером:
+=======
+[OmniRoute](https://omniroute.online) — это самостоятельно размещаемый роутер, совместимый с OpenAI. Baseten предоставляет эндпоинт, совместимый с OpenAI, поэтому зарегистрируйте его один раз, и каждый ключ станет подключением под одним узлом провайдера:
+>>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -230,7 +235,12 @@ node src/connect-omniroute.js \
   --keys-file keys.txt
 ```
 
+<<<<<<< Updated upstream
 Значения по умолчанию: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Затем модели обслуживаются как `baseten/<model id>` и балансируются между всеми ключами. Направьте коннектор на обновлённый `keys.txt`, чтобы добавить больше аккаунтов; узел и его список моделей останутся прежними.
+=======
+Значения по умолчанию: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. После этого модели обслуживаются как `baseten/<model id>` и балансируются между всеми ключами. Направьте коннектор на обновлённый `keys.txt`, чтобы добавить аккаунты; узел и его список моделей останутся прежними.
+
+>>>>>>> Stashed changes
 ## 🔑 Что даёт один ключ
 
 | | |

@@ -21,7 +21,11 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
+<<<<<<< Updated upstream
 [🛠 Démarrage rapide](#-quick-start) · [🎁 Niveau gratuit](#-free-tier--how-much-you-get) · [🤖 Modèles](#-models--all-12-of-them) · [🧪 Utiliser l'API](#-how-to-use-the-api) · [✅ Vérifié](#-verified-working--every-key-is-tested) · [🧭 Comment ça marche](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problèmes](#-issues)
+=======
+[🛠 Démarrage rapide](#-quick-start) · [🎁 Offre gratuite](#-free-tier--how-much-you-get) · [🤖 Modèles](#-models--all-12-of-them) · [🧪 Utiliser l'API](#-how-to-use-the-api) · [✅ Vérifié](#-verified-working--every-key-is-tested) · [🧭 Comment ça marche](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problèmes](#-issues)
+>>>>>>> Stashed changes
 
 </div>
 
@@ -103,6 +107,7 @@ print(client.chat.completions.create(model="zai-org/GLM-5.3-Flash",
 ## 🛠 Démarrage rapide
 
 ```bash
+
 # clone this repository (or download the ZIP), then:
 cd baseten-bulk-apikey
 node src/launcher.js          # interactive: mint / verify / settings / help
@@ -222,7 +227,11 @@ Valeurs par défaut : `--base http://localhost:20128`, `--password 123456`, `--n
 
 ## 🔌 Connexion à OmniRoute
 
+<<<<<<< Updated upstream
 [OmniRoute](https://omniroute.online) est un routeur auto-hébergé compatible OpenAI. Baseten fournit un point de terminaison compatible OpenAI, alors enregistrez-le une fois et chaque clé devient une connexion sous un même nœud fournisseur :
+=======
+[OmniRoute](https://omniroute.online) est un routeur auto-hébergé compatible OpenAI. Baseten fournit un point de terminaison compatible OpenAI, donc enregistrez-le une fois et chaque clé devient une connexion sous un même nœud fournisseur :
+>>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -230,7 +239,12 @@ node src/connect-omniroute.js \
   --keys-file keys.txt
 ```
 
+<<<<<<< Updated upstream
 Valeurs par défaut : `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Les modèles sont alors servis comme `baseten/<model id>` et répartis en charge sur chaque clé. Pointez le connecteur vers un `keys.txt` actualisé pour ajouter d'autres comptes ; le nœud et sa liste de modèles restent identiques.
+=======
+Valeurs par défaut : `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Les modèles sont alors servis sous `baseten/<model id>` et répartis en charge entre toutes les clés. Pointez le connecteur vers un `keys.txt` actualisé pour ajouter des comptes ; le nœud et sa liste de modèles restent identiques.
+
+>>>>>>> Stashed changes
 ## 🔑 Ce qu'une clé vous apporte
 
 | | |

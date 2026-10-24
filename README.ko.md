@@ -21,7 +21,11 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
+<<<<<<< Updated upstream
 [🛠 빠른 시작](#-quick-start) · [🎁 무료 티어](#-free-tier--how-much-you-get) · [🤖 모델](#-models--all-12-of-them) · [🧪 API 사용하기](#-how-to-use-the-api) · [✅ 검증됨](#-verified-working--every-key-is-tested) · [🧭 작동 방식](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ 옵션](#️-cli-options) · [🛰️ 프록시](#️-behind-a-proxy) · [🐞 이슈](#-issues)
+=======
+[🛠 빠른 시작](#-quick-start) · [🎁 무료 티어](#-free-tier--how-much-you-get) · [🤖 모델](#-models--all-12-of-them) · [🧪 API 사용법](#-how-to-use-the-api) · [✅ 검증됨](#-verified-working--every-key-is-tested) · [🧭 작동 방식](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ 옵션](#️-cli-options) · [🛰️ 프록시](#️-behind-a-proxy) · [🐞 이슈](#-issues)
+>>>>>>> Stashed changes
 
 </div>
 
@@ -103,6 +107,7 @@ print(client.chat.completions.create(model="zai-org/GLM-5.3-Flash",
 ## 🛠 빠른 시작
 
 ```bash
+
 # clone this repository (or download the ZIP), then:
 cd baseten-bulk-apikey
 node src/launcher.js          # interactive: mint / verify / settings / help
@@ -222,7 +227,11 @@ node src/connect-9router.js \
 
 ## 🔌 OmniRoute에 연결
 
+<<<<<<< Updated upstream
 [OmniRoute](https://omniroute.online)는 자체 호스팅, OpenAI 호환 라우터입니다. Baseten은 OpenAI 호환 엔드포인트를 제공하므로, 한 번 등록하면 모든 키가 하나의 제공자 노드 아래 연결이 됩니다:
+=======
+[OmniRoute](https://omniroute.online)는 자체 호스팅, OpenAI 호환 라우터입니다. Baseten은 OpenAI 호환 엔드포인트를 제공하므로, 한 번 등록하면 모든 키가 하나의 프로바이더 노드 아래 연결이 됩니다:
+>>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -230,7 +239,12 @@ node src/connect-omniroute.js \
   --keys-file keys.txt
 ```
 
+<<<<<<< Updated upstream
 기본값: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. 그러면 모델은 `baseten/<model id>`로 제공되며 모든 키에 걸쳐 로드 밸런싱됩니다. 커넥터를 갱신된 `keys.txt`로 가리키면 더 많은 계정을 추가할 수 있습니다; 노드와 그 모델 목록은 그대로 유지됩니다.
+=======
+기본값: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. 그러면 모델은 `baseten/<model id>`로 제공되고 모든 키에 걸쳐 로드 밸런싱됩니다. 커넥터를 갱신된 `keys.txt`로 향하게 하여 더 많은 계정을 추가하세요; 노드와 그 모델 목록은 그대로 유지됩니다.
+
+>>>>>>> Stashed changes
 ## 🔑 키 하나로 얻는 것
 
 | | |

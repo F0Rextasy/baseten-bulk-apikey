@@ -21,7 +21,7 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Início rápido](#-quick-start) · [🎁 Camada gratuita](#-free-tier--how-much-you-get) · [🤖 Modelos](#-models--all-12-of-them) · [🧪 Use a API](#-how-to-use-the-api) · [✅ Verificado](#-verified-working--every-key-is-tested) · [🧭 Como funciona](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Opções](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problemas](#-issues)
+[🛠 Início rápido](#-quick-start) · [🎁 Camada gratuita](#-free-tier--how-much-you-get) · [🤖 Modelos](#-models--all-12-of-them) · [🧪 Use a API](#-how-to-use-the-api) · [✅ Verificado](#-verified-working--every-key-is-tested) · [🧭 Como funciona](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Opções](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problemas](#-issues)
 
 </div>
 
@@ -103,6 +103,7 @@ print(client.chat.completions.create(model="zai-org/GLM-5.3-Flash",
 ## 🛠 Início rápido
 
 ```bash
+
 # clone this repository (or download the ZIP), then:
 cd baseten-bulk-apikey
 node src/launcher.js          # interactive: mint / verify / settings / help
@@ -222,7 +223,11 @@ Padrões: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten
 
 ## 🔌 Conectar ao OmniRoute
 
+<<<<<<< Updated upstream
 O [OmniRoute](https://omniroute.online) é um roteador auto-hospedado e compatível com OpenAI. A Baseten oferece um endpoint compatível com OpenAI, então registre-o uma vez e cada chave se torna uma conexão sob um nó de provedor:
+=======
+O [OmniRoute](https://omniroute.online) é um roteador auto-hospedado e compatível com OpenAI. A Baseten oferece um endpoint compatível com OpenAI, então registre-o uma vez e cada chave se torna uma conexão sob um único nó de provedor:
+>>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -231,7 +236,12 @@ node src/connect-omniroute.js \
 ```
 
 Padrões: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Os modelos são então servidos como `baseten/<model id>` e balanceados entre todas as chaves. Aponte o conector para um `keys.txt` atualizado para adicionar mais contas; o nó e sua lista de modelos permanecem os mesmos.
+<<<<<<< Updated upstream
 ## 🔑 O que uma chave oferece
+=======
+
+## 🔑 O que uma chave te dá
+>>>>>>> Stashed changes
 
 | | |
 | --- | --- |

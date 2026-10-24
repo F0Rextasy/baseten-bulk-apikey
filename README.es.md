@@ -21,7 +21,7 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Inicio rápido](#-quick-start) · [🎁 Nivel gratuito](#-free-tier--how-much-you-get) · [🤖 Modelos](#-models--all-12-of-them) · [🧪 Usar la API](#-how-to-use-the-api) · [✅ Verificado](#-verified-working--every-key-is-tested) · [🧭 Cómo funciona](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Opciones](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problemas](#-issues)
+[🛠 Inicio rápido](#-quick-start) · [🎁 Nivel gratuito](#-free-tier--how-much-you-get) · [🤖 Modelos](#-models--all-12-of-them) · [🧪 Usar la API](#-how-to-use-the-api) · [✅ Verificado](#-verified-working--every-key-is-tested) · [🧭 Cómo funciona](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Opciones](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problemas](#-issues)
 
 </div>
 
@@ -220,9 +220,15 @@ node src/connect-9router.js \
 
 Predeterminados: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Los modelos se sirven entonces como `baseten/<model id>` y se balancean la carga entre todas las claves. Apunta el conector a un `keys.txt` actualizado para agregar más cuentas; el nodo y su lista de modelos permanecen igual.
 
+<<<<<<< Updated upstream
 ## 🔌 Conectar con OmniRoute
 
 [OmniRoute](https://omniroute.online) es un router autoalojado y compatible con OpenAI. Baseten ofrece un endpoint compatible con OpenAI, así que regístralo una vez y cada clave se convierte en una conexión bajo un nodo de proveedor:
+=======
+## 🔌 Conectar a OmniRoute
+
+[OmniRoute](https://omniroute.online) es un enrutador autohospedado compatible con OpenAI. Baseten ofrece un punto final compatible con OpenAI, así que regístralo una vez y cada clave se convierte en una conexión bajo un nodo proveedor:
+>>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -230,8 +236,14 @@ node src/connect-omniroute.js \
   --keys-file keys.txt
 ```
 
+<<<<<<< Updated upstream
 Predeterminados: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Los modelos se sirven entonces como `baseten/<model id>` y se balancean la carga entre todas las claves. Apunta el conector a un `keys.txt` actualizado para agregar más cuentas; el nodo y su lista de modelos permanecen igual.
 ## 🔑 Qué te da una clave
+=======
+Valores predeterminados: `--base http://localhost:20128`, `--password 123456`, `--name "Baseten"`, `--prefix baseten`, `--base-url https://inference.baseten.co/v1`, `--model openai/gpt-oss-120b`. Los modelos se sirven como `baseten/<id del modelo>` y se balancean entre todas las claves. Apunta el conector a un `keys.txt` actualizado para añadir más cuentas; el nodo y su lista de modelos permanecen iguales.
+
+## 🔑 Qué obtienes con una clave
+>>>>>>> Stashed changes
 
 | | |
 | --- | --- |

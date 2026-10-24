@@ -228,7 +228,7 @@ function makeInbox({ provider = 'broker', proxy = null, broker = null, folder = 
 /**
  * Polls the inbox until a 6-digit Baseten code shows up.
  *
- * The mail is sent by `support@mail.baseten.co` with the subject "Create your
+ * The mail is sent by `<baseten-mail>` with the subject "Create your
  * Baseten account" and the code is the only six-digit number in the body; the
  * matching is tolerant to near-misses (localised subjects, HTML-only bodies)
  * because the mailbox provider decides what the body looks like.
